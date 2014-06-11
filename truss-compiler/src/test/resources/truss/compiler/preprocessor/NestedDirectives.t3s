@@ -1,0 +1,36 @@
+>>> Nested defines
+
+#if DEFINE1
+a
+#if DEFINE2
+b
+#endif
+c
+#endif
+d
+#if DEFINE3
+e
+#if DEFINE2
+f
+#endif
+g
+#endif
+h
+
+<<<
+
+a
+
+b
+
+c
+
+d
+
+
+
+
+
+
+
+h

@@ -1,0 +1,148 @@
+>>> Single define test
+
+a
+#if DEFINE1
+b
+#else
+c
+#endif
+d
+
+<<<
+
+a
+
+b
+
+
+
+d
+
+>>> Undefined directive
+
+#undef DEFINE1
+
+a
+#if DEFINE1
+b
+#endif
+c
+
+<<<
+
+a
+
+
+
+c
+
+>>> New define
+
+#define DEFINE3
+
+a
+#if DEFINE3
+b
+#endif
+c
+
+<<<
+
+a
+
+b
+
+c
+
+>>> Define and then undefine
+
+#define DEFINE3
+a
+#undef DEFINE3
+b
+#if DEFINE3
+c
+#endif
+d
+
+<<<
+
+a
+
+b
+
+
+
+d
+
+>>> Unaries
+
+a
+#if !DEFINE1
+b
+#endif
+c
+#if !(DEFINE1)
+d
+#endif
+e
+
+<<<
+
+a
+
+
+
+c
+
+
+
+e
+
+>>> Comparison
+
+a
+#if DEFINE1 == true
+b
+#endif
+c
+#if DEFINE3 == false
+d
+#endif
+e
+
+<<<
+
+a
+
+b
+
+c
+
+d
+
+e
+
+>>> True and false
+
+a
+#if true
+b
+#endif
+c
+#if false
+d
+#endif
+e
+
+<<<
+
+a
+
+b
+
+c
+
+
+
+e

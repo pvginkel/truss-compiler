@@ -1,0 +1,92 @@
+>>> Simple expressions
+
+a
+#if DEFINE1 && DEFINE2
+b
+#endif
+c
+#if DEFINE1 && DEFINE3
+d
+#endif
+e
+#if DEFINE1 || DEFINE3
+f
+#endif
+g
+
+<<<
+
+a
+
+b
+
+c
+
+
+
+e
+
+f
+
+g
+
+>>> At end of file
+
+a
+#if true
+b
+#endif
+
+<<<
+
+a
+
+b
+
+>>> No undefine processing when not included
+
+a
+#if false
+#undef DEFINE1
+#endif
+b
+#if DEFINE1
+c
+#endif
+d
+
+<<<
+
+a
+
+
+
+b
+
+c
+
+d
+
+>>> No define processing when not included
+
+a
+#if false
+#define DEFINE3
+#endif
+b
+#if DEFINE3
+c
+#endif
+d
+
+<<<
+
+a
+
+
+
+b
+
+
+
+d

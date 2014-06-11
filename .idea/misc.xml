@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="IdProvider" IDEtalkID="4A0F826110428A03C2DD2893689B425C" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/dtl-compiler/pom.xml" />
+        <option value="$PROJECT_DIR$/dtl-compiler-maven-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/truss-compiler/pom.xml" />
+        <option value="$PROJECT_DIR$/truss-compiler-maven-plugin/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
+

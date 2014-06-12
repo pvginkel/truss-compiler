@@ -195,7 +195,7 @@ public class GenerateSyntax {
 
         cw.writeln("package %s;", schema.getPackageName());
         cw.writeln();
-        cw.writeln("import java.util.List;");
+        cw.writeln("import truss.compiler.support.ImmutableArray;");
         cw.writeln();
 
         cw.writeln("public class SyntaxTreeWalker implements SyntaxVisitor {");
@@ -216,7 +216,7 @@ public class GenerateSyntax {
         cw.unIndent();
         cw.writeln("}");
         cw.writeln();
-        cw.writeln("public void visitList(List<? extends SyntaxNode> list) throws Exception {");
+        cw.writeln("public void visitList(ImmutableArray<? extends SyntaxNode> list) throws Exception {");
         cw.indent();
         cw.writeln("for (SyntaxNode node : list) {");
         cw.indent();
@@ -304,7 +304,7 @@ public class GenerateSyntax {
         cw.writeln("import truss.compiler.syntax.*;");
         cw.writeln("import org.apache.commons.lang.Validate;");
         cw.writeln();
-        cw.writeln("import java.util.List;");
+        cw.writeln("import truss.compiler.support.ImmutableArray;");
         cw.writeln();
 
         cw.writeln(
@@ -360,7 +360,7 @@ public class GenerateSyntax {
                 continue;
             }
 
-            if (!parameter.isNullable() && !parameter.isList() && !isValueType(parameter.getType())) {
+            if (!parameter.isNullable() && !isValueType(parameter.getType())) {
                 cw.writeln("Validate.notNull(%s, \"%s\");", getLocalName(parameter), getLocalName(parameter));
             }
         }
@@ -372,11 +372,7 @@ public class GenerateSyntax {
         cw.writeln();
 
         for (SyntaxProperty property : schemaClass.getProperties()) {
-            if (property.isList()) {
-                cw.writeln("this.%s = CollectionUtils.copyList(%s);", getLocalName(property), getLocalName(property));
-            } else {
-                cw.writeln("this.%s = %s;", getLocalName(property), getLocalName(property));
-            }
+            cw.writeln("this.%s = %s;", getLocalName(property), getLocalName(property));
         }
 
         cw.unIndent();
@@ -489,7 +485,7 @@ public class GenerateSyntax {
 
     private String getType(SyntaxProperty property) {
         if (property.isList()) {
-            return "List<" + property.getType() + ">";
+            return "ImmutableArray<" + property.getType() + ">";
         }
 
         return property.getType();

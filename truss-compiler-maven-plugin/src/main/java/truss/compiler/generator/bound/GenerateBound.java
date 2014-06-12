@@ -107,7 +107,7 @@ public class GenerateBound {
 
         cw.writeln("package %s;", schema.getPackageName());
         cw.writeln();
-        cw.writeln("import java.util.List;");
+        cw.writeln("import truss.compiler.support.ImmutableArray;");
         cw.writeln();
 
         cw.writeln("public class BoundTreeWalker implements BoundVisitor {");
@@ -128,7 +128,7 @@ public class GenerateBound {
         cw.unIndent();
         cw.writeln("}");
         cw.writeln();
-        cw.writeln("public void visitList(List<? extends BoundNode> list) throws Exception {");
+        cw.writeln("public void visitList(ImmutableArray<? extends BoundNode> list) throws Exception {");
         cw.indent();
         cw.writeln("for (BoundNode node : list) {");
         cw.indent();
@@ -189,7 +189,7 @@ public class GenerateBound {
         cw.writeln();
         cw.writeln("import org.apache.commons.lang.Validate;");
         cw.writeln();
-        cw.writeln("import java.util.List;");
+        cw.writeln("import truss.compiler.support.ImmutableArray;");
         cw.writeln("import java.util.ArrayList;");
         cw.writeln();
 
@@ -197,7 +197,7 @@ public class GenerateBound {
         cw.writeln("public class BoundTreeRewriter implements BoundActionVisitor<BoundNode> {");
         cw.indent();
 
-        cw.writeln("public <T extends BoundNode> List<T> visitList(List<T> nodes) throws Exception {");
+        cw.writeln("public <T extends BoundNode> ImmutableArray<T> visitList(ImmutableArray<T> nodes) throws Exception {");
         cw.indent();
 
         cw.writeln("Validate.notNull(nodes, \"nodes\");");
@@ -211,7 +211,7 @@ public class GenerateBound {
         cw.unIndent();
         cw.writeln("}");
         cw.writeln();
-        cw.writeln("List<T> result = null;");
+        cw.writeln("ImmutableArray.Builder<T> result = null;");
         cw.writeln();
         cw.writeln("for (int i = 0; i < nodes.size(); i++) {");
         cw.indent();
@@ -222,7 +222,7 @@ public class GenerateBound {
         cw.writeln("if (item != visited && result == null) {");
         cw.indent();
 
-        cw.writeln("result = new ArrayList<>();");
+        cw.writeln("result = new ImmutableArray.Builder<>();");
         cw.writeln("for (int j = 0; j < i; j++) {");
         cw.indent();
 
@@ -248,7 +248,7 @@ public class GenerateBound {
         cw.writeln("if (result != null) {");
         cw.indent();
 
-        cw.writeln("return result;");
+        cw.writeln("return result.build();");
 
         cw.unIndent();
         cw.writeln("}");
@@ -359,7 +359,7 @@ public class GenerateBound {
         cw.writeln("import truss.compiler.syntax.*;");
         cw.writeln("import org.apache.commons.lang.Validate;");
         cw.writeln();
-        cw.writeln("import java.util.List;");
+        cw.writeln("import truss.compiler.support.ImmutableArray;");
         cw.writeln();
 
         cw.writeln(
@@ -427,7 +427,7 @@ public class GenerateBound {
                 continue;
             }
 
-            if (!property.isNullable() && !property.isList() && !isValueType(property.getType())) {
+            if (!property.isNullable() && !isValueType(property.getType())) {
                 cw.writeln("Validate.notNull(%s, \"%s\");", getLocalName(property), getLocalName(property));
             }
         }
@@ -439,11 +439,7 @@ public class GenerateBound {
         cw.writeln();
 
         for (BoundProperty property : boundClass.getProperties()) {
-            if (property.isList()) {
-                cw.writeln("this.%s = CollectionUtils.copyList(%s);", getLocalName(property), getLocalName(property));
-            } else {
-                cw.writeln("this.%s = %s;", getLocalName(property), getLocalName(property));
-            }
+            cw.writeln("this.%s = %s;", getLocalName(property), getLocalName(property));
         }
 
         cw.unIndent();
@@ -645,7 +641,7 @@ public class GenerateBound {
 
     private String getType(BoundProperty property) {
         if (property.isList()) {
-            return "List<" + property.getType() + ">";
+            return "ImmutableArray<" + property.getType() + ">";
         }
 
         return property.getType();

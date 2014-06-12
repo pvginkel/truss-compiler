@@ -1,17 +1,18 @@
 package truss.compiler.syntax;
 
-import truss.compiler.CollectionUtils;
-
-import java.util.List;
+import org.apache.commons.lang.Validate;
+import truss.compiler.support.ImmutableArray;
 
 public class SyntaxLibrary {
-    private final List<CompilationUnitSyntax> compilationUnits;
+    private final ImmutableArray<CompilationUnitSyntax> compilationUnits;
 
-    public SyntaxLibrary(List<CompilationUnitSyntax> compilationUnits) {
-        this.compilationUnits = CollectionUtils.copyList(compilationUnits);
+    public SyntaxLibrary(ImmutableArray<CompilationUnitSyntax> compilationUnits) {
+        Validate.notNull(compilationUnits, "compilationUnits");
+
+        this.compilationUnits = compilationUnits;
     }
 
-    public List<CompilationUnitSyntax> getCompilationUnits() {
+    public ImmutableArray<CompilationUnitSyntax> getCompilationUnits() {
         return compilationUnits;
     }
 }

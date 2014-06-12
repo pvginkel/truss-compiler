@@ -1,5 +1,8 @@
 <schema packageName="truss.compiler.syntax">
-    <class name="CompilationUnitSyntax" base="SyntaxNode"/>
+    <class name="CompilationUnitSyntax" base="SyntaxNode">
+        <property name="Members" type="MemberDeclarationSyntax" list="true"/>
+    </class>
+    <class name="MemberDeclarationSyntax" base="SyntaxNode"/>
     <class name="SyntaxNode" abstract="true" ignore="true">
         <property name="Span" type="Span" last="true"/>
     </class>

@@ -2,6 +2,7 @@ package truss.compiler.generator.syntax;
 
 import truss.compiler.generator.CodeWriter;
 import truss.compiler.generator.syntax.xml.SyntaxClass;
+import truss.compiler.generator.syntax.xml.SyntaxEnum;
 import truss.compiler.generator.syntax.xml.SyntaxProperty;
 import truss.compiler.generator.syntax.xml.SyntaxSchema;
 import org.apache.commons.io.IOUtils;
@@ -36,6 +37,10 @@ public class GenerateSyntax {
             if (!syntaxClass.isIgnore()) {
                 generateClass(outputDirectory, syntaxClass, schema.getPackageName());
             }
+        }
+
+        for (SyntaxEnum syntaxEnum : schema.getEnums()) {
+            generateEnum(outputDirectory, syntaxEnum, schema.getPackageName());
         }
 
         generateVisitor(schema, outputDirectory);
@@ -367,6 +372,7 @@ public class GenerateSyntax {
 
         if (schemaClass.getValidation() != null) {
             cw.writeRaw(schemaClass.getValidation());
+            cw.writeRaw("\n");
         }
 
         cw.writeln();
@@ -417,10 +423,46 @@ public class GenerateSyntax {
             cw.writeln("}");
         }
 
+        if (schemaClass.getMembers() != null) {
+            cw.writeRaw(schemaClass.getMembers());
+            cw.writeRaw("\n");
+        }
+
         cw.unIndent();
         cw.writeln("}");
 
         writeWhenChanged(new File(outputDirectory, schemaClass.getName() + ".java"), cw.toString());
+    }
+
+    private void generateEnum(File outputDirectory, SyntaxEnum schemaEnum, String packageName) throws IOException {
+        CodeWriter cw = new CodeWriter();
+
+        cw.writeln("package %s;", packageName);
+        cw.writeln();
+
+        cw.writeln("import truss.compiler.*;");
+        cw.writeln("import truss.compiler.symbols.*;");
+        cw.writeln("import truss.compiler.syntax.*;");
+        cw.writeln("import org.apache.commons.lang.Validate;");
+        cw.writeln();
+        cw.writeln("import truss.compiler.support.ImmutableArray;");
+        cw.writeln();
+
+        cw.writeln(
+            "public enum %s {",
+            schemaEnum.getName()
+        );
+
+        cw.indent();
+
+        for (SyntaxProperty property : schemaEnum.getProperties()) {
+            cw.writeln("%s,", property.getName());
+        }
+
+        cw.unIndent();
+        cw.writeln("}");
+
+        writeWhenChanged(new File(outputDirectory, schemaEnum.getName() + ".java"), cw.toString());
     }
 
     private String getSyntaxKind(SyntaxClass schemaClass) {
@@ -480,7 +522,17 @@ public class GenerateSyntax {
     private String getLocalName(SyntaxProperty property) {
         String name = property.getName();
 
-        return name.substring(0, 1).toLowerCase() + name.substring(1);
+        name = name.substring(0, 1).toLowerCase() + name.substring(1);
+
+        switch (name) {
+            case "finally":
+            case "else":
+            case "default":
+                name = name + "_";
+                break;
+        }
+
+        return name;
     }
 
     private String getType(SyntaxProperty property) {

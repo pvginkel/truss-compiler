@@ -11,6 +11,8 @@ public class SyntaxSchema {
     private String packageName;
     @XmlElement(name = "class")
     private List<SyntaxClass> classes = new ArrayList<>();
+    @XmlElement(name = "enum")
+    private List<SyntaxEnum> enums = new ArrayList<>();
 
     public String getPackageName() {
         return packageName;
@@ -18,5 +20,9 @@ public class SyntaxSchema {
 
     public List<SyntaxClass> getClasses() {
         return classes;
+    }
+
+    public List<SyntaxEnum> getEnums() {
+        return enums;
     }
 }

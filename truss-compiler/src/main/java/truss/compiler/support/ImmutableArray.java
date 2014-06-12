@@ -12,14 +12,6 @@ public class ImmutableArray<T> implements List<T> {
 
     private final Object[] array;
 
-    public static <T1> ImmutableArray<T1> asList(T1 item) {
-        Validate.notNull(item, "item");
-
-        Object[] array = new Object[1];
-        array[0] = item;
-        return new ImmutableArray<>(array);
-    }
-
     @SafeVarargs
     public static <T1> ImmutableArray<T1> asList(T1... items) {
         Validate.notNull(items, "items");

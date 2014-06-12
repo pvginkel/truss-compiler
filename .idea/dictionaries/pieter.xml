@@ -2,14 +2,19 @@
   <dictionary name="pieter">
     <words>
       <w>accessors</w>
+      <w>declarator</w>
       <w>elif</w>
+      <w>extern</w>
       <w>goto</w>
+      <w>incrementors</w>
       <w>initializers</w>
       <w>iterable</w>
       <w>numberer</w>
       <w>rewriter</w>
+      <w>struct</w>
       <w>typeof</w>
       <w>unary</w>
+      <w>usings</w>
     </words>
   </dictionary>
 </component>

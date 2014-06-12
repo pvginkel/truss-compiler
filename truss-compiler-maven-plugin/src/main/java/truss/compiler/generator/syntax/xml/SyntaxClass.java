@@ -18,6 +18,7 @@ public class SyntaxClass {
     @XmlElement(name = "property")
     private List<SyntaxProperty> properties = new ArrayList<>();
     private String validation;
+    private String members;
 
     public String getName() {
         return name;
@@ -41,5 +42,9 @@ public class SyntaxClass {
 
     public String getValidation() {
         return validation;
+    }
+
+    public String getMembers() {
+        return members;
     }
 }

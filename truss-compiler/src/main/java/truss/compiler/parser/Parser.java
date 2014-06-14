@@ -6,13 +6,8 @@ import truss.compiler.Message;
 import truss.compiler.MessageCollectionScope;
 import truss.compiler.MessageType;
 import truss.compiler.Span;
-import truss.compiler.support.ImmutableArray;
 import truss.compiler.syntax.AccessorDeclarationType;
-import truss.compiler.syntax.AttributeListSyntax;
 import truss.compiler.syntax.AttributeTarget;
-import truss.compiler.syntax.Modifier;
-
-import java.util.Stack;
 
 public abstract class Parser extends org.antlr.runtime.Parser {
     private String fileName;
@@ -104,11 +99,10 @@ public abstract class Parser extends org.antlr.runtime.Parser {
     protected AttributeTarget parseAttributeTarget(String identifier, Span span) {
         Validate.notNull(identifier, "identifier");
 
-        // Attribute targets are contextual keywords.
+        // Attribute targets are contextual keywords. Assembly doesn't appear in this list, because this list is
+        // only for non assembly level attributes.
 
         switch (identifier) {
-            case "assembly":
-                return AttributeTarget.ASSEMBLY;
             case "event":
                 return AttributeTarget.EVENT;
             case "field":

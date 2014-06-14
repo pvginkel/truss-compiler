@@ -220,9 +220,13 @@ parameter returns [ParameterSyntax value]
 
 parameterModifier returns [ParameterModifier value]
     : KW_THIS { value = ParameterModifier.THIS; }
-    | KW_REF { value = ParameterModifier.REF; }
-    | KW_OUT { value = ParameterModifier.OUT; }
     | KW_PARAMS { value = ParameterModifier.PARAMS; }
+    | am=argumentModifier { value = am; }
+    ;
+
+argumentModifier returns [ParameterModifier value]
+    : KW_REF { value = ParameterModifier.REF; }
+    | KW_OUT { value = ParameterModifier.OUT; }
     ;
 
 // Delegate declaration
@@ -493,30 +497,22 @@ scope declarationPrefix;
 
 typedMemberDeclaration returns [MemberDeclarationSyntax value]
     :
-        ( KW_OPERATOR )=>
         e1=operatorDeclaration
         { value = e1; }
     |
-        ( explicitInterfaceName identifierName )=>
-        (
-            ( OP_BRACE_OPEN )=>
-            e2=propertyDeclaration
-            { value = e2; }
-        |
-            ( OP_LESS_THAN | OP_PAREN_OPEN )=>
-            e3=methodDeclaration
-            { value = e3; }
-        |
-            e4=fieldDeclaration
-            { value = e4; }
-        )
+        ( explicitInterfaceName identifierName OP_BRACE_OPEN )=>
+        e2=propertyDeclaration
+        { value = e2; }
+    |
+        ( identifierName )=>
+        e3=fieldDeclaration
+        { value = e3; }
+    |
+        e4=methodDeclaration
+        { value = e4; }
     ;
 
 // Property/field declaration
-
-propertyOrFieldDeclaration returns [MemberDeclarationSyntax value]
-    :
-    ;
 
 propertyDeclaration returns [PropertyDeclarationSyntax value]
 @init {
@@ -865,18 +861,18 @@ qualifiedName returns [NameSyntax value]
             in=identifierName OP_COLON_COLON
             { alias = in; }
         )?
-        i=simpleName
+        sn=simpleName
         {
             if (alias != null) {
-                value = new AliasQualifiedNameSyntax(alias, i, span(start));
+                value = new AliasQualifiedNameSyntax(alias, sn, span(start));
             } else {
-                value = i;
+                value = sn;
             }
         }
         (
             OP_DOT
-            i=simpleName
-            { value = new QualifiedNameSyntax(value, i, span(start)); }
+            sn=simpleName
+            { value = new QualifiedNameSyntax(value, sn, span(start)); }
         )*
     ;
 
@@ -885,11 +881,11 @@ simpleName returns [SimpleNameSyntax value]
     Token start = input.LT(1);
 }
     :
-        i=identifierName
-        { value = i; }
+        in=identifierName
+        { value = in; }
         (
             gta=genericTypeArguments
-            { value = new GenericNameSyntax(i.getIdentifier(), gta, span(start)); }
+            { value = new GenericNameSyntax(in.getIdentifier(), gta, span(start)); }
         )?
     ;
 
@@ -915,13 +911,11 @@ genericTypeArguments returns [ImmutableArray<TypeSyntax> value]
         // that number of more to be closed here. Then, if we're closing one here
         // that belongs to a recursive call, the getPendingGenericCloses() will
         // be too low, and we'll match the empty branch.
-        { getPendingGenericCloses() > 0 }?=> { }
+        { getPendingGenericCloses() > 0 }?=>
         (
-            { getPendingGenericCloses() >= 2 }?=>
             OP_GREATER_THAN_GREATER_THAN
             { closeGeneric(); closeGeneric(); }
         |
-            { getPendingGenericCloses() >= 1 }?=>
             OP_GREATER_THAN
             { closeGeneric(); }
         )
@@ -1164,13 +1158,17 @@ elseClause returns [ElseClauseSyntax value]
 
 localDeclarationStatement returns [LocalDeclarationStatementSyntax value]
 @init {
+    ImmutableArray.Builder<Modifier> modifiers = new ImmutableArray.Builder<>();
     Token start = input.LT(1);
 }
     :
-        m=modifiers
+        (
+            KW_READONLY
+            { modifiers.add(Modifier.READ_ONLY); }
+        )?
         vd=variableDeclaration
         OP_SEMICOLON
-        { value = new LocalDeclarationStatementSyntax(m, vd, span(start)); }
+        { value = new LocalDeclarationStatementSyntax(modifiers.build(), vd, span(start)); }
     ;
 
 variableDeclaration returns [VariableDeclarationSyntax value]
@@ -1365,6 +1363,16 @@ expression returns [ExpressionSyntax value]
     Token start = input.LT(1);
 }
     :
+        ( assignmentExpression )=>
+        ae=assignmentExpression
+        { value = ae; }
+    |
+        nae=nonAssignmentExpression
+        { value = nae; }
+    ;
+
+assignmentExpression returns [ExpressionSyntax value]
+    :
         ce=conditionalExpression
         { value = ce; }
         (
@@ -1375,9 +1383,8 @@ expression returns [ExpressionSyntax value]
     ;
 
 nonAssignmentExpression returns [ExpressionSyntax value]
-    :
-        ce=conditionalExpression
-        { value = ce; }
+    : e1=conditionalExpression { value = e1; }
+    | e2=lambdaExpression { value = e2; }
     ;
 
 assignmentOperator returns [BinaryOperator value]
@@ -1392,6 +1399,42 @@ assignmentOperator returns [BinaryOperator value]
     | OP_AMPERSAND_EQUALS { value = BinaryOperator.AMPERSAND_EQUALS; }
     | OP_BAR_EQUALS { value = BinaryOperator.BAR_EQUALS; }
     | OP_CARET_EQUALS { value = BinaryOperator.CARET_EQUALS; }
+    ;
+
+lambdaExpression returns [ExpressionSyntax value]
+@init {
+    ImmutableArray<ParameterSyntax> parameters = null;
+    ImmutableArray.Builder<Modifier> modifiers = new ImmutableArray.Builder<>();
+    Token start = input.LT(1);
+}
+    :
+        (
+            KW_ASYNC
+            { modifiers.add(Modifier.ASYNC); }
+        )?
+        (
+            in=identifierName
+            {
+                parameters = ImmutableArray.asList(new ParameterSyntax(
+                    ImmutableArray.<AttributeListSyntax>empty(),
+                    ImmutableArray.<ParameterModifier>empty(),
+                    null,
+                    in,
+                    in.getSpan()
+                ));
+            }
+        |
+            pl=parameterList
+            { parameters = pl; }
+        )
+        OP_EQUALS_GREATER_THAN
+        (
+            ex=expression
+            { value = new LambdaExpressionSyntax(modifiers.build(), parameters, ex, span(start)); }
+        |
+            b=block
+            { value = new LambdaExpressionSyntax(modifiers.build(), parameters, b, span(start)); }
+        )
     ;
 
 conditionalExpression returns [ExpressionSyntax value]
@@ -1598,7 +1641,7 @@ unaryExpression returns [ExpressionSyntax value]
         puo1=prefixUnaryOperator ue=unaryExpression
         { value = new PrefixUnaryExpressionSyntax(puo1, ue, span(start)); }
     |
-
+        ( OP_PAREN_OPEN ct=castType OP_PAREN_CLOSE )=>
         ce=castExpression
         { value = ce; }
     |
@@ -1678,7 +1721,7 @@ argument returns [ArgumentSyntax value]
 }
     :
         (
-            pm=parameterModifier
+            pm=argumentModifier
             { modifiers.add(pm); }
         )*
         e=expression
@@ -1691,18 +1734,26 @@ primaryExpression returns [ExpressionSyntax value]
 }
     : KW_THIS { value = new InstanceExpressionSyntax(ThisOrBase.THIS, span(start)); }
     | KW_BASE { value = new InstanceExpressionSyntax(ThisOrBase.BASE, span(start)); }
-    | e1=variableDeclarationExpression { value = e1; }
     | e2=literal { value = e2; }
-    | e3=arrayCreation { value = e3; }
     | OP_PAREN_OPEN e4=expression OP_PAREN_CLOSE { value = new ParenthesizedExpressionSyntax(e4, span(start)); }
     | KW_TYPEOF OP_PAREN_OPEN e5=type OP_PAREN_CLOSE { value = new TypeOfExpressionSyntax(e5, span(start)); }
     | KW_SIZEOF OP_PAREN_OPEN e6=type OP_PAREN_CLOSE { value = new SizeOfExpressionSyntax(e6, span(start)); }
     | KW_DEFAULT OP_PAREN_OPEN e7=type OP_PAREN_CLOSE { value = new DefaultExpressionSyntax(e7, span(start)); }
-    | e8=newExpression { value = e8; }
-    | e9=lambdaExpression { value = e9; }
-    | e10=anonymousObject { value = e10; }
-    | e11=implicitArrayCreation { value = e11; }
+    | ( type identifierName )=> e1=variableDeclarationExpression { value = e1; }
     | e12=identifierName { value = e12; }
+    |
+        KW_NEW
+        (
+            ( notArrayType OP_BRACKET_OPEN )=>
+            e3=arrayCreation { value = e3; }
+        |
+            e8=newExpression { value = e8; }
+        |
+            ( OP_BRACE_OPEN identifierName OP_EQUALS )=>
+            e10=anonymousObject { value = e10; }
+        |
+            e11=implicitArrayCreation { value = e11; }
+        )
     ;
 
 variableDeclarationExpression returns [ExpressionSyntax value]
@@ -1729,7 +1780,6 @@ arrayCreation returns [ArrayCreationExpressionSyntax value]
     Token start = input.LT(1);
 }
     :
-        KW_NEW
         t=notArrayType
         OP_BRACKET_OPEN
         e=expression
@@ -1742,7 +1792,6 @@ implicitArrayCreation returns [ImplicitArrayCreationExpressionSyntax value]
     Token start = input.LT(1);
 }
     :
-        KW_NEW
         OP_BRACE_OPEN
         ( el=expressionList )?
         OP_BRACE_CLOSE
@@ -1755,7 +1804,6 @@ anonymousObject returns [AnonymousObjectCreationExpressionSyntax value]
     ImmutableArray.Builder<AnonymousObjectMemberDeclaratorSyntax> members = new ImmutableArray.Builder<>();
 }
     :
-        KW_NEW
         OP_BRACE_OPEN
         aom=anonymousObjectMember
         { members.add(aom); }
@@ -1780,44 +1828,11 @@ anonymousObjectMember returns [AnonymousObjectMemberDeclaratorSyntax value]
         { value = new AnonymousObjectMemberDeclaratorSyntax(in, e, span(start)); }
     ;
 
-lambdaExpression returns [ExpressionSyntax value]
-@init {
-    ImmutableArray<ParameterSyntax> parameters = null;
-    Token start = input.LT(1);
-}
-    :
-        m=modifiers
-        (
-            in=identifierName
-            {
-                parameters = ImmutableArray.asList(new ParameterSyntax(
-                    ImmutableArray.<AttributeListSyntax>empty(),
-                    ImmutableArray.<ParameterModifier>empty(),
-                    null,
-                    in,
-                    in.getSpan()
-                ));
-            }
-        |
-            pl=parameterList
-            { parameters = pl; }
-        )
-        OP_EQUALS_GREATER_THAN
-        (
-            ex=expression
-            { value = new LambdaExpressionSyntax(m, parameters, ex, span(start)); }
-        |
-            b=block
-            { value = new LambdaExpressionSyntax(m, parameters, b, span(start)); }
-        )
-    ;
-
 newExpression returns [ObjectCreationExpressionSyntax value]
 @init {
     Token start = input.LT(1);
 }
     :
-        KW_NEW
         t=type
         (
             al=argumentList

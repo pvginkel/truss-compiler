@@ -5,6 +5,9 @@ import truss.compiler.Message;
 import truss.compiler.MessageCollectionScope;
 import truss.compiler.Span;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public abstract class Lexer extends org.antlr.runtime.Lexer {
     private String fileName;
 
@@ -46,5 +49,36 @@ public abstract class Lexer extends org.antlr.runtime.Lexer {
     @Override
     public void reportError(RecognitionException e) {
         MessageCollectionScope.addMessage(Message.fromRecognitionException(fileName, e));
+    }
+
+    Deque<Token> tokens = new ArrayDeque<>();
+
+    @Override
+    public void emit(Token token) {
+        state.token = token;
+
+        tokens.addLast(token);
+    }
+
+    @Override
+    public Token nextToken() {
+        super.nextToken();
+
+        if (tokens.isEmpty())
+            return getEOFToken();
+
+        return tokens.removeFirst();
+    }
+
+    protected void emitGreaterThanGreaterThan(Token token) {
+        // Split the greater than token into two tokens so they can be matched separately.
+
+        CommonToken first = new CommonToken(token);
+        first.setType(TrussLexer.OP_GREATER_THAN_GREATER_THAN_FIRST);
+        emit(first);
+
+        CommonToken second = new CommonToken(token);
+        second.setType(TrussLexer.OP_GREATER_THAN_GREATER_THAN_SECOND);
+        emit(second);
     }
 }

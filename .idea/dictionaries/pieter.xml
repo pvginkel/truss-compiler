@@ -10,6 +10,7 @@
       <w>initializers</w>
       <w>iterable</w>
       <w>numberer</w>
+      <w>parens</w>
       <w>rewriter</w>
       <w>struct</w>
       <w>typeof</w>

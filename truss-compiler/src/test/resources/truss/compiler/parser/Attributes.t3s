@@ -1,0 +1,21 @@
+>>> Simple attribute
+
+[assembly: Foo]
+
+>>> Multiple attributes in a single tag
+
+[assembly: Foo, Foo]
+
+>>> Multiple attributes
+
+[assembly: Foo]
+[assembly: Bar]
+
+>>> Simple arguments
+
+[assembly: Foo(1)]
+[assembly: Foo(1, 2, 3)]
+
+>>> Named arguments
+
+[assembly: Foo(1, A = 2)]

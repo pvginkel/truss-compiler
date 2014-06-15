@@ -1,0 +1,133 @@
+>>> Top level class
+
+class Foo {
+}
+
+>>> Nested class
+
+namespace Foo {
+    class Bar {
+    }
+}
+
+>>> Multiple classes
+
+class Foo {
+}
+
+class Bar {
+}
+
+namespace Foo {
+    class Foo {
+    }
+
+    class Bar {
+    }
+}
+
+>>> Nested class
+
+class Foo {
+    class Bar {
+    }
+}
+
+>>> Attribute on class
+
+[Foo]
+class Foo {
+}
+
+[type: Foo]
+class Foo {
+}
+
+>>> Types
+
+class Foo {
+}
+
+interface Foo {
+}
+
+struct Foo {
+}
+
+>>> Modifiers
+
+abstract async extern internal new override partial private protected public readonly sealed static virtual volatile class Foo {
+}
+
+>>> Type parameters
+
+class Foo<T> {
+}
+
+class Foo<[Bar] T> {
+}
+
+class Foo<[Bar, Bar] T> {
+}
+
+class Foo<[Bar] [Bar] T> {
+}
+
+class Foo<in T> {
+}
+
+class Foo<out T> {
+}
+
+class Foo<in T, out U> {
+}
+
+>>> Base types
+
+class Foo : Bar {
+}
+
+class Foo : Foo, Bar {
+}
+
+>>> Type constraints
+
+class Foo<T>
+    where T : new() {
+}
+
+class Foo<T>
+    where T : new(), class, struct, Bar {
+}
+
+class Foo<T>
+    where T : new(), class, struct, Bar
+    where T : new(), class, struct, Bar
+    where T : new(), class, struct, Bar {
+}
+
+>>> Enum declaration
+
+enum Foo {
+    Bar
+}
+
+enum Foo {
+    Bar = 1
+}
+
+enum Foo {
+    Bar,
+    Bar
+}
+
+enum Foo {
+    [Foo]
+    Bar
+}
+
+abstract async extern internal new override partial private protected public readonly sealed static virtual volatile enum Foo {
+}
+
+enum Foo : Bar {
+}

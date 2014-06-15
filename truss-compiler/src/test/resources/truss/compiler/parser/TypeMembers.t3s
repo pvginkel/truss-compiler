@@ -1,0 +1,336 @@
+>>> Fields
+
+class Foo {
+    int i;
+
+    int i = 3;
+
+    [Foo]
+    int i;
+
+    int i, j;
+
+    int i = 3, j;
+
+    int i, j = 3;
+
+    abstract async extern internal new override partial private protected public readonly sealed static virtual volatile int i;
+}
+
+>>> Events
+
+class Foo {
+    event int i;
+
+    public event EventHandler i;
+
+    public event EventHandler i {
+        add {
+        }
+        remove {
+        }
+    }
+
+    abstract async extern internal new override partial private protected public readonly sealed static virtual volatile event EventHandler i {
+    }
+}
+
+>>> Properties
+
+class Foo {
+    int i {
+    }
+
+    [Foo]
+    int i {
+        [Foo]
+        get {
+        }
+        [Foo]
+        set {
+        }
+    }
+
+    int Bar.i {
+    }
+}
+
+>>> Indexer
+
+class Foo {
+    int this[int i] {
+        get {
+        }
+        set {
+        }
+    }
+
+    int Bar.this[int i] {
+    }
+
+    abstract async extern internal new override partial private protected public readonly sealed static virtual volatile int this[int i] {
+    }
+}
+
+>>> Methods
+
+class Foo {
+    int Bar() {
+    }
+
+    int Bar(int i) {
+    }
+
+    int Bar(int i, int j) {
+    }
+
+    int Bar(this int i) {
+    }
+
+    int Bar(out int i) {
+    }
+
+    int Bar(out int i) {
+    }
+
+    int Bar(params int i) {
+    }
+
+    abstract async extern internal new override partial private protected public readonly sealed static virtual volatile int Bar() {
+    }
+}
+
+>>> Methods with type parameters and constraints
+
+class Foo {
+    int Foo<T>() {
+    }
+
+    int Foo<[Bar] T>() {
+    }
+
+    int Foo<[Bar, Bar] T>() {
+    }
+
+    int Foo<[Bar] [Bar] T>() {
+    }
+
+    int Foo<in T>() {
+    }
+
+    int Foo<out T>() {
+    }
+
+    int Foo<in T, out U>() {
+    }
+
+    int Foo<T>()
+        where T : new() {
+    }
+
+    int Foo<T>()
+        where T : new(), class, struct, Bar {
+    }
+
+    int Foo<T>()
+        where T : new(), class, struct, Bar
+        where T : new(), class, struct, Bar
+        where T : new(), class, struct, Bar {
+    }
+
+    int Bar.Foo<in T, out U>() {
+    }
+
+    int Bar<int>.Foo<in T, out U>() {
+    }
+
+    int Bar<int>.Bar<int>.Foo<in T, out U>() {
+    }
+
+    int Bar<Bar<Bar<int>>>.Foo<in T, out U>() {
+    }
+}
+
+>>> Constructor
+
+class Foo {
+    public Foo() {
+    }
+
+    public Foo(int i) {
+    }
+
+    [Foo]
+    public Foo() {
+    }
+
+    public Foo()
+        : this() {
+    }
+
+    public Foo()
+        : base() {
+    }
+
+    public Foo(int i)
+        : this(i) {
+    }
+}
+
+>>> Destructor
+
+class Foo {
+    [Foo]
+    ~Foo() {
+    }
+}
+
+>>> Destruction with modifiers
+
+class Foo {
+    public ~Foo() {
+    }
+}
+
+<<<
+
+Destruction with modifiers(2,12): error DTL0001: Unexpected token 'OP_TILDE'
+
+>>> Conversion operator
+
+class Foo {
+    explicit operator int(int i) {
+    }
+
+    implicit operator int(int i) {
+    }
+
+    [Foo]
+    explicit operator int(int i) {
+    }
+
+    explicit operator Foo.Bar(Foo.Bar i) {
+    }
+
+    abstract async extern internal new override partial private protected public readonly sealed static virtual volatile explicit operator int(int i) {
+    }
+}
+
+>>> Operators
+
+class Foo {
+    bool operator +(int i) {
+    }
+
+    [Foo]
+    bool operator +(int i) {
+    }
+
+    abstract async extern internal new override partial private protected public readonly sealed static virtual volatile bool operator +(int i) {
+    }
+
+    bool operator &(int i) {
+    }
+
+    bool operator *(int i) {
+    }
+
+    bool operator |(int i) {
+    }
+
+    bool operator ^(int i) {
+    }
+
+    bool operator ==(int i) {
+    }
+
+    bool operator !(int i) {
+    }
+
+    bool operator !=(int i) {
+    }
+
+    bool operator false(int i) {
+    }
+
+    bool operator >(int i) {
+    }
+
+    bool operator >=(int i) {
+    }
+
+    bool operator <(int i) {
+    }
+
+    bool operator <=(int i) {
+    }
+
+    bool operator <<(int i) {
+    }
+
+    bool operator >>(int i) {
+    }
+
+    bool operator -(int i) {
+    }
+
+    bool operator --(int i) {
+    }
+
+    bool operator %(int i) {
+    }
+
+    bool operator +(int i) {
+    }
+
+    bool operator ++(int i) {
+    }
+
+    bool operator /(int i) {
+    }
+
+    bool operator ~(int i) {
+    }
+
+    bool operator true(int i) {
+    }
+}
+
+>>> Delegates
+
+[Foo]
+delegate void Foo();
+
+delegate void Foo<T>()
+    where T : struct;
+
+delegate void Foo(int i);
+
+abstract async extern internal new override partial private protected public readonly sealed static virtual volatile delegate int Foo();
+
+>>> Attributes
+
+class Foo {
+    [Foo]
+    [event: Foo]
+    [field: Foo]
+    [method: Foo]
+    [param: Foo]
+    [property: Foo]
+    [return: Foo]
+    [type: Foo]
+    void Bar() {
+    }
+}
+
+>>> Invalid attribute
+
+class Foo {
+    [xxx: Foo]
+    void Bar() {
+    }
+}
+
+<<<
+
+Invalid attribute(2,6,2,9): error DTL0005: Invalid attribute target

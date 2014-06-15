@@ -1,0 +1,49 @@
+>>> Single namespace
+
+namespace Foo {
+}
+
+>>> Namespace with nested name
+
+namespace Foo.Bar {
+}
+
+>>> Nested namespace
+
+namespace Foo {
+    namespace Bar {
+    }
+}
+
+>>> Top level import
+
+import Foo;
+
+>>> Top level nested import
+
+import Foo.Bar;
+
+>>> Import in namespace
+
+namespace Foo {
+    import Bar;
+}
+
+>>> Multiple imports
+
+namespace Foo {
+    import Foo;
+    import Bar;
+}
+
+>>> Static import
+
+import static Foo.Bar;
+
+>>> Alias import
+
+import Foo=Bar;
+
+>>> Namespace attribute
+
+[assembly: Foo]

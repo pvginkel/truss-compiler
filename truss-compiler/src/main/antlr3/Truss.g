@@ -1,9 +1,5 @@
 grammar Truss;
 
-options {
-    backtrack = true;
-}
-
 scope declarationPrefix {
     ImmutableArray<AttributeListSyntax> attributes;
     ImmutableArray<Modifier> modifiers;
@@ -41,13 +37,7 @@ compilationUnit returns [CompilationUnitSyntax value]
         (
             // Only assembly attributes belong to this scope; the rest is
             // attached to the member it belongs to.
-            (
-                OP_BRACKET_OPEN
-                in=identifierName
-                { "assembly".equals(in.getIdentifier()) }?=>
-                OP_COLON
-            )=>
-            al=attributeList { attributeLists.add(al); }
+            ( assemblyAttributeHeadScan )=> al=attributeList { attributeLists.add(al); }
         |
             id=importDirective { imports.add(id); }
         |
@@ -55,6 +45,14 @@ compilationUnit returns [CompilationUnitSyntax value]
         )*
         { value = new CompilationUnitSyntax(attributeLists.build(), imports.build(), members.build(), span(start)); }
         EOF
+    ;
+
+assemblyAttributeHeadScan
+    :
+        OP_BRACKET_OPEN
+        i=IDENTIFIER
+        { "assembly".equals(i.getText()) }?=> { }
+        OP_COLON
     ;
 
 namespaceScopeMemberDeclaration returns [MemberDeclarationSyntax value]
@@ -81,7 +79,7 @@ importDirective returns [ImportDirectiveSyntax value]
         (
             in=identifierName
             OP_EQUALS
-        )
+        )?
         n=name
         OP_SEMICOLON
         { value = new ImportDirectiveSyntax(isStatic, in, n, span(start)); }
@@ -126,14 +124,17 @@ attributeList returns [AttributeListSyntax value]
     :
         OP_BRACKET_OPEN
         (
-            OP_COLON
             at=attributeTarget
             { target = at; }
+            OP_COLON
         )?
+        a=attribute
+        { attributes.add(a); }
         (
+            OP_COMMA
             a=attribute
             { attributes.add(a); }
-        )+
+        )*
         OP_BRACKET_CLOSE
         { value = new AttributeListSyntax(target, attributes.build(), span(start)); }
     ;
@@ -167,10 +168,11 @@ attributeArgument returns [AttributeArgumentSyntax value]
 }
     :
         (
+            ( identifierName OP_EQUALS )=>
             in=identifierName
             OP_EQUALS
         )?
-        e=nonAssignmentExpression
+        e=expression
         { value = new AttributeArgumentSyntax(in, e, span(start)); }
     ;
 
@@ -181,24 +183,38 @@ attributeTarget returns [AttributeTarget value]
     :
         in=identifierName
         { value = parseAttributeTarget(in.getIdentifier(), span(start)); }
+    |
+        KW_EVENT
+        { value = parseAttributeTarget("event", span(start)); }
+    |
+        KW_RETURN
+        { value = parseAttributeTarget("return", span(start)); }
     ;
 
 parameterList returns [ImmutableArray<ParameterSyntax> value]
+    :
+        OP_PAREN_OPEN
+        (
+            bpl=bareParameterList
+            { value = bpl; }
+        |
+            { value = ImmutableArray.<ParameterSyntax>empty(); }
+        )
+        OP_PAREN_CLOSE
+    ;
+
+bareParameterList returns [ImmutableArray<ParameterSyntax> value]
 @init {
     ImmutableArray.Builder<ParameterSyntax> parameters = new ImmutableArray.Builder<>();
 }
     :
-        OP_PAREN_OPEN
+        p=parameter
+        { parameters.add(p); }
         (
+            OP_COMMA
             p=parameter
             { parameters.add(p); }
-            (
-                OP_COMMA
-                p=parameter
-                { parameters.add(p); }
-            )*
-        )?
-        OP_PAREN_CLOSE
+        )*
         { value = parameters.build(); }
     ;
 
@@ -355,10 +371,13 @@ typeParameterConstraintClause returns [TypeParameterConstraintClauseSyntax value
         KW_WHERE
         in=identifierName
         OP_COLON
+        tpc=typeParameterConstraint
+        { constraints.add(tpc); }
         (
+            OP_COMMA
             tpc=typeParameterConstraint
             { constraints.add(tpc); }
-        )+
+        )*
         { value = new TypeParameterConstraintClauseSyntax(in, constraints.build(), span(start)); }
     ;
 
@@ -399,6 +418,8 @@ modifier returns [Modifier value]
     | KW_ASYNC { value = Modifier.ASYNC; }
     | KW_EXTERN { value = Modifier.EXTERN; }
     | KW_INTERNAL { value = Modifier.INTERNAL; }
+    | KW_NEW { value = Modifier.NEW; }
+    | KW_OVERRIDE { value = Modifier.OVERRIDE; }
     | KW_PARTIAL { value = Modifier.PARTIAL; }
     | KW_PRIVATE { value = Modifier.PRIVATE; }
     | KW_PROTECTED { value = Modifier.PROTECTED; }
@@ -422,7 +443,7 @@ enumDeclaration returns [EnumDeclarationSyntax value]
         in=identifierName
         (
             OP_COLON
-            pts=predefinedTypeSyntax
+            t=type
         )?
         OP_BRACE_OPEN
         (
@@ -441,7 +462,7 @@ enumDeclaration returns [EnumDeclarationSyntax value]
                 $declarationPrefix::attributes,
                 $declarationPrefix::modifiers,
                 in,
-                ImmutableArray.<TypeSyntax>asList(pts),
+                t == null ? ImmutableArray.<TypeSyntax>empty() : ImmutableArray.<TypeSyntax>asList(t),
                 members.build(),
                 span(start)
             );
@@ -470,14 +491,12 @@ scope declarationPrefix;
     all=attributeListList { $declarationPrefix::attributes = all; }
     m=modifiers { $declarationPrefix::modifiers = m; }
     (
-        ( identifierName OP_PAREN_OPEN )=> e2=constructorDeclaration { value = e2; }
+        ( constructorDeclarationHeadScan )=> e2=constructorDeclaration
+        { value = e2; }
     |
-        ( explicitInterfaceName KW_THIS )=> e6=indexerDeclaration { value = e6; }
-    |
-        (
-            t=type { $declarationPrefix::type = t; }
-            e1=typedMemberDeclaration
-        )
+        t=type { $declarationPrefix::type = t; }
+        e1=typedMemberDeclaration
+        { value = e1; }
     |
         e3=conversionOperatorDeclaration { value = e3; }
     |
@@ -500,39 +519,105 @@ typedMemberDeclaration returns [MemberDeclarationSyntax value]
         e1=operatorDeclaration
         { value = e1; }
     |
-        ( explicitInterfaceName identifierName OP_BRACE_OPEN )=>
-        e2=propertyDeclaration
+        e2=fieldDeclaration
         { value = e2; }
-    |
-        ( identifierName )=>
-        e3=fieldDeclaration
-        { value = e3; }
-    |
-        e4=methodDeclaration
-        { value = e4; }
     ;
 
-// Property/field declaration
+// Property/field/indexer/method declaration
 
-propertyDeclaration returns [PropertyDeclarationSyntax value]
+
+fieldDeclaration returns [MemberDeclarationSyntax value]
+scope {
+    MemberName memberName;
+}
 @init {
     Token start = input.LT(1);
 }
     :
-        ein=explicitInterfaceName
-        in=identifierName
-        al=accessorList
-        { value = new PropertyDeclarationSyntax($declarationPrefix::attributes, $declarationPrefix::modifiers, $declarationPrefix::type, ein, in, al, span(start)); }
-    ;
-
-fieldDeclaration returns [FieldDeclarationSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
+        ( variableDeclarationWithoutType OP_SEMICOLON )=>
         vdwt=variableDeclarationWithoutType
-        { value = new FieldDeclarationSyntax($declarationPrefix::attributes, $declarationPrefix::modifiers, vdwt, span(start)); }
+        {
+            value = new FieldDeclarationSyntax(
+                $declarationPrefix::attributes,
+                $declarationPrefix::modifiers,
+                vdwt,
+                span(start)
+            );
+        }
         OP_SEMICOLON
+    |
+        ( ( name OP_DOT )? KW_THIS )=>
+        ( n=name OP_DOT )?
+        KW_THIS
+        OP_BRACKET_OPEN
+        bpl=bareParameterList
+        OP_BRACKET_CLOSE
+        al=accessorList
+        {
+            value = new IndexerDeclarationSyntax(
+                $declarationPrefix::attributes,
+                $declarationPrefix::modifiers,
+                $declarationPrefix::type,
+                n,
+                bpl,
+                al,
+                span(start)
+            );
+        }
+    |
+        mn=memberName
+        { $fieldDeclaration::memberName = mn; }
+        (
+            pdt=propertyDeclarationTail
+            { value = pdt; }
+        |
+            mdt=methodDeclarationTail
+            { value = mdt; }
+        )
+    ;
+
+propertyDeclarationTail returns [PropertyDeclarationSyntax value]
+@init {
+    Token start = input.LT(1);
+    assert $fieldDeclaration::memberName.getTypeParameters().size() == 0;
+}
+    :
+        al=accessorList
+        {
+            value = new PropertyDeclarationSyntax(
+                $declarationPrefix::attributes,
+                $declarationPrefix::modifiers,
+                $declarationPrefix::type,
+                $fieldDeclaration::memberName.getInterfaceName(),
+                $fieldDeclaration::memberName.getIdentifier(),
+                al,
+                span(start)
+            );
+        }
+    ;
+
+methodDeclarationTail returns [MethodDeclarationSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        pl=parameterList
+        tpccl=typeParameterConstraintClauseList
+        b=block
+        {
+            value = new MethodDeclarationSyntax(
+                $declarationPrefix::attributes,
+                $declarationPrefix::modifiers,
+                $declarationPrefix::type,
+                $fieldDeclaration::memberName.getInterfaceName(),
+                $fieldDeclaration::memberName.getIdentifier(),
+                $fieldDeclaration::memberName.getTypeParameters(),
+                tpccl,
+                pl,
+                b,
+                span(start)
+            );
+        }
     ;
 
 // Event declaration
@@ -546,23 +631,31 @@ eventDeclaration returns [MemberDeclarationSyntax value]
         (
             ( variableDeclaration OP_SEMICOLON )=>
             vd=variableDeclaration
-            { value = new EventFieldDeclarationSyntax($declarationPrefix::attributes, $declarationPrefix::modifiers, vd, span(start)); }
+            {
+                value = new EventFieldDeclarationSyntax(
+                    $declarationPrefix::attributes,
+                    $declarationPrefix::modifiers,
+                    vd,
+                    span(start)
+                );
+            }
             OP_SEMICOLON
         |
             t=type
-            ein=explicitInterfaceName
-            in=identifierName
+            mn=memberName
             al=accessorList
-            { value = new EventDeclarationSyntax($declarationPrefix::attributes, $declarationPrefix::modifiers, t, ein, in, al, span(start)); }
+            {
+                value = new EventDeclarationSyntax(
+                    $declarationPrefix::attributes,
+                    $declarationPrefix::modifiers,
+                    t,
+                    mn.getInterfaceName(),
+                    mn.getIdentifier(),
+                    al,
+                    span(start)
+                );
+            }
         )
-    ;
-
-explicitInterfaceName returns [NameSyntax value]
-    :
-        (
-            n=name { value = n; }
-            OP_DOT
-        )?
     ;
 
 accessorList returns [ImmutableArray<AccessorDeclarationSyntax> value]
@@ -579,7 +672,7 @@ accessorList returns [ImmutableArray<AccessorDeclarationSyntax> value]
             adt=accessorDeclarationType
             b=block
             { accessors.add(new AccessorDeclarationSyntax(all, m, adt, b, span(start))); }
-        )+
+        )*
         OP_BRACE_CLOSE
         { value = accessors.build(); }
     ;
@@ -591,6 +684,8 @@ accessorDeclarationType returns [AccessorDeclarationType value]
     ;
 
 // Constructor declaration
+
+constructorDeclarationHeadScan : identifierName OP_PAREN_OPEN ;
 
 constructorDeclaration returns [ConstructorDeclarationSyntax value]
 @init {
@@ -648,61 +743,6 @@ destructorDeclaration returns [DestructorDeclarationSyntax value]
                 in,
                 ImmutableArray.<ParameterSyntax>empty(),
                 b,
-                span(start)
-            );
-        }
-    ;
-
-// Method declaration
-
-methodDeclaration returns [MethodDeclarationSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        ein=explicitInterfaceName
-        in=identifierName
-        tpl=typeParameterList
-        pl=parameterList
-        tpccl=typeParameterConstraintClauseList
-        b=block
-        {
-            value = new MethodDeclarationSyntax(
-                $declarationPrefix::attributes,
-                $declarationPrefix::modifiers,
-                $declarationPrefix::type,
-                ein,
-                in,
-                tpl,
-                tpccl,
-                pl,
-                b,
-                span(start)
-            );
-        }
-    ;
-
-// Index declaration
-
-indexerDeclaration returns [IndexerDeclarationSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        ein=explicitInterfaceName
-        KW_THIS
-        OP_BRACKET_OPEN
-        p=parameter
-        OP_BRACKET_CLOSE
-        al=accessorList
-        {
-            value = new IndexerDeclarationSyntax(
-                $declarationPrefix::attributes,
-                $declarationPrefix::modifiers,
-                $declarationPrefix::type,
-                ein,
-                p,
-                al,
                 span(start)
             );
         }
@@ -771,7 +811,7 @@ operator returns [Operator value]
     | KW_FALSE { value = Operator.FALSE; }
     | OP_GREATER_THAN { value = Operator.GREATER_THAN; }
     | OP_GREATER_THAN_EQUALS { value = Operator.GREATER_THAN_EQUALS; }
-    | OP_GREATER_THAN_GREATER_THAN { value = Operator.GREATER_THAN_GREATER_THAN; }
+    | op_GREATER_THAN_GREATER_THAN { value = Operator.GREATER_THAN_GREATER_THAN; }
     | OP_LESS_THAN { value = Operator.LESS_THAN; }
     | OP_LESS_THAN_EQUALS { value = Operator.LESS_THAN_EQUALS; }
     | OP_LESS_THAN_LESS_THAN { value = Operator.LESS_THAN_LESS_THAN; }
@@ -783,187 +823,6 @@ operator returns [Operator value]
     | OP_SLASH { value = Operator.SLASH; }
     | OP_TILDE { value = Operator.TILDE; }
     | KW_TRUE { value = Operator.TRUE; }
-    ;
-
-// Type name parsing
-
-castType returns [TypeSyntax value]
-@init {
-    Token start = input.LT(1);
-    NakedNullableType type = null;
-}
-    :
-        (
-            OP_QUESTION
-            { type = NakedNullableType.NULLABLE; }
-        |
-            OP_EXCLAMATION
-            { type = NakedNullableType.NOT_NULLABLE; }
-        )
-        { value = new NakedNullableTypeSyntax(type, span(start)); }
-    |
-        t=type
-        { value = t; }
-    ;
-
-type returns [TypeSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        at=notArrayType
-        { value = at; }
-        (
-            OP_BRACKET_OPEN
-            OP_BRACKET_CLOSE
-            { value = new ArrayTypeSyntax(value, span(start)); }
-        )?
-    ;
-
-name returns [NameSyntax value]
-    : qn=qualifiedName { value = qn; }
-    ;
-
-predefinedTypeSyntax returns [PredefinedTypeSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        pt=predefinedType
-        { value = new PredefinedTypeSyntax(pt, span(start)); }
-    ;
-
-notArrayType returns [TypeSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-    (
-        pds=predefinedTypeSyntax
-        { value = pds; }
-    |
-        qn=qualifiedName
-        { value = qn; }
-    )
-    (
-        OP_QUESTION
-        { value = new NullableTypeSyntax(value, span(start)); }
-    )?
-    ;
-
-qualifiedName returns [NameSyntax value]
-@init {
-    Token start = input.LT(1);
-    IdentifierNameSyntax alias = null;
-}
-    :
-        (
-            in=identifierName OP_COLON_COLON
-            { alias = in; }
-        )?
-        sn=simpleName
-        {
-            if (alias != null) {
-                value = new AliasQualifiedNameSyntax(alias, sn, span(start));
-            } else {
-                value = sn;
-            }
-        }
-        (
-            OP_DOT
-            sn=simpleName
-            { value = new QualifiedNameSyntax(value, sn, span(start)); }
-        )*
-    ;
-
-simpleName returns [SimpleNameSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        in=identifierName
-        { value = in; }
-        (
-            gta=genericTypeArguments
-            { value = new GenericNameSyntax(in.getIdentifier(), gta, span(start)); }
-        )?
-    ;
-
-genericTypeArguments returns [ImmutableArray<TypeSyntax> value]
-@init {
-    ImmutableArray.Builder<TypeSyntax> builder = new ImmutableArray.Builder<>();
-    
-    beginGeneric();
-}
-    :
-        OP_LESS_THAN
-        { openGeneric(); }
-        gta=genericTypeArgument
-        { builder.add(gta); }
-        (
-            OP_COMMA
-            gta=genericTypeArgument
-            { builder.add(gta); }
-        )*
-        // This is a bit narly. What this is trying to accomplish is to
-        // disambiguate between >> as right shift and >> as two generic type
-        // close signs. We count the number of open braces we had, and allow
-        // that number of more to be closed here. Then, if we're closing one here
-        // that belongs to a recursive call, the getPendingGenericCloses() will
-        // be too low, and we'll match the empty branch.
-        { getPendingGenericCloses() > 0 }?=>
-        (
-            OP_GREATER_THAN_GREATER_THAN
-            { closeGeneric(); closeGeneric(); }
-        |
-            OP_GREATER_THAN
-            { closeGeneric(); }
-        )
-        { value = builder.build(); }
-    ;
-
-genericTypeArgument returns [TypeSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        (
-            t=type
-            { value = t; }
-        )?
-        {
-            if (value == null) {
-                new OmittedTypeArgumentSyntax(span(start));
-            }
-        }
-    ;
-
-identifierName returns [IdentifierNameSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        i=IDENTIFIER
-        { value = new IdentifierNameSyntax(i.getText(), span(start)); }
-    ;
-
-predefinedType returns [PredefinedType value]
-    : KW_BOOL { value = PredefinedType.BOOL; }
-    | KW_BYTE { value = PredefinedType.BYTE; }
-    | KW_CHAR { value = PredefinedType.CHAR; }
-    | KW_DECIMAL { value = PredefinedType.DECIMAL; }
-    | KW_DOUBLE { value = PredefinedType.DOUBLE; }
-    | KW_FLOAT { value = PredefinedType.FLOAT; }
-    | KW_INT { value = PredefinedType.INT; }
-    | KW_LONG { value = PredefinedType.LONG; }
-    | KW_OBJECT { value = PredefinedType.OBJECT; }
-    | KW_SBYTE { value = PredefinedType.SBYTE; }
-    | KW_SHORT { value = PredefinedType.SHORT; }
-    | KW_STRING { value = PredefinedType.STRING; }
-    | KW_UINT { value = PredefinedType.UINT; }
-    | KW_ULONG { value = PredefinedType.ULONG; }
-    | KW_USHORT { value = PredefinedType.USHORT; }
-    | KW_VOID { value = PredefinedType.VOID; }
     ;
 
 // Statements
@@ -987,21 +846,7 @@ statement returns [StatementSyntax value]
 @init {
     Token start = input.LT(1);
 }
-    :
-        ( type? identifierName )=>
-        (
-            ( identifierName OP_SEMICOLON )=>
-            e1=identifierName
-            OP_SEMICOLON
-            { value = new ExpressionStatementSyntax(e1, span(start)); }
-        |
-            ( type identifierName OP_SEMICOLON )=>
-            e2=variableDeclarationExpression
-            OP_SEMICOLON
-            { value = new ExpressionStatementSyntax(e2, span(start)); }
-        |
-            e3=localDeclarationStatement { value = e3; }
-        )
+    : ( KW_READONLY? variableDeclarationHeadScan )=> e1=localDeclarationStatement { value = e1; }
     | e4=assertStatement { value = e4; }
     | e5=block { value = e5; }
     | e6=breakContinueStatement { value = e6; }
@@ -1048,8 +893,10 @@ doStatement returns [DoStatementSyntax value]
 }
     :
         KW_DO
-        e=expression
         b=block
+        KW_WHILE
+        e=expression
+        OP_SEMICOLON
         { value = new DoStatementSyntax(e, b, span(start)); }
     ;
 
@@ -1093,7 +940,7 @@ forStatement returns [ForStatementSyntax value]
     :
         KW_FOR
         (
-            ( type identifierName )=>
+            ( variableDeclarationHeadScan )=>
             vd=variableDeclaration
         |
             el1=expressionList
@@ -1143,7 +990,7 @@ elIfClause returns [ElseClauseSyntax value]
         KW_ELIF
         e=expression
         b=block
-        { value = new ElseClauseSyntax(e, b, span(start)); }
+        { value = new ElseClauseSyntax(ElIfOrElse.ELIF, e, b, span(start)); }
     ;
 
 elseClause returns [ElseClauseSyntax value]
@@ -1153,7 +1000,7 @@ elseClause returns [ElseClauseSyntax value]
     :
         KW_ELSE
         b=block
-        { value = new ElseClauseSyntax(null, b, span(start)); }
+        { value = new ElseClauseSyntax(ElIfOrElse.ELSE, null, b, span(start)); }
     ;
 
 localDeclarationStatement returns [LocalDeclarationStatementSyntax value]
@@ -1170,6 +1017,8 @@ localDeclarationStatement returns [LocalDeclarationStatementSyntax value]
         OP_SEMICOLON
         { value = new LocalDeclarationStatementSyntax(modifiers.build(), vd, span(start)); }
     ;
+
+variableDeclarationHeadScan : type identifierName ;
 
 variableDeclaration returns [VariableDeclarationSyntax value]
 scope declarationPrefix;
@@ -1199,27 +1048,14 @@ variableDeclarationWithoutType returns [VariableDeclarationSyntax value]
 variableDeclarator returns [VariableDeclaratorSyntax value]
 @init {
     Token start = input.LT(1);
-    ExpressionSyntax arraySize = null;
-    ExpressionSyntax assigned = null;
 }
     :
         in=identifierName
         (
-            OP_BRACKET_OPEN
-            (
-                e=expression
-                { arraySize = e; }
-            |
-                { arraySize = new OmittedArraySizeExpressionSyntax(span(input.LT(-1))); }
-            )
-            OP_BRACKET_CLOSE
-        )?
-        (
             OP_EQUALS
             e=expression
-            { assigned = e; }
         )?
-        { value = new VariableDeclaratorSyntax(in, arraySize, assigned, span(start)); }
+        { value = new VariableDeclaratorSyntax(in, e, span(start)); }
     ;
 
 returnStatement returns [ReturnStatementSyntax value]
@@ -1274,7 +1110,7 @@ throwStatement returns [ThrowStatementSyntax value]
 }
     :
         KW_THROW
-        e=expression
+        e=expression?
         OP_SEMICOLON
         { value = new ThrowStatementSyntax(e, span(start)); }
     ;
@@ -1326,7 +1162,7 @@ usingStatement returns [UsingStatementSyntax value]
     :
         KW_USING
         (
-            ( type identifierName )=>
+            ( variableDeclarationHeadScan )=>
             vd=variableDeclaration
         |
             e=expression
@@ -1359,22 +1195,21 @@ whileStatement returns [WhileStatementSyntax value]
 // Expressions
 
 expression returns [ExpressionSyntax value]
+    :
+        ( lambdaExpressionHeadScan )=> e2=lambdaExpression
+        { value = e2; }
+    |
+        ae=assignmentExpression
+        { value = ae; }
+    ;
+
+assignmentExpression returns [ExpressionSyntax value]
 @init {
     Token start = input.LT(1);
 }
     :
-        ( assignmentExpression )=>
-        ae=assignmentExpression
-        { value = ae; }
-    |
         nae=nonAssignmentExpression
         { value = nae; }
-    ;
-
-assignmentExpression returns [ExpressionSyntax value]
-    :
-        ce=conditionalExpression
-        { value = ce; }
         (
             ao=assignmentOperator
             e=expression
@@ -1383,8 +1218,9 @@ assignmentExpression returns [ExpressionSyntax value]
     ;
 
 nonAssignmentExpression returns [ExpressionSyntax value]
-    : e1=conditionalExpression { value = e1; }
-    | e2=lambdaExpression { value = e2; }
+    :
+        ce=conditionalExpression
+        { value = ce; }
     ;
 
 assignmentOperator returns [BinaryOperator value]
@@ -1401,9 +1237,10 @@ assignmentOperator returns [BinaryOperator value]
     | OP_CARET_EQUALS { value = BinaryOperator.CARET_EQUALS; }
     ;
 
+lambdaExpressionHeadScan : KW_ASYNC? lambdaParameterList OP_EQUALS_GREATER_THAN ; 
+
 lambdaExpression returns [ExpressionSyntax value]
 @init {
-    ImmutableArray<ParameterSyntax> parameters = null;
     ImmutableArray.Builder<Modifier> modifiers = new ImmutableArray.Builder<>();
     Token start = input.LT(1);
 }
@@ -1412,29 +1249,97 @@ lambdaExpression returns [ExpressionSyntax value]
             KW_ASYNC
             { modifiers.add(Modifier.ASYNC); }
         )?
-        (
-            in=identifierName
-            {
-                parameters = ImmutableArray.asList(new ParameterSyntax(
-                    ImmutableArray.<AttributeListSyntax>empty(),
-                    ImmutableArray.<ParameterModifier>empty(),
-                    null,
-                    in,
-                    in.getSpan()
-                ));
-            }
-        |
-            pl=parameterList
-            { parameters = pl; }
-        )
+        lpl=lambdaParameterList
         OP_EQUALS_GREATER_THAN
         (
             ex=expression
-            { value = new LambdaExpressionSyntax(modifiers.build(), parameters, ex, span(start)); }
+            { value = new LambdaExpressionSyntax(modifiers.build(), lpl, ex, span(start)); }
         |
             b=block
-            { value = new LambdaExpressionSyntax(modifiers.build(), parameters, b, span(start)); }
+            { value = new LambdaExpressionSyntax(modifiers.build(), lpl, b, span(start)); }
         )
+    ;
+
+lambdaParameterList returns [ImmutableArray<ParameterSyntax> value]
+    :
+        OP_PAREN_OPEN
+        (
+            elpl=explicitLambdaParameterList
+            { value = elpl; }
+        |
+            ilpl=implicitLambdaParameterList
+            { value = ilpl; }
+        |
+            { value = ImmutableArray.empty(); }
+        )
+        OP_PAREN_CLOSE
+    |
+        ilp=implicitLambdaParameter
+        { value = ImmutableArray.asList(ilp); }
+    ;
+
+explicitLambdaParameterList returns [ImmutableArray<ParameterSyntax> value]
+@init {
+    ImmutableArray.Builder<ParameterSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        elp=explicitLambdaParameter
+        { builder.add(elp); }
+        (
+            OP_COMMA
+            elp=explicitLambdaParameter
+            { builder.add(elp); }
+        )*
+        { value = builder.build(); }
+    ;
+
+explicitLambdaParameter returns [ParameterSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        am=argumentModifier? t=type in=identifierName
+        {
+            value = new ParameterSyntax(
+                ImmutableArray.<AttributeListSyntax>empty(),
+                am != null ? ImmutableArray.<ParameterModifier>asList(am) : ImmutableArray.<ParameterModifier>empty(),
+                t,
+                in,
+                span(start)
+            );
+        }
+    ;
+
+implicitLambdaParameterList returns [ImmutableArray<ParameterSyntax> value]
+@init {
+    ImmutableArray.Builder<ParameterSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        ilp=implicitLambdaParameter
+        { builder.add(ilp); }
+        (
+            OP_COMMA
+            ilp=implicitLambdaParameter
+            { builder.add(ilp); }
+        )*
+        { value = builder.build(); }
+    ;
+
+implicitLambdaParameter returns [ParameterSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        in=identifierName
+        {
+            value = new ParameterSyntax(
+                ImmutableArray.<AttributeListSyntax>empty(),
+                ImmutableArray.<ParameterModifier>empty(),
+                null,
+                in,
+                span(start)
+            );
+        }
     ;
 
 conditionalExpression returns [ExpressionSyntax value]
@@ -1560,8 +1465,8 @@ relationalExpression returns [ExpressionSyntax value]
                 ro=relationalOperator se=shiftExpression
                 { value = new BinaryExpressionSyntax(ro, value, se, span(start)); }
             |
-                iao=isAsOperator qn=qualifiedName
-                { value = new BinaryExpressionSyntax(iao, value, qn, span(start)); }
+                iao=isAsOperator n=name
+                { value = new BinaryExpressionSyntax(iao, value, n, span(start)); }
             )
         )*
     ;
@@ -1592,7 +1497,7 @@ shiftExpression returns [ExpressionSyntax value]
     ;
 
 shiftOperator returns [BinaryOperator value]
-    : OP_GREATER_THAN_GREATER_THAN { value = BinaryOperator.GREATER_THAN_GREATER_THAN; }
+    : op_GREATER_THAN_GREATER_THAN { value = BinaryOperator.GREATER_THAN_GREATER_THAN; }
     | OP_LESS_THAN_LESS_THAN { value = BinaryOperator.LESS_THAN_LESS_THAN; }
     ;
 
@@ -1641,7 +1546,7 @@ unaryExpression returns [ExpressionSyntax value]
         puo1=prefixUnaryOperator ue=unaryExpression
         { value = new PrefixUnaryExpressionSyntax(puo1, ue, span(start)); }
     |
-        ( OP_PAREN_OPEN ct=castType OP_PAREN_CLOSE )=>
+        ( OP_PAREN_OPEN castType OP_PAREN_CLOSE expression )=>
         ce=castExpression
         { value = ce; }
     |
@@ -1695,25 +1600,6 @@ castExpression returns [ExpressionSyntax value]
         { value = new CastExpressionSyntax(ue, ct, span(start)); }
     ;
 
-argumentList returns [ImmutableArray<ArgumentSyntax> value]
-@init {
-    ImmutableArray.Builder<ArgumentSyntax> arguments = new ImmutableArray.Builder<>();
-}
-    :
-        OP_PAREN_OPEN
-        (
-            a=argument
-            { arguments.add(a); }
-            (
-                OP_COMMA
-                a=argument
-                { arguments.add(a); }
-            )*
-        )?
-        OP_PAREN_CLOSE
-        { value = arguments.build(); }
-    ;
-
 argument returns [ArgumentSyntax value]
 @init {
     Token start = input.LT(1);
@@ -1739,21 +1625,297 @@ primaryExpression returns [ExpressionSyntax value]
     | KW_TYPEOF OP_PAREN_OPEN e5=type OP_PAREN_CLOSE { value = new TypeOfExpressionSyntax(e5, span(start)); }
     | KW_SIZEOF OP_PAREN_OPEN e6=type OP_PAREN_CLOSE { value = new SizeOfExpressionSyntax(e6, span(start)); }
     | KW_DEFAULT OP_PAREN_OPEN e7=type OP_PAREN_CLOSE { value = new DefaultExpressionSyntax(e7, span(start)); }
-    | ( type identifierName )=> e1=variableDeclarationExpression { value = e1; }
+    | ( variableDeclarationHeadScan )=> e1=variableDeclarationExpression { value = e1; }
     | e12=identifierName { value = e12; }
-    |
+    | e13=primaryNewExpression { value = e13; }
+    ;
+
+primaryNewExpression returns [ExpressionSyntax value]
+scope {
+    Token start;
+    TypeSyntax type;
+}
+@init {
+    Token start = input.LT(1);
+    $primaryNewExpression::start = start;
+}
+    :
         KW_NEW
         (
-            ( notArrayType OP_BRACKET_OPEN )=>
-            e3=arrayCreation { value = e3; }
+            t=type
+            { $primaryNewExpression::type = t; }
+            (
+                oce=objectCreationExpression
+                { value = oce; }
+            |
+                ooci=objectOrCollectionInitializer
+                {
+                    if (t instanceof ArrayTypeSyntax) {
+                        value = new ArrayCreationExpressionSyntax(
+                            (ArrayTypeSyntax)t,
+                            ooci,
+                            span(start)
+                        );
+                    } else {
+                        value = new ObjectCreationExpressionSyntax(
+                            t,
+                            null,
+                            ooci,
+                            span(start)
+                        );
+                    }
+                }
+            |
+                ace=arrayCreationExpression
+                { value = ace; }
+            )
         |
-            e8=newExpression { value = e8; }
+            aoi=anonymousObjectInitializer
+            { value = aoi; }
         |
-            ( OP_BRACE_OPEN identifierName OP_EQUALS )=>
-            e10=anonymousObject { value = e10; }
-        |
-            e11=implicitArrayCreation { value = e11; }
+            rs=rankSpecifier
+            ai=arrayInitializer
+            {
+                value = new ImplicitArrayCreationExpressionSyntax(
+                    ImmutableArray.<ArrayRankSpecifierSyntax>asList(rs),
+                    ai,
+                    span(start)
+                );
+            }
         )
+    ;
+
+arrayCreationExpression returns [ExpressionSyntax value]
+@init {
+    ImmutableArray.Builder<ArrayRankSpecifierSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        obo=OP_BRACKET_OPEN e=expression OP_BRACKET_CLOSE
+        { builder.add(new ArrayRankSpecifierSyntax(e, span(obo))); }
+        (
+            rsl=rankSpecifierList
+            { builder.addAll(rsl); }
+        )?
+        (
+            ( OP_BRACE_OPEN )=>
+            ai=arrayInitializer
+        )?
+        {
+            value = new ArrayCreationExpressionSyntax(
+                new ArrayTypeSyntax(
+                    $primaryNewExpression::type,
+                    builder.build(),
+                    span($primaryNewExpression::start)
+                ),
+                ai,
+                span($primaryNewExpression::start)
+            );
+        }
+    ;
+
+objectCreationExpression returns [ExpressionSyntax value]
+    :
+        al=argumentList
+        (
+            ( OP_BRACE_OPEN )=>
+            ooci=objectOrCollectionInitializer
+        )?
+        {
+            value = new ObjectCreationExpressionSyntax(
+                $primaryNewExpression::type,
+                al,
+                ooci,
+                span($primaryNewExpression::start)
+            );
+        }
+    ;
+
+arrayInitializer returns [InitializerExpressionSyntax value]
+@init {
+    Token start = input.LT(1);
+    ImmutableArray.Builder<ExpressionSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        OP_BRACE_OPEN
+        (
+            vi=variableInitializer
+            { builder.add(vi); }
+            (
+                OP_COMMA
+                vi=variableInitializer
+                { builder.add(vi); }
+            )*
+            OP_COMMA?
+        )?
+        OP_BRACE_CLOSE
+        {
+            value = new InitializerExpressionSyntax(
+                builder.build(),
+                span(start)
+            );
+        }
+    ;
+
+variableInitializer returns [ExpressionSyntax value]
+    : e1=expression { value = e1; }
+    | e2=arrayInitializer { value = e2; }
+    ;
+
+anonymousObjectInitializer returns [AnonymousObjectCreationExpressionSyntax value]
+@init {
+    ImmutableArray.Builder<AnonymousObjectMemberDeclaratorSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        OP_BRACE_OPEN
+        (
+            md=memberDeclarator
+            { builder.add(md); }
+            (
+                OP_COMMA
+                md=memberDeclarator
+                { builder.add(md); }
+            )*
+            OP_COMMA?
+        )?
+        OP_BRACE_CLOSE
+        {
+            value = new AnonymousObjectCreationExpressionSyntax(
+                builder.build(),
+                span($primaryNewExpression::start)
+            );
+        }
+    ;
+
+memberDeclarator returns [AnonymousObjectMemberDeclaratorSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        pe=primaryExpression
+        {
+            value = new AnonymousObjectMemberDeclaratorSyntax(
+                null,
+                pe,
+                span(start)
+            );
+        }
+    |
+        in=identifierName OP_EQUALS e=expression
+        {
+            value = new AnonymousObjectMemberDeclaratorSyntax(
+                in,
+                e,
+                span(start)
+            );
+        }
+    ;
+
+objectOrCollectionInitializer returns [InitializerExpressionSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        OP_BRACE_OPEN OP_BRACE_CLOSE
+        {
+            value = new InitializerExpressionSyntax(
+                ImmutableArray.<ExpressionSyntax>empty(),
+                span(start)
+            );
+        }
+    |
+        oi=objectInitializer
+        { value = oi; }
+    |
+        ci=collectionInitializer
+        { value = ci; }
+    ;
+
+objectInitializer returns [InitializerExpressionSyntax value]
+@init {
+    Token start = input.LT(1);
+    ImmutableArray.Builder<ExpressionSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        OP_BRACE_OPEN
+        mi=memberInitializer
+        { builder.add(mi); }
+        (
+            OP_COMMA
+            mi=memberInitializer
+            { builder.add(mi); }
+        )*
+        OP_COMMA?
+        OP_BRACE_CLOSE
+        {
+            value = new InitializerExpressionSyntax(
+                builder.build(),
+                span(start)
+            );
+        }
+    ;
+
+memberInitializer returns [ExpressionSyntax value]
+@init {
+    Token start = input.LT(1);
+    BinaryOperator operator = null;
+}
+    :
+        in=identifierName
+        (
+            OP_EQUALS
+            { operator = BinaryOperator.EQUALS; }
+        |
+            OP_PLUS_EQUALS
+            { operator = BinaryOperator.PLUS_EQUALS; }
+        )
+        miv=memberInitializerValue
+        { value = new BinaryExpressionSyntax(operator, in, miv, span(start)); }
+    ;
+
+memberInitializerValue returns [ExpressionSyntax value]
+    : e1=expression { value = e1; }
+    | e2=objectOrCollectionInitializer { value = e2; }
+    ;
+
+collectionInitializer returns [InitializerExpressionSyntax value]
+@init {
+    Token start = input.LT(1);
+    ImmutableArray.Builder<ExpressionSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        OP_BRACE_OPEN
+        ei=elementInitializer
+        { builder.add(ei); }
+        (
+            OP_COMMA
+            ei=elementInitializer
+            { builder.add(ei); }
+        )*
+        OP_COMMA?
+        OP_BRACE_CLOSE
+        {
+            value = new InitializerExpressionSyntax(
+                builder.build(),
+                span(start)
+            );
+        }
+    ;
+
+elementInitializer returns [ExpressionSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        nae=nonAssignmentExpression
+        { value = nae; }
+    |
+        OP_BRACE_OPEN el=expressionList OP_BRACE_CLOSE
+        {
+            value = new InitializerExpressionSyntax(
+                el,
+                span(start)
+            );
+        }
     ;
 
 variableDeclarationExpression returns [ExpressionSyntax value]
@@ -1772,124 +1934,31 @@ selector returns [Selector value]
 }
     : OP_DOT sn=simpleName { return new MemberAccessSelector(sn, span(start)); }
     | al=argumentList { return new ArgumentListSelector(al, span(start)); }
-    | OP_BRACKET_OPEN e=expression OP_BRACKET_CLOSE { return new IndexSelector(e, span(start)); }
+    | OP_BRACKET_OPEN el=expressionList OP_BRACKET_CLOSE { return new IndexSelector(el, span(start)); }
     ;
 
-arrayCreation returns [ArrayCreationExpressionSyntax value]
+argumentList returns [ImmutableArray<ArgumentSyntax> value]
 @init {
-    Token start = input.LT(1);
+    ImmutableArray.Builder<ArgumentSyntax> arguments = new ImmutableArray.Builder<>();
 }
     :
-        t=notArrayType
-        OP_BRACKET_OPEN
-        e=expression
-        OP_BRACKET_CLOSE
-        { value = new ArrayCreationExpressionSyntax(new ArrayTypeSyntax(t, t.getSpan()), e, span(start)); }
-    ;
-
-implicitArrayCreation returns [ImplicitArrayCreationExpressionSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        OP_BRACE_OPEN
-        ( el=expressionList )?
-        OP_BRACE_CLOSE
-        { value = new ImplicitArrayCreationExpressionSyntax(el, span(start)); }
-    ;
-
-anonymousObject returns [AnonymousObjectCreationExpressionSyntax value]
-@init {
-    Token start = input.LT(1);
-    ImmutableArray.Builder<AnonymousObjectMemberDeclaratorSyntax> members = new ImmutableArray.Builder<>();
-}
-    :
-        OP_BRACE_OPEN
-        aom=anonymousObjectMember
-        { members.add(aom); }
+        OP_PAREN_OPEN
         (
-            OP_COMMA
-            aom=anonymousObjectMember
-            { members.add(aom); }
-        )*
-        OP_COMMA?
-        OP_BRACE_CLOSE
-        { value = new AnonymousObjectCreationExpressionSyntax(members.build(), span(start)); }
-    ;
-
-anonymousObjectMember returns [AnonymousObjectMemberDeclaratorSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        in=identifierName
-        OP_EQUALS
-        e=expression
-        { value = new AnonymousObjectMemberDeclaratorSyntax(in, e, span(start)); }
-    ;
-
-newExpression returns [ObjectCreationExpressionSyntax value]
-@init {
-    Token start = input.LT(1);
-}
-    :
-        t=type
-        (
-            al=argumentList
-            nmel=newMemberExpressionList?
-        |
-            nmel=newMemberExpressionList
-        )
-        {
-            value = new ObjectCreationExpressionSyntax(
-                t,
-                al == null ? ImmutableArray.<ArgumentSyntax>empty() : al,
-                nmel == null ? ImmutableArray.<ExpressionSyntax>empty() : nmel,
-                span(start)
-            );
-        }
-    ;
-
-newMemberExpressionList returns [ImmutableArray<ExpressionSyntax> value]
-@init {
-    ImmutableArray.Builder<ExpressionSyntax> members = new ImmutableArray.Builder<>();
-}
-    :
-        OP_BRACE_OPEN
-        (
-            nme=newMemberExpression
-            { members.add(nme); }
+            a=argument
+            { arguments.add(a); }
             (
                 OP_COMMA
-                nme=newMemberExpression
-                { members.add(nme); }
+                a=argument
+                { arguments.add(a); }
             )*
-            OP_COMMA?
         )?
-        OP_BRACE_CLOSE
-    ;
-
-newMemberExpression returns [ExpressionSyntax value]
-@init {
-    Token start = input.LT(1);
-    BinaryOperator operator = null;
-}
-    :
-        in=identifierName
-        (
-            OP_EQUALS
-            { operator = BinaryOperator.EQUALS; }
-        |
-            OP_PLUS_EQUALS
-            { operator = BinaryOperator.PLUS_EQUALS; }
-        )
-        e=expression
-        { value = new BinaryExpressionSyntax(operator, in, e, span(start)); }
+        OP_PAREN_CLOSE
+        { value = arguments.build(); }
     ;
 
 literal returns [LiteralExpressionSyntax value]
 @init {
-    Token start = input.LT(0);
+    Token start = input.LT(1);
     LiteralType type = null;
     String string = null;
 }
@@ -1904,6 +1973,244 @@ literal returns [LiteralExpressionSyntax value]
     | f=FLOAT { string = f.getText(); type = LiteralType.FLOAT; }
     | c=CHAR { string = c.getText(); type = LiteralType.CHAR; }
     | s=STRING { string = s.getText(); type = LiteralType.STRING; }
+    ;
+
+// Type name parsing
+
+// Type name parsing is narly. The primary problem is that member names can
+// have an explicit interface declaration, which confuses the hell out of the
+// grammar. This would be fixable, if the type parameters wouldn't allow
+// attributes. Because they do, we can't use normal name parsing and fix it
+// afterwards. Instead, we parse into a temporary tree here and convert it
+// appropriately.
+
+// These are the entry points. These are called by the rest of the grammar and
+// expect syntax nodes. Sometings we do here directly; other things are
+// delegated to the name parsing system.
+
+// Identifier name is duplicated. The reason for this is that identifierName
+// is used a lot, and there is no use in going through the name parsing system
+// for the usual case.
+
+identifierName returns [IdentifierNameSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        i=IDENTIFIER
+        { value = new IdentifierNameSyntax(i.getText(), span(start)); }
+    ;
+
+// castType is not used in the name parsing system and just delegates to type.
+
+castType returns [TypeSyntax value]
+@init {
+    Token start = input.LT(1);
+    NakedNullableType type = null;
+}
+    :
+        (
+            OP_QUESTION
+            { type = NakedNullableType.NULLABLE; }
+        |
+            OP_EXCLAMATION
+            { type = NakedNullableType.NOT_NULLABLE; }
+        )
+        { value = new NakedNullableTypeSyntax(type, span(start)); }
+    |
+        t=type
+        { value = t; }
+    ;
+
+// These are the rest of the entry points. These delegate to the np__ rules.
+
+name returns [NameSyntax value]
+    :
+        qn=np__qualifiedName
+        { value = qn.toName(); }
+    ;
+
+type returns [TypeSyntax value]
+    :
+        t=np__type
+        { value = t.toType(); }
+    ;
+
+memberName returns [MemberName value]
+    :
+        n=np__qualifiedName
+        { value = n.toMemberName(); }
+    ;
+
+simpleName returns [SimpleNameSyntax value]
+    :
+        sn=np__simpleName
+        { value = sn.toSimpleName(); }
+    ;
+
+// Type parsing
+
+// This is the type parsing system. This parses into the TypeParser classes.
+// Through the entry point rules, the correct type is returned.
+
+np__type returns [TypeParser value]
+@init {
+    Token start = input.LT(1);
+    ImmutableArray.Builder<ArrayRankSpecifierSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        bt=np__baseType
+        { value = bt; }
+        (
+            ( OP_QUESTION )=>
+            OP_QUESTION
+            { value = new NullableTypeParser(value, span(start)); }
+        )?
+        (
+            ( rankSpecifier )=>
+            rsl=rankSpecifierList
+            { value = new ArrayTypeParser(value, rsl, span(start)); }
+        )?
+    ;
+
+rankSpecifierList returns [ImmutableArray<ArrayRankSpecifierSyntax> value]
+@init {
+    ImmutableArray.Builder<ArrayRankSpecifierSyntax> builder = new ImmutableArray.Builder<>();
+}
+    :
+        (
+            ( rankSpecifier )=>
+            rs=rankSpecifier
+            { builder.add(rs); }
+        )+
+        { value = builder.build(); }
+    ;
+
+rankSpecifier returns [ArrayRankSpecifierSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        OP_BRACKET_OPEN
+        OP_BRACKET_CLOSE
+        { value = new ArrayRankSpecifierSyntax(new OmittedArraySizeExpressionSyntax(span(start)), span(start)); }
+    ;
+
+np__baseType returns [TypeParser value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        pt=np__predefinedType
+        { value = new PredefinedTypeParser(pt, span(start)); }
+    |
+        qn=np__qualifiedName
+        { value = qn; }
+    ;
+
+np__qualifiedName returns [NameParser value]
+@init {
+    Token start = input.LT(1);
+    IdentifierNameParser alias = null;
+}
+    :
+        (
+            in=np__identifierName OP_COLON_COLON
+            { alias = in; }
+        )?
+        sn=np__simpleName
+        {
+            if (alias != null) {
+                value = new AliasQualifiedNameParser(alias, sn, span(start));
+            } else {
+                value = sn;
+            }
+        }
+        (
+            OP_DOT
+            sn=np__simpleName
+            { value = new QualifiedNameParser(value, sn, span(start)); }
+        )*
+    ;
+
+np__simpleName returns [SimpleNameParser value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        in=np__identifierName
+        { value = in; }
+        (
+            ( OP_LESS_THAN )=>
+            gta=np__genericTypeArguments
+            { value = new GenericNameParser(in.getIdentifier(), gta, span(start)); }
+        )?
+    ;
+
+np__genericTypeArguments returns [ImmutableArray<TypeParser> value]
+@init {
+    ImmutableArray.Builder<TypeParser> builder = new ImmutableArray.Builder<>();
+}
+    :
+        OP_LESS_THAN
+        gta=np__genericTypeArgument
+        { builder.add(gta); }
+        (
+            OP_COMMA
+            gta=np__genericTypeArgument
+            { builder.add(gta); }
+        )*
+        // This is a bit narly. What this is trying to accomplish is to
+        // disambiguate between >> as right shift and >> as two generic type
+        // close signs. We count the number of open braces we had, and allow
+        // that number of more to be closed here. Then, if we're closing one here
+        // that belongs to a recursive call, the getPendingGenericCloses() will
+        // be too low, and we'll match the empty branch.
+        op_GREATER_THAN_ANY
+        { value = builder.build(); }
+    ;
+
+np__genericTypeArgument returns [TypeParser value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        (
+            all=attributeListList
+            tpv=typeParameterVariance
+            t=np__type
+            { value = new TypeParameterParser(all, tpv, t, span(start)); }
+        |
+            { value = new OmittedTypeArgumentParser(span(start)); }
+        )
+    ;
+
+np__identifierName returns [IdentifierNameParser value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        i=IDENTIFIER
+        { value = new IdentifierNameParser(i.getText(), span(start)); }
+    ;
+
+np__predefinedType returns [PredefinedType value]
+    : KW_BOOL { value = PredefinedType.BOOL; }
+    | KW_BYTE { value = PredefinedType.BYTE; }
+    | KW_CHAR { value = PredefinedType.CHAR; }
+    | KW_DECIMAL { value = PredefinedType.DECIMAL; }
+    | KW_DOUBLE { value = PredefinedType.DOUBLE; }
+    | KW_FLOAT { value = PredefinedType.FLOAT; }
+    | KW_INT { value = PredefinedType.INT; }
+    | KW_LONG { value = PredefinedType.LONG; }
+    | KW_OBJECT { value = PredefinedType.OBJECT; }
+    | KW_SBYTE { value = PredefinedType.SBYTE; }
+    | KW_SHORT { value = PredefinedType.SHORT; }
+    | KW_STRING { value = PredefinedType.STRING; }
+    | KW_UINT { value = PredefinedType.UINT; }
+    | KW_ULONG { value = PredefinedType.ULONG; }
+    | KW_USHORT { value = PredefinedType.USHORT; }
+    | KW_VOID { value = PredefinedType.VOID; }
     ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -2017,7 +2324,7 @@ OP_EXCLAMATION : '!' ;
 OP_EXCLAMATION_EQUALS : '!=' ;
 OP_GREATER_THAN : '>' ;
 OP_GREATER_THAN_EQUALS : '>=' ;
-OP_GREATER_THAN_GREATER_THAN : '>>' ;
+OP_GREATER_THAN_GREATER_THAN : t='>>' { emitGreaterThanGreaterThan(t); } ;
 OP_GREATER_THAN_GREATER_THAN_EQUALS : '>>=' ;
 OP_LESS_THAN : '<' ;
 OP_LESS_THAN_EQUALS : '<=' ;
@@ -2040,7 +2347,19 @@ OP_SLASH : '/' ;
 OP_SLASH_EQUALS : '/=' ;
 OP_TILDE : '~' ;
 
-fragment NEW_LINE
+// The OP_GREATER_THAN_GREATER_THAN is split into two tokens. The reason for
+// doing this is that this very easily allows us to correctly disambiguate
+// >> for generic parameters. When the OP_GREATER_THAN_GREATER_THAN token is
+// needed, op_GREATER_THAN_GREATER_THAN (lower case o; parser rule) is used,
+// and when either > or >> is allowed, op_GREATER_THAN_ANY is used (again,
+// parser rule).
+
+fragment OP_GREATER_THAN_GREATER_THAN_FIRST : ;
+fragment OP_GREATER_THAN_GREATER_THAN_SECOND : ;
+op_GREATER_THAN_GREATER_THAN : OP_GREATER_THAN_GREATER_THAN_FIRST OP_GREATER_THAN_GREATER_THAN_SECOND ;
+op_GREATER_THAN_ANY : OP_GREATER_THAN | OP_GREATER_THAN_GREATER_THAN_FIRST | OP_GREATER_THAN_GREATER_THAN_SECOND ;
+
+NEW_LINE
     :
     ( '\r' // CR
     | '\n' // NL

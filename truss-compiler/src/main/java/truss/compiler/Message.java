@@ -1,10 +1,10 @@
 package truss.compiler;
 
-import truss.compiler.parser.TrussLexer;
-import truss.compiler.parser.TrussParser;
 import org.antlr.runtime.IntStream;
 import org.antlr.runtime.RecognitionException;
 import org.apache.commons.lang.Validate;
+import truss.compiler.parser.TrussLexer;
+import truss.compiler.parser.TrussParser;
 
 public class Message {
     public static final String ERROR_CODE_APPLICATION = "DTL";
@@ -67,14 +67,14 @@ public class Message {
     public static Message fromRecognitionException(String fileName, RecognitionException e) {
         Span span = new Span(fileName, e.line, e.charPositionInLine);
 
-        if (e.token.getType() == TrussLexer.EOF) {
+        if (e.token != null && e.token.getType() == TrussLexer.EOF) {
             return new Message(MessageType.UNEXPECTED_EOF, span);
         }
 
         return new Message(
             MessageType.UNEXPECTED_SYNTAX,
             span,
-            TrussParser.tokenNames[e.token.getType()]
+            e.token == null ? "" : TrussParser.tokenNames[e.token.getType()]
         );
     }
 

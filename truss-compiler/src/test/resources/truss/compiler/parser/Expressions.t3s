@@ -1,0 +1,244 @@
+>>> Lambda
+
+class Foo {
+    void Bar() {
+        var x = a => a;
+        x.foo(a => a);
+        var x = (a, b) => a;
+        var x = (ref int a) => a;
+        var x = (out int a) => a;
+        var x = async a => a;
+        var x = () => 1;
+        var x = () => {
+        };
+    }
+}
+
+>>> Lambda with parens around single parameter
+
+class Foo {
+    void Bar() {
+        var x = (a) => a;
+    }
+}
+
+<<<
+
+class Foo {
+    void Bar() {
+        var x = a => a;
+    }
+}
+
+>>> Member access
+
+class Foo {
+    void Bar() {
+        a.bar();
+        a.bar;
+        a.bar<int>();
+        a.bar<List<int>>();
+        a.bar<List<List<List<List<int>>>>>();
+        1.bar();
+        1.1.bar();
+    }
+}
+
+>>> Sizeof/typeof/default
+
+class Foo {
+    void Bar() {
+        var x = sizeof(y);
+        var x = sizeof(int);
+        var x = typeof(y);
+        var x = typeof(int);
+        var x = default(y);
+        var x = default(int);
+    }
+}
+
+>>> Parenthesized
+
+class Foo {
+    void Bar() {
+        var i = (0);
+        if (i) {
+        }
+    }
+}
+
+>>> Variable declaration expression
+
+class Foo {
+    void Bar() {
+        if var x {
+        }
+    }
+}
+
+>>> Array creation
+
+class Foo {
+    void Bar() {
+        var x = new int[1];
+        var x = new[] { };
+        var x = new int[] { };
+        var x = new[] {
+            1,
+            2,
+            3
+        };
+        var x = new int[] {
+            1,
+            2,
+            3
+        };
+        var x = new int[3][][] {
+            1,
+            2,
+            3
+        };
+    }
+}
+
+>>> Anonymous objects
+
+class Foo {
+    void Bar() {
+        var x = new {
+            y
+        };
+        var x = new {
+            a = b,
+            c = d
+        };
+    }
+}
+
+>>> Object initializer
+
+class Foo {
+    void Bar() {
+        var x = new Boo();
+        var x = new Boo(a, b, c);
+        var x = new Boo {
+            a,
+            b
+        };
+        var x = new Boo() {
+            a = a,
+            a = b
+        };
+        var x = new Boo(1) {
+            a += a,
+            b += b
+        };
+    }
+}
+
+>>> Binary expression
+
+class Foo {
+    void Bar() {
+        var x = a & b;
+        var x = a && b;
+        var x = a &= b;
+        var x = a as b;
+        var x = a * b;
+        var x = a *= b;
+        var x = a | b;
+        var x = a || b;
+        var x = a |= b;
+        var x = a ^ b;
+        var x = a ^= b;
+        var x = a = b;
+        var x = a == b;
+        var x = a != b;
+        var x = a > b;
+        var x = a >= b;
+        var x = a >> b;
+        var x = a >>= b;
+        var x = a is b;
+        var x = a < b;
+        var x = a <= b;
+        var x = a << b;
+        var x = a <<= b;
+        var x = a - b;
+        var x = a -= b;
+        var x = a % b;
+        var x = a %= b;
+        var x = a + b;
+        var x = a += b;
+        var x = a ?? b;
+        var x = a / b;
+        var x = a /= b;
+    }
+}
+
+>>> Element access
+
+class Foo {
+    void Bar() {
+        var x = a[0];
+        var x = a[0][0];
+    }
+}
+
+>>> Instance access
+
+class Foo {
+    void Bar() {
+        var x = this;
+        var x = base;
+        var x = this.bar;
+        var x = base.bar;
+    }
+}
+
+>>> Conditional
+
+class Foo {
+    void Bar() {
+        var x = true ? 1 : 2;
+        var x = 1 ? 2 ? 3 : 4 : 5;
+    }
+}
+
+>>> Await
+
+class Foo {
+    void Bar() {
+        var x = await y;
+    }
+}
+
+>>> Unary
+
+class Foo {
+    void Bar() {
+        var x = &a;
+        var x = !a;
+        var x = -a;
+        var x = --a;
+        var x = +a;
+        var x = ++a;
+        var x = ~a;
+        var x = a--;
+        var x = a++;
+    }
+}
+
+>>> Multiple index parameters
+
+class Foo {
+    void Bar() {
+        var x = a[1, 2];
+    }
+
+    int this[int i, int j] {
+        get {
+        }
+        set {
+        }
+    }
+}

@@ -1,0 +1,23 @@
+>>> Single line comment
+
+// Single line comment
+
+<<<
+
+>>> Multi line comment
+
+/*
+ * Multi line comment
+ */
+
+<<<
+
+>>> Inline comment
+
+namespace Foo { // Inline comment
+}
+
+<<<
+
+namespace Foo {
+}

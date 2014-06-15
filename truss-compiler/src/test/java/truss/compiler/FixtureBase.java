@@ -46,6 +46,14 @@ public abstract class FixtureBase implements TestCaseCallback {
 
         try {
             compilationUnit = parser.compilationUnit();
+        } catch (Throwable e) {
+            MessageCollectionScope.addMessage(new Message(
+                MessageType.INTERNAL_ERROR,
+                name,
+                e.getMessage()
+            ));
+
+            compilationUnit = null;
         } finally {
             if (MessageCollectionScope.getCurrent().hasMessages()) {
                 compilationUnit = null;

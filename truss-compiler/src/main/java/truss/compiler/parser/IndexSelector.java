@@ -1,20 +1,21 @@
 package truss.compiler.parser;
 
 import truss.compiler.Span;
-import truss.compiler.syntax.ExpressionSyntax;
+import truss.compiler.support.ImmutableArray;
 import truss.compiler.syntax.ElementAccessExpressionSyntax;
+import truss.compiler.syntax.ExpressionSyntax;
 
 class IndexSelector implements Selector {
-    private final ExpressionSyntax expression;
+    private final ImmutableArray<ExpressionSyntax> expressions;
     private final Span span;
 
-    public IndexSelector(ExpressionSyntax expression, Span span) {
-        this.expression = expression;
+    public IndexSelector(ImmutableArray<ExpressionSyntax> expressions, Span span) {
+        this.expressions = expressions;
         this.span = span;
     }
 
     @Override
     public ExpressionSyntax build(ExpressionSyntax value) {
-        return new ElementAccessExpressionSyntax(value, expression, span);
+        return new ElementAccessExpressionSyntax(value, expressions, span);
     }
 }

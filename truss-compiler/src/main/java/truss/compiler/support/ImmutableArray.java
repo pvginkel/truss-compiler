@@ -2,6 +2,7 @@ package truss.compiler.support;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.Validate;
+import truss.compiler.MessageCollectionScope;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -15,6 +16,10 @@ public class ImmutableArray<T> implements List<T> {
     @SafeVarargs
     public static <T1> ImmutableArray<T1> asList(T1... items) {
         Validate.notNull(items, "items");
+
+        for (T1 item : items) {
+            Validate.notNull(item, "item");
+        }
 
         return new ImmutableArray<>(items.clone());
     }
@@ -273,7 +278,9 @@ public class ImmutableArray<T> implements List<T> {
         }
 
         public boolean add(T item) {
-            Validate.notNull(item, "item");
+            if (item == null && !MessageCollectionScope.getCurrent().hasErrors()) {
+                Validate.notNull(item, "item");
+            }
 
             return list.add(item);
         }

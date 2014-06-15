@@ -10,8 +10,11 @@
         <property name="Body" type="BlockSyntax"/>
     </class>
     <class name="ArgumentSyntax" base="SyntaxNode">
-        <property name="Modifier" type="ParameterModifier" list="true"/>
+        <property name="Modifiers" type="ParameterModifier" list="true"/>
         <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="ArrayRankSpecifierSyntax" base="SyntaxNode">
+        <property name="Size" type="ExpressionSyntax"/>
     </class>
     <class name="AttributeListSyntax" base="SyntaxNode">
         <property name="Target" type="AttributeTarget"/>
@@ -29,6 +32,9 @@
         <property name="ExceptionType" type="TypeSyntax" nullable="true"/>
         <property name="Identifier" type="IdentifierNameSyntax" nullable="true"/>
         <property name="Block" type="BlockSyntax"/>
+        <validation><![CDATA[
+            Validate.isTrue(identifier == null || exceptionType != null, "Exception type is mandatory when an identifier is provided");
+        ]]></validation>
     </class>
     <class name="CompilationUnitSyntax" base="SyntaxNode">
         <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
@@ -40,12 +46,12 @@
         <property name="Initializers" type="AnonymousObjectMemberDeclaratorSyntax" list="true"/>
     </class>
     <class name="AnonymousObjectMemberDeclaratorSyntax" base="SyntaxNode">
-        <property name="Name" type="IdentifierNameSyntax"/>
+        <property name="Name" type="IdentifierNameSyntax" nullable="true"/>
         <property name="Expression" type="ExpressionSyntax"/>
     </class>
     <class name="ArrayCreationExpressionSyntax" base="ExpressionSyntax">
         <property name="Type" type="ArrayTypeSyntax"/>
-        <property name="Initializer" type="ExpressionSyntax"/>
+        <property name="Initializer" type="InitializerExpressionSyntax" nullable="true"/>
     </class>
     <class name="AwaitExpressionSyntax" base="ExpressionSyntax">
         <property name="Expression" type="ExpressionSyntax"/>
@@ -61,8 +67,8 @@
     </class>
     <class name="ConditionalExpressionSyntax" base="ExpressionSyntax">
         <property name="Condition" type="ExpressionSyntax"/>
-        <property name="WhenFalse" type="ExpressionSyntax"/>
         <property name="WhenTrue" type="ExpressionSyntax"/>
+        <property name="WhenFalse" type="ExpressionSyntax"/>
     </class>
     <class name="DefaultExpressionSyntax" base="ExpressionSyntax">
         <property name="TargetType" type="TypeSyntax"/>
@@ -70,10 +76,14 @@
     <!-- Array index: e[10] -->
     <class name="ElementAccessExpressionSyntax" base="ExpressionSyntax">
         <property name="Expression" type="ExpressionSyntax"/>
-        <property name="IndexExpression" type="ExpressionSyntax"/>
+        <property name="IndexExpressions" type="ExpressionSyntax" list="true"/>
     </class>
     <class name="ImplicitArrayCreationExpressionSyntax" base="ExpressionSyntax">
-        <property name="Initializer" type="ExpressionSyntax" list="true"/>
+        <property name="RankSpecifiers" type="ArrayRankSpecifierSyntax" list="true"/>
+        <property name="Initializer" type="InitializerExpressionSyntax"/>
+    </class>
+    <class name="InitializerExpressionSyntax" base="ExpressionSyntax">
+        <property name="Expressions" type="ExpressionSyntax" list="true"/>
     </class>
     <class name="InstanceExpressionSyntax" base="ExpressionSyntax">
         <property name="Type" type="ThisOrBase"/>
@@ -92,9 +102,9 @@
     </class>
     <class name="ObjectCreationExpressionSyntax" base="ExpressionSyntax">
         <property name="TargetType" type="TypeSyntax"/>
-        <property name="Arguments" type="ArgumentSyntax" list="true"/>
+        <property name="Arguments" type="ArgumentSyntax" list="true" nullable="true"/>
         <!-- Represents { a = 7, b = 3 } -->
-        <property name="Initializers" type="ExpressionSyntax" list="true"/>
+        <property name="Initializer" type="InitializerExpressionSyntax" nullable="true"/>
     </class>
     <class name="OmittedArraySizeExpressionSyntax" base="ExpressionSyntax"/>
     <class name="ParenthesizedExpressionSyntax" base="ExpressionSyntax">
@@ -136,6 +146,7 @@
     </class>
     <class name="ArrayTypeSyntax" base="TypeSyntax">
         <property name="ElementType" type="TypeSyntax"/>
+        <property name="RankSpecifiers" type="ArrayRankSpecifierSyntax" list="true"/>
     </class>
     <class name="NameSyntax" abstract="true" base="TypeSyntax"/>
     <class name="AliasQualifiedNameSyntax" base="NameSyntax">
@@ -196,7 +207,7 @@
     <class name="ConstructorDeclarationSyntax" base="BaseMethodDeclarationSyntax">
         <property name="Identifier" type="IdentifierNameSyntax"/>
         <!-- Represents the : this/base call -->
-        <property name="Initializer" type="ConstructorInitializerSyntax"/>
+        <property name="Initializer" type="ConstructorInitializerSyntax" nullable="true"/>
     </class>
     <class name="ConstructorInitializerSyntax" base="SyntaxNode">
         <property name="Type" type="ThisOrBase"/>
@@ -231,7 +242,7 @@
         <property name="Identifier" type="IdentifierNameSyntax"/>
     </class>
     <class name="IndexerDeclarationSyntax" base="BasePropertyDeclarationSyntax">
-        <property name="Parameter" type="ParameterSyntax"/>
+        <property name="Parameters" type="ParameterSyntax" list="true"/>
     </class>
     <class name="PropertyDeclarationSyntax" base="BasePropertyDeclarationSyntax">
         <property name="Identifier" type="IdentifierNameSyntax"/>
@@ -272,7 +283,7 @@
     </class>
     <class name="ParameterSyntax" base="SyntaxNode">
         <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
-        <property name="Modifier" type="ParameterModifier" list="true"/>
+        <property name="Modifiers" type="ParameterModifier" list="true"/>
         <property name="ParameterType" type="TypeSyntax" nullable="true"/>
         <property name="Identifier" type="IdentifierNameSyntax"/>
     </class>
@@ -300,11 +311,14 @@
         <property name="Block" type="BlockSyntax"/>
     </class>
     <class name="ForStatementSyntax" base="StatementSyntax">
-        <property name="Declaration" type="VariableDeclarationSyntax"/>
-        <property name="Initializers" type="ExpressionSyntax" list="true"/>
-        <property name="Condition" type="ExpressionSyntax"/>
-        <property name="Incrementors" type="ExpressionSyntax" list="true"/>
+        <property name="Declaration" type="VariableDeclarationSyntax" nullable="true"/>
+        <property name="Initializers" type="ExpressionSyntax" list="true" nullable="true"/>
+        <property name="Condition" type="ExpressionSyntax" nullable="true"/>
+        <property name="Incrementors" type="ExpressionSyntax" list="true" nullable="true"/>
         <property name="Block" type="BlockSyntax"/>
+        <validation><![CDATA[
+            Validate.isTrue(declaration == null || initializers == null, "Provide either a declaration or initializers");
+        ]]></validation>
     </class>
     <class name="IfStatementSyntax" base="StatementSyntax">
         <property name="Condition" type="ExpressionSyntax"/>
@@ -312,6 +326,7 @@
         <property name="Elses" type="ElseClauseSyntax" list="true"/>
     </class>
     <class name="ElseClauseSyntax" base="SyntaxNode">
+        <property name="Type" type="ElIfOrElse"/>
         <property name="Condition" type="ExpressionSyntax" nullable="true"/>
         <property name="Block" type="BlockSyntax"/>
     </class>
@@ -321,7 +336,7 @@
         <property name="Declaration" type="VariableDeclarationSyntax"/>
     </class>
     <class name="ReturnStatementSyntax" base="StatementSyntax">
-        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="Expression" type="ExpressionSyntax" nullable="true"/>
     </class>
     <class name="SwitchStatementSyntax" base="StatementSyntax">
         <property name="Expression" type="ExpressionSyntax"/>
@@ -333,7 +348,7 @@
         <property name="Block" type="BlockSyntax"/>
     </class>
     <class name="ThrowStatementSyntax" base="StatementSyntax">
-        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="Expression" type="ExpressionSyntax" nullable="true"/>
     </class>
     <class name="TryStatementSyntax" base="StatementSyntax">
         <property name="Block" type="BlockSyntax"/>
@@ -344,9 +359,12 @@
         <property name="Block" type="BlockSyntax"/>
     </class>
     <class name="UsingStatementSyntax" base="StatementSyntax">
-        <property name="Declaration" type="VariableDeclarationSyntax"/>
-        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="Declaration" type="VariableDeclarationSyntax" nullable="true"/>
+        <property name="Expression" type="ExpressionSyntax" nullable="true"/>
         <property name="Block" type="BlockSyntax"/>
+        <validation><![CDATA[
+            Validate.isTrue((declaration != null) != (expression != null), "Provide either a declaration or expression");
+        ]]></validation>
     </class>
     <class name="LoopStatementSyntax" base="StatementSyntax">
         <property name="Block" type="BlockSyntax"/>
@@ -374,7 +392,7 @@
     </class>
     <class name="ImportDirectiveSyntax" base="SyntaxNode">
         <property name="IsStatic" type="boolean"/>
-        <property name="Alias" type="IdentifierNameSyntax"/>
+        <property name="Alias" type="IdentifierNameSyntax" nullable="true"/>
         <property name="Name" type="NameSyntax"/>
     </class>
     <class name="VariableDeclarationSyntax" base="SyntaxNode">
@@ -383,8 +401,7 @@
     </class>
     <class name="VariableDeclaratorSyntax" base="SyntaxNode">
         <property name="Identifier" type="IdentifierNameSyntax"/>
-        <property name="ArraySizeExpression" type="ExpressionSyntax"/>
-        <property name="Value" type="ExpressionSyntax"/>
+        <property name="Value" type="ExpressionSyntax" nullable="true"/>
     </class>
     <enum name="AccessorDeclarationType">
         <!-- This one appears when an illegal keyword is used as the accessor declaration type -->
@@ -446,6 +463,10 @@
     <enum name="ClassOrStruct">
         <property name="CLASS"/>
         <property name="STRUCT"/>
+    </enum>
+    <enum name="ElIfOrElse">
+        <property name="ELIF"/>
+        <property name="ELSE"/>
     </enum>
     <enum name="ImplicitOrExplicit">
         <property name="EXPLICIT"/>

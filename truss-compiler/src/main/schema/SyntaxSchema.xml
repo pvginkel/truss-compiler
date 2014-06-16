@@ -129,17 +129,7 @@
     <class name="TypeOfExpressionSyntax" base="ExpressionSyntax">
         <property name="TargetType" type="TypeSyntax"/>
     </class>
-    <class name="TypeSyntax" abstract="true" base="ExpressionSyntax">
-        <members><![CDATA[
-            public boolean isVar() {
-                if (this instanceof IdentifierNameSyntax) {
-                    return "var".equals(((IdentifierNameSyntax)this).getIdentifier());
-                }
-                return false;
-            }
-        ]]>
-        </members>
-    </class>
+    <class name="TypeSyntax" abstract="true" base="ExpressionSyntax"/>
     <class name="VariableDeclarationExpressionSyntax" base="ExpressionSyntax">
         <property name="VariableType" type="TypeSyntax"/>
         <property name="Identifier" type="IdentifierNameSyntax"/>
@@ -193,6 +183,7 @@
     <class name="PredefinedTypeSyntax" base="TypeSyntax">
         <property name="PredefinedType" type="PredefinedType"/>
     </class>
+    <class name="VarTypeSyntax" base="TypeSyntax"/>
     <class name="MemberDeclarationSyntax" abstract="true" base="SyntaxNode"/>
     <class name="BaseFieldDeclarationSyntax" base="MemberDeclarationSyntax" abstract="true">
         <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
@@ -505,7 +496,7 @@
         <property name="PRIVATE"/>
         <property name="PROTECTED"/>
         <property name="PUBLIC"/>
-        <property name="READ_ONLY"/>
+        <property name="READONLY"/>
         <property name="SEALED"/>
         <property name="STATIC"/>
         <property name="TRACKED"/>

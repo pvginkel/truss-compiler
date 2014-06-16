@@ -1,6 +1,7 @@
 package truss.compiler.printing;
 
 import org.apache.commons.lang.Validate;
+import truss.compiler.WellKnownNames;
 import truss.compiler.support.ImmutableArray;
 import truss.compiler.syntax.*;
 
@@ -81,7 +82,7 @@ public class SyntaxPrinter implements SyntaxVisitor {
     private void visitModifiers(ImmutableArray<Modifier> modifiers) throws Exception {
         for (Modifier modifier : modifiers) {
             if (modifier != Modifier.TRACKED) {
-                keyword(modifier.toString().toLowerCase().replace("_", ""));
+                keyword(modifier.toString().toLowerCase());
                 ws();
             }
         }
@@ -127,8 +128,8 @@ public class SyntaxPrinter implements SyntaxVisitor {
 
     @Override
     public void visitAliasQualifiedName(AliasQualifiedNameSyntax syntax) throws Exception {
-        if ("global".equals(syntax.getAlias().getIdentifier())) {
-            keyword("global");
+        if (WellKnownNames.ALIAS_GLOBAL.equals(syntax.getAlias().getIdentifier())) {
+            keyword(WellKnownNames.ALIAS_GLOBAL);
         } else {
             syntax.getAlias().accept(this);
         }
@@ -1377,6 +1378,11 @@ public class SyntaxPrinter implements SyntaxVisitor {
             syntax.getDeclaration().accept(this);
         }
         visitOuterBlock(syntax.getBlock());
+    }
+
+    @Override
+    public void visitVarType(VarTypeSyntax syntax) throws Exception {
+        keyword("var");
     }
 
     @Override

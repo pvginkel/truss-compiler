@@ -445,7 +445,7 @@ modifier returns [Modifier value]
     | KW_PRIVATE { value = Modifier.PRIVATE; }
     | KW_PROTECTED { value = Modifier.PROTECTED; }
     | KW_PUBLIC { value = Modifier.PUBLIC; }
-    | KW_READONLY { value = Modifier.READ_ONLY; }
+    | KW_READONLY { value = Modifier.READONLY; }
     | KW_SEALED { value = Modifier.SEALED; }
     | KW_STATIC { value = Modifier.STATIC; }
     | KW_VIRTUAL { value = Modifier.VIRTUAL; }
@@ -1048,7 +1048,7 @@ localDeclarationStatement returns [LocalDeclarationStatementSyntax value]
     :
         (
             KW_READONLY
-            { modifiers.add(Modifier.READ_ONLY); }
+            { modifiers.add(Modifier.READONLY); }
         )?
         vd=variableDeclaration
         OP_SEMICOLON
@@ -2079,7 +2079,15 @@ name returns [NameSyntax value]
     ;
 
 type returns [TypeSyntax value]
+@init {
+    Token start = input.LT(1);
+}
     :
+        // We don't have to parse 'var' in np__type because it's only valid when
+        // it stands on itself.
+        KW_VAR
+        { value = new VarTypeSyntax(span(start)); }
+    |
         t=np__type
         { value = t.toType(); }
     ;
@@ -2347,6 +2355,7 @@ KW_UINT : 'uint' ;
 KW_ULONG : 'ulong' ;
 KW_USHORT : 'ushort' ;
 KW_USING : 'using' ;
+KW_VAR : 'var' ;
 KW_VIRTUAL : 'virtual' ;
 KW_VOID : 'void' ;
 KW_VOLATILE : 'volatile' ;

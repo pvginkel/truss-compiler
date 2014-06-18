@@ -80,8 +80,10 @@ public class SyntaxPrinter implements SyntaxVisitor {
 
     private void visitModifiers(ImmutableArray<Modifier> modifiers) throws Exception {
         for (Modifier modifier : modifiers) {
-            keyword(modifier.toString().toLowerCase().replace("_", ""));
-            ws();
+            if (modifier != Modifier.TRACKED) {
+                keyword(modifier.toString().toLowerCase().replace("_", ""));
+                ws();
+            }
         }
     }
 
@@ -406,8 +408,30 @@ public class SyntaxPrinter implements SyntaxVisitor {
     }
 
     @Override
-    public void visitClassOrStructConstraint(ClassOrStructConstraintSyntax syntax) throws Exception {
-        keyword(syntax.getType().toString().toLowerCase());
+    public void visitTypeFamilyConstraint(TypeFamilyConstraintSyntax syntax) throws Exception {
+        switch (syntax.getFamily()) {
+            case ANY:
+                break;
+
+            case CLASS:
+                keyword("class");
+                break;
+
+            case STRUCT:
+                keyword("struct");
+                break;
+
+            case TRACKED:
+                keyword("struct");
+                syntax("^");
+                return;
+        }
+
+        printNullable(syntax.getNullable());
+    }
+
+    private void printNullable(Nullable nullable) throws Exception {
+        syntax(nullable == Nullable.NULLABLE ? "?" : "!");
     }
 
     @Override
@@ -923,7 +947,7 @@ public class SyntaxPrinter implements SyntaxVisitor {
 
     @Override
     public void visitNakedNullableType(NakedNullableTypeSyntax syntax) throws Exception {
-        syntax(syntax.getType() == NakedNullableType.NULLABLE ? "?" : "!");
+        printNullable(syntax.getType());
     }
 
     @Override
@@ -958,6 +982,12 @@ public class SyntaxPrinter implements SyntaxVisitor {
     public void visitNullableType(NullableTypeSyntax syntax) throws Exception {
         syntax.getElementType().accept(this);
         syntax("?");
+    }
+
+    @Override
+    public void visitTrackedType(TrackedTypeSyntax syntax) throws Exception {
+        syntax.getElementType().accept(this);
+        syntax("^");
     }
 
     @Override
@@ -1216,6 +1246,16 @@ public class SyntaxPrinter implements SyntaxVisitor {
     }
 
     @Override
+    public void visitDeleteStatement(DeleteStatementSyntax syntax) throws Exception {
+        lead();
+        keyword("delete");
+        ws();
+        syntax.getExpression().accept(this);
+        syntax(";");
+        nl();
+    }
+
+    @Override
     public void visitTryStatement(TryStatementSyntax syntax) throws Exception {
         lead();
         keyword("try");
@@ -1241,6 +1281,9 @@ public class SyntaxPrinter implements SyntaxVisitor {
         lead();
         visitModifiers(syntax.getModifiers());
         keyword(syntax.getType().toString().toLowerCase());
+        if (syntax.getModifiers().contains(Modifier.TRACKED)) {
+            syntax("^");
+        }
         ws();
         syntax.getIdentifier().accept(this);
         visitTypeParameterList(syntax.getTypeParameters());

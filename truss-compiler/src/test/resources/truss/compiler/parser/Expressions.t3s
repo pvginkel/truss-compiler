@@ -76,6 +76,18 @@ class Foo {
     }
 }
 
+>>> Variable declaration
+
+class Foo {
+    void Bar() {
+        int i = 0, j = 1;
+        int? i = 0, j = 1;
+        int^ i = 0, j = 1;
+        int?^ i = 0, j = 1;
+        int[]^ i = 0, j = 1;
+    }
+}
+
 >>> Array creation
 
 class Foo {

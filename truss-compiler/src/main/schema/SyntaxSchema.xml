@@ -180,8 +180,11 @@
     with the name "var" is a var type.
     -->
     <class name="IdentifierNameSyntax" base="SimpleNameSyntax"/>
+    <class name="TrackedTypeSyntax" base="TypeSyntax">
+        <property name="ElementType" type="TypeSyntax"/>
+    </class>
     <class name="NakedNullableTypeSyntax" base="TypeSyntax">
-        <property name="Type" type="NakedNullableType"/>
+        <property name="Type" type="Nullable"/>
     </class>
     <class name="NullableTypeSyntax" base="TypeSyntax">
         <property name="ElementType" type="TypeSyntax"/>
@@ -296,6 +299,9 @@
     </class>
     <class name="BreakStatementSyntax" base="StatementSyntax"/>
     <class name="ContinueStatementSyntax" base="StatementSyntax"/>
+    <class name="DeleteStatementSyntax" base="StatementSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
     <class name="DoStatementSyntax" base="StatementSyntax">
         <property name="Condition" type="ExpressionSyntax"/>
         <property name="Block" type="BlockSyntax"/>
@@ -378,8 +384,12 @@
         <property name="Constraints" type="TypeParameterConstraintSyntax" list="true"/>
     </class>
     <class name="TypeParameterConstraintSyntax" abstract="true" base="SyntaxNode"/>
-    <class name="ClassOrStructConstraintSyntax" base="TypeParameterConstraintSyntax">
-        <property name="Type" type="ClassOrStruct"/>
+    <class name="TypeFamilyConstraintSyntax" base="TypeParameterConstraintSyntax">
+        <property name="Family" type="TypeFamily"/>
+        <property name="Nullable" type="Nullable" nullable="true"/>
+        <validation><![CDATA[
+            Validate.isTrue(family == TypeFamily.TRACKED || nullable != null, "Nullable is mandatory when family is not tracked");
+        ]]></validation>
     </class>
     <class name="ConstructorConstraintSyntax" base="TypeParameterConstraintSyntax"/>
     <class name="TypeConstraintSyntax" base="TypeParameterConstraintSyntax">
@@ -460,9 +470,11 @@
         <property name="CASE"/>
         <property name="DEFAULT"/>
     </enum>
-    <enum name="ClassOrStruct">
+    <enum name="TypeFamily">
+        <property name="ANY"/>
         <property name="CLASS"/>
         <property name="STRUCT"/>
+        <property name="TRACKED"/>
     </enum>
     <enum name="ElIfOrElse">
         <property name="ELIF"/>
@@ -496,10 +508,11 @@
         <property name="READ_ONLY"/>
         <property name="SEALED"/>
         <property name="STATIC"/>
+        <property name="TRACKED"/>
         <property name="VIRTUAL"/>
         <property name="VOLATILE"/>
     </enum>
-    <enum name="NakedNullableType">
+    <enum name="Nullable">
         <property name="NULLABLE"/>
         <property name="NOT_NULLABLE"/>
     </enum>
@@ -532,6 +545,7 @@
         <property name="REF"/>
         <property name="OUT"/>
         <property name="PARAMS"/>
+        <property name="CONSUMES"/>
     </enum>
     <enum name="PostfixUnaryOperator">
         <property name="MINUS_MINUS"/>
@@ -578,103 +592,4 @@
         <property name="IN"/>
         <property name="OUT"/>
     </enum>
-    <!-- Disabled functionality. For the things below, I'm not really determined yet to exclude them. Probably will though -->
-    <!-- Checked
-    <class name="CheckedExpressionSyntax" base="ExpressionSyntax">
-        <property name="Expression" type="ExpressionSyntax"/>
-        <property name="Type" type="CheckedOrUnchecked"/>
-    </class>
-    <class name="CheckedStatementSyntax" base="StatementSyntax">
-        <property name="Block" type="BlockSyntax"/>
-        <property name="Type" type="CheckedOrUnchecked"/>
-    </class>
-    <enum name="CheckedOrUnchecked">
-        <property name="CHECKED"/>
-        <property name="UNCHECKED"/>
-    </enum>
-    -->
-    <!-- Generator
-    <class name="YieldStatementSyntax" base="StatementSyntax">
-        <property name="Expression" type="ExpressionSyntax"/>
-        <property name="Type" type="ReturnOrBreak"/>
-    </class>
-    <enum name="ReturnOrBreak">
-        <property name="BREAK"/>
-        <property name="RETURN"/>
-    </enum>
-    -->
-    <!-- LINQ
-    <class name="JoinIntoClauseSyntax" base="SyntaxNode">
-        <property name="Identifier" type="IdentifierNameSyntax"/>
-    </class>
-    <class name="QueryExpressionSyntax" base="ExpressionSyntax">
-        <property name="Body" type="QueryBodySyntax"/>
-        <property name="FromClause" type="FromClauseSyntax"/>
-    </class>
-    <class name="OrderingSyntax" base="SyntaxNode">
-        <property name="Type" type="AscendingOrDescending"/>
-        <property name="Expression" type="ExpressionSyntax"/>
-    </class>
-    <class name="QueryBodySyntax" base="SyntaxNode">
-        <property name="Clauses" type="QueryClauseSyntax" list="true"/>
-        <property name="Continuation" type="QueryContinuationSyntax"/>
-        <property name="SelectOrGroup" type="SelectOrGroupClauseSyntax"/>
-    </class>
-    <class name="QueryClauseSyntax" abstract="true" base="SyntaxNode"/>
-    <class name="FromClauseSyntax" base="QueryClauseSyntax">
-        <property name="Expression" type="ExpressionSyntax"/>
-        <property name="Identifier" type="IdentifierNameSyntax"/>
-        <property name="Type" type="TypeSyntax"/>
-    </class>
-    <class name="JoinClauseSyntax" base="QueryClauseSyntax">
-        <property name="Identifier" type="IdentifierNameSyntax"/>
-        <property name="InExpression" type="ExpressionSyntax"/>
-        <property name="Into" type="JoinIntoClauseSyntax"/>
-        <property name="LeftExpression" type="ExpressionSyntax"/>
-        <property name="RightExpression" type="ExpressionSyntax"/>
-        <property name="Type" type="TypeSyntax"/>
-    </class>
-    <class name="LetClauseSyntax" base="QueryClauseSyntax">
-        <property name="Expression" type="ExpressionSyntax"/>
-        <property name="Identifier" type="IdentifierNameSyntax"/>
-    </class>
-    <class name="OrderByClauseSyntax" base="QueryClauseSyntax">
-        <property name="Orderings" type="OrderingSyntax" list="true"/>
-    </class>
-    <class name="WhereClauseSyntax" base="QueryClauseSyntax">
-        <property name="Condition" type="ExpressionSyntax"/>
-    </class>
-    <class name="QueryContinuationSyntax" base="SyntaxNode">
-        <property name="Body" type="QueryBodySyntax"/>
-        <property name="Identifier" type="IdentifierNameSyntax"/>
-    </class>
-    <class name="SelectOrGroupClauseSyntax" abstract="true" base="SyntaxNode"/>
-    <class name="GroupClauseSyntax" base="SelectOrGroupClauseSyntax">
-        <property name="ByExpression" type="ExpressionSyntax"/>
-        <property name="GroupExpression" type="ExpressionSyntax"/>
-    </class>
-    <class name="SelectClauseSyntax" base="SelectOrGroupClauseSyntax">
-        <property name="Expression" type="ExpressionSyntax"/>
-    </class>
-    <enum name="AscendingOrDescending">
-        <property name="ASCENDING"/>
-        <property name="DESCENDING"/>
-    </enum>
-    -->
-    <!-- Goto/label
-    <class name="GotoStatementSyntax" base="StatementSyntax">
-        <property name="Type" type="CaseOrDefault"/>
-        <property name="Expression" type="ExpressionSyntax"/>
-    </class>
-    <class name="LabeledStatementSyntax" base="StatementSyntax">
-        <property name="Identifier" type="IdentifierNameSyntax"/>
-        <property name="Statement" type="StatementSyntax"/>
-    </class>
-    -->
-    <!-- Lock
-    <class name="LockStatementSyntax" base="StatementSyntax">
-        <property name="Expression" type="ExpressionSyntax"/>
-        <property name="Statement" type="StatementSyntax"/>
-    </class>
-    -->
 </schema>

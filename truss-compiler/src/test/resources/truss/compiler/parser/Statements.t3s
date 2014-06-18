@@ -193,3 +193,11 @@ class Foo {
         }
     }
 }
+
+>>> Delete
+
+class Foo {
+    void Bar() {
+        delete nil;
+    }
+}

@@ -237,6 +237,7 @@ parameter returns [ParameterSyntax value]
 parameterModifier returns [ParameterModifier value]
     : KW_THIS { value = ParameterModifier.THIS; }
     | KW_PARAMS { value = ParameterModifier.PARAMS; }
+    | KW_CONSUMES { value = ParameterModifier.CONSUMES; }
     | am=argumentModifier { value = am; }
     ;
 
@@ -307,11 +308,21 @@ typeDeclaration returns [TypeDeclarationSyntax value]
     TypeDeclarationType type = null;
     ImmutableArray.Builder<TypeSyntax> baseTypes = new ImmutableArray.Builder<>();
     ImmutableArray.Builder<MemberDeclarationSyntax> memberDeclarations = new ImmutableArray.Builder<>();
+    boolean tracked = false;
 }
 @after {
+    ImmutableArray<Modifier> modifiers = $declarationPrefix::modifiers;
+    
+    if (tracked) {
+        ImmutableArray.Builder<Modifier> builder = new ImmutableArray.Builder<>();
+        builder.addAll(modifiers);
+        builder.add(Modifier.TRACKED);
+        modifiers = builder.build();
+    }
+
     value = new TypeDeclarationSyntax(
         $declarationPrefix::attributes,
-        $declarationPrefix::modifiers,
+        modifiers,
         in,
         baseTypes.build(),
         type,
@@ -324,7 +335,7 @@ typeDeclaration returns [TypeDeclarationSyntax value]
     :
         ( KW_CLASS { type = TypeDeclarationType.CLASS; }
         | KW_INTERFACE { type = TypeDeclarationType.INTERFACE; }
-        | KW_STRUCT { type = TypeDeclarationType.STRUCT; }
+        | KW_STRUCT ( OP_CARET { tracked = true; } )? { type = TypeDeclarationType.STRUCT; }
         )
         in=identifierName
         tpl=typeParameterList
@@ -384,21 +395,31 @@ typeParameterConstraintClause returns [TypeParameterConstraintClauseSyntax value
 typeParameterConstraint returns [TypeParameterConstraintSyntax value]
 @init {
     Token start = input.LT(1);
-    ClassOrStruct classOrStruct = null;
+    TypeFamily family = null;
 }
     :
         KW_NEW OP_PAREN_OPEN OP_PAREN_CLOSE
         { value = new ConstructorConstraintSyntax(span(start)); }
     |
         (
-            KW_CLASS { classOrStruct = ClassOrStruct.CLASS; }
+            n=nullable { family = TypeFamily.ANY; }
         |
-            KW_STRUCT { classOrStruct = ClassOrStruct.STRUCT; }
+            KW_CLASS n=nullable { family = TypeFamily.CLASS; }
+        |
+            KW_STRUCT
+            ( n=nullable { family = TypeFamily.STRUCT; }
+            | OP_CARET { family = TypeFamily.TRACKED; }
+            )
         )
-        { value = new ClassOrStructConstraintSyntax(classOrStruct, span(start)); }
+        { value = new TypeFamilyConstraintSyntax(family, n, span(start)); }
     |
         t=type
         { value = new TypeConstraintSyntax(t, span(start)); }
+    ;
+
+nullable returns [Nullable value]
+    : OP_QUESTION { value = Nullable.NULLABLE; }
+    | OP_EXCLAMATION { value = Nullable.NOT_NULLABLE; }
     ;
 
 modifiers returns [ImmutableArray<Modifier> value]
@@ -863,6 +884,7 @@ statement returns [StatementSyntax value]
     | e17=usingStatement { value = e17; }
     | e18=loopStatement { value = e18; }
     | e19=whileStatement { value = e19; }
+    | e20=deleteStatement { value = e20; }
     ;
 
 assertStatement returns [AssertStatementSyntax value]
@@ -871,9 +893,9 @@ assertStatement returns [AssertStatementSyntax value]
 }
     :
         KW_ASSERT
-        e=expression
+        eod=expressionOrDeclaration
         OP_SEMICOLON
-        { value = new AssertStatementSyntax(e, span(start)); }
+        { value = new AssertStatementSyntax(eod, span(start)); }
     ;
 
 breakContinueStatement returns [StatementSyntax value]
@@ -895,9 +917,9 @@ doStatement returns [DoStatementSyntax value]
         KW_DO
         b=block
         KW_WHILE
-        e=expression
+        eod=expressionOrDeclaration
         OP_SEMICOLON
-        { value = new DoStatementSyntax(e, b, span(start)); }
+        { value = new DoStatementSyntax(eod, b, span(start)); }
     ;
 
 emptyStatement returns [EmptyStatementSyntax value]
@@ -968,6 +990,21 @@ expressionList returns [ImmutableArray<ExpressionSyntax> value]
         { value = expressions.build(); }
     ;
 
+expressionOrDeclarationList returns [ImmutableArray<ExpressionSyntax> value]
+@init {
+    ImmutableArray.Builder<ExpressionSyntax> expressions = new ImmutableArray.Builder<>();
+}
+    :
+        eod=expressionOrDeclaration
+        { expressions.add(eod); }
+        (
+            OP_COMMA
+            eod=expressionOrDeclaration
+            { expressions.add(eod); }
+        )*
+        { value = expressions.build(); }
+    ;
+
 ifStatement returns [IfStatementSyntax value]
 @init {
     Token start = input.LT(1);
@@ -975,11 +1012,11 @@ ifStatement returns [IfStatementSyntax value]
 }
     :
         KW_IF
-        e=expression
+        eod=expressionOrDeclaration
         b=block
         ( eic=elIfClause { elses.add(eic); } )*
         ( ec=elseClause { elses.add(ec); } )?
-        { value = new IfStatementSyntax(e, b, elses.build(), span(start)); }
+        { value = new IfStatementSyntax(eod, b, elses.build(), span(start)); }
     ;
 
 elIfClause returns [ElseClauseSyntax value]
@@ -988,9 +1025,9 @@ elIfClause returns [ElseClauseSyntax value]
 }
     :
         KW_ELIF
-        e=expression
+        eod=expressionOrDeclaration
         b=block
-        { value = new ElseClauseSyntax(ElIfOrElse.ELIF, e, b, span(start)); }
+        { value = new ElseClauseSyntax(ElIfOrElse.ELIF, eod, b, span(start)); }
     ;
 
 elseClause returns [ElseClauseSyntax value]
@@ -1064,9 +1101,10 @@ returnStatement returns [ReturnStatementSyntax value]
 }
     :
         KW_RETURN
-        ( e=expression )?
+        // This doesn't make sense but there is no reason not to allow this.
+        ( eod=expressionOrDeclaration )?
         OP_SEMICOLON
-        { value = new ReturnStatementSyntax(e, span(start)); }
+        { value = new ReturnStatementSyntax(eod, span(start)); }
     ;
 
 switchStatement returns [SwitchStatementSyntax value]
@@ -1076,14 +1114,14 @@ switchStatement returns [SwitchStatementSyntax value]
 }
     :
         KW_SWITCH
-        e=expression
+        eod=expressionOrDeclaration
         OP_BRACE_OPEN
         (
             ss=switchSection
             { sections.add(ss); }
         )*
         OP_BRACE_CLOSE
-        { value = new SwitchStatementSyntax(e, sections.build(), span(start)); }
+        { value = new SwitchStatementSyntax(eod, sections.build(), span(start)); }
     ;
 
 switchSection returns [SwitchSectionSyntax value]
@@ -1110,9 +1148,22 @@ throwStatement returns [ThrowStatementSyntax value]
 }
     :
         KW_THROW
-        e=expression?
+        // This doesn't make sense but there is no reason not to allow this.
+        eod=expressionOrDeclaration?
         OP_SEMICOLON
-        { value = new ThrowStatementSyntax(e, span(start)); }
+        { value = new ThrowStatementSyntax(eod, span(start)); }
+    ;
+
+deleteStatement returns [DeleteStatementSyntax value]
+@init {
+    Token start = input.LT(1);
+}
+    :
+        KW_DELETE
+        // This doesn't make sense but there is no reason not to allow this.
+        eod=expressionOrDeclaration
+        OP_SEMICOLON
+        { value = new DeleteStatementSyntax(eod, span(start)); }
     ;
 
 tryStatement returns [TryStatementSyntax value]
@@ -1187,12 +1238,17 @@ whileStatement returns [WhileStatementSyntax value]
 }
     :
         KW_WHILE
-        e=expression
+        eod=expressionOrDeclaration
         b=block
-        { value = new WhileStatementSyntax(e, b, span(start)); }
+        { value = new WhileStatementSyntax(eod, b, span(start)); }
     ;
 
 // Expressions
+
+expressionOrDeclaration returns [ExpressionSyntax value]
+    : ( variableDeclarationHeadScan )=> vde=variableDeclarationExpression { value = vde; }
+    | e=expression { value = e; }
+    ;
 
 expression returns [ExpressionSyntax value]
     :
@@ -1212,8 +1268,8 @@ assignmentExpression returns [ExpressionSyntax value]
         { value = nae; }
         (
             ao=assignmentOperator
-            e=expression
-            { value = new BinaryExpressionSyntax(ao, value, e, span(start)); }
+            eod=expressionOrDeclaration
+            { value = new BinaryExpressionSyntax(ao, value, eod, span(start)); }
         )?
     ;
 
@@ -1252,8 +1308,8 @@ lambdaExpression returns [ExpressionSyntax value]
         lpl=lambdaParameterList
         OP_EQUALS_GREATER_THAN
         (
-            ex=expression
-            { value = new LambdaExpressionSyntax(modifiers.build(), lpl, ex, span(start)); }
+            e=expression
+            { value = new LambdaExpressionSyntax(modifiers.build(), lpl, e, span(start)); }
         |
             b=block
             { value = new LambdaExpressionSyntax(modifiers.build(), lpl, b, span(start)); }
@@ -1610,8 +1666,8 @@ argument returns [ArgumentSyntax value]
             pm=argumentModifier
             { modifiers.add(pm); }
         )*
-        e=expression
-        { value = new ArgumentSyntax(modifiers.build(), e, span(start)); }
+        eod=expressionOrDeclaration
+        { value = new ArgumentSyntax(modifiers.build(), eod, span(start)); }
     ;
 
 primaryExpression returns [ExpressionSyntax value]
@@ -1621,11 +1677,10 @@ primaryExpression returns [ExpressionSyntax value]
     : KW_THIS { value = new InstanceExpressionSyntax(ThisOrBase.THIS, span(start)); }
     | KW_BASE { value = new InstanceExpressionSyntax(ThisOrBase.BASE, span(start)); }
     | e2=literal { value = e2; }
-    | OP_PAREN_OPEN e4=expression OP_PAREN_CLOSE { value = new ParenthesizedExpressionSyntax(e4, span(start)); }
+    | OP_PAREN_OPEN e4=expressionOrDeclaration OP_PAREN_CLOSE { value = new ParenthesizedExpressionSyntax(e4, span(start)); }
     | KW_TYPEOF OP_PAREN_OPEN e5=type OP_PAREN_CLOSE { value = new TypeOfExpressionSyntax(e5, span(start)); }
     | KW_SIZEOF OP_PAREN_OPEN e6=type OP_PAREN_CLOSE { value = new SizeOfExpressionSyntax(e6, span(start)); }
     | KW_DEFAULT OP_PAREN_OPEN e7=type OP_PAREN_CLOSE { value = new DefaultExpressionSyntax(e7, span(start)); }
-    | ( variableDeclarationHeadScan )=> e1=variableDeclarationExpression { value = e1; }
     | e12=identifierName { value = e12; }
     | e13=primaryNewExpression { value = e13; }
     ;
@@ -1690,8 +1745,8 @@ arrayCreationExpression returns [ExpressionSyntax value]
     ImmutableArray.Builder<ArrayRankSpecifierSyntax> builder = new ImmutableArray.Builder<>();
 }
     :
-        obo=OP_BRACKET_OPEN e=expression OP_BRACKET_CLOSE
-        { builder.add(new ArrayRankSpecifierSyntax(e, span(obo))); }
+        obo=OP_BRACKET_OPEN eod=expressionOrDeclaration OP_BRACKET_CLOSE
+        { builder.add(new ArrayRankSpecifierSyntax(eod, span(obo))); }
         (
             rsl=rankSpecifierList
             { builder.addAll(rsl); }
@@ -1757,7 +1812,7 @@ arrayInitializer returns [InitializerExpressionSyntax value]
     ;
 
 variableInitializer returns [ExpressionSyntax value]
-    : e1=expression { value = e1; }
+    : e1=expressionOrDeclaration { value = e1; }
     | e2=arrayInitializer { value = e2; }
     ;
 
@@ -1800,11 +1855,11 @@ memberDeclarator returns [AnonymousObjectMemberDeclaratorSyntax value]
             );
         }
     |
-        in=identifierName OP_EQUALS e=expression
+        in=identifierName OP_EQUALS eod=expressionOrDeclaration
         {
             value = new AnonymousObjectMemberDeclaratorSyntax(
                 in,
-                e,
+                eod,
                 span(start)
             );
         }
@@ -1873,7 +1928,7 @@ memberInitializer returns [ExpressionSyntax value]
     ;
 
 memberInitializerValue returns [ExpressionSyntax value]
-    : e1=expression { value = e1; }
+    : e1=expressionOrDeclaration { value = e1; }
     | e2=objectOrCollectionInitializer { value = e2; }
     ;
 
@@ -1909,10 +1964,10 @@ elementInitializer returns [ExpressionSyntax value]
         nae=nonAssignmentExpression
         { value = nae; }
     |
-        OP_BRACE_OPEN el=expressionList OP_BRACE_CLOSE
+        OP_BRACE_OPEN eodl=expressionOrDeclarationList OP_BRACE_CLOSE
         {
             value = new InitializerExpressionSyntax(
-                el,
+                eodl,
                 span(start)
             );
         }
@@ -1934,7 +1989,7 @@ selector returns [Selector value]
 }
     : OP_DOT sn=simpleName { return new MemberAccessSelector(sn, span(start)); }
     | al=argumentList { return new ArgumentListSelector(al, span(start)); }
-    | OP_BRACKET_OPEN el=expressionList OP_BRACKET_CLOSE { return new IndexSelector(el, span(start)); }
+    | OP_BRACKET_OPEN eodl=expressionOrDeclarationList OP_BRACKET_CLOSE { return new IndexSelector(eodl, span(start)); }
     ;
 
 argumentList returns [ImmutableArray<ArgumentSyntax> value]
@@ -2006,17 +2061,10 @@ identifierName returns [IdentifierNameSyntax value]
 castType returns [TypeSyntax value]
 @init {
     Token start = input.LT(1);
-    NakedNullableType type = null;
 }
     :
-        (
-            OP_QUESTION
-            { type = NakedNullableType.NULLABLE; }
-        |
-            OP_EXCLAMATION
-            { type = NakedNullableType.NOT_NULLABLE; }
-        )
-        { value = new NakedNullableTypeSyntax(type, span(start)); }
+        n=nullable
+        { value = new NakedNullableTypeSyntax(n, span(start)); }
     |
         t=type
         { value = t; }
@@ -2070,6 +2118,10 @@ np__type returns [TypeParser value]
             ( rankSpecifier )=>
             rsl=rankSpecifierList
             { value = new ArrayTypeParser(value, rsl, span(start)); }
+        )?
+        (
+            OP_CARET
+            { value = new TrackedTypeParser(value, span(start)); }
         )?
     ;
 
@@ -2234,10 +2286,12 @@ KW_CASE : 'case' ;
 KW_CATCH : 'catch' ;
 KW_CHAR : 'char' ;
 KW_CLASS : 'class' ;
+KW_CONSUMES : 'consumes' ;
 KW_CONTINUE : 'continue' ;
 KW_DECIMAL : 'decimal' ;
 KW_DEFAULT : 'default' ;
 KW_DELEGATE : 'delegate' ;
+KW_DELETE : 'delete' ;
 KW_DO : 'do' ;
 KW_DOUBLE : 'double' ;
 KW_ELIF : 'elif' ;

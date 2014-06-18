@@ -54,6 +54,9 @@ interface Foo {
 struct Foo {
 }
 
+struct^ Foo {
+}
+
 >>> Modifiers
 
 abstract async extern internal new override partial private protected public readonly sealed static virtual volatile class Foo {
@@ -97,13 +100,13 @@ class Foo<T>
 }
 
 class Foo<T>
-    where T : new(), class, struct, Bar {
+    where T : new(), class?, struct?, ?, !, Bar {
 }
 
 class Foo<T>
-    where T : new(), class, struct, Bar
-    where T : new(), class, struct, Bar
-    where T : new(), class, struct, Bar {
+    where T : new(), class!, struct!, Bar
+    where T : new(), class!, struct^, Bar
+    where T : new(), class?, struct?, Bar {
 }
 
 >>> Enum declaration

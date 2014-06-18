@@ -204,6 +204,23 @@ public abstract class Parser extends org.antlr.runtime.Parser {
         }
     }
 
+    protected static class TrackedTypeParser extends TypeParser {
+        private final TypeParser elementType;
+
+        public TrackedTypeParser(TypeParser elementType, Span span) {
+            super(span);
+
+            Validate.notNull(elementType, "elementType");
+
+            this.elementType = elementType;
+        }
+
+        @Override
+        public TypeSyntax toType() {
+            return new TrackedTypeSyntax(elementType.toType(), getSpan());
+        }
+    }
+
     protected static class NullableTypeParser extends TypeParser {
         private final TypeParser elementType;
 

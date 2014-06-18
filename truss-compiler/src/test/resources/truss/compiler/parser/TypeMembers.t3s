@@ -129,13 +129,13 @@ class Foo {
     }
 
     int Foo<T>()
-        where T : new(), class, struct, Bar {
+        where T : new(), class?, struct?, Bar {
     }
 
     int Foo<T>()
-        where T : new(), class, struct, Bar
-        where T : new(), class, struct, Bar
-        where T : new(), class, struct, Bar {
+        where T : new(), class?, struct?, Bar
+        where T : new(), class?, struct?, Bar
+        where T : new(), class?, struct?, Bar {
     }
 
     int Bar.Foo<in T, out U>() {
@@ -302,7 +302,7 @@ class Foo {
 delegate void Foo();
 
 delegate void Foo<T>()
-    where T : struct;
+    where T : struct?;
 
 delegate void Foo(int i);
 

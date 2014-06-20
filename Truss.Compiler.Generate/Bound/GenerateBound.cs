@@ -8,7 +8,7 @@ using Truss.Compiler.Generate.Bound.Xml;
 
 namespace Truss.Compiler.Generate.Bound {
     public class GenerateBound {
-        private readonly Dictionary<string, BoundClass> classes = new Dictionary<string, BoundClass>();
+        private readonly Dictionary<string, BoundClass> _classes = new Dictionary<string, BoundClass>();
 
         public void Generate(string definition, string outputDirectory) {
             var schema = XmlSerialization.Deserialize<BoundSchema>(definition);
@@ -18,7 +18,7 @@ namespace Truss.Compiler.Generate.Bound {
             outputDirectory = Path.Combine(outputDirectory, schema.PackageName.Replace('.', Path.DirectorySeparatorChar));
 
             foreach (var boundClass in schema.Classes) {
-                classes.Add(boundClass.Name, boundClass);
+                _classes.Add(boundClass.Name, boundClass);
             }
 
             var cw = new CodeWriter();
@@ -598,7 +598,7 @@ namespace Truss.Compiler.Generate.Bound {
             List<Parameter> baseParameters;
 
             if (boundClass.Base != null) {
-                baseParameters = ResolveParameters(classes[boundClass.Base], resolveSuperArguments);
+                baseParameters = ResolveParameters(_classes[boundClass.Base], resolveSuperArguments);
             } else {
                 baseParameters = new List<Parameter>();
             }

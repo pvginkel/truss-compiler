@@ -10,12 +10,14 @@ namespace Truss.Compiler.Parser {
     partial class TrussParser {
         public string FileName { get; set; }
 
+        public ErrorList Errors { get; set; }
+
         public CompilationUnitSyntax ParseCompilationUnit() {
             return compilationUnit();
         }
 
         public override object RecoverFromMismatchedSet(IIntStream input, RecognitionException e, BitSet follow) {
-            MessageCollectionScope.AddMessage(Message.FromRecognitionException(FileName, e));
+            Errors.Add(Error.FromRecognitionException(FileName, e));
 
             return base.RecoverFromMismatchedSet(input, e, follow);
         }
@@ -29,13 +31,13 @@ namespace Truss.Compiler.Parser {
                 token.CharPositionInLine + token.Text.Length
                 );
 
-            MessageCollectionScope.AddMessage(Message.FromMismatchedToken(span, input, ttype));
+            Errors.Add(Error.FromMismatchedToken(span, input, ttype));
 
             return base.RecoverFromMismatchedToken(input, ttype, follow);
         }
 
         public override void ReportError(RecognitionException e) {
-            MessageCollectionScope.AddMessage(Message.FromRecognitionException(FileName, e));
+            Errors.Add(Error.FromRecognitionException(FileName, e));
         }
 
         private Span Span(IToken start) {
@@ -53,7 +55,7 @@ namespace Truss.Compiler.Parser {
                 );
         }
 
-        private static AttributeTarget ParseAttributeTarget(string identifier, Span span) {
+        private AttributeTarget ParseAttributeTarget(string identifier, Span span) {
             if (identifier == null) {
                 throw new ArgumentNullException("identifier");
             }
@@ -78,10 +80,7 @@ namespace Truss.Compiler.Parser {
                 case "type":
                     return AttributeTarget.Type;
                 default:
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.InvalidAttributeTarget,
-                        span
-                        ));
+                    Errors.Add(Error.InvalidAttributeTarget, span);
                     return AttributeTarget.None;
             }
         }
@@ -99,10 +98,7 @@ namespace Truss.Compiler.Parser {
                 case "remove":
                     return AccessorDeclarationType.Remove;
                 default:
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.InvalidAccessorDeclarationType,
-                        span
-                        ));
+                    Errors.Add(Error.InvalidAccessorDeclarationType, span);
                     return AccessorDeclarationType.Invalid;
             }
         }
@@ -289,14 +285,16 @@ namespace Truss.Compiler.Parser {
         }
 
         protected class GenericNameParser : SimpleNameParser {
+            private readonly ErrorList _errors;
             private readonly ImmutableArray<TypeParser> _typeArguments;
 
-            public GenericNameParser(string identifier, ImmutableArray<TypeParser> typeArguments, Span span)
+            public GenericNameParser(ErrorList errors, string identifier, ImmutableArray<TypeParser> typeArguments, Span span)
                 : base(identifier, span) {
                 if (typeArguments == null) {
                     throw new ArgumentNullException("typeArguments");
                 }
 
+                _errors = errors;
                 _typeArguments = typeArguments;
             }
 
@@ -325,10 +323,7 @@ namespace Truss.Compiler.Parser {
                     if (typeArgument is TypeParameterParser) {
                         typeParameters.Add(((TypeParameterParser)typeArgument).ToTypeParameter());
                     } else {
-                        MessageCollectionScope.AddMessage(new Message(
-                            MessageType.GenericTypeIllegalMissingTypeParameter,
-                            typeArgument.Span
-                            ));
+                        _errors.Add(Error.GenericTypeIllegalMissingTypeParameter, typeArgument.Span);
                     }
                 }
 
@@ -341,16 +336,18 @@ namespace Truss.Compiler.Parser {
         }
 
         protected class TypeParameterParser : TypeParser {
+            private readonly ErrorList _errors;
             private readonly ImmutableArray<AttributeListSyntax> _attributeLists;
             private readonly Variance _variance;
             private readonly TypeParser _type;
 
-            public TypeParameterParser(ImmutableArray<AttributeListSyntax> attributeLists, Variance variance, TypeParser type, Span span)
+            public TypeParameterParser(ErrorList errors, ImmutableArray<AttributeListSyntax> attributeLists, Variance variance, TypeParser type, Span span)
                 : base(span) {
                 if (type == null) {
                     throw new ArgumentNullException("type");
                 }
 
+                _errors = errors;
                 _attributeLists = attributeLists;
                 _variance = variance;
                 _type = type;
@@ -358,16 +355,10 @@ namespace Truss.Compiler.Parser {
 
             public override TypeSyntax ToType() {
                 if (_attributeLists.Count > 0) {
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.GenericTypeIllegalAttributes,
-                        Span
-                        ));
+                    _errors.Add(Error.GenericTypeIllegalAttributes, Span);
                 }
                 if (_variance != Variance.None) {
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.GenericTypeIllegalVariance,
-                        Span
-                        ));
+                    _errors.Add(Error.GenericTypeIllegalVariance, Span);
                 }
 
                 return _type.ToType();
@@ -377,10 +368,7 @@ namespace Truss.Compiler.Parser {
                 IdentifierNameSyntax identifier;
 
                 if (!(_type is IdentifierNameParser)) {
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.GenericTypeIllegalTypeParameter,
-                        Span
-                        ));
+                    _errors.Add(Error.GenericTypeIllegalTypeParameter, Span);
 
                     identifier = new IdentifierNameSyntax("**INVALID**", Span);
                 } else {

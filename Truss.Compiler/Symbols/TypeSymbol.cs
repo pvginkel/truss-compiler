@@ -15,17 +15,18 @@ namespace Truss.Compiler.Symbols {
             Modifiers = modifiers;
         }
 
-        public void ParseModifiers() {
+        public void ParseModifiers(ErrorList errors) {
+            if (errors == null) {
+                throw new ArgumentNullException("errors");
+            }
+
             IsAbstract = Modifiers.HasFlag(TypeModifier.Abstract);
             IsReadonly = Modifiers.HasFlag(TypeModifier.Readonly);
             IsSealed = Modifiers.HasFlag(TypeModifier.Sealed);
             IsStatic = Modifiers.HasFlag(TypeModifier.Static);
 
             if (Modifiers.HasFlag(TypeModifier.Internal) && Modifiers.HasFlag(TypeModifier.Public)) {
-                MessageCollectionScope.AddMessage(new Message(
-                    MessageType.DuplicateAccessModifier,
-                    Spans[0]
-                    ));
+                errors.Add(Error.DuplicateAccessModifier, Spans[0]);
             } else if (Modifiers.HasFlag(TypeModifier.Public)) {
                 Access = AccessModifier.Public;
             } else {
@@ -34,10 +35,7 @@ namespace Truss.Compiler.Symbols {
             }
 
             if (IsAbstract && (IsStatic || IsSealed)) {
-                MessageCollectionScope.AddMessage(new Message(
-                    MessageType.InvalidAbstractTypeCombination,
-                    Spans[0]
-                    ));
+                errors.Add(Error.InvalidAbstractTypeCombination, Spans[0]);
             }
         }
 
@@ -67,7 +65,10 @@ namespace Truss.Compiler.Symbols {
 
         public bool IsReadonly { get; private set; }
 
-        public static TypeSymbol FromDelegate(DelegateDeclarationSyntax syntax, ContainerSymbol container) {
+        public static TypeSymbol FromDelegate(ErrorList errors, DelegateDeclarationSyntax syntax, ContainerSymbol container) {
+            if (errors == null) {
+                throw new ArgumentNullException("errors");
+            }
             if (syntax == null) {
                 throw new ArgumentNullException("syntax");
             }
@@ -75,16 +76,12 @@ namespace Truss.Compiler.Symbols {
                 throw new ArgumentNullException("container");
             }
 
-            var modifiers = MakeDelegateModifiers(syntax.Modifiers, syntax.Span);
+            var modifiers = MakeDelegateModifiers(errors, syntax.Modifiers, syntax.Span);
             string name = syntax.Identifier.Identifier;
             string metadataName = NameUtils.MakeMetadataName(name, syntax.TypeParameters);
 
             if (container.GetMemberByMetadataName(metadataName).Count > 0) {
-                MessageCollectionScope.AddMessage(new Message(
-                    MessageType.IdentifierAlreadyDefined,
-                    syntax.Span,
-                    name
-                    ));
+                errors.Add(Error.IdentifierAlreadyDefined, syntax.Span, name);
 
                 return null;
             }
@@ -103,7 +100,7 @@ namespace Truss.Compiler.Symbols {
             return result;
         }
 
-        private static TypeModifier MakeDelegateModifiers(ImmutableArray<Modifier> modifiers, Span span) {
+        private static TypeModifier MakeDelegateModifiers(ErrorList errors, ImmutableArray<Modifier> modifiers, Span span) {
             var result = TypeModifier.None;
 
             foreach (var modifier in modifiers) {
@@ -117,11 +114,7 @@ namespace Truss.Compiler.Symbols {
                         break;
 
                     default:
-                        MessageCollectionScope.AddMessage(new Message(
-                            MessageType.DelegateInvalidModifier,
-                            span,
-                            modifier.ToString().ToLower()
-                            ));
+                        errors.Add(Error.DelegateInvalidModifier, span, modifier.ToString().ToLower());
                         break;
                 }
             }
@@ -129,7 +122,10 @@ namespace Truss.Compiler.Symbols {
             return result;
         }
 
-        public static Symbol FromEnum(EnumDeclarationSyntax syntax, ContainerSymbol container) {
+        public static Symbol FromEnum(ErrorList errors, EnumDeclarationSyntax syntax, ContainerSymbol container) {
+            if (errors == null) {
+                throw new ArgumentNullException("errors");
+            }
             if (syntax == null) {
                 throw new ArgumentNullException("syntax");
             }
@@ -137,10 +133,10 @@ namespace Truss.Compiler.Symbols {
                 throw new ArgumentNullException("container");
             }
 
-            var modifiers = MakeEnumModifiers(syntax.Modifiers, syntax.Span);
+            var modifiers = MakeEnumModifiers(errors, syntax.Modifiers, syntax.Span);
             string name = syntax.Identifier.Identifier;
 
-            var other = FindOtherPartial(name, container, modifiers, syntax.Span);
+            var other = FindOtherPartial(errors, name, container, modifiers, syntax.Span);
             if (other != FindPartial.NotFound) {
                 return other.Other;
             }
@@ -158,7 +154,7 @@ namespace Truss.Compiler.Symbols {
             return result;
         }
 
-        private static TypeModifier MakeEnumModifiers(ImmutableArray<Modifier> modifiers, Span span) {
+        private static TypeModifier MakeEnumModifiers(ErrorList errors, ImmutableArray<Modifier> modifiers, Span span) {
             var result = TypeModifier.None;
 
             foreach (var modifier in modifiers) {
@@ -176,11 +172,7 @@ namespace Truss.Compiler.Symbols {
                         break;
 
                     default:
-                        MessageCollectionScope.AddMessage(new Message(
-                            MessageType.EnumInvalidModifier,
-                            span,
-                            modifier.ToString().ToLower()
-                            ));
+                        errors.Add(Error.EnumInvalidModifier, span, modifier.ToString().ToLower());
                         break;
                 }
             }
@@ -188,7 +180,10 @@ namespace Truss.Compiler.Symbols {
             return result;
         }
 
-        public static TypeSymbol FromType(TypeDeclarationSyntax syntax, ContainerSymbol container) {
+        public static TypeSymbol FromType(ErrorList errors, TypeDeclarationSyntax syntax, ContainerSymbol container) {
+            if (errors == null) {
+                throw new ArgumentNullException("errors");
+            }
             if (syntax == null) {
                 throw new ArgumentNullException("syntax");
             }
@@ -209,11 +204,11 @@ namespace Truss.Compiler.Symbols {
                     break;
             }
 
-            var modifiers = MakeTypeModifiers(kind, syntax.Modifiers, syntax.Span);
+            var modifiers = MakeTypeModifiers(errors, kind, syntax.Modifiers, syntax.Span);
             string name = syntax.Identifier.Identifier;
             string metadataName = NameUtils.MakeMetadataName(name, syntax.TypeParameters);
 
-            var other = FindOtherPartial(name, container, modifiers, syntax.Span);
+            var other = FindOtherPartial(errors, name, container, modifiers, syntax.Span);
             if (other != FindPartial.NotFound) {
                 return other.Other;
             }
@@ -231,7 +226,7 @@ namespace Truss.Compiler.Symbols {
             return result;
         }
 
-        private static TypeModifier MakeTypeModifiers(TypeKind kind, ImmutableArray<Modifier> modifiers, Span span) {
+        private static TypeModifier MakeTypeModifiers(ErrorList errors, TypeKind kind, ImmutableArray<Modifier> modifiers, Span span) {
             var result = TypeModifier.None;
 
             foreach (var modifier in modifiers) {
@@ -276,25 +271,21 @@ namespace Truss.Compiler.Symbols {
                 }
 
                 if (typeModifier == null) {
-                    MessageType messageType;
+                    ErrorType error;
 
                     switch (kind) {
                         case TypeKind.Class:
-                            messageType = MessageType.ClassInvalidModifier;
+                            error = Error.ClassInvalidModifier;
                             break;
                         case TypeKind.Struct:
-                            messageType = MessageType.StructInvalidModifier;
+                            error = Error.StructInvalidModifier;
                             break;
                         default:
-                            messageType = MessageType.InterfaceInvalidModifier;
+                            error = Error.InterfaceInvalidModifier;
                             break;
                     }
 
-                    MessageCollectionScope.AddMessage(new Message(
-                        messageType,
-                        span,
-                        modifier.ToString().ToLower()
-                        ));
+                    errors.Add(error, span, modifier.ToString().ToLower());
                 } else {
                     result |= typeModifier.Value;
                 }
@@ -316,7 +307,7 @@ namespace Truss.Compiler.Symbols {
             }
         }
 
-        private static FindPartial FindOtherPartial(string name, ContainerSymbol container, TypeModifier modifiers, Span span) {
+        private static FindPartial FindOtherPartial(ErrorList errors, string name, ContainerSymbol container, TypeModifier modifiers, Span span) {
             var members = container.GetMemberByMetadataName(name);
 
             // If this is a partial type, find the other one and merge this with that.
@@ -331,21 +322,13 @@ namespace Truss.Compiler.Symbols {
                 // All declarations for this type must be partial for it to match.
 
                 if (!modifiers.HasFlag(TypeModifier.Partial)) {
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.IdentifierAlreadyDefined,
-                        span,
-                        name
-                        ));
+                    errors.Add(Error.IdentifierAlreadyDefined, span, name);
 
                     return FindPartial.Error;
                 }
 
                 if (!other.Modifiers.HasFlag(TypeModifier.Partial)) {
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.TypeOtherNotPartial,
-                        span,
-                        name
-                        ));
+                    errors.Add(Error.TypeOtherNotPartial, span, name);
 
                     return FindPartial.Error;
                 }

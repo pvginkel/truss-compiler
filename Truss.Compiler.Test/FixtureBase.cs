@@ -45,26 +45,24 @@ namespace Truss.Compiler.Test {
             }
         }
 
-        protected CompilationUnitSyntax Parse(String name, String code) {
+        protected CompilationUnitSyntax Parse(ErrorList errors, string name, string code) {
             var lexer = new TrussLexer(new ANTLRStringStream(code));
             lexer.FileName = name;
+            lexer.Errors = errors;
             var parser = new TrussParser(new CommonTokenStream(lexer));
             parser.FileName = name;
+            parser.Errors = errors;
 
             CompilationUnitSyntax compilationUnit;
 
             try {
                 compilationUnit = parser.ParseCompilationUnit();
             } catch (Exception e) {
-                MessageCollectionScope.AddMessage(new Message(
-                    MessageType.InternalError,
-                    name,
-                    e.Message
-                ));
+                errors.Add(Error.InternalError, name, e.Message);
 
                 compilationUnit = null;
             } finally {
-                if (MessageCollectionScope.Current.HasMessages) {
+                if (errors.HasMessages) {
                     compilationUnit = null;
                 }
             }

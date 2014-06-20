@@ -7,14 +7,19 @@ using Truss.Compiler.Syntax;
 
 namespace Truss.Compiler.Binding {
     internal class TopLevelSymbolBinder : SyntaxTreeWalker {
+        private readonly ErrorList _errors;
         private readonly SymbolManager _manager;
         private readonly Stack<ContainerSymbol> _stack = new Stack<ContainerSymbol>();
 
-        public TopLevelSymbolBinder(SymbolManager manager) {
+        public TopLevelSymbolBinder(ErrorList errors, SymbolManager manager) {
+            if (errors == null) {
+                throw new ArgumentNullException("errors");
+            }
             if (manager == null) {
                 throw new ArgumentNullException("manager");
             }
 
+            _errors = errors;
             _manager = manager;
             _stack.Push(manager.GlobalSymbol);
         }
@@ -22,22 +27,19 @@ namespace Truss.Compiler.Binding {
         public override void VisitDelegateDeclaration(DelegateDeclarationSyntax syntax) {
             _manager.Add(
                 syntax,
-                TypeSymbol.FromDelegate(syntax, _stack.Peek())
+                TypeSymbol.FromDelegate(_errors, syntax, _stack.Peek())
             );
         }
 
         public override void VisitEnumDeclaration(EnumDeclarationSyntax syntax) {
             _manager.Add(
                 syntax,
-                TypeSymbol.FromEnum(syntax, _stack.Peek())
+                TypeSymbol.FromEnum(_errors, syntax, _stack.Peek())
             );
         }
 
         public override void VisitNamespaceDeclaration(NamespaceDeclarationSyntax syntax) {
-            var symbol = NamespaceSymbol.FromDeclaration(
-                syntax,
-                _stack.Peek()
-            );
+            var symbol = NamespaceSymbol.FromDeclaration(_errors, syntax, _stack.Peek());
 
             _manager.Add(syntax, symbol);
             _stack.Push(symbol);
@@ -48,10 +50,7 @@ namespace Truss.Compiler.Binding {
         }
 
         public override void VisitTypeDeclaration(TypeDeclarationSyntax syntax) {
-            var symbol = TypeSymbol.FromType(
-                syntax,
-                _stack.Peek()
-            );
+            var symbol = TypeSymbol.FromType(_errors, syntax, _stack.Peek());
 
             _manager.Add(syntax, symbol);
             _stack.Push(symbol);

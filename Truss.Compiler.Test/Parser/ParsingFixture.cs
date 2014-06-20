@@ -54,22 +54,25 @@ namespace Truss.Compiler.Test.Parser {
             String actual;
 
             using (var writer = new StringWriter()) {
-                var messages = new MessageCollection();
-                CompilationUnitSyntax compilationUnit;
+                var errors = new ErrorList();
 
-                using (MessageCollectionScope.Create(messages)) {
-                    compilationUnit = Parse(name, code);
-                }
+                CompilationUnitSyntax compilationUnit = Parse(errors, name, code);
 
-                if (messages.HasMessages) {
-                    actual = messages.ToString().Trim();
+                if (errors.HasMessages) {
+                    actual = errors.ToString().Trim();
                 } else {
                     compilationUnit.Accept(new SyntaxPrinter(new TextPrinter(writer)));
                     actual = writer.ToString().Trim();
                 }
             }
 
-            Assert.AreEqual(expected, actual, String.Format("Parse of '{0}' failed", name));
+            if (expected != actual) {
+                Console.WriteLine(">>> Expected");
+                Console.WriteLine(expected);
+                Console.WriteLine(">>> Actual");
+                Console.WriteLine(actual);
+                Assert.Fail("Parse of '{0}' failed", name);
+            }
         }
     }
 }

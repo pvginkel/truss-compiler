@@ -52,10 +52,9 @@
     <Compile Include="Binding\SymbolManager.cs" />
     <Compile Include="Binding\TopLevelSymbolBinder.cs" />
     <Compile Include="Builder.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="MessageCollection.cs" />
-    <Compile Include="MessageCollectionScope.cs" />
-    <Compile Include="MessageType.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="ErrorList.cs" />
+    <Compile Include="ErrorType.cs" />
     <Compile Include="Parser\ArgumentListSelector.cs" />
     <Compile Include="Parser\IndexSelector.cs" />
     <Compile Include="Parser\TrussLexer.cs" />

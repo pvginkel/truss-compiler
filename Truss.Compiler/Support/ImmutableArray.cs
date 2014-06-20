@@ -81,12 +81,10 @@ namespace Truss.Compiler.Support {
 
             public void Add(T item) {
                 if (item == null) {
-                    if (!MessageCollectionScope.Current.HasErrors) {
-                        throw new ArgumentNullException("item");
-                    }
-                } else {
-                    _list.Add(item);
+                    throw new ArgumentNullException("item");
                 }
+
+                _list.Add(item);
             }
 
             public void Remove(T item) {

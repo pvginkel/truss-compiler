@@ -28,6 +28,10 @@ namespace Truss.Compiler.Binding {
             Parent = parent;
         }
 
+        public virtual ErrorList Errors {
+            get { return Parent.Errors; }
+        }
+
         public Scope Parent { get; private set; }
 
         public virtual ContainerSymbol ResolveContainer(NameSyntax name, ResolveMode type) {
@@ -54,12 +58,7 @@ namespace Truss.Compiler.Binding {
 
             if (results != null) {
                 if (results.Count > 1) {
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.AmbiguousContainerSymbolMatch,
-                        name.Span,
-                        NameUtils.PrettyPrint(name)
-                        ));
-
+                    Errors.Add(Error.AmbiguousContainerSymbolMatch, name.Span, NameUtils.PrettyPrint(name));
                     return null;
                 }
 
@@ -99,12 +98,7 @@ namespace Truss.Compiler.Binding {
                 // under an alias.
 
                 if (WellKnownNames.AliasGlobal != aliasQualifiedName.Alias.Identifier) {
-                    MessageCollectionScope.AddMessage(new Message(
-                        MessageType.InvalidAlias,
-                        aliasQualifiedName.Alias.Span,
-                        aliasQualifiedName.Alias.Identifier
-                        ));
-
+                    Errors.Add(Error.InvalidAlias, aliasQualifiedName.Alias.Span, aliasQualifiedName.Alias.Identifier);
                     return null;
                 }
 
@@ -195,9 +189,15 @@ namespace Truss.Compiler.Binding {
 
     internal class GlobalScope : ContainerScope {
         private readonly GlobalSymbol _symbol;
+        private readonly ErrorList _errors;
 
-        public GlobalScope(GlobalSymbol symbol, List<Import> imports)
+        public override ErrorList Errors {
+            get { return _errors; }
+        }
+        
+        public GlobalScope(ErrorList errors, GlobalSymbol symbol, List<Import> imports)
             : base(symbol, imports, null) {
+            _errors = errors;
             _symbol = symbol;
         }
 
@@ -209,11 +209,7 @@ namespace Truss.Compiler.Binding {
             var result = base.ResolveContainer(name, mode);
 
             if (result == null) {
-                MessageCollectionScope.AddMessage(new Message(
-                    MessageType.CannotResolveName,
-                    name.Span,
-                    NameUtils.PrettyPrint(name)
-                    ));
+                Errors.Add(Error.CannotResolveName, name.Span, NameUtils.PrettyPrint(name));
 
                 if (mode.AllowType()) {
                     return new InvalidTypeSymbol(_symbol);

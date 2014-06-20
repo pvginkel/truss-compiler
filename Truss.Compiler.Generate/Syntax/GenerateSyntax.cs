@@ -8,7 +8,7 @@ using Truss.Compiler.Generate.Syntax.Xml;
 
 namespace Truss.Compiler.Generate.Syntax {
     public class GenerateSyntax {
-        private readonly Dictionary<string, SyntaxClass> classes = new Dictionary<string, SyntaxClass>();
+        private readonly Dictionary<string, SyntaxClass> _classes = new Dictionary<string, SyntaxClass>();
 
         public void Generate(string outputDirectory) {
             var schema = XmlSerialization.Deserialize<SyntaxSchema>(
@@ -18,7 +18,7 @@ namespace Truss.Compiler.Generate.Syntax {
             schema.Classes.Sort((a, b) => a.Name.CompareTo(b.Name));
 
             foreach (var syntaxClass in schema.Classes) {
-                classes.Add(syntaxClass.Name, syntaxClass);
+                _classes.Add(syntaxClass.Name, syntaxClass);
             }
 
             var cw = new CodeWriter();
@@ -424,7 +424,7 @@ namespace Truss.Compiler.Generate.Syntax {
             List<SyntaxProperty> baseParameters;
 
             if (syntaxClass.Base != null) {
-                baseParameters = ResolveParameters(classes[syntaxClass.Base]);
+                baseParameters = ResolveParameters(_classes[syntaxClass.Base]);
             } else {
                 baseParameters = new List<SyntaxProperty>();
             }

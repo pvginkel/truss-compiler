@@ -60,18 +60,17 @@ namespace Truss.Compiler.Test.PreProcessor {
 
         protected String Parse(String name, String code) {
             char[] data;
-            var messages = new MessageCollection();
+            var errors = new ErrorList();
 
-            using (MessageCollectionScope.Create(messages)) {
-                data = Compiler.PreProcessor.PreProcessor.Process(
-                    code.ToCharArray(),
-                    code.Length,
-                    new[] { "DEFINE1", "DEFINE2" }
-                );
+            data = Compiler.PreProcessor.PreProcessor.Process(
+                errors,
+                code.ToCharArray(),
+                code.Length,
+                new[] { "DEFINE1", "DEFINE2" }
+            );
 
-                if (messages.HasMessages) {
-                    return messages.ToString().Trim();
-                }
+            if (errors.HasMessages) {
+                return errors.ToString().Trim();
             }
 
             return new String(data);

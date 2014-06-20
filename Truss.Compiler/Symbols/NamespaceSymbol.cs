@@ -27,7 +27,10 @@ namespace Truss.Compiler.Symbols {
             }
         }
 
-        public static NamespaceSymbol FromDeclaration(NamespaceDeclarationSyntax syntax, ContainerSymbol container) {
+        public static NamespaceSymbol FromDeclaration(ErrorList errors, NamespaceDeclarationSyntax syntax, ContainerSymbol container) {
+            if (errors == null) {
+                throw new ArgumentNullException("errors");
+            }
             if (syntax == null) {
                 throw new ArgumentNullException("syntax");
             }
@@ -35,25 +38,22 @@ namespace Truss.Compiler.Symbols {
                 throw new ArgumentNullException("container");
             }
 
-            var symbol = CreateChain(syntax.Name, container);
+            var symbol = CreateChain(errors, syntax.Name, container);
 
             symbol.AddSpan(syntax.Span);
 
             return symbol;
         }
 
-        private static NamespaceSymbol CreateChain(NameSyntax name, ContainerSymbol container) {
+        private static NamespaceSymbol CreateChain(ErrorList errors, NameSyntax name, ContainerSymbol container) {
             if (name is QualifiedNameSyntax) {
                 var qualifiedName = (QualifiedNameSyntax)name;
-                container = CreateChain(qualifiedName.Left, container);
+                container = CreateChain(errors, qualifiedName.Left, container);
                 name = qualifiedName.Right;
             }
 
             if (!(name is IdentifierNameSyntax)) {
-                MessageCollectionScope.AddMessage(new Message(
-                    MessageType.InvalidNamespaceIdentifier,
-                    name.Span
-                ));
+                errors.Add(Error.InvalidNamespaceIdentifier, name.Span);
 
                 return null;
             }

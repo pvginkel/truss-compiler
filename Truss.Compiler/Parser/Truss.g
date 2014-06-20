@@ -2218,7 +2218,7 @@ np__simpleName returns [SimpleNameParser value]
         (
             ( OP_LESS_THAN )=>
             gta=np__genericTypeArguments
-            { value = new GenericNameParser(idn.Identifier, gta, Span(start)); }
+            { value = new GenericNameParser(Errors, idn.Identifier, gta, Span(start)); }
         )?
     ;
 
@@ -2254,7 +2254,7 @@ np__genericTypeArgument returns [TypeParser value]
             all=attributeListList
             tpv=typeParameterVariance
             t=np__type
-            { value = new TypeParameterParser(all, tpv, t, Span(start)); }
+            { value = new TypeParameterParser(Errors, all, tpv, t, Span(start)); }
         |
             { value = new OmittedTypeArgumentParser(Span(start)); }
         )

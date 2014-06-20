@@ -8,6 +8,8 @@ namespace Truss.Compiler.PreProcessor {
     partial class TrussPreProcessorParser {
         public string FileName { get; set; }
 
+        public ErrorList Errors { get; set; }
+
         public HashSet<string> Defines { get; set; }
 
         public IDirective ParseDirective() {
@@ -15,7 +17,7 @@ namespace Truss.Compiler.PreProcessor {
         }
 
         public override object RecoverFromMismatchedSet(IIntStream input, RecognitionException e, BitSet follow) {
-            MessageCollectionScope.AddMessage(Message.FromRecognitionException(FileName, e));
+            Errors.Add(Error.FromRecognitionException(FileName, e));
 
             return base.RecoverFromMismatchedSet(input, e, follow);
         }
@@ -29,13 +31,13 @@ namespace Truss.Compiler.PreProcessor {
                 token.CharPositionInLine + token.Text.Length
             );
 
-            MessageCollectionScope.AddMessage(Message.FromMismatchedToken(span, input, ttype));
+            Errors.Add(Error.FromMismatchedToken(span, input, ttype));
 
             return base.RecoverFromMismatchedToken(input, ttype, follow);
         }
 
         public override void ReportError(RecognitionException e) {
-            MessageCollectionScope.AddMessage(Message.FromRecognitionException(FileName, e));
+            Errors.Add(Error.FromRecognitionException(FileName, e));
         }
 
         private bool IsDefined(string identifier) {

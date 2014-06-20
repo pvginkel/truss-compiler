@@ -6,20 +6,25 @@ using Antlr.Runtime;
 
 namespace Truss.Compiler.PreProcessor {
     public class PreProcessor {
+        private readonly ErrorList _errors;
         private readonly char[] _data;
         private readonly HashSet<string> _defines;
         private readonly Stack<State> _includes = new Stack<State>();
         private bool _include;
 
-        public static char[] Process(char[] data, int size, IEnumerable<string> defines) {
-            return new PreProcessor(data, size, defines)._data;
+        public static char[] Process(ErrorList errors, char[] data, int size, IEnumerable<string> defines) {
+            return new PreProcessor(errors, data, size, defines)._data;
         }
 
-        private PreProcessor(char[] data, int size, IEnumerable<string> defines) {
+        private PreProcessor(ErrorList errors, char[] data, int size, IEnumerable<string> defines) {
+            if (errors == null) {
+                throw new ArgumentNullException("errors");
+            }
             if (data == null) {
                 throw new ArgumentNullException("data");
             }
 
+            _errors = errors;
             _defines = new HashSet<string>(defines);
             _data = Parse(data, size);
         }
@@ -84,7 +89,9 @@ namespace Truss.Compiler.PreProcessor {
 
         private void ParseDirective(string input, int line) {
             var lexer = new TrussPreProcessorLexer(new ANTLRStringStream(input));
+            lexer.Errors = _errors;
             var parser = new TrussPreProcessorParser(new CommonTokenStream(lexer));
+            parser.Errors = _errors;
 
             parser.Defines = _defines;
 

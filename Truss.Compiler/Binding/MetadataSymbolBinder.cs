@@ -7,16 +7,21 @@ using Truss.Compiler.Syntax;
 
 namespace Truss.Compiler.Binding {
     internal class MetadataSymbolBinder : SyntaxTreeWalker {
+        private readonly ErrorList _errors;
         private readonly SymbolManager _manager;
         private Scope _scope;
         private GlobalScope _globalScope;
         private ContainerScope _containerScope;
 
-        public MetadataSymbolBinder(SymbolManager manager) {
+        public MetadataSymbolBinder(ErrorList errors, SymbolManager manager) {
+            if (errors == null) {
+                throw new ArgumentNullException("errors");
+            }
             if (manager == null) {
                 throw new ArgumentNullException("manager");
             }
 
+            _errors = errors;
             _manager = manager;
         }
 
@@ -42,10 +47,7 @@ namespace Truss.Compiler.Binding {
 
                 if (import.IsStatic) {
                     if (import.Alias != null) {
-                        MessageCollectionScope.AddMessage(new Message(
-                            MessageType.StaticImportCannotHaveAlias,
-                            import.Span
-                            ));
+                        _errors.Add(Error.StaticImportCannotHaveAlias, import.Span);
                     } else {
                         container = _globalScope.ResolveContainer(import.Name, ResolveMode.Type);
                         type = ImportType.Static;
@@ -89,7 +91,7 @@ namespace Truss.Compiler.Binding {
         }
 
         public override void VisitCompilationUnit(CompilationUnitSyntax syntax) {
-            _globalScope = new GlobalScope(_manager.GlobalSymbol, ResolveImports(syntax.Imports));
+            _globalScope = new GlobalScope(_errors, _manager.GlobalSymbol, ResolveImports(syntax.Imports));
 
             SetScope(_globalScope);
 

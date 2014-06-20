@@ -5,34 +5,34 @@ using System.Text;
 
 namespace Truss.Compiler.Generate {
     public class CodeWriter {
-        private bool hadIndent = false;
-        private int indent;
-        private readonly StringBuilder sb = new StringBuilder();
+        private bool _hadIndent;
+        private int _indent;
+        private readonly StringBuilder _sb = new StringBuilder();
 
         public void Indent() {
-            indent++;
+            _indent++;
         }
 
         public void UnIndent() {
-            indent--;
+            _indent--;
         }
 
         public void Write(string format, params Object[] args) {
-            if (!hadIndent && indent > 0) {
-                sb.Append(new string(' ', indent * 4));
-                hadIndent = true;
+            if (!_hadIndent && _indent > 0) {
+                _sb.Append(new string(' ', _indent * 4));
+                _hadIndent = true;
             }
 
             if (args != null && args.Length > 0) {
                 format = string.Format(format, args);
             }
 
-            sb.Append(format);
+            _sb.Append(format);
         }
 
         public void WriteLine() {
-            hadIndent = false;
-            sb.Append(Environment.NewLine);
+            _hadIndent = false;
+            _sb.Append(Environment.NewLine);
         }
 
         public void WriteLine(string format, params Object[] args) {
@@ -41,11 +41,11 @@ namespace Truss.Compiler.Generate {
         }
 
         public override string ToString() {
-            return sb.ToString();
+            return _sb.ToString();
         }
 
         public void WriteRaw(string validation) {
-            sb.Append(validation);
+            _sb.Append(validation);
         }
     }
 }

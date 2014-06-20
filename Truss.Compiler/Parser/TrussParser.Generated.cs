@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4.1.9004 Truss.g 2014-06-20 09:29:57
+// $ANTLR 3.4.1.9004 Truss.g 2014-06-20 10:06:09
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -18266,7 +18266,7 @@ namespace  Truss.Compiler.Parser
 				DebugLocation(2221, 13);
 				if (state.backtracking == 0)
 				{
-					 value = new GenericNameParser(idn.Identifier, gta, Span(start)); 
+					 value = new GenericNameParser(Errors, idn.Identifier, gta, Span(start)); 
 				}
 
 				}
@@ -18490,7 +18490,7 @@ namespace  Truss.Compiler.Parser
 				DebugLocation(2257, 13);
 				if (state.backtracking == 0)
 				{
-					 value = new TypeParameterParser(all, tpv, t, Span(start)); 
+					 value = new TypeParameterParser(Errors, all, tpv, t, Span(start)); 
 				}
 
 				}

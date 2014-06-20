@@ -6,18 +6,18 @@ using Antlr.Runtime;
 
 namespace Truss.Compiler.PreProcessor {
     public class PreProcessorFileStream : ANTLRFileStream {
-        public PreProcessorFileStream(string fileName, IEnumerable<string> defines)
+        public PreProcessorFileStream(ErrorList errors, string fileName, IEnumerable<string> defines)
             : base(fileName) {
-            Init(defines);
+            Init(errors, defines);
         }
 
-        public PreProcessorFileStream(string fileName, Encoding encoding, IEnumerable<string> defines)
+        public PreProcessorFileStream(ErrorList errors, string fileName, Encoding encoding, IEnumerable<string> defines)
             : base(fileName, encoding) {
-            Init(defines);
+            Init(errors, defines);
         }
 
-        private void Init(IEnumerable<string> defines) {
-            data = PreProcessor.Process(data, n, defines);
+        private void Init(ErrorList errors, IEnumerable<string> defines) {
+            data = PreProcessor.Process(errors, data, n, defines);
             n = data.Length;
         }
     }

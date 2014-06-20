@@ -195,6 +195,8 @@ class Foo {
 <<<
 
 Destruction with modifiers(2,12): error TRS0001: Unexpected token 'OP_TILDE'
+Destruction with modifiers: error TRS0011: An unknown internal error has occurred: Value cannot be null.
+Parameter name: item
 
 >>> Conversion operator
 

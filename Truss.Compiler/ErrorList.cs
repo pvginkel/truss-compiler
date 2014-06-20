@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 
 namespace Truss.Compiler {
-    public class MessageCollection {
-        private readonly List<Message> _messages= new List<Message>();
+    public class ErrorList {
+        private readonly List<Error> _messages= new List<Error>();
 
-        public MessageCollection() {
-            Messages = new ReadOnlyCollection<Message>(_messages);
+        public ErrorList() {
+            Messages = new ReadOnlyCollection<Error>(_messages);
         }
 
         public bool HasErrors {
@@ -30,16 +30,16 @@ namespace Truss.Compiler {
 
         public int Infos { get; private set; }
 
-        public IList<Message> Messages { get; private set; }
+        public IList<Error> Messages { get; private set; }
 
-        public void Add(Message message) {
-            if (message == null) {
-                throw new ArgumentNullException("message");
+        public void Add(Error error) {
+            if (error == null) {
+                throw new ArgumentNullException("error");
             }
 
-            _messages.Add(message);
+            _messages.Add(error);
 
-            switch (message.Type.Severity) {
+            switch (error.Type.Severity) {
                 case Severity.Error:
                     Errors++;
                     break;
@@ -52,16 +52,16 @@ namespace Truss.Compiler {
             }
         }
 
-        public void Add(MessageType type, params object[] args) {
-            Add(new Message(type, args));
+        public void Add(ErrorType type, params object[] args) {
+            Add(new Error(type, args));
         }
 
-        public void Add(MessageType type, string fileName, params object[] args) {
-            Add(new Message(type, fileName, args));
+        public void Add(ErrorType type, string fileName, params object[] args) {
+            Add(new Error(type, fileName, args));
         }
 
-        public void Add(MessageType type, Span span, params object[] args) {
-            Add(new Message(type, span, args));
+        public void Add(ErrorType type, Span span, params object[] args) {
+            Add(new Error(type, span, args));
         }
 
         public override string ToString() {

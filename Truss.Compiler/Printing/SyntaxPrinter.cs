@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using Truss.Compiler.Support;
 using Truss.Compiler.Syntax;
-using Nullable = Truss.Compiler.Syntax.Nullable;
 
 namespace Truss.Compiler.Printing {
     public class SyntaxPrinter : ISyntaxVisitor {
@@ -192,6 +191,9 @@ namespace Truss.Compiler.Printing {
             Syntax("[");
             syntax.Size.Accept(this);
             Syntax("]");
+            if (syntax.IsTracked) {
+                Syntax("^");
+            }
         }
 
         public void VisitArrayType(ArrayTypeSyntax syntax) {
@@ -413,13 +415,13 @@ namespace Truss.Compiler.Printing {
                     break;
             }
 
-            if (syntax.Nullable.HasValue) {
-                PrintNullable(syntax.Nullable.Value);
+            if (syntax.Nullability.HasValue) {
+                PrintNullable(syntax.Nullability.Value);
             }
         }
 
-        private void PrintNullable(Nullable nullable) {
-            Syntax(nullable == Nullable.Nullable ? "?" : "!");
+        private void PrintNullable(Nullability nullable) {
+            Syntax(nullable == Nullability.Nullable ? "?" : "!");
         }
 
         public void VisitCompilationUnit(CompilationUnitSyntax syntax) {

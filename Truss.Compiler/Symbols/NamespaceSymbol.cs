@@ -38,11 +38,7 @@ namespace Truss.Compiler.Symbols {
                 throw new ArgumentNullException("container");
             }
 
-            var symbol = CreateChain(errors, syntax.Name, container);
-
-            symbol.AddSpan(syntax.Span);
-
-            return symbol;
+            return CreateChain(errors, syntax.Name, container);
         }
 
         private static NamespaceSymbol CreateChain(ErrorList errors, NameSyntax name, ContainerSymbol container) {
@@ -60,15 +56,12 @@ namespace Truss.Compiler.Symbols {
 
             string identifier = ((IdentifierNameSyntax)name).Identifier;
 
-            foreach (var member in container.GetMemberByMetadataName(identifier)) {
-                if (member is NamespaceSymbol) {
-                    return (NamespaceSymbol)member;
-                }
+            NamespaceSymbol symbol;
+            if (!container.TryGetMemberByMetadataName(identifier, out symbol)) {
+                symbol = new NamespaceSymbol(identifier, container);
+
+                container.AddMember(symbol);
             }
-
-            var symbol = new NamespaceSymbol(identifier, container);
-
-            container.AddMember(symbol);
 
             return symbol;
         }

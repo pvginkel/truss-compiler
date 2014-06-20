@@ -5,8 +5,12 @@ using System.Text;
 
 namespace Truss.Compiler.Symbols {
     public class DestructorSymbol : MethodSymbol {
-        public override SymbolKind Kind {
-            get { return SymbolKind.Destructor; }
+        public DestructorSymbol(NamedTypeSymbol declaringType, SymbolModifier modifiers, TypeSymbol returnType)
+            : base(declaringType, modifiers, returnType) {
+        }
+
+        public override MethodKind MethodKind {
+            get { return MethodKind.Destructor; }
         }
 
         public override void Accept(ISymbolVisitor visitor) {

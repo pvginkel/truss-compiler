@@ -33,10 +33,20 @@ namespace Truss.Compiler.Symbols {
 
         void VisitPropertyAccessor(PropertyAccessorSymbol symbol);
 
-        void VisitType(TypeSymbol symbol);
+        void VisitNamedType(NamedTypeSymbol symbol);
 
         void VisitTypeParameter(TypeParameterSymbol symbol);
 
         void VisitInvalidType(InvalidTypeSymbol symbol);
+
+        void VisitArrayType(ArrayTypeSymbol symbol);
+
+        void VisitNullableType(NullableTypeSymbol symbol);
+
+        void VisitTrackedType(TrackedTypeSymbol symbol);
+
+        void VisitNakedNullableType(NakedNullableTypeSymbol symbol);
+
+        void VisitVarType(VarTypeSymbol symbol);
     }
 }

@@ -5,21 +5,14 @@ using System.Text;
 
 namespace Truss.Compiler.Symbols {
     public enum SymbolKind {
-        Constructor,
-        ConversionOperator,
-        Destructor,
         Event,
-        EventAccessor,
         Field,
         Global,
-        InvalidType,
-        MemberMethod,
+        IndexerProperty,
+        Method,
         Namespace,
-        Operator,
         Parameter,
         Property,
-        PropertyAccessor,
         Type,
-        TypeParameter
     }
 }

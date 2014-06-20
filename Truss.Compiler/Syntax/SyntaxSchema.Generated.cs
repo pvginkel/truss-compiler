@@ -11,9 +11,6 @@ namespace Truss.Compiler.Syntax {
             if (attributeLists == null) {
                 throw new ArgumentNullException("attributeLists");
             }
-            if (body == null) {
-                throw new ArgumentNullException("body");
-            }
 
             AttributeLists = attributeLists;
             Modifiers = modifiers;
@@ -195,16 +192,19 @@ namespace Truss.Compiler.Syntax {
     }
 
     public class ArrayRankSpecifierSyntax : SyntaxNode {
-        public ArrayRankSpecifierSyntax(ExpressionSyntax size, Span span)
+        public ArrayRankSpecifierSyntax(ExpressionSyntax size, bool isTracked, Span span)
             : base(span) {
             if (size == null) {
                 throw new ArgumentNullException("size");
             }
 
             Size = size;
+            IsTracked = isTracked;
         }
 
         public ExpressionSyntax Size { get; private set; }
+
+        public bool IsTracked { get; private set; }
 
         public override SyntaxKind Kind {
             get { return SyntaxKind.ArrayRankSpecifier; }
@@ -431,9 +431,6 @@ namespace Truss.Compiler.Syntax {
             }
             if (parameters == null) {
                 throw new ArgumentNullException("parameters");
-            }
-            if (body == null) {
-                throw new ArgumentNullException("body");
             }
 
             AttributeLists = attributeLists;
@@ -1898,13 +1895,13 @@ namespace Truss.Compiler.Syntax {
     }
 
     public class NakedNullableTypeSyntax : TypeSyntax {
-        public NakedNullableTypeSyntax(Nullable type, Span span)
+        public NakedNullableTypeSyntax(Nullability type, Span span)
             : base(span) {
 
             Type = type;
         }
 
-        public Nullable Type { get; private set; }
+        public Nullability Type { get; private set; }
 
         public override SyntaxKind Kind {
             get { return SyntaxKind.NakedNullableType; }
@@ -2606,21 +2603,21 @@ namespace Truss.Compiler.Syntax {
     }
 
     public class TypeFamilyConstraintSyntax : TypeParameterConstraintSyntax {
-        public TypeFamilyConstraintSyntax(TypeFamily family, Nullable? nullable, Span span)
+        public TypeFamilyConstraintSyntax(TypeFamily family, Nullability? nullability, Span span)
             : base(span) {
 
-            if (family != TypeFamily.Tracked && nullable == null) {
-                throw new ArgumentException("Nullable is mandatory when family is not tracked");
+            if (family != TypeFamily.Tracked && nullability == null) {
+                throw new ArgumentException("Nullability is mandatory when family is not tracked");
             }
         
 
             Family = family;
-            Nullable = nullable;
+            Nullability = nullability;
         }
 
         public TypeFamily Family { get; private set; }
 
-        public Nullable? Nullable { get; private set; }
+        public Nullability? Nullability { get; private set; }
 
         public override SyntaxKind Kind {
             get { return SyntaxKind.TypeFamilyConstraint; }
@@ -3042,7 +3039,7 @@ namespace Truss.Compiler.Syntax {
         Volatile,
     }
 
-    public enum Nullable {
+    public enum Nullability {
         Nullable,
         NotNullable,
     }

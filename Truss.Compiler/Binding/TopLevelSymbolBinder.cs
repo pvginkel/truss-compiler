@@ -27,14 +27,14 @@ namespace Truss.Compiler.Binding {
         public override void VisitDelegateDeclaration(DelegateDeclarationSyntax syntax) {
             _manager.Add(
                 syntax,
-                TypeSymbol.FromDelegate(_errors, syntax, _stack.Peek())
+                NamedTypeSymbol.FromDelegate(_errors, syntax, _stack.Peek())
             );
         }
 
         public override void VisitEnumDeclaration(EnumDeclarationSyntax syntax) {
             _manager.Add(
                 syntax,
-                TypeSymbol.FromEnum(_errors, syntax, _stack.Peek())
+                NamedTypeSymbol.FromEnum(_errors, syntax, _stack.Peek())
             );
         }
 
@@ -50,7 +50,7 @@ namespace Truss.Compiler.Binding {
         }
 
         public override void VisitTypeDeclaration(TypeDeclarationSyntax syntax) {
-            var symbol = TypeSymbol.FromType(_errors, syntax, _stack.Peek());
+            var symbol = NamedTypeSymbol.FromType(_errors, syntax, _stack.Peek());
 
             _manager.Add(syntax, symbol);
             _stack.Push(symbol);

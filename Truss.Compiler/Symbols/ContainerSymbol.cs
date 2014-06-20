@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Truss.Compiler.Symbols {
@@ -14,12 +15,6 @@ namespace Truss.Compiler.Symbols {
         private readonly Dictionary<string, List<Symbol>> _membersByMetadataName = new Dictionary<string, List<Symbol>>();
 
         protected ContainerSymbol(ContainerSymbol parent) {
-            if (!(this is GlobalSymbol)) {
-                if (parent == null) {
-                    throw new ArgumentNullException("parent");
-                }
-            }
-
             Members = new ReadOnlyCollection<Symbol>(_members);
             Parent = parent;
         }
@@ -53,12 +48,41 @@ namespace Truss.Compiler.Symbols {
             members.Add(member);
         }
 
-        public IList<Symbol> GetMemberByName(string name) {
-            return GetMemberByName(_membersByName, name);
-        }
+        //public IList<Symbol> GetMemberByName(string name) {
+        //    return GetMemberByName(_membersByName, name);
+        //}
 
         public IList<Symbol> GetMemberByMetadataName(string metadataName) {
             return GetMemberByName(_membersByMetadataName, metadataName);
+        }
+
+        //public bool HasMemberByName(string name) {
+        //    if (name == null) {
+        //        throw new ArgumentNullException("name");
+        //    }
+
+        //    return _membersByName.ContainsKey(name);
+        //}
+
+        //public bool HasMemberByMetadataName(string metadataName) {
+        //    if (metadataName == null) {
+        //        throw new ArgumentNullException("metadataName");
+        //    }
+
+        //    return _membersByMetadataName.ContainsKey(metadataName);
+        //}
+
+        public bool TryGetMemberByMetadataName<T>(string metadataName, out T result)
+            where T : Symbol {
+            result = null;
+            foreach (var member in GetMemberByMetadataName(metadataName)) {
+                if (member is T) {
+                    Debug.Assert(result == null);
+                    result = (T)member;
+                }
+            }
+
+            return result != null;
         }
 
         private static IList<Symbol> GetMemberByName(Dictionary<string, List<Symbol>> membersByName, string name) {

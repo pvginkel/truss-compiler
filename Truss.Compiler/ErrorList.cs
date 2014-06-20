@@ -64,6 +64,16 @@ namespace Truss.Compiler {
             Add(new Error(type, span, args));
         }
 
+        public void Add(ErrorType type, IEnumerable<Span> spans, params object[] args) {
+            if (spans == null) {
+                throw new ArgumentNullException("spans");
+            }
+
+            foreach (var span in spans) {
+                Add(new Error(type, span, args));
+            }
+        }
+
         public override string ToString() {
             var sb = new StringBuilder();
 

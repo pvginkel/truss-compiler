@@ -12,7 +12,7 @@ namespace Truss.Compiler.Symbols {
             Spans = new ReadOnlyCollection<Span>(_spans);
         }
 
-        protected void AddSpan(Span span) {
+        internal void AddSpan(Span span) {
             if (span == null) {
                 throw new ArgumentNullException("span");
             }

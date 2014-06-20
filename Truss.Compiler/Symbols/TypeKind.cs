@@ -5,12 +5,18 @@ using System.Text;
 
 namespace Truss.Compiler.Symbols {
     public enum TypeKind {
+        ArrayType,
         Class,
-        Struct,
-        Interface,
+        Delegate,
         Enum,
-        TypeParameter,
+        Interface,
         Invalid,
-        Delegate
+        NakedNullableType,
+        NullableType,
+        Struct,
+        Terminator,
+        TrackedType,
+        TypeParameter,
+        VarType
     }
 }

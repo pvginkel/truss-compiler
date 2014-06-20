@@ -79,23 +79,27 @@ namespace Truss.Compiler.Support {
                 return _list.Contains(items);
             }
 
-            public void Add(T item) {
+            public Builder Add(T item) {
                 if (item == null) {
                     throw new ArgumentNullException("item");
                 }
 
                 _list.Add(item);
+
+                return this;
             }
 
-            public void Remove(T item) {
+            public Builder Remove(T item) {
                 if (item == null) {
                     throw new ArgumentNullException("item");
                 }
 
                 _list.Remove(item);
+
+                return this;
             }
 
-            public void AddRange(IEnumerable<T> items) {
+            public Builder AddRange(IEnumerable<T> items) {
                 if (items == null) {
                     throw new ArgumentNullException("items");
                 }
@@ -103,6 +107,8 @@ namespace Truss.Compiler.Support {
                 ValidateList(items);
 
                 _list.AddRange(items);
+
+                return this;
             }
 
             private static void ValidateList(IEnumerable<T> items) {
@@ -113,8 +119,10 @@ namespace Truss.Compiler.Support {
                 }
             }
 
-            public void Clear() {
+            public Builder Clear() {
                 _list.Clear();
+
+                return this;
             }
 
             public T this[int index] {

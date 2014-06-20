@@ -7,7 +7,7 @@
         <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
         <property name="Modifiers" type="Modifier" list="true"/>
         <property name="Type" type="AccessorDeclarationType"/>
-        <property name="Body" type="BlockSyntax"/>
+        <property name="Body" type="BlockSyntax" nullable="true"/>
     </class>
     <class name="ArgumentSyntax" base="SyntaxNode">
         <property name="Modifiers" type="ParameterModifier" list="true"/>
@@ -15,6 +15,7 @@
     </class>
     <class name="ArrayRankSpecifierSyntax" base="SyntaxNode">
         <property name="Size" type="ExpressionSyntax"/>
+        <property name="IsTracked" type="bool"/>
     </class>
     <class name="AttributeListSyntax" base="SyntaxNode">
         <property name="Target" type="AttributeTarget"/>
@@ -172,7 +173,7 @@
         <property name="ElementType" type="TypeSyntax"/>
     </class>
     <class name="NakedNullableTypeSyntax" base="TypeSyntax">
-        <property name="Type" type="Nullable"/>
+        <property name="Type" type="Nullability"/>
     </class>
     <class name="NullableTypeSyntax" base="TypeSyntax">
         <property name="ElementType" type="TypeSyntax"/>
@@ -194,7 +195,7 @@
         <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
         <property name="Modifiers" type="Modifier" list="true"/>
         <property name="Parameters" type="ParameterSyntax" list="true" last="true"/>
-        <property name="Body" type="BlockSyntax" last="true"/>
+        <property name="Body" type="BlockSyntax" last="true" nullable="true"/>
     </class>
     <class name="ConstructorDeclarationSyntax" base="BaseMethodDeclarationSyntax">
         <property name="Identifier" type="IdentifierNameSyntax"/>
@@ -379,10 +380,10 @@
     <class name="TypeParameterConstraintSyntax" abstract="true" base="SyntaxNode"/>
     <class name="TypeFamilyConstraintSyntax" base="TypeParameterConstraintSyntax">
         <property name="Family" type="TypeFamily"/>
-        <property name="Nullable" type="Nullable" nullable="true"/>
+        <property name="Nullability" type="Nullability" nullable="true"/>
         <validation><![CDATA[
-            if (family != TypeFamily.Tracked && nullable == null) {
-                throw new ArgumentException("Nullable is mandatory when family is not tracked");
+            if (family != TypeFamily.Tracked && nullability == null) {
+                throw new ArgumentException("Nullability is mandatory when family is not tracked");
             }
         ]]></validation>
     </class>
@@ -507,7 +508,7 @@
         <property name="Virtual"/>
         <property name="Volatile"/>
     </enum>
-    <enum name="Nullable">
+    <enum name="Nullability">
         <property name="Nullable"/>
         <property name="NotNullable"/>
     </enum>

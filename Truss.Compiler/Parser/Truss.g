@@ -418,15 +418,15 @@ typeParameterConstraint returns [TypeParameterConstraintSyntax value]
             | OP_CARET { family = TypeFamily.Tracked; }
             )
         )
-        { value = new TypeFamilyConstraintSyntax(family.Value, family == TypeFamily.Tracked ? (Nullable?)null : n, Span(start)); }
+        { value = new TypeFamilyConstraintSyntax(family.Value, family == TypeFamily.Tracked ? (Nullability?)null : n, Span(start)); }
     |
         t=typeSyntax
         { value = new TypeConstraintSyntax(t, Span(start)); }
     ;
 
-nullable returns [Nullable value]
-    : OP_QUESTION { value = Nullable.Nullable; }
-    | OP_EXCLAMATION { value = Nullable.NotNullable; }
+nullable returns [Nullability value]
+    : OP_QUESTION { value = Nullability.Nullable; }
+    | OP_EXCLAMATION { value = Nullability.NotNullable; }
     ;
 
 modifiers returns [ImmutableArray<Modifier> value]
@@ -528,7 +528,7 @@ scope declarationPrefix;
     |
         e3=conversionOperatorDeclaration { value = e3; }
     |
-        { $declarationPrefix::modifiers.Count == 0 }?=> e4=destructorDeclaration { value = e4; }
+        e4=destructorDeclaration { value = e4; }
     |
         e5=eventDeclaration { value = e5; }
     |
@@ -631,7 +631,7 @@ methodDeclarationTail returns [MethodDeclarationSyntax value]
     :
         pl=parameterList
         tpccl=typeParameterConstraintClauseList
-        b=block
+        ( b=block | OP_SEMICOLON )
         {
             value = new MethodDeclarationSyntax(
                 $declarationPrefix::attributes,
@@ -698,7 +698,7 @@ accessorList returns [ImmutableArray<AccessorDeclarationSyntax> value]
             all=attributeListList
             m=modifiers
             adt=accessorDeclarationType
-            b=block
+            ( b=block | OP_SEMICOLON )
             { accessors.Add(new AccessorDeclarationSyntax(all, m, adt, b, Span(start))); }
         )*
         OP_BRACE_CLOSE
@@ -1758,10 +1758,18 @@ scope {
 arrayCreationExpression returns [ExpressionSyntax value]
 @init {
     var builder = new ImmutableArray<ArrayRankSpecifierSyntax>.Builder();
+    bool isTracked = false;
 }
     :
-        obo=OP_BRACKET_OPEN eod=expressionOrDeclaration OP_BRACKET_CLOSE
-        { builder.Add(new ArrayRankSpecifierSyntax(eod, Span(obo))); }
+        obo=OP_BRACKET_OPEN
+        eod=expressionOrDeclaration
+        OP_BRACKET_CLOSE
+        (
+            ( OP_CARET )=>
+            OP_CARET
+            { isTracked = true; }
+        )?
+        { builder.Add(new ArrayRankSpecifierSyntax(eod, isTracked, Span(obo))); }
         (
             rsl=rankSpecifierList
             { builder.AddRange(rsl); }
@@ -2138,13 +2146,14 @@ np__type returns [TypeParser value]
             { value = new NullableTypeParser(value, Span(start)); }
         )?
         (
+            ( OP_CARET )=>
+            OP_CARET
+            { value = new TrackedTypeParser(value, Span(start)); }
+        )?
+        (
             ( rankSpecifier )=>
             rsl=rankSpecifierList
             { value = new ArrayTypeParser(value, rsl, Span(start)); }
-        )?
-        (
-            OP_CARET
-            { value = new TrackedTypeParser(value, Span(start)); }
         )?
     ;
 
@@ -2164,11 +2173,17 @@ rankSpecifierList returns [ImmutableArray<ArrayRankSpecifierSyntax> value]
 rankSpecifier returns [ArrayRankSpecifierSyntax value]
 @init {
     var start = input.LT(1);
+    bool isTracked = false;
 }
     :
         OP_BRACKET_OPEN
         OP_BRACKET_CLOSE
-        { value = new ArrayRankSpecifierSyntax(new OmittedArraySizeExpressionSyntax(Span(start)), Span(start)); }
+        (
+            ( OP_CARET )=>
+            OP_CARET
+            { isTracked = true; }
+        )?
+        { value = new ArrayRankSpecifierSyntax(new OmittedArraySizeExpressionSyntax(Span(start)), isTracked, Span(start)); }
     ;
 
 np__baseType returns [TypeParser value]

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4.1.9004 Truss.g 2014-06-20 10:06:10
+// $ANTLR 3.4.1.9004 Truss.g 2014-06-22 09:05:49
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -228,11 +228,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_ABSTRACT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2299:13: ( 'abstract' )
+			// Truss.g:2314:13: ( 'abstract' )
 			DebugEnterAlt(1);
-			// Truss.g:2299:15: 'abstract'
+			// Truss.g:2314:15: 'abstract'
 			{
-			DebugLocation(2299, 15);
+			DebugLocation(2314, 15);
 			Match("abstract"); if (state.failed) return;
 
 
@@ -264,11 +264,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_AS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2300:7: ( 'as' )
+			// Truss.g:2315:7: ( 'as' )
 			DebugEnterAlt(1);
-			// Truss.g:2300:9: 'as'
+			// Truss.g:2315:9: 'as'
 			{
-			DebugLocation(2300, 9);
+			DebugLocation(2315, 9);
 			Match("as"); if (state.failed) return;
 
 
@@ -300,11 +300,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_ASSERT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2301:11: ( 'assert' )
+			// Truss.g:2316:11: ( 'assert' )
 			DebugEnterAlt(1);
-			// Truss.g:2301:13: 'assert'
+			// Truss.g:2316:13: 'assert'
 			{
-			DebugLocation(2301, 13);
+			DebugLocation(2316, 13);
 			Match("assert"); if (state.failed) return;
 
 
@@ -336,11 +336,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_ASYNC;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2302:10: ( 'async' )
+			// Truss.g:2317:10: ( 'async' )
 			DebugEnterAlt(1);
-			// Truss.g:2302:12: 'async'
+			// Truss.g:2317:12: 'async'
 			{
-			DebugLocation(2302, 12);
+			DebugLocation(2317, 12);
 			Match("async"); if (state.failed) return;
 
 
@@ -372,11 +372,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_AWAIT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2303:10: ( 'await' )
+			// Truss.g:2318:10: ( 'await' )
 			DebugEnterAlt(1);
-			// Truss.g:2303:12: 'await'
+			// Truss.g:2318:12: 'await'
 			{
-			DebugLocation(2303, 12);
+			DebugLocation(2318, 12);
 			Match("await"); if (state.failed) return;
 
 
@@ -408,11 +408,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_BASE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2304:9: ( 'base' )
+			// Truss.g:2319:9: ( 'base' )
 			DebugEnterAlt(1);
-			// Truss.g:2304:11: 'base'
+			// Truss.g:2319:11: 'base'
 			{
-			DebugLocation(2304, 11);
+			DebugLocation(2319, 11);
 			Match("base"); if (state.failed) return;
 
 
@@ -444,11 +444,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_BOOL;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2305:9: ( 'bool' )
+			// Truss.g:2320:9: ( 'bool' )
 			DebugEnterAlt(1);
-			// Truss.g:2305:11: 'bool'
+			// Truss.g:2320:11: 'bool'
 			{
-			DebugLocation(2305, 11);
+			DebugLocation(2320, 11);
 			Match("bool"); if (state.failed) return;
 
 
@@ -480,11 +480,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_BREAK;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2306:10: ( 'break' )
+			// Truss.g:2321:10: ( 'break' )
 			DebugEnterAlt(1);
-			// Truss.g:2306:12: 'break'
+			// Truss.g:2321:12: 'break'
 			{
-			DebugLocation(2306, 12);
+			DebugLocation(2321, 12);
 			Match("break"); if (state.failed) return;
 
 
@@ -516,11 +516,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_BYTE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2307:9: ( 'byte' )
+			// Truss.g:2322:9: ( 'byte' )
 			DebugEnterAlt(1);
-			// Truss.g:2307:11: 'byte'
+			// Truss.g:2322:11: 'byte'
 			{
-			DebugLocation(2307, 11);
+			DebugLocation(2322, 11);
 			Match("byte"); if (state.failed) return;
 
 
@@ -552,11 +552,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_CASE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2308:9: ( 'case' )
+			// Truss.g:2323:9: ( 'case' )
 			DebugEnterAlt(1);
-			// Truss.g:2308:11: 'case'
+			// Truss.g:2323:11: 'case'
 			{
-			DebugLocation(2308, 11);
+			DebugLocation(2323, 11);
 			Match("case"); if (state.failed) return;
 
 
@@ -588,11 +588,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_CATCH;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2309:10: ( 'catch' )
+			// Truss.g:2324:10: ( 'catch' )
 			DebugEnterAlt(1);
-			// Truss.g:2309:12: 'catch'
+			// Truss.g:2324:12: 'catch'
 			{
-			DebugLocation(2309, 12);
+			DebugLocation(2324, 12);
 			Match("catch"); if (state.failed) return;
 
 
@@ -624,11 +624,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_CHAR;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2310:9: ( 'char' )
+			// Truss.g:2325:9: ( 'char' )
 			DebugEnterAlt(1);
-			// Truss.g:2310:11: 'char'
+			// Truss.g:2325:11: 'char'
 			{
-			DebugLocation(2310, 11);
+			DebugLocation(2325, 11);
 			Match("char"); if (state.failed) return;
 
 
@@ -660,11 +660,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_CLASS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2311:10: ( 'class' )
+			// Truss.g:2326:10: ( 'class' )
 			DebugEnterAlt(1);
-			// Truss.g:2311:12: 'class'
+			// Truss.g:2326:12: 'class'
 			{
-			DebugLocation(2311, 12);
+			DebugLocation(2326, 12);
 			Match("class"); if (state.failed) return;
 
 
@@ -696,11 +696,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_CONSUMES;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2312:13: ( 'consumes' )
+			// Truss.g:2327:13: ( 'consumes' )
 			DebugEnterAlt(1);
-			// Truss.g:2312:15: 'consumes'
+			// Truss.g:2327:15: 'consumes'
 			{
-			DebugLocation(2312, 15);
+			DebugLocation(2327, 15);
 			Match("consumes"); if (state.failed) return;
 
 
@@ -732,11 +732,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_CONTINUE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2313:13: ( 'continue' )
+			// Truss.g:2328:13: ( 'continue' )
 			DebugEnterAlt(1);
-			// Truss.g:2313:15: 'continue'
+			// Truss.g:2328:15: 'continue'
 			{
-			DebugLocation(2313, 15);
+			DebugLocation(2328, 15);
 			Match("continue"); if (state.failed) return;
 
 
@@ -768,11 +768,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_DECIMAL;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2314:12: ( 'decimal' )
+			// Truss.g:2329:12: ( 'decimal' )
 			DebugEnterAlt(1);
-			// Truss.g:2314:14: 'decimal'
+			// Truss.g:2329:14: 'decimal'
 			{
-			DebugLocation(2314, 14);
+			DebugLocation(2329, 14);
 			Match("decimal"); if (state.failed) return;
 
 
@@ -804,11 +804,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_DEFAULT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2315:12: ( 'default' )
+			// Truss.g:2330:12: ( 'default' )
 			DebugEnterAlt(1);
-			// Truss.g:2315:14: 'default'
+			// Truss.g:2330:14: 'default'
 			{
-			DebugLocation(2315, 14);
+			DebugLocation(2330, 14);
 			Match("default"); if (state.failed) return;
 
 
@@ -840,11 +840,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_DELEGATE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2316:13: ( 'delegate' )
+			// Truss.g:2331:13: ( 'delegate' )
 			DebugEnterAlt(1);
-			// Truss.g:2316:15: 'delegate'
+			// Truss.g:2331:15: 'delegate'
 			{
-			DebugLocation(2316, 15);
+			DebugLocation(2331, 15);
 			Match("delegate"); if (state.failed) return;
 
 
@@ -876,11 +876,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_DELETE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2317:11: ( 'delete' )
+			// Truss.g:2332:11: ( 'delete' )
 			DebugEnterAlt(1);
-			// Truss.g:2317:13: 'delete'
+			// Truss.g:2332:13: 'delete'
 			{
-			DebugLocation(2317, 13);
+			DebugLocation(2332, 13);
 			Match("delete"); if (state.failed) return;
 
 
@@ -912,11 +912,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_DO;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2318:7: ( 'do' )
+			// Truss.g:2333:7: ( 'do' )
 			DebugEnterAlt(1);
-			// Truss.g:2318:9: 'do'
+			// Truss.g:2333:9: 'do'
 			{
-			DebugLocation(2318, 9);
+			DebugLocation(2333, 9);
 			Match("do"); if (state.failed) return;
 
 
@@ -948,11 +948,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_DOUBLE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2319:11: ( 'double' )
+			// Truss.g:2334:11: ( 'double' )
 			DebugEnterAlt(1);
-			// Truss.g:2319:13: 'double'
+			// Truss.g:2334:13: 'double'
 			{
-			DebugLocation(2319, 13);
+			DebugLocation(2334, 13);
 			Match("double"); if (state.failed) return;
 
 
@@ -984,11 +984,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_ELIF;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2320:9: ( 'elif' )
+			// Truss.g:2335:9: ( 'elif' )
 			DebugEnterAlt(1);
-			// Truss.g:2320:11: 'elif'
+			// Truss.g:2335:11: 'elif'
 			{
-			DebugLocation(2320, 11);
+			DebugLocation(2335, 11);
 			Match("elif"); if (state.failed) return;
 
 
@@ -1020,11 +1020,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_ELSE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2321:9: ( 'else' )
+			// Truss.g:2336:9: ( 'else' )
 			DebugEnterAlt(1);
-			// Truss.g:2321:11: 'else'
+			// Truss.g:2336:11: 'else'
 			{
-			DebugLocation(2321, 11);
+			DebugLocation(2336, 11);
 			Match("else"); if (state.failed) return;
 
 
@@ -1056,11 +1056,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_ENUM;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2322:9: ( 'enum' )
+			// Truss.g:2337:9: ( 'enum' )
 			DebugEnterAlt(1);
-			// Truss.g:2322:11: 'enum'
+			// Truss.g:2337:11: 'enum'
 			{
-			DebugLocation(2322, 11);
+			DebugLocation(2337, 11);
 			Match("enum"); if (state.failed) return;
 
 
@@ -1092,11 +1092,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_EVENT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2323:10: ( 'event' )
+			// Truss.g:2338:10: ( 'event' )
 			DebugEnterAlt(1);
-			// Truss.g:2323:12: 'event'
+			// Truss.g:2338:12: 'event'
 			{
-			DebugLocation(2323, 12);
+			DebugLocation(2338, 12);
 			Match("event"); if (state.failed) return;
 
 
@@ -1128,11 +1128,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_EXPLICIT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2324:13: ( 'explicit' )
+			// Truss.g:2339:13: ( 'explicit' )
 			DebugEnterAlt(1);
-			// Truss.g:2324:15: 'explicit'
+			// Truss.g:2339:15: 'explicit'
 			{
-			DebugLocation(2324, 15);
+			DebugLocation(2339, 15);
 			Match("explicit"); if (state.failed) return;
 
 
@@ -1164,11 +1164,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_EXTERN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2325:11: ( 'extern' )
+			// Truss.g:2340:11: ( 'extern' )
 			DebugEnterAlt(1);
-			// Truss.g:2325:13: 'extern'
+			// Truss.g:2340:13: 'extern'
 			{
-			DebugLocation(2325, 13);
+			DebugLocation(2340, 13);
 			Match("extern"); if (state.failed) return;
 
 
@@ -1200,11 +1200,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_FALSE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2326:10: ( 'false' )
+			// Truss.g:2341:10: ( 'false' )
 			DebugEnterAlt(1);
-			// Truss.g:2326:12: 'false'
+			// Truss.g:2341:12: 'false'
 			{
-			DebugLocation(2326, 12);
+			DebugLocation(2341, 12);
 			Match("false"); if (state.failed) return;
 
 
@@ -1236,11 +1236,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_FINALLY;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2327:12: ( 'finally' )
+			// Truss.g:2342:12: ( 'finally' )
 			DebugEnterAlt(1);
-			// Truss.g:2327:14: 'finally'
+			// Truss.g:2342:14: 'finally'
 			{
-			DebugLocation(2327, 14);
+			DebugLocation(2342, 14);
 			Match("finally"); if (state.failed) return;
 
 
@@ -1272,11 +1272,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_FLOAT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2328:10: ( 'float' )
+			// Truss.g:2343:10: ( 'float' )
 			DebugEnterAlt(1);
-			// Truss.g:2328:12: 'float'
+			// Truss.g:2343:12: 'float'
 			{
-			DebugLocation(2328, 12);
+			DebugLocation(2343, 12);
 			Match("float"); if (state.failed) return;
 
 
@@ -1308,11 +1308,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_FOR;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2329:8: ( 'for' )
+			// Truss.g:2344:8: ( 'for' )
 			DebugEnterAlt(1);
-			// Truss.g:2329:10: 'for'
+			// Truss.g:2344:10: 'for'
 			{
-			DebugLocation(2329, 10);
+			DebugLocation(2344, 10);
 			Match("for"); if (state.failed) return;
 
 
@@ -1344,11 +1344,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_FOREACH;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2330:12: ( 'foreach' )
+			// Truss.g:2345:12: ( 'foreach' )
 			DebugEnterAlt(1);
-			// Truss.g:2330:14: 'foreach'
+			// Truss.g:2345:14: 'foreach'
 			{
-			DebugLocation(2330, 14);
+			DebugLocation(2345, 14);
 			Match("foreach"); if (state.failed) return;
 
 
@@ -1380,11 +1380,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_IF;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2331:7: ( 'if' )
+			// Truss.g:2346:7: ( 'if' )
 			DebugEnterAlt(1);
-			// Truss.g:2331:9: 'if'
+			// Truss.g:2346:9: 'if'
 			{
-			DebugLocation(2331, 9);
+			DebugLocation(2346, 9);
 			Match("if"); if (state.failed) return;
 
 
@@ -1416,11 +1416,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_IMPLICIT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2332:13: ( 'implicit' )
+			// Truss.g:2347:13: ( 'implicit' )
 			DebugEnterAlt(1);
-			// Truss.g:2332:15: 'implicit'
+			// Truss.g:2347:15: 'implicit'
 			{
-			DebugLocation(2332, 15);
+			DebugLocation(2347, 15);
 			Match("implicit"); if (state.failed) return;
 
 
@@ -1452,11 +1452,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_IMPORT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2333:11: ( 'import' )
+			// Truss.g:2348:11: ( 'import' )
 			DebugEnterAlt(1);
-			// Truss.g:2333:13: 'import'
+			// Truss.g:2348:13: 'import'
 			{
-			DebugLocation(2333, 13);
+			DebugLocation(2348, 13);
 			Match("import"); if (state.failed) return;
 
 
@@ -1488,11 +1488,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_IN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2334:7: ( 'in' )
+			// Truss.g:2349:7: ( 'in' )
 			DebugEnterAlt(1);
-			// Truss.g:2334:9: 'in'
+			// Truss.g:2349:9: 'in'
 			{
-			DebugLocation(2334, 9);
+			DebugLocation(2349, 9);
 			Match("in"); if (state.failed) return;
 
 
@@ -1524,11 +1524,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_INT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2335:8: ( 'int' )
+			// Truss.g:2350:8: ( 'int' )
 			DebugEnterAlt(1);
-			// Truss.g:2335:10: 'int'
+			// Truss.g:2350:10: 'int'
 			{
-			DebugLocation(2335, 10);
+			DebugLocation(2350, 10);
 			Match("int"); if (state.failed) return;
 
 
@@ -1560,11 +1560,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_INTERFACE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2336:14: ( 'interface' )
+			// Truss.g:2351:14: ( 'interface' )
 			DebugEnterAlt(1);
-			// Truss.g:2336:16: 'interface'
+			// Truss.g:2351:16: 'interface'
 			{
-			DebugLocation(2336, 16);
+			DebugLocation(2351, 16);
 			Match("interface"); if (state.failed) return;
 
 
@@ -1596,11 +1596,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_INTERNAL;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2337:13: ( 'internal' )
+			// Truss.g:2352:13: ( 'internal' )
 			DebugEnterAlt(1);
-			// Truss.g:2337:15: 'internal'
+			// Truss.g:2352:15: 'internal'
 			{
-			DebugLocation(2337, 15);
+			DebugLocation(2352, 15);
 			Match("internal"); if (state.failed) return;
 
 
@@ -1632,11 +1632,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_IS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2338:7: ( 'is' )
+			// Truss.g:2353:7: ( 'is' )
 			DebugEnterAlt(1);
-			// Truss.g:2338:9: 'is'
+			// Truss.g:2353:9: 'is'
 			{
-			DebugLocation(2338, 9);
+			DebugLocation(2353, 9);
 			Match("is"); if (state.failed) return;
 
 
@@ -1668,11 +1668,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_LONG;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2339:9: ( 'long' )
+			// Truss.g:2354:9: ( 'long' )
 			DebugEnterAlt(1);
-			// Truss.g:2339:11: 'long'
+			// Truss.g:2354:11: 'long'
 			{
-			DebugLocation(2339, 11);
+			DebugLocation(2354, 11);
 			Match("long"); if (state.failed) return;
 
 
@@ -1704,11 +1704,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_LOOP;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2340:9: ( 'loop' )
+			// Truss.g:2355:9: ( 'loop' )
 			DebugEnterAlt(1);
-			// Truss.g:2340:11: 'loop'
+			// Truss.g:2355:11: 'loop'
 			{
-			DebugLocation(2340, 11);
+			DebugLocation(2355, 11);
 			Match("loop"); if (state.failed) return;
 
 
@@ -1740,11 +1740,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_NAMESPACE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2341:14: ( 'namespace' )
+			// Truss.g:2356:14: ( 'namespace' )
 			DebugEnterAlt(1);
-			// Truss.g:2341:16: 'namespace'
+			// Truss.g:2356:16: 'namespace'
 			{
-			DebugLocation(2341, 16);
+			DebugLocation(2356, 16);
 			Match("namespace"); if (state.failed) return;
 
 
@@ -1776,11 +1776,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_NEW;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2342:8: ( 'new' )
+			// Truss.g:2357:8: ( 'new' )
 			DebugEnterAlt(1);
-			// Truss.g:2342:10: 'new'
+			// Truss.g:2357:10: 'new'
 			{
-			DebugLocation(2342, 10);
+			DebugLocation(2357, 10);
 			Match("new"); if (state.failed) return;
 
 
@@ -1812,11 +1812,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_NIL;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2343:8: ( 'nil' )
+			// Truss.g:2358:8: ( 'nil' )
 			DebugEnterAlt(1);
-			// Truss.g:2343:10: 'nil'
+			// Truss.g:2358:10: 'nil'
 			{
-			DebugLocation(2343, 10);
+			DebugLocation(2358, 10);
 			Match("nil"); if (state.failed) return;
 
 
@@ -1848,11 +1848,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_OBJECT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2344:11: ( 'object' )
+			// Truss.g:2359:11: ( 'object' )
 			DebugEnterAlt(1);
-			// Truss.g:2344:13: 'object'
+			// Truss.g:2359:13: 'object'
 			{
-			DebugLocation(2344, 13);
+			DebugLocation(2359, 13);
 			Match("object"); if (state.failed) return;
 
 
@@ -1884,11 +1884,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_OPERATOR;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2345:13: ( 'operator' )
+			// Truss.g:2360:13: ( 'operator' )
 			DebugEnterAlt(1);
-			// Truss.g:2345:15: 'operator'
+			// Truss.g:2360:15: 'operator'
 			{
-			DebugLocation(2345, 15);
+			DebugLocation(2360, 15);
 			Match("operator"); if (state.failed) return;
 
 
@@ -1920,11 +1920,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_OUT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2346:8: ( 'out' )
+			// Truss.g:2361:8: ( 'out' )
 			DebugEnterAlt(1);
-			// Truss.g:2346:10: 'out'
+			// Truss.g:2361:10: 'out'
 			{
-			DebugLocation(2346, 10);
+			DebugLocation(2361, 10);
 			Match("out"); if (state.failed) return;
 
 
@@ -1956,11 +1956,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_OVERRIDE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2347:13: ( 'override' )
+			// Truss.g:2362:13: ( 'override' )
 			DebugEnterAlt(1);
-			// Truss.g:2347:15: 'override'
+			// Truss.g:2362:15: 'override'
 			{
-			DebugLocation(2347, 15);
+			DebugLocation(2362, 15);
 			Match("override"); if (state.failed) return;
 
 
@@ -1992,11 +1992,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_PARAMS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2348:11: ( 'params' )
+			// Truss.g:2363:11: ( 'params' )
 			DebugEnterAlt(1);
-			// Truss.g:2348:13: 'params'
+			// Truss.g:2363:13: 'params'
 			{
-			DebugLocation(2348, 13);
+			DebugLocation(2363, 13);
 			Match("params"); if (state.failed) return;
 
 
@@ -2028,11 +2028,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_PARTIAL;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2349:12: ( 'partial' )
+			// Truss.g:2364:12: ( 'partial' )
 			DebugEnterAlt(1);
-			// Truss.g:2349:14: 'partial'
+			// Truss.g:2364:14: 'partial'
 			{
-			DebugLocation(2349, 14);
+			DebugLocation(2364, 14);
 			Match("partial"); if (state.failed) return;
 
 
@@ -2064,11 +2064,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_PRIVATE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2350:12: ( 'private' )
+			// Truss.g:2365:12: ( 'private' )
 			DebugEnterAlt(1);
-			// Truss.g:2350:14: 'private'
+			// Truss.g:2365:14: 'private'
 			{
-			DebugLocation(2350, 14);
+			DebugLocation(2365, 14);
 			Match("private"); if (state.failed) return;
 
 
@@ -2100,11 +2100,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_PROTECTED;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2351:14: ( 'protected' )
+			// Truss.g:2366:14: ( 'protected' )
 			DebugEnterAlt(1);
-			// Truss.g:2351:16: 'protected'
+			// Truss.g:2366:16: 'protected'
 			{
-			DebugLocation(2351, 16);
+			DebugLocation(2366, 16);
 			Match("protected"); if (state.failed) return;
 
 
@@ -2136,11 +2136,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_PUBLIC;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2352:11: ( 'public' )
+			// Truss.g:2367:11: ( 'public' )
 			DebugEnterAlt(1);
-			// Truss.g:2352:13: 'public'
+			// Truss.g:2367:13: 'public'
 			{
-			DebugLocation(2352, 13);
+			DebugLocation(2367, 13);
 			Match("public"); if (state.failed) return;
 
 
@@ -2172,11 +2172,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_READONLY;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2353:13: ( 'readonly' )
+			// Truss.g:2368:13: ( 'readonly' )
 			DebugEnterAlt(1);
-			// Truss.g:2353:15: 'readonly'
+			// Truss.g:2368:15: 'readonly'
 			{
-			DebugLocation(2353, 15);
+			DebugLocation(2368, 15);
 			Match("readonly"); if (state.failed) return;
 
 
@@ -2208,11 +2208,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_REF;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2354:8: ( 'ref' )
+			// Truss.g:2369:8: ( 'ref' )
 			DebugEnterAlt(1);
-			// Truss.g:2354:10: 'ref'
+			// Truss.g:2369:10: 'ref'
 			{
-			DebugLocation(2354, 10);
+			DebugLocation(2369, 10);
 			Match("ref"); if (state.failed) return;
 
 
@@ -2244,11 +2244,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_RETURN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2355:11: ( 'return' )
+			// Truss.g:2370:11: ( 'return' )
 			DebugEnterAlt(1);
-			// Truss.g:2355:13: 'return'
+			// Truss.g:2370:13: 'return'
 			{
-			DebugLocation(2355, 13);
+			DebugLocation(2370, 13);
 			Match("return"); if (state.failed) return;
 
 
@@ -2280,11 +2280,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_SBYTE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2356:10: ( 'sbyte' )
+			// Truss.g:2371:10: ( 'sbyte' )
 			DebugEnterAlt(1);
-			// Truss.g:2356:12: 'sbyte'
+			// Truss.g:2371:12: 'sbyte'
 			{
-			DebugLocation(2356, 12);
+			DebugLocation(2371, 12);
 			Match("sbyte"); if (state.failed) return;
 
 
@@ -2316,11 +2316,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_SEALED;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2357:11: ( 'sealed' )
+			// Truss.g:2372:11: ( 'sealed' )
 			DebugEnterAlt(1);
-			// Truss.g:2357:13: 'sealed'
+			// Truss.g:2372:13: 'sealed'
 			{
-			DebugLocation(2357, 13);
+			DebugLocation(2372, 13);
 			Match("sealed"); if (state.failed) return;
 
 
@@ -2352,11 +2352,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_SHORT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2358:10: ( 'short' )
+			// Truss.g:2373:10: ( 'short' )
 			DebugEnterAlt(1);
-			// Truss.g:2358:12: 'short'
+			// Truss.g:2373:12: 'short'
 			{
-			DebugLocation(2358, 12);
+			DebugLocation(2373, 12);
 			Match("short"); if (state.failed) return;
 
 
@@ -2388,11 +2388,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_SIZEOF;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2359:11: ( 'sizeof' )
+			// Truss.g:2374:11: ( 'sizeof' )
 			DebugEnterAlt(1);
-			// Truss.g:2359:13: 'sizeof'
+			// Truss.g:2374:13: 'sizeof'
 			{
-			DebugLocation(2359, 13);
+			DebugLocation(2374, 13);
 			Match("sizeof"); if (state.failed) return;
 
 
@@ -2424,11 +2424,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_STATIC;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2360:11: ( 'static' )
+			// Truss.g:2375:11: ( 'static' )
 			DebugEnterAlt(1);
-			// Truss.g:2360:13: 'static'
+			// Truss.g:2375:13: 'static'
 			{
-			DebugLocation(2360, 13);
+			DebugLocation(2375, 13);
 			Match("static"); if (state.failed) return;
 
 
@@ -2460,11 +2460,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_STRING;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2361:11: ( 'string' )
+			// Truss.g:2376:11: ( 'string' )
 			DebugEnterAlt(1);
-			// Truss.g:2361:13: 'string'
+			// Truss.g:2376:13: 'string'
 			{
-			DebugLocation(2361, 13);
+			DebugLocation(2376, 13);
 			Match("string"); if (state.failed) return;
 
 
@@ -2496,11 +2496,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_STRUCT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2362:11: ( 'struct' )
+			// Truss.g:2377:11: ( 'struct' )
 			DebugEnterAlt(1);
-			// Truss.g:2362:13: 'struct'
+			// Truss.g:2377:13: 'struct'
 			{
-			DebugLocation(2362, 13);
+			DebugLocation(2377, 13);
 			Match("struct"); if (state.failed) return;
 
 
@@ -2532,11 +2532,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_SWITCH;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2363:11: ( 'switch' )
+			// Truss.g:2378:11: ( 'switch' )
 			DebugEnterAlt(1);
-			// Truss.g:2363:13: 'switch'
+			// Truss.g:2378:13: 'switch'
 			{
-			DebugLocation(2363, 13);
+			DebugLocation(2378, 13);
 			Match("switch"); if (state.failed) return;
 
 
@@ -2568,11 +2568,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_THIS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2364:9: ( 'this' )
+			// Truss.g:2379:9: ( 'this' )
 			DebugEnterAlt(1);
-			// Truss.g:2364:11: 'this'
+			// Truss.g:2379:11: 'this'
 			{
-			DebugLocation(2364, 11);
+			DebugLocation(2379, 11);
 			Match("this"); if (state.failed) return;
 
 
@@ -2604,11 +2604,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_THROW;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2365:10: ( 'throw' )
+			// Truss.g:2380:10: ( 'throw' )
 			DebugEnterAlt(1);
-			// Truss.g:2365:12: 'throw'
+			// Truss.g:2380:12: 'throw'
 			{
-			DebugLocation(2365, 12);
+			DebugLocation(2380, 12);
 			Match("throw"); if (state.failed) return;
 
 
@@ -2640,11 +2640,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_TRUE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2366:9: ( 'true' )
+			// Truss.g:2381:9: ( 'true' )
 			DebugEnterAlt(1);
-			// Truss.g:2366:11: 'true'
+			// Truss.g:2381:11: 'true'
 			{
-			DebugLocation(2366, 11);
+			DebugLocation(2381, 11);
 			Match("true"); if (state.failed) return;
 
 
@@ -2676,11 +2676,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_TRY;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2367:8: ( 'try' )
+			// Truss.g:2382:8: ( 'try' )
 			DebugEnterAlt(1);
-			// Truss.g:2367:10: 'try'
+			// Truss.g:2382:10: 'try'
 			{
-			DebugLocation(2367, 10);
+			DebugLocation(2382, 10);
 			Match("try"); if (state.failed) return;
 
 
@@ -2712,11 +2712,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_TYPEOF;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2368:11: ( 'typeof' )
+			// Truss.g:2383:11: ( 'typeof' )
 			DebugEnterAlt(1);
-			// Truss.g:2368:13: 'typeof'
+			// Truss.g:2383:13: 'typeof'
 			{
-			DebugLocation(2368, 13);
+			DebugLocation(2383, 13);
 			Match("typeof"); if (state.failed) return;
 
 
@@ -2748,11 +2748,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_UINT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2369:9: ( 'uint' )
+			// Truss.g:2384:9: ( 'uint' )
 			DebugEnterAlt(1);
-			// Truss.g:2369:11: 'uint'
+			// Truss.g:2384:11: 'uint'
 			{
-			DebugLocation(2369, 11);
+			DebugLocation(2384, 11);
 			Match("uint"); if (state.failed) return;
 
 
@@ -2784,11 +2784,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_ULONG;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2370:10: ( 'ulong' )
+			// Truss.g:2385:10: ( 'ulong' )
 			DebugEnterAlt(1);
-			// Truss.g:2370:12: 'ulong'
+			// Truss.g:2385:12: 'ulong'
 			{
-			DebugLocation(2370, 12);
+			DebugLocation(2385, 12);
 			Match("ulong"); if (state.failed) return;
 
 
@@ -2820,11 +2820,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_USHORT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2371:11: ( 'ushort' )
+			// Truss.g:2386:11: ( 'ushort' )
 			DebugEnterAlt(1);
-			// Truss.g:2371:13: 'ushort'
+			// Truss.g:2386:13: 'ushort'
 			{
-			DebugLocation(2371, 13);
+			DebugLocation(2386, 13);
 			Match("ushort"); if (state.failed) return;
 
 
@@ -2856,11 +2856,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_USING;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2372:10: ( 'using' )
+			// Truss.g:2387:10: ( 'using' )
 			DebugEnterAlt(1);
-			// Truss.g:2372:12: 'using'
+			// Truss.g:2387:12: 'using'
 			{
-			DebugLocation(2372, 12);
+			DebugLocation(2387, 12);
 			Match("using"); if (state.failed) return;
 
 
@@ -2892,11 +2892,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_VAR;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2373:8: ( 'var' )
+			// Truss.g:2388:8: ( 'var' )
 			DebugEnterAlt(1);
-			// Truss.g:2373:10: 'var'
+			// Truss.g:2388:10: 'var'
 			{
-			DebugLocation(2373, 10);
+			DebugLocation(2388, 10);
 			Match("var"); if (state.failed) return;
 
 
@@ -2928,11 +2928,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_VIRTUAL;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2374:12: ( 'virtual' )
+			// Truss.g:2389:12: ( 'virtual' )
 			DebugEnterAlt(1);
-			// Truss.g:2374:14: 'virtual'
+			// Truss.g:2389:14: 'virtual'
 			{
-			DebugLocation(2374, 14);
+			DebugLocation(2389, 14);
 			Match("virtual"); if (state.failed) return;
 
 
@@ -2964,11 +2964,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_VOID;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2375:9: ( 'void' )
+			// Truss.g:2390:9: ( 'void' )
 			DebugEnterAlt(1);
-			// Truss.g:2375:11: 'void'
+			// Truss.g:2390:11: 'void'
 			{
-			DebugLocation(2375, 11);
+			DebugLocation(2390, 11);
 			Match("void"); if (state.failed) return;
 
 
@@ -3000,11 +3000,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_VOLATILE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2376:13: ( 'volatile' )
+			// Truss.g:2391:13: ( 'volatile' )
 			DebugEnterAlt(1);
-			// Truss.g:2376:15: 'volatile'
+			// Truss.g:2391:15: 'volatile'
 			{
-			DebugLocation(2376, 15);
+			DebugLocation(2391, 15);
 			Match("volatile"); if (state.failed) return;
 
 
@@ -3036,11 +3036,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_WHERE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2377:10: ( 'where' )
+			// Truss.g:2392:10: ( 'where' )
 			DebugEnterAlt(1);
-			// Truss.g:2377:12: 'where'
+			// Truss.g:2392:12: 'where'
 			{
-			DebugLocation(2377, 12);
+			DebugLocation(2392, 12);
 			Match("where"); if (state.failed) return;
 
 
@@ -3072,11 +3072,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = KW_WHILE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2378:10: ( 'while' )
+			// Truss.g:2393:10: ( 'while' )
 			DebugEnterAlt(1);
-			// Truss.g:2378:12: 'while'
+			// Truss.g:2393:12: 'while'
 			{
-			DebugLocation(2378, 12);
+			DebugLocation(2393, 12);
 			Match("while"); if (state.failed) return;
 
 
@@ -3108,11 +3108,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_AMPERSAND;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2380:14: ( '&' )
+			// Truss.g:2395:14: ( '&' )
 			DebugEnterAlt(1);
-			// Truss.g:2380:16: '&'
+			// Truss.g:2395:16: '&'
 			{
-			DebugLocation(2380, 16);
+			DebugLocation(2395, 16);
 			Match('&'); if (state.failed) return;
 
 			}
@@ -3143,11 +3143,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_AMPERSAND_AMPERSAND;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2381:24: ( '&&' )
+			// Truss.g:2396:24: ( '&&' )
 			DebugEnterAlt(1);
-			// Truss.g:2381:26: '&&'
+			// Truss.g:2396:26: '&&'
 			{
-			DebugLocation(2381, 26);
+			DebugLocation(2396, 26);
 			Match("&&"); if (state.failed) return;
 
 
@@ -3179,11 +3179,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_AMPERSAND_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2382:21: ( '&=' )
+			// Truss.g:2397:21: ( '&=' )
 			DebugEnterAlt(1);
-			// Truss.g:2382:23: '&='
+			// Truss.g:2397:23: '&='
 			{
-			DebugLocation(2382, 23);
+			DebugLocation(2397, 23);
 			Match("&="); if (state.failed) return;
 
 
@@ -3215,11 +3215,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_ASTERISK;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2383:13: ( '*' )
+			// Truss.g:2398:13: ( '*' )
 			DebugEnterAlt(1);
-			// Truss.g:2383:15: '*'
+			// Truss.g:2398:15: '*'
 			{
-			DebugLocation(2383, 15);
+			DebugLocation(2398, 15);
 			Match('*'); if (state.failed) return;
 
 			}
@@ -3250,11 +3250,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_ASTERISK_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2384:20: ( '*=' )
+			// Truss.g:2399:20: ( '*=' )
 			DebugEnterAlt(1);
-			// Truss.g:2384:22: '*='
+			// Truss.g:2399:22: '*='
 			{
-			DebugLocation(2384, 22);
+			DebugLocation(2399, 22);
 			Match("*="); if (state.failed) return;
 
 
@@ -3286,11 +3286,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_BAR;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2385:8: ( '|' )
+			// Truss.g:2400:8: ( '|' )
 			DebugEnterAlt(1);
-			// Truss.g:2385:10: '|'
+			// Truss.g:2400:10: '|'
 			{
-			DebugLocation(2385, 10);
+			DebugLocation(2400, 10);
 			Match('|'); if (state.failed) return;
 
 			}
@@ -3321,11 +3321,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_BAR_BAR;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2386:12: ( '||' )
+			// Truss.g:2401:12: ( '||' )
 			DebugEnterAlt(1);
-			// Truss.g:2386:14: '||'
+			// Truss.g:2401:14: '||'
 			{
-			DebugLocation(2386, 14);
+			DebugLocation(2401, 14);
 			Match("||"); if (state.failed) return;
 
 
@@ -3357,11 +3357,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_BAR_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2387:15: ( '|=' )
+			// Truss.g:2402:15: ( '|=' )
 			DebugEnterAlt(1);
-			// Truss.g:2387:17: '|='
+			// Truss.g:2402:17: '|='
 			{
-			DebugLocation(2387, 17);
+			DebugLocation(2402, 17);
 			Match("|="); if (state.failed) return;
 
 
@@ -3393,11 +3393,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_BRACE_CLOSE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2388:16: ( '}' )
+			// Truss.g:2403:16: ( '}' )
 			DebugEnterAlt(1);
-			// Truss.g:2388:18: '}'
+			// Truss.g:2403:18: '}'
 			{
-			DebugLocation(2388, 18);
+			DebugLocation(2403, 18);
 			Match('}'); if (state.failed) return;
 
 			}
@@ -3428,11 +3428,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_BRACE_OPEN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2389:15: ( '{' )
+			// Truss.g:2404:15: ( '{' )
 			DebugEnterAlt(1);
-			// Truss.g:2389:17: '{'
+			// Truss.g:2404:17: '{'
 			{
-			DebugLocation(2389, 17);
+			DebugLocation(2404, 17);
 			Match('{'); if (state.failed) return;
 
 			}
@@ -3463,11 +3463,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_BRACKET_CLOSE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2390:18: ( ']' )
+			// Truss.g:2405:18: ( ']' )
 			DebugEnterAlt(1);
-			// Truss.g:2390:20: ']'
+			// Truss.g:2405:20: ']'
 			{
-			DebugLocation(2390, 20);
+			DebugLocation(2405, 20);
 			Match(']'); if (state.failed) return;
 
 			}
@@ -3498,11 +3498,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_BRACKET_OPEN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2391:17: ( '[' )
+			// Truss.g:2406:17: ( '[' )
 			DebugEnterAlt(1);
-			// Truss.g:2391:19: '['
+			// Truss.g:2406:19: '['
 			{
-			DebugLocation(2391, 19);
+			DebugLocation(2406, 19);
 			Match('['); if (state.failed) return;
 
 			}
@@ -3533,11 +3533,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_CARET;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2392:10: ( '^' )
+			// Truss.g:2407:10: ( '^' )
 			DebugEnterAlt(1);
-			// Truss.g:2392:12: '^'
+			// Truss.g:2407:12: '^'
 			{
-			DebugLocation(2392, 12);
+			DebugLocation(2407, 12);
 			Match('^'); if (state.failed) return;
 
 			}
@@ -3568,11 +3568,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_CARET_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2393:17: ( '^=' )
+			// Truss.g:2408:17: ( '^=' )
 			DebugEnterAlt(1);
-			// Truss.g:2393:19: '^='
+			// Truss.g:2408:19: '^='
 			{
-			DebugLocation(2393, 19);
+			DebugLocation(2408, 19);
 			Match("^="); if (state.failed) return;
 
 
@@ -3604,11 +3604,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_COLON;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2394:10: ( ':' )
+			// Truss.g:2409:10: ( ':' )
 			DebugEnterAlt(1);
-			// Truss.g:2394:12: ':'
+			// Truss.g:2409:12: ':'
 			{
-			DebugLocation(2394, 12);
+			DebugLocation(2409, 12);
 			Match(':'); if (state.failed) return;
 
 			}
@@ -3639,11 +3639,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_COLON_COLON;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2395:16: ( '::' )
+			// Truss.g:2410:16: ( '::' )
 			DebugEnterAlt(1);
-			// Truss.g:2395:18: '::'
+			// Truss.g:2410:18: '::'
 			{
-			DebugLocation(2395, 18);
+			DebugLocation(2410, 18);
 			Match("::"); if (state.failed) return;
 
 
@@ -3675,11 +3675,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_COMMA;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2396:10: ( ',' )
+			// Truss.g:2411:10: ( ',' )
 			DebugEnterAlt(1);
-			// Truss.g:2396:12: ','
+			// Truss.g:2411:12: ','
 			{
-			DebugLocation(2396, 12);
+			DebugLocation(2411, 12);
 			Match(','); if (state.failed) return;
 
 			}
@@ -3710,11 +3710,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_DOT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2397:8: ( '.' )
+			// Truss.g:2412:8: ( '.' )
 			DebugEnterAlt(1);
-			// Truss.g:2397:10: '.'
+			// Truss.g:2412:10: '.'
 			{
-			DebugLocation(2397, 10);
+			DebugLocation(2412, 10);
 			Match('.'); if (state.failed) return;
 
 			}
@@ -3745,11 +3745,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2398:11: ( '=' )
+			// Truss.g:2413:11: ( '=' )
 			DebugEnterAlt(1);
-			// Truss.g:2398:13: '='
+			// Truss.g:2413:13: '='
 			{
-			DebugLocation(2398, 13);
+			DebugLocation(2413, 13);
 			Match('='); if (state.failed) return;
 
 			}
@@ -3780,11 +3780,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_EQUALS_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2399:18: ( '==' )
+			// Truss.g:2414:18: ( '==' )
 			DebugEnterAlt(1);
-			// Truss.g:2399:20: '=='
+			// Truss.g:2414:20: '=='
 			{
-			DebugLocation(2399, 20);
+			DebugLocation(2414, 20);
 			Match("=="); if (state.failed) return;
 
 
@@ -3816,11 +3816,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_EQUALS_GREATER_THAN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2400:24: ( '=>' )
+			// Truss.g:2415:24: ( '=>' )
 			DebugEnterAlt(1);
-			// Truss.g:2400:26: '=>'
+			// Truss.g:2415:26: '=>'
 			{
-			DebugLocation(2400, 26);
+			DebugLocation(2415, 26);
 			Match("=>"); if (state.failed) return;
 
 
@@ -3852,11 +3852,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_EXCLAMATION;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2401:16: ( '!' )
+			// Truss.g:2416:16: ( '!' )
 			DebugEnterAlt(1);
-			// Truss.g:2401:18: '!'
+			// Truss.g:2416:18: '!'
 			{
-			DebugLocation(2401, 18);
+			DebugLocation(2416, 18);
 			Match('!'); if (state.failed) return;
 
 			}
@@ -3887,11 +3887,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_EXCLAMATION_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2402:23: ( '!=' )
+			// Truss.g:2417:23: ( '!=' )
 			DebugEnterAlt(1);
-			// Truss.g:2402:25: '!='
+			// Truss.g:2417:25: '!='
 			{
-			DebugLocation(2402, 25);
+			DebugLocation(2417, 25);
 			Match("!="); if (state.failed) return;
 
 
@@ -3923,11 +3923,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_GREATER_THAN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2403:17: ( '>' )
+			// Truss.g:2418:17: ( '>' )
 			DebugEnterAlt(1);
-			// Truss.g:2403:19: '>'
+			// Truss.g:2418:19: '>'
 			{
-			DebugLocation(2403, 19);
+			DebugLocation(2418, 19);
 			Match('>'); if (state.failed) return;
 
 			}
@@ -3958,11 +3958,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_GREATER_THAN_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2404:24: ( '>=' )
+			// Truss.g:2419:24: ( '>=' )
 			DebugEnterAlt(1);
-			// Truss.g:2404:26: '>='
+			// Truss.g:2419:26: '>='
 			{
-			DebugLocation(2404, 26);
+			DebugLocation(2419, 26);
 			Match(">="); if (state.failed) return;
 
 
@@ -3996,11 +3996,11 @@ namespace  Truss.Compiler.Parser
 			int _channel = DefaultTokenChannel;
 			CommonToken t = default(CommonToken);
 
-			// Truss.g:2405:30: (t= '>>' )
+			// Truss.g:2420:30: (t= '>>' )
 			DebugEnterAlt(1);
-			// Truss.g:2405:32: t= '>>'
+			// Truss.g:2420:32: t= '>>'
 			{
-			DebugLocation(2405, 33);
+			DebugLocation(2420, 33);
 			int tStart = CharIndex;
 			Match(">>"); if (state.failed) return;
 			int tStartLine883 = Line;
@@ -4008,7 +4008,7 @@ namespace  Truss.Compiler.Parser
 			t = new CommonToken(input, TokenTypes.Invalid, TokenChannels.Default, tStart, CharIndex-1);
 			t.Line = tStartLine883;
 			t.CharPositionInLine = tStartCharPos883;
-			DebugLocation(2405, 39);
+			DebugLocation(2420, 39);
 			if (state.backtracking == 0)
 			{
 				 EmitGreaterThanGreaterThan(t); 
@@ -4042,11 +4042,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_GREATER_THAN_GREATER_THAN_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2406:37: ( '>>=' )
+			// Truss.g:2421:37: ( '>>=' )
 			DebugEnterAlt(1);
-			// Truss.g:2406:39: '>>='
+			// Truss.g:2421:39: '>>='
 			{
-			DebugLocation(2406, 39);
+			DebugLocation(2421, 39);
 			Match(">>="); if (state.failed) return;
 
 
@@ -4078,11 +4078,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_LESS_THAN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2407:14: ( '<' )
+			// Truss.g:2422:14: ( '<' )
 			DebugEnterAlt(1);
-			// Truss.g:2407:16: '<'
+			// Truss.g:2422:16: '<'
 			{
-			DebugLocation(2407, 16);
+			DebugLocation(2422, 16);
 			Match('<'); if (state.failed) return;
 
 			}
@@ -4113,11 +4113,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_LESS_THAN_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2408:21: ( '<=' )
+			// Truss.g:2423:21: ( '<=' )
 			DebugEnterAlt(1);
-			// Truss.g:2408:23: '<='
+			// Truss.g:2423:23: '<='
 			{
-			DebugLocation(2408, 23);
+			DebugLocation(2423, 23);
 			Match("<="); if (state.failed) return;
 
 
@@ -4149,11 +4149,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_LESS_THAN_LESS_THAN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2409:24: ( '<<' )
+			// Truss.g:2424:24: ( '<<' )
 			DebugEnterAlt(1);
-			// Truss.g:2409:26: '<<'
+			// Truss.g:2424:26: '<<'
 			{
-			DebugLocation(2409, 26);
+			DebugLocation(2424, 26);
 			Match("<<"); if (state.failed) return;
 
 
@@ -4185,11 +4185,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_LESS_THAN_LESS_THAN_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2410:31: ( '<<=' )
+			// Truss.g:2425:31: ( '<<=' )
 			DebugEnterAlt(1);
-			// Truss.g:2410:33: '<<='
+			// Truss.g:2425:33: '<<='
 			{
-			DebugLocation(2410, 33);
+			DebugLocation(2425, 33);
 			Match("<<="); if (state.failed) return;
 
 
@@ -4221,11 +4221,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_MINUS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2411:10: ( '-' )
+			// Truss.g:2426:10: ( '-' )
 			DebugEnterAlt(1);
-			// Truss.g:2411:12: '-'
+			// Truss.g:2426:12: '-'
 			{
-			DebugLocation(2411, 12);
+			DebugLocation(2426, 12);
 			Match('-'); if (state.failed) return;
 
 			}
@@ -4256,11 +4256,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_MINUS_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2412:17: ( '-=' )
+			// Truss.g:2427:17: ( '-=' )
 			DebugEnterAlt(1);
-			// Truss.g:2412:19: '-='
+			// Truss.g:2427:19: '-='
 			{
-			DebugLocation(2412, 19);
+			DebugLocation(2427, 19);
 			Match("-="); if (state.failed) return;
 
 
@@ -4292,11 +4292,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_MINUS_MINUS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2413:16: ( '--' )
+			// Truss.g:2428:16: ( '--' )
 			DebugEnterAlt(1);
-			// Truss.g:2413:18: '--'
+			// Truss.g:2428:18: '--'
 			{
-			DebugLocation(2413, 18);
+			DebugLocation(2428, 18);
 			Match("--"); if (state.failed) return;
 
 
@@ -4328,11 +4328,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_PAREN_CLOSE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2414:16: ( ')' )
+			// Truss.g:2429:16: ( ')' )
 			DebugEnterAlt(1);
-			// Truss.g:2414:18: ')'
+			// Truss.g:2429:18: ')'
 			{
-			DebugLocation(2414, 18);
+			DebugLocation(2429, 18);
 			Match(')'); if (state.failed) return;
 
 			}
@@ -4363,11 +4363,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_PAREN_OPEN;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2415:15: ( '(' )
+			// Truss.g:2430:15: ( '(' )
 			DebugEnterAlt(1);
-			// Truss.g:2415:17: '('
+			// Truss.g:2430:17: '('
 			{
-			DebugLocation(2415, 17);
+			DebugLocation(2430, 17);
 			Match('('); if (state.failed) return;
 
 			}
@@ -4398,11 +4398,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_PERCENT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2416:12: ( '%' )
+			// Truss.g:2431:12: ( '%' )
 			DebugEnterAlt(1);
-			// Truss.g:2416:14: '%'
+			// Truss.g:2431:14: '%'
 			{
-			DebugLocation(2416, 14);
+			DebugLocation(2431, 14);
 			Match('%'); if (state.failed) return;
 
 			}
@@ -4433,11 +4433,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_PERCENT_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2417:19: ( '%=' )
+			// Truss.g:2432:19: ( '%=' )
 			DebugEnterAlt(1);
-			// Truss.g:2417:21: '%='
+			// Truss.g:2432:21: '%='
 			{
-			DebugLocation(2417, 21);
+			DebugLocation(2432, 21);
 			Match("%="); if (state.failed) return;
 
 
@@ -4469,11 +4469,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_PLUS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2418:9: ( '+' )
+			// Truss.g:2433:9: ( '+' )
 			DebugEnterAlt(1);
-			// Truss.g:2418:11: '+'
+			// Truss.g:2433:11: '+'
 			{
-			DebugLocation(2418, 11);
+			DebugLocation(2433, 11);
 			Match('+'); if (state.failed) return;
 
 			}
@@ -4504,11 +4504,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_PLUS_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2419:16: ( '+=' )
+			// Truss.g:2434:16: ( '+=' )
 			DebugEnterAlt(1);
-			// Truss.g:2419:18: '+='
+			// Truss.g:2434:18: '+='
 			{
-			DebugLocation(2419, 18);
+			DebugLocation(2434, 18);
 			Match("+="); if (state.failed) return;
 
 
@@ -4540,11 +4540,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_PLUS_PLUS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2420:14: ( '++' )
+			// Truss.g:2435:14: ( '++' )
 			DebugEnterAlt(1);
-			// Truss.g:2420:16: '++'
+			// Truss.g:2435:16: '++'
 			{
-			DebugLocation(2420, 16);
+			DebugLocation(2435, 16);
 			Match("++"); if (state.failed) return;
 
 
@@ -4576,11 +4576,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_QUESTION;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2421:13: ( '?' )
+			// Truss.g:2436:13: ( '?' )
 			DebugEnterAlt(1);
-			// Truss.g:2421:15: '?'
+			// Truss.g:2436:15: '?'
 			{
-			DebugLocation(2421, 15);
+			DebugLocation(2436, 15);
 			Match('?'); if (state.failed) return;
 
 			}
@@ -4611,11 +4611,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_QUESTION_QUESTION;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2422:22: ( '??' )
+			// Truss.g:2437:22: ( '??' )
 			DebugEnterAlt(1);
-			// Truss.g:2422:24: '??'
+			// Truss.g:2437:24: '??'
 			{
-			DebugLocation(2422, 24);
+			DebugLocation(2437, 24);
 			Match("??"); if (state.failed) return;
 
 
@@ -4647,11 +4647,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_SEMICOLON;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2423:14: ( ';' )
+			// Truss.g:2438:14: ( ';' )
 			DebugEnterAlt(1);
-			// Truss.g:2423:16: ';'
+			// Truss.g:2438:16: ';'
 			{
-			DebugLocation(2423, 16);
+			DebugLocation(2438, 16);
 			Match(';'); if (state.failed) return;
 
 			}
@@ -4682,11 +4682,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_SLASH;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2424:10: ( '/' )
+			// Truss.g:2439:10: ( '/' )
 			DebugEnterAlt(1);
-			// Truss.g:2424:12: '/'
+			// Truss.g:2439:12: '/'
 			{
-			DebugLocation(2424, 12);
+			DebugLocation(2439, 12);
 			Match('/'); if (state.failed) return;
 
 			}
@@ -4717,11 +4717,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_SLASH_EQUALS;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2425:17: ( '/=' )
+			// Truss.g:2440:17: ( '/=' )
 			DebugEnterAlt(1);
-			// Truss.g:2425:19: '/='
+			// Truss.g:2440:19: '/='
 			{
-			DebugLocation(2425, 19);
+			DebugLocation(2440, 19);
 			Match("/="); if (state.failed) return;
 
 
@@ -4753,11 +4753,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = OP_TILDE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2426:10: ( '~' )
+			// Truss.g:2441:10: ( '~' )
 			DebugEnterAlt(1);
-			// Truss.g:2426:12: '~'
+			// Truss.g:2441:12: '~'
 			{
-			DebugLocation(2426, 12);
+			DebugLocation(2441, 12);
 			Match('~'); if (state.failed) return;
 
 			}
@@ -4786,9 +4786,9 @@ namespace  Truss.Compiler.Parser
 		TraceIn("OP_GREATER_THAN_GREATER_THAN_FIRST", 128);
 		try
 		{
-			// Truss.g:2435:45: ()
+			// Truss.g:2450:45: ()
 			DebugEnterAlt(1);
-			// Truss.g:2435:47: 
+			// Truss.g:2450:47: 
 			{
 			}
 
@@ -4814,9 +4814,9 @@ namespace  Truss.Compiler.Parser
 		TraceIn("OP_GREATER_THAN_GREATER_THAN_SECOND", 129);
 		try
 		{
-			// Truss.g:2436:46: ()
+			// Truss.g:2451:46: ()
 			DebugEnterAlt(1);
-			// Truss.g:2436:48: 
+			// Truss.g:2451:48: 
 			{
 			}
 
@@ -4844,12 +4844,12 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = NEW_LINE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2441:5: ( ( '\\r' | '\\n' | '\\r\\n' | '\\u0085' | '\\u2028' | '\\u2029' ) )
+			// Truss.g:2456:5: ( ( '\\r' | '\\n' | '\\r\\n' | '\\u0085' | '\\u2028' | '\\u2029' ) )
 			DebugEnterAlt(1);
-			// Truss.g:2442:5: ( '\\r' | '\\n' | '\\r\\n' | '\\u0085' | '\\u2028' | '\\u2029' )
+			// Truss.g:2457:5: ( '\\r' | '\\n' | '\\r\\n' | '\\u0085' | '\\u2028' | '\\u2029' )
 			{
-			DebugLocation(2442, 5);
-			// Truss.g:2442:5: ( '\\r' | '\\n' | '\\r\\n' | '\\u0085' | '\\u2028' | '\\u2029' )
+			DebugLocation(2457, 5);
+			// Truss.g:2457:5: ( '\\r' | '\\n' | '\\r\\n' | '\\u0085' | '\\u2028' | '\\u2029' )
 			int alt1=6;
 			try { DebugEnterSubRule(1);
 			try { DebugEnterDecision(1, false);
@@ -4903,27 +4903,27 @@ namespace  Truss.Compiler.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2442:7: '\\r'
+				// Truss.g:2457:7: '\\r'
 				{
-				DebugLocation(2442, 7);
+				DebugLocation(2457, 7);
 				Match('\r'); if (state.failed) return;
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2443:7: '\\n'
+				// Truss.g:2458:7: '\\n'
 				{
-				DebugLocation(2443, 7);
+				DebugLocation(2458, 7);
 				Match('\n'); if (state.failed) return;
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Truss.g:2444:7: '\\r\\n'
+				// Truss.g:2459:7: '\\r\\n'
 				{
-				DebugLocation(2444, 7);
+				DebugLocation(2459, 7);
 				Match("\r\n"); if (state.failed) return;
 
 
@@ -4931,27 +4931,27 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// Truss.g:2445:7: '\\u0085'
+				// Truss.g:2460:7: '\\u0085'
 				{
-				DebugLocation(2445, 7);
+				DebugLocation(2460, 7);
 				Match('\u0085'); if (state.failed) return;
 
 				}
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// Truss.g:2446:7: '\\u2028'
+				// Truss.g:2461:7: '\\u2028'
 				{
-				DebugLocation(2446, 7);
+				DebugLocation(2461, 7);
 				Match('\u2028'); if (state.failed) return;
 
 				}
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// Truss.g:2447:7: '\\u2029'
+				// Truss.g:2462:7: '\\u2029'
 				{
-				DebugLocation(2447, 7);
+				DebugLocation(2462, 7);
 				Match('\u2029'); if (state.failed) return;
 
 				}
@@ -4960,7 +4960,7 @@ namespace  Truss.Compiler.Parser
 			}
 			} finally { DebugExitSubRule(1); }
 
-			DebugLocation(2449, 5);
+			DebugLocation(2464, 5);
 			if (state.backtracking == 0)
 			{
 				 Skip(); 
@@ -4992,11 +4992,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("NEW_LINE_CHARACTER", 131);
 		try
 		{
-			// Truss.g:2453:5: ( '\\r' | '\\n' | '\\u0085' | '\\u2028' | '\\u2029' )
+			// Truss.g:2468:5: ( '\\r' | '\\n' | '\\u0085' | '\\u2028' | '\\u2029' )
 			DebugEnterAlt(1);
 			// Truss.g:
 			{
-			DebugLocation(2453, 5);
+			DebugLocation(2468, 5);
 			if (input.LA(1)=='\n'||input.LA(1)=='\r'||input.LA(1)=='\u0085'||(input.LA(1)>='\u2028' && input.LA(1)<='\u2029'))
 			{
 				input.Consume();
@@ -5036,11 +5036,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("INPUT_CHARACTER", 132);
 		try
 		{
-			// Truss.g:2460:26: (~ NEW_LINE_CHARACTER )
+			// Truss.g:2475:26: (~ NEW_LINE_CHARACTER )
 			DebugEnterAlt(1);
 			// Truss.g:
 			{
-			DebugLocation(2460, 26);
+			DebugLocation(2475, 26);
 			if ((input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u0084')||(input.LA(1)>='\u0086' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF'))
 			{
 				input.Consume();
@@ -5082,15 +5082,15 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = LINE_COMMENT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2463:5: ( '//' ( INPUT_CHARACTER )* )
+			// Truss.g:2478:5: ( '//' ( INPUT_CHARACTER )* )
 			DebugEnterAlt(1);
-			// Truss.g:2464:9: '//' ( INPUT_CHARACTER )*
+			// Truss.g:2479:9: '//' ( INPUT_CHARACTER )*
 			{
-			DebugLocation(2464, 9);
+			DebugLocation(2479, 9);
 			Match("//"); if (state.failed) return;
 
-			DebugLocation(2464, 14);
-			// Truss.g:2464:14: ( INPUT_CHARACTER )*
+			DebugLocation(2479, 14);
+			// Truss.g:2479:14: ( INPUT_CHARACTER )*
 			try { DebugEnterSubRule(2);
 			while (true)
 			{
@@ -5111,7 +5111,7 @@ namespace  Truss.Compiler.Parser
 					DebugEnterAlt(1);
 					// Truss.g:
 					{
-					DebugLocation(2464, 14);
+					DebugLocation(2479, 14);
 					input.Consume();
 					state.failed=false;
 
@@ -5128,7 +5128,7 @@ namespace  Truss.Compiler.Parser
 
 			} finally { DebugExitSubRule(2); }
 
-			DebugLocation(2465, 9);
+			DebugLocation(2480, 9);
 			if (state.backtracking == 0)
 			{
 				 Skip(); 
@@ -5165,20 +5165,20 @@ namespace  Truss.Compiler.Parser
 
 			    bool docComment = false;
 
-			// Truss.g:2472:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+			// Truss.g:2487:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
 			DebugEnterAlt(1);
-			// Truss.g:2473:9: '/*' ( options {greedy=false; } : . )* '*/'
+			// Truss.g:2488:9: '/*' ( options {greedy=false; } : . )* '*/'
 			{
-			DebugLocation(2473, 9);
+			DebugLocation(2488, 9);
 			Match("/*"); if (state.failed) return;
 
-			DebugLocation(2474, 9);
+			DebugLocation(2489, 9);
 			if (state.backtracking == 0)
 			{
 				 docComment = (char)input.LT(1) == '*'; 
 			}
-			DebugLocation(2475, 9);
-			// Truss.g:2475:9: ( options {greedy=false; } : . )*
+			DebugLocation(2490, 9);
+			// Truss.g:2490:9: ( options {greedy=false; } : . )*
 			try { DebugEnterSubRule(3);
 			while (true)
 			{
@@ -5212,9 +5212,9 @@ namespace  Truss.Compiler.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:2475:39: .
+					// Truss.g:2490:39: .
 					{
-					DebugLocation(2475, 39);
+					DebugLocation(2490, 39);
 					MatchAny(); if (state.failed) return;
 
 					}
@@ -5230,10 +5230,10 @@ namespace  Truss.Compiler.Parser
 
 			} finally { DebugExitSubRule(3); }
 
-			DebugLocation(2476, 9);
+			DebugLocation(2491, 9);
 			Match("*/"); if (state.failed) return;
 
-			DebugLocation(2477, 9);
+			DebugLocation(2492, 9);
 			if (state.backtracking == 0)
 			{
 
@@ -5273,11 +5273,11 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = WHITESPACE;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2487:5: ( ( ' ' | '\\t' | '\\v' | '\\f' ) )
+			// Truss.g:2502:5: ( ( ' ' | '\\t' | '\\v' | '\\f' ) )
 			DebugEnterAlt(1);
-			// Truss.g:2488:5: ( ' ' | '\\t' | '\\v' | '\\f' )
+			// Truss.g:2503:5: ( ' ' | '\\t' | '\\v' | '\\f' )
 			{
-			DebugLocation(2488, 5);
+			DebugLocation(2503, 5);
 			if (input.LA(1)=='\t'||input.LA(1)=='\f'||input.LA(1)==' '||input.LA(1)=='v')
 			{
 				input.Consume();
@@ -5292,7 +5292,7 @@ namespace  Truss.Compiler.Parser
 				throw mse;
 			}
 
-			DebugLocation(2493, 5);
+			DebugLocation(2508, 5);
 			if (state.backtracking == 0)
 			{
 				 Skip(); 
@@ -5324,11 +5324,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("DIGIT", 136);
 		try
 		{
-			// Truss.g:2496:16: ( '0' .. '9' )
+			// Truss.g:2511:16: ( '0' .. '9' )
 			DebugEnterAlt(1);
 			// Truss.g:
 			{
-			DebugLocation(2496, 16);
+			DebugLocation(2511, 16);
 			if ((input.LA(1)>='0' && input.LA(1)<='9'))
 			{
 				input.Consume();
@@ -5368,11 +5368,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("HEX_DIGIT", 137);
 		try
 		{
-			// Truss.g:2497:20: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
+			// Truss.g:2512:20: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
 			DebugEnterAlt(1);
 			// Truss.g:
 			{
-			DebugLocation(2497, 20);
+			DebugLocation(2512, 20);
 			if ((input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f'))
 			{
 				input.Consume();
@@ -5412,11 +5412,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("IDENTIFIER_FIRST_CHARACTER", 138);
 		try
 		{
-			// Truss.g:2498:37: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
+			// Truss.g:2513:37: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
 			DebugEnterAlt(1);
 			// Truss.g:
 			{
-			DebugLocation(2498, 37);
+			DebugLocation(2513, 37);
 			if ((input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z'))
 			{
 				input.Consume();
@@ -5456,11 +5456,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("IDENTIFIER_CHARACTER", 139);
 		try
 		{
-			// Truss.g:2499:31: ( IDENTIFIER_FIRST_CHARACTER | DIGIT )
+			// Truss.g:2514:31: ( IDENTIFIER_FIRST_CHARACTER | DIGIT )
 			DebugEnterAlt(1);
 			// Truss.g:
 			{
-			DebugLocation(2499, 31);
+			DebugLocation(2514, 31);
 			if ((input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z'))
 			{
 				input.Consume();
@@ -5502,12 +5502,12 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = IDENTIFIER;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2501:12: ( ( '@' )? IDENTIFIER_FIRST_CHARACTER ( IDENTIFIER_CHARACTER )* )
+			// Truss.g:2516:12: ( ( '@' )? IDENTIFIER_FIRST_CHARACTER ( IDENTIFIER_CHARACTER )* )
 			DebugEnterAlt(1);
-			// Truss.g:2501:14: ( '@' )? IDENTIFIER_FIRST_CHARACTER ( IDENTIFIER_CHARACTER )*
+			// Truss.g:2516:14: ( '@' )? IDENTIFIER_FIRST_CHARACTER ( IDENTIFIER_CHARACTER )*
 			{
-			DebugLocation(2501, 14);
-			// Truss.g:2501:14: ( '@' )?
+			DebugLocation(2516, 14);
+			// Truss.g:2516:14: ( '@' )?
 			int alt4=2;
 			try { DebugEnterSubRule(4);
 			try { DebugEnterDecision(4, false);
@@ -5522,9 +5522,9 @@ namespace  Truss.Compiler.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2501:14: '@'
+				// Truss.g:2516:14: '@'
 				{
-				DebugLocation(2501, 14);
+				DebugLocation(2516, 14);
 				Match('@'); if (state.failed) return;
 
 				}
@@ -5533,10 +5533,10 @@ namespace  Truss.Compiler.Parser
 			}
 			} finally { DebugExitSubRule(4); }
 
-			DebugLocation(2501, 19);
+			DebugLocation(2516, 19);
 			mIDENTIFIER_FIRST_CHARACTER(); if (state.failed) return;
-			DebugLocation(2501, 46);
-			// Truss.g:2501:46: ( IDENTIFIER_CHARACTER )*
+			DebugLocation(2516, 46);
+			// Truss.g:2516:46: ( IDENTIFIER_CHARACTER )*
 			try { DebugEnterSubRule(5);
 			while (true)
 			{
@@ -5557,7 +5557,7 @@ namespace  Truss.Compiler.Parser
 					DebugEnterAlt(1);
 					// Truss.g:
 					{
-					DebugLocation(2501, 46);
+					DebugLocation(2516, 46);
 					input.Consume();
 					state.failed=false;
 
@@ -5601,7 +5601,7 @@ namespace  Truss.Compiler.Parser
 		TraceIn("INTEGER_SUFFIX", 141);
 		try
 		{
-			// Truss.g:2504:5: ( ( 'u' | 'U' ) ( 'l' | 'L' )? | 'l' | 'L' )
+			// Truss.g:2519:5: ( ( 'u' | 'U' ) ( 'l' | 'L' )? | 'l' | 'L' )
 			int alt7=3;
 			try { DebugEnterDecision(7, false);
 			switch (input.LA(1))
@@ -5636,13 +5636,13 @@ namespace  Truss.Compiler.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2504:7: ( 'u' | 'U' ) ( 'l' | 'L' )?
+				// Truss.g:2519:7: ( 'u' | 'U' ) ( 'l' | 'L' )?
 				{
-				DebugLocation(2504, 7);
+				DebugLocation(2519, 7);
 				input.Consume();
 				state.failed=false;
-				DebugLocation(2504, 21);
-				// Truss.g:2504:21: ( 'l' | 'L' )?
+				DebugLocation(2519, 21);
+				// Truss.g:2519:21: ( 'l' | 'L' )?
 				int alt6=2;
 				try { DebugEnterSubRule(6);
 				try { DebugEnterDecision(6, false);
@@ -5659,7 +5659,7 @@ namespace  Truss.Compiler.Parser
 					DebugEnterAlt(1);
 					// Truss.g:
 					{
-					DebugLocation(2504, 21);
+					DebugLocation(2519, 21);
 					input.Consume();
 					state.failed=false;
 
@@ -5674,18 +5674,18 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2505:7: 'l'
+				// Truss.g:2520:7: 'l'
 				{
-				DebugLocation(2505, 7);
+				DebugLocation(2520, 7);
 				Match('l'); if (state.failed) return;
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Truss.g:2505:13: 'L'
+				// Truss.g:2520:13: 'L'
 				{
-				DebugLocation(2505, 13);
+				DebugLocation(2520, 13);
 				Match('L'); if (state.failed) return;
 
 				}
@@ -5714,9 +5714,9 @@ namespace  Truss.Compiler.Parser
 		TraceIn("INTEGER", 142);
 		try
 		{
-			// Truss.g:2508:18: ()
+			// Truss.g:2523:18: ()
 			DebugEnterAlt(1);
-			// Truss.g:2508:43: 
+			// Truss.g:2523:43: 
 			{
 			}
 
@@ -5744,13 +5744,13 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = HEX_INTEGER;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2509:13: ( '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_SUFFIX )? )
+			// Truss.g:2524:13: ( '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_SUFFIX )? )
 			DebugEnterAlt(1);
-			// Truss.g:2509:15: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_SUFFIX )?
+			// Truss.g:2524:15: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_SUFFIX )?
 			{
-			DebugLocation(2509, 15);
+			DebugLocation(2524, 15);
 			Match('0'); if (state.failed) return;
-			DebugLocation(2509, 19);
+			DebugLocation(2524, 19);
 			if (input.LA(1)=='X'||input.LA(1)=='x')
 			{
 				input.Consume();
@@ -5765,8 +5765,8 @@ namespace  Truss.Compiler.Parser
 				throw mse;
 			}
 
-			DebugLocation(2509, 33);
-			// Truss.g:2509:33: ( HEX_DIGIT )+
+			DebugLocation(2524, 33);
+			// Truss.g:2524:33: ( HEX_DIGIT )+
 			int cnt8=0;
 			try { DebugEnterSubRule(8);
 			while (true)
@@ -5788,7 +5788,7 @@ namespace  Truss.Compiler.Parser
 					DebugEnterAlt(1);
 					// Truss.g:
 					{
-					DebugLocation(2509, 33);
+					DebugLocation(2524, 33);
 					input.Consume();
 					state.failed=false;
 
@@ -5811,8 +5811,8 @@ namespace  Truss.Compiler.Parser
 
 			} finally { DebugExitSubRule(8); }
 
-			DebugLocation(2509, 44);
-			// Truss.g:2509:44: ( INTEGER_SUFFIX )?
+			DebugLocation(2524, 44);
+			// Truss.g:2524:44: ( INTEGER_SUFFIX )?
 			int alt9=2;
 			try { DebugEnterSubRule(9);
 			try { DebugEnterDecision(9, false);
@@ -5827,9 +5827,9 @@ namespace  Truss.Compiler.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2509:44: INTEGER_SUFFIX
+				// Truss.g:2524:44: INTEGER_SUFFIX
 				{
-				DebugLocation(2509, 44);
+				DebugLocation(2524, 44);
 				mINTEGER_SUFFIX(); if (state.failed) return;
 
 				}
@@ -5865,11 +5865,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("EXPONENT", 144);
 		try
 		{
-			// Truss.g:2511:19: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
+			// Truss.g:2526:19: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
 			DebugEnterAlt(1);
-			// Truss.g:2511:21: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
+			// Truss.g:2526:21: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
 			{
-			DebugLocation(2511, 21);
+			DebugLocation(2526, 21);
 			if (input.LA(1)=='E'||input.LA(1)=='e')
 			{
 				input.Consume();
@@ -5884,8 +5884,8 @@ namespace  Truss.Compiler.Parser
 				throw mse;
 			}
 
-			DebugLocation(2511, 35);
-			// Truss.g:2511:35: ( '+' | '-' )?
+			DebugLocation(2526, 35);
+			// Truss.g:2526:35: ( '+' | '-' )?
 			int alt10=2;
 			try { DebugEnterSubRule(10);
 			try { DebugEnterDecision(10, false);
@@ -5902,7 +5902,7 @@ namespace  Truss.Compiler.Parser
 				DebugEnterAlt(1);
 				// Truss.g:
 				{
-				DebugLocation(2511, 35);
+				DebugLocation(2526, 35);
 				input.Consume();
 				state.failed=false;
 
@@ -5912,8 +5912,8 @@ namespace  Truss.Compiler.Parser
 			}
 			} finally { DebugExitSubRule(10); }
 
-			DebugLocation(2511, 50);
-			// Truss.g:2511:50: ( DIGIT )+
+			DebugLocation(2526, 50);
+			// Truss.g:2526:50: ( DIGIT )+
 			int cnt11=0;
 			try { DebugEnterSubRule(11);
 			while (true)
@@ -5935,7 +5935,7 @@ namespace  Truss.Compiler.Parser
 					DebugEnterAlt(1);
 					// Truss.g:
 					{
-					DebugLocation(2511, 50);
+					DebugLocation(2526, 50);
 					input.Consume();
 					state.failed=false;
 
@@ -5983,11 +5983,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("FLOAT_SUFFIX", 145);
 		try
 		{
-			// Truss.g:2513:5: ( 'f' | 'F' | 'd' | 'D' | 'm' | 'M' )
+			// Truss.g:2528:5: ( 'f' | 'F' | 'd' | 'D' | 'm' | 'M' )
 			DebugEnterAlt(1);
 			// Truss.g:
 			{
-			DebugLocation(2513, 5);
+			DebugLocation(2528, 5);
 			if (input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='M'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='m')
 			{
 				input.Consume();
@@ -6029,7 +6029,7 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = FLOAT;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2519:5: ( ( DIGIT )+ ( ( '.' DIGIT )=> ( '.' ( DIGIT )+ )? ( EXPONENT )? ( FLOAT_SUFFIX )? | FLOAT_SUFFIX |) | '.' ( DIGIT )+ ( EXPONENT )? ( FLOAT_SUFFIX )? )
+			// Truss.g:2534:5: ( ( DIGIT )+ ( ( '.' DIGIT )=> ( '.' ( DIGIT )+ )? ( EXPONENT )? ( FLOAT_SUFFIX )? | FLOAT_SUFFIX |) | '.' ( DIGIT )+ ( EXPONENT )? ( FLOAT_SUFFIX )? )
 			int alt21=2;
 			try { DebugEnterDecision(21, false);
 			int LA21_1 = input.LA(1);
@@ -6054,10 +6054,10 @@ namespace  Truss.Compiler.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2520:9: ( DIGIT )+ ( ( '.' DIGIT )=> ( '.' ( DIGIT )+ )? ( EXPONENT )? ( FLOAT_SUFFIX )? | FLOAT_SUFFIX |)
+				// Truss.g:2535:9: ( DIGIT )+ ( ( '.' DIGIT )=> ( '.' ( DIGIT )+ )? ( EXPONENT )? ( FLOAT_SUFFIX )? | FLOAT_SUFFIX |)
 				{
-				DebugLocation(2520, 9);
-				// Truss.g:2520:9: ( DIGIT )+
+				DebugLocation(2535, 9);
+				// Truss.g:2535:9: ( DIGIT )+
 				int cnt12=0;
 				try { DebugEnterSubRule(12);
 				while (true)
@@ -6079,7 +6079,7 @@ namespace  Truss.Compiler.Parser
 						DebugEnterAlt(1);
 						// Truss.g:
 						{
-						DebugLocation(2520, 9);
+						DebugLocation(2535, 9);
 						input.Consume();
 						state.failed=false;
 
@@ -6102,8 +6102,8 @@ namespace  Truss.Compiler.Parser
 
 				} finally { DebugExitSubRule(12); }
 
-				DebugLocation(2521, 9);
-				// Truss.g:2521:9: ( ( '.' DIGIT )=> ( '.' ( DIGIT )+ )? ( EXPONENT )? ( FLOAT_SUFFIX )? | FLOAT_SUFFIX |)
+				DebugLocation(2536, 9);
+				// Truss.g:2536:9: ( ( '.' DIGIT )=> ( '.' ( DIGIT )+ )? ( EXPONENT )? ( FLOAT_SUFFIX )? | FLOAT_SUFFIX |)
 				int alt17=3;
 				try { DebugEnterSubRule(17);
 				try { DebugEnterDecision(17, false);
@@ -6157,10 +6157,10 @@ namespace  Truss.Compiler.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:2522:13: ( '.' DIGIT )=> ( '.' ( DIGIT )+ )? ( EXPONENT )? ( FLOAT_SUFFIX )?
+					// Truss.g:2537:13: ( '.' DIGIT )=> ( '.' ( DIGIT )+ )? ( EXPONENT )? ( FLOAT_SUFFIX )?
 					{
-					DebugLocation(2522, 30);
-					// Truss.g:2522:30: ( '.' ( DIGIT )+ )?
+					DebugLocation(2537, 30);
+					// Truss.g:2537:30: ( '.' ( DIGIT )+ )?
 					int alt14=2;
 					try { DebugEnterSubRule(14);
 					try { DebugEnterDecision(14, false);
@@ -6175,12 +6175,12 @@ namespace  Truss.Compiler.Parser
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// Truss.g:2522:32: '.' ( DIGIT )+
+						// Truss.g:2537:32: '.' ( DIGIT )+
 						{
-						DebugLocation(2522, 32);
+						DebugLocation(2537, 32);
 						Match('.'); if (state.failed) return;
-						DebugLocation(2522, 36);
-						// Truss.g:2522:36: ( DIGIT )+
+						DebugLocation(2537, 36);
+						// Truss.g:2537:36: ( DIGIT )+
 						int cnt13=0;
 						try { DebugEnterSubRule(13);
 						while (true)
@@ -6202,7 +6202,7 @@ namespace  Truss.Compiler.Parser
 								DebugEnterAlt(1);
 								// Truss.g:
 								{
-								DebugLocation(2522, 36);
+								DebugLocation(2537, 36);
 								input.Consume();
 								state.failed=false;
 
@@ -6232,8 +6232,8 @@ namespace  Truss.Compiler.Parser
 					}
 					} finally { DebugExitSubRule(14); }
 
-					DebugLocation(2522, 46);
-					// Truss.g:2522:46: ( EXPONENT )?
+					DebugLocation(2537, 46);
+					// Truss.g:2537:46: ( EXPONENT )?
 					int alt15=2;
 					try { DebugEnterSubRule(15);
 					try { DebugEnterDecision(15, false);
@@ -6248,9 +6248,9 @@ namespace  Truss.Compiler.Parser
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// Truss.g:2522:46: EXPONENT
+						// Truss.g:2537:46: EXPONENT
 						{
-						DebugLocation(2522, 46);
+						DebugLocation(2537, 46);
 						mEXPONENT(); if (state.failed) return;
 
 						}
@@ -6259,8 +6259,8 @@ namespace  Truss.Compiler.Parser
 					}
 					} finally { DebugExitSubRule(15); }
 
-					DebugLocation(2522, 56);
-					// Truss.g:2522:56: ( FLOAT_SUFFIX )?
+					DebugLocation(2537, 56);
+					// Truss.g:2537:56: ( FLOAT_SUFFIX )?
 					int alt16=2;
 					try { DebugEnterSubRule(16);
 					try { DebugEnterDecision(16, false);
@@ -6277,7 +6277,7 @@ namespace  Truss.Compiler.Parser
 						DebugEnterAlt(1);
 						// Truss.g:
 						{
-						DebugLocation(2522, 56);
+						DebugLocation(2537, 56);
 						input.Consume();
 						state.failed=false;
 
@@ -6292,18 +6292,18 @@ namespace  Truss.Compiler.Parser
 					break;
 				case 2:
 					DebugEnterAlt(2);
-					// Truss.g:2524:13: FLOAT_SUFFIX
+					// Truss.g:2539:13: FLOAT_SUFFIX
 					{
-					DebugLocation(2524, 13);
+					DebugLocation(2539, 13);
 					mFLOAT_SUFFIX(); if (state.failed) return;
 
 					}
 					break;
 				case 3:
 					DebugEnterAlt(3);
-					// Truss.g:2526:13: 
+					// Truss.g:2541:13: 
 					{
-					DebugLocation(2526, 13);
+					DebugLocation(2541, 13);
 					if (state.backtracking == 0)
 					{
 						 _type = INTEGER; 
@@ -6320,12 +6320,12 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2529:9: '.' ( DIGIT )+ ( EXPONENT )? ( FLOAT_SUFFIX )?
+				// Truss.g:2544:9: '.' ( DIGIT )+ ( EXPONENT )? ( FLOAT_SUFFIX )?
 				{
-				DebugLocation(2529, 9);
+				DebugLocation(2544, 9);
 				Match('.'); if (state.failed) return;
-				DebugLocation(2529, 13);
-				// Truss.g:2529:13: ( DIGIT )+
+				DebugLocation(2544, 13);
+				// Truss.g:2544:13: ( DIGIT )+
 				int cnt18=0;
 				try { DebugEnterSubRule(18);
 				while (true)
@@ -6347,7 +6347,7 @@ namespace  Truss.Compiler.Parser
 						DebugEnterAlt(1);
 						// Truss.g:
 						{
-						DebugLocation(2529, 13);
+						DebugLocation(2544, 13);
 						input.Consume();
 						state.failed=false;
 
@@ -6370,8 +6370,8 @@ namespace  Truss.Compiler.Parser
 
 				} finally { DebugExitSubRule(18); }
 
-				DebugLocation(2529, 20);
-				// Truss.g:2529:20: ( EXPONENT )?
+				DebugLocation(2544, 20);
+				// Truss.g:2544:20: ( EXPONENT )?
 				int alt19=2;
 				try { DebugEnterSubRule(19);
 				try { DebugEnterDecision(19, false);
@@ -6386,9 +6386,9 @@ namespace  Truss.Compiler.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:2529:20: EXPONENT
+					// Truss.g:2544:20: EXPONENT
 					{
-					DebugLocation(2529, 20);
+					DebugLocation(2544, 20);
 					mEXPONENT(); if (state.failed) return;
 
 					}
@@ -6397,8 +6397,8 @@ namespace  Truss.Compiler.Parser
 				}
 				} finally { DebugExitSubRule(19); }
 
-				DebugLocation(2529, 30);
-				// Truss.g:2529:30: ( FLOAT_SUFFIX )?
+				DebugLocation(2544, 30);
+				// Truss.g:2544:30: ( FLOAT_SUFFIX )?
 				int alt20=2;
 				try { DebugEnterSubRule(20);
 				try { DebugEnterDecision(20, false);
@@ -6415,7 +6415,7 @@ namespace  Truss.Compiler.Parser
 					DebugEnterAlt(1);
 					// Truss.g:
 					{
-					DebugLocation(2529, 30);
+					DebugLocation(2544, 30);
 					input.Consume();
 					state.failed=false;
 
@@ -6454,14 +6454,14 @@ namespace  Truss.Compiler.Parser
 		TraceIn("LITERAL_STRING", 147);
 		try
 		{
-			// Truss.g:2537:5: ( '\"' ( '\\\\' . |~ ( '\"' | '\\\\' | NEW_LINE_CHARACTER ) )* '\"' )
+			// Truss.g:2552:5: ( '\"' ( '\\\\' . |~ ( '\"' | '\\\\' | NEW_LINE_CHARACTER ) )* '\"' )
 			DebugEnterAlt(1);
-			// Truss.g:2537:7: '\"' ( '\\\\' . |~ ( '\"' | '\\\\' | NEW_LINE_CHARACTER ) )* '\"'
+			// Truss.g:2552:7: '\"' ( '\\\\' . |~ ( '\"' | '\\\\' | NEW_LINE_CHARACTER ) )* '\"'
 			{
-			DebugLocation(2537, 7);
+			DebugLocation(2552, 7);
 			Match('\"'); if (state.failed) return;
-			DebugLocation(2537, 11);
-			// Truss.g:2537:11: ( '\\\\' . |~ ( '\"' | '\\\\' | NEW_LINE_CHARACTER ) )*
+			DebugLocation(2552, 11);
+			// Truss.g:2552:11: ( '\\\\' . |~ ( '\"' | '\\\\' | NEW_LINE_CHARACTER ) )*
 			try { DebugEnterSubRule(22);
 			while (true)
 			{
@@ -6484,20 +6484,20 @@ namespace  Truss.Compiler.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:2537:13: '\\\\' .
+					// Truss.g:2552:13: '\\\\' .
 					{
-					DebugLocation(2537, 13);
+					DebugLocation(2552, 13);
 					Match('\\'); if (state.failed) return;
-					DebugLocation(2537, 18);
+					DebugLocation(2552, 18);
 					MatchAny(); if (state.failed) return;
 
 					}
 					break;
 				case 2:
 					DebugEnterAlt(2);
-					// Truss.g:2537:22: ~ ( '\"' | '\\\\' | NEW_LINE_CHARACTER )
+					// Truss.g:2552:22: ~ ( '\"' | '\\\\' | NEW_LINE_CHARACTER )
 					{
-					DebugLocation(2537, 22);
+					DebugLocation(2552, 22);
 					input.Consume();
 					state.failed=false;
 
@@ -6514,7 +6514,7 @@ namespace  Truss.Compiler.Parser
 
 			} finally { DebugExitSubRule(22); }
 
-			DebugLocation(2537, 62);
+			DebugLocation(2552, 62);
 			Match('\"'); if (state.failed) return;
 
 			}
@@ -6541,15 +6541,15 @@ namespace  Truss.Compiler.Parser
 		TraceIn("VERBATIM_STRING", 148);
 		try
 		{
-			// Truss.g:2541:5: ( '@\"' ( '\"\"' |~ '\"' ) '\"' )
+			// Truss.g:2556:5: ( '@\"' ( '\"\"' |~ '\"' ) '\"' )
 			DebugEnterAlt(1);
-			// Truss.g:2541:7: '@\"' ( '\"\"' |~ '\"' ) '\"'
+			// Truss.g:2556:7: '@\"' ( '\"\"' |~ '\"' ) '\"'
 			{
-			DebugLocation(2541, 7);
+			DebugLocation(2556, 7);
 			Match("@\""); if (state.failed) return;
 
-			DebugLocation(2541, 12);
-			// Truss.g:2541:12: ( '\"\"' |~ '\"' )
+			DebugLocation(2556, 12);
+			// Truss.g:2556:12: ( '\"\"' |~ '\"' )
 			int alt23=2;
 			try { DebugEnterSubRule(23);
 			try { DebugEnterDecision(23, false);
@@ -6575,9 +6575,9 @@ namespace  Truss.Compiler.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2541:14: '\"\"'
+				// Truss.g:2556:14: '\"\"'
 				{
-				DebugLocation(2541, 14);
+				DebugLocation(2556, 14);
 				Match("\"\""); if (state.failed) return;
 
 
@@ -6585,9 +6585,9 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2541:21: ~ '\"'
+				// Truss.g:2556:21: ~ '\"'
 				{
-				DebugLocation(2541, 21);
+				DebugLocation(2556, 21);
 				input.Consume();
 				state.failed=false;
 
@@ -6597,7 +6597,7 @@ namespace  Truss.Compiler.Parser
 			}
 			} finally { DebugExitSubRule(23); }
 
-			DebugLocation(2541, 28);
+			DebugLocation(2556, 28);
 			Match('\"'); if (state.failed) return;
 
 			}
@@ -6626,7 +6626,7 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = STRING;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2544:8: ( LITERAL_STRING | VERBATIM_STRING )
+			// Truss.g:2559:8: ( LITERAL_STRING | VERBATIM_STRING )
 			int alt24=2;
 			try { DebugEnterDecision(24, false);
 			int LA24_1 = input.LA(1);
@@ -6651,18 +6651,18 @@ namespace  Truss.Compiler.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2544:10: LITERAL_STRING
+				// Truss.g:2559:10: LITERAL_STRING
 				{
-				DebugLocation(2544, 10);
+				DebugLocation(2559, 10);
 				mLITERAL_STRING(); if (state.failed) return;
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2544:27: VERBATIM_STRING
+				// Truss.g:2559:27: VERBATIM_STRING
 				{
-				DebugLocation(2544, 27);
+				DebugLocation(2559, 27);
 				mVERBATIM_STRING(); if (state.failed) return;
 
 				}
@@ -6695,14 +6695,14 @@ namespace  Truss.Compiler.Parser
 		{
 			int _type = CHAR;
 			int _channel = DefaultTokenChannel;
-			// Truss.g:2547:5: ( '\\'' ( '\\\\' . |~ ( '\\'' | '\\\\' ) )* '\\'' )
+			// Truss.g:2562:5: ( '\\'' ( '\\\\' . |~ ( '\\'' | '\\\\' ) )* '\\'' )
 			DebugEnterAlt(1);
-			// Truss.g:2547:7: '\\'' ( '\\\\' . |~ ( '\\'' | '\\\\' ) )* '\\''
+			// Truss.g:2562:7: '\\'' ( '\\\\' . |~ ( '\\'' | '\\\\' ) )* '\\''
 			{
-			DebugLocation(2547, 7);
+			DebugLocation(2562, 7);
 			Match('\''); if (state.failed) return;
-			DebugLocation(2547, 12);
-			// Truss.g:2547:12: ( '\\\\' . |~ ( '\\'' | '\\\\' ) )*
+			DebugLocation(2562, 12);
+			// Truss.g:2562:12: ( '\\\\' . |~ ( '\\'' | '\\\\' ) )*
 			try { DebugEnterSubRule(25);
 			while (true)
 			{
@@ -6725,20 +6725,20 @@ namespace  Truss.Compiler.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:2547:14: '\\\\' .
+					// Truss.g:2562:14: '\\\\' .
 					{
-					DebugLocation(2547, 14);
+					DebugLocation(2562, 14);
 					Match('\\'); if (state.failed) return;
-					DebugLocation(2547, 19);
+					DebugLocation(2562, 19);
 					MatchAny(); if (state.failed) return;
 
 					}
 					break;
 				case 2:
 					DebugEnterAlt(2);
-					// Truss.g:2547:23: ~ ( '\\'' | '\\\\' )
+					// Truss.g:2562:23: ~ ( '\\'' | '\\\\' )
 					{
-					DebugLocation(2547, 23);
+					DebugLocation(2562, 23);
 					input.Consume();
 					state.failed=false;
 
@@ -6755,7 +6755,7 @@ namespace  Truss.Compiler.Parser
 
 			} finally { DebugExitSubRule(25); }
 
-			DebugLocation(2547, 43);
+			DebugLocation(2562, 43);
 			Match('\''); if (state.failed) return;
 
 			}
@@ -8029,13 +8029,13 @@ namespace  Truss.Compiler.Parser
 		TraceIn("synpred1_Truss_fragment", 152);
 		try
 		{
-			// Truss.g:2522:13: ( '.' DIGIT )
+			// Truss.g:2537:13: ( '.' DIGIT )
 			DebugEnterAlt(1);
-			// Truss.g:2522:15: '.' DIGIT
+			// Truss.g:2537:15: '.' DIGIT
 			{
-			DebugLocation(2522, 15);
+			DebugLocation(2537, 15);
 			Match('.'); if (state.failed) return;
-			DebugLocation(2522, 19);
+			DebugLocation(2537, 19);
 			mDIGIT(); if (state.failed) return;
 
 			}

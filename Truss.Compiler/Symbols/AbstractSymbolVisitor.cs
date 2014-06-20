@@ -62,7 +62,7 @@ namespace Truss.Compiler.Symbols {
             DefaultVisit(symbol);
         }
 
-        public virtual void VisitType(TypeSymbol symbol) {
+        public virtual void VisitNamedType(NamedTypeSymbol symbol) {
             DefaultVisit(symbol);
         }
 
@@ -71,6 +71,26 @@ namespace Truss.Compiler.Symbols {
         }
 
         public virtual void VisitInvalidType(InvalidTypeSymbol symbol) {
+            DefaultVisit(symbol);
+        }
+
+        public void VisitArrayType(ArrayTypeSymbol symbol) {
+            DefaultVisit(symbol);
+        }
+
+        public void VisitNullableType(NullableTypeSymbol symbol) {
+            DefaultVisit(symbol);
+        }
+
+        public void VisitTrackedType(TrackedTypeSymbol symbol) {
+            DefaultVisit(symbol);
+        }
+
+        public void VisitNakedNullableType(NakedNullableTypeSymbol symbol) {
+            DefaultVisit(symbol);
+        }
+
+        public void VisitVarType(VarTypeSymbol symbol) {
             DefaultVisit(symbol);
         }
     }

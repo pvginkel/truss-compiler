@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4.1.9004 Truss.g 2014-06-20 10:06:09
+// $ANTLR 3.4.1.9004 Truss.g 2014-06-22 09:05:48
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -3160,7 +3160,7 @@ namespace  Truss.Compiler.Parser
 		TypeParameterConstraintSyntax value = default(TypeParameterConstraintSyntax);
 
 
-		Nullable n = default(Nullable);
+		Nullability n = default(Nullability);
 		TypeSyntax t = default(TypeSyntax);
 
 
@@ -3392,7 +3392,7 @@ namespace  Truss.Compiler.Parser
 				DebugLocation(421, 9);
 				if (state.backtracking == 0)
 				{
-					 value = new TypeFamilyConstraintSyntax(family.Value, family == TypeFamily.Tracked ? (Nullable?)null : n, Span(start)); 
+					 value = new TypeFamilyConstraintSyntax(family.Value, family == TypeFamily.Tracked ? (Nullability?)null : n, Span(start)); 
 				}
 
 				}
@@ -3438,14 +3438,14 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_nullable();
 	partial void LeaveRule_nullable();
 	// $ANTLR start "nullable"
-	// Truss.g:427:1: nullable returns [Nullable value] : ( OP_QUESTION | OP_EXCLAMATION );
+	// Truss.g:427:1: nullable returns [Nullability value] : ( OP_QUESTION | OP_EXCLAMATION );
 	[GrammarRule("nullable")]
-	private Nullable nullable()
+	private Nullability nullable()
 	{
 		EnterRule_nullable();
 		EnterRule("nullable", 24);
 		TraceIn("nullable", 24);
-		Nullable value = default(Nullable);
+		Nullability value = default(Nullability);
 
 
 		try { DebugEnterRule(GrammarFileName, "nullable");
@@ -3484,7 +3484,7 @@ namespace  Truss.Compiler.Parser
 				DebugLocation(428, 19);
 				if (state.backtracking == 0)
 				{
-					 value = Nullable.Nullable; 
+					 value = Nullability.Nullable; 
 				}
 
 				}
@@ -3498,7 +3498,7 @@ namespace  Truss.Compiler.Parser
 				DebugLocation(429, 22);
 				if (state.backtracking == 0)
 				{
-					 value = Nullable.NotNullable; 
+					 value = Nullability.NotNullable; 
 				}
 
 				}
@@ -4288,7 +4288,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_memberDeclaration();
 	partial void LeaveRule_memberDeclaration();
 	// $ANTLR start "memberDeclaration"
-	// Truss.g:516:1: memberDeclaration returns [MemberDeclarationSyntax value] : all= attributeListList m= modifiers ( ( constructorDeclarationHeadScan )=>e2= constructorDeclaration |t= typeSyntax e1= typedMemberDeclaration |e3= conversionOperatorDeclaration |{...}? =>e4= destructorDeclaration |e5= eventDeclaration |e7= delegateDeclaration |e8= typeDeclaration |e9= enumDeclaration ) ;
+	// Truss.g:516:1: memberDeclaration returns [MemberDeclarationSyntax value] : all= attributeListList m= modifiers ( ( constructorDeclarationHeadScan )=>e2= constructorDeclaration |t= typeSyntax e1= typedMemberDeclaration |e3= conversionOperatorDeclaration |e4= destructorDeclaration |e5= eventDeclaration |e7= delegateDeclaration |e8= typeDeclaration |e9= enumDeclaration ) ;
 	[GrammarRule("memberDeclaration")]
 	private MemberDeclarationSyntax memberDeclaration()
 	{
@@ -4316,9 +4316,9 @@ namespace  Truss.Compiler.Parser
 		DebugLocation(516, 4);
 		try
 		{
-			// Truss.g:518:5: (all= attributeListList m= modifiers ( ( constructorDeclarationHeadScan )=>e2= constructorDeclaration |t= typeSyntax e1= typedMemberDeclaration |e3= conversionOperatorDeclaration |{...}? =>e4= destructorDeclaration |e5= eventDeclaration |e7= delegateDeclaration |e8= typeDeclaration |e9= enumDeclaration ) )
+			// Truss.g:518:5: (all= attributeListList m= modifiers ( ( constructorDeclarationHeadScan )=>e2= constructorDeclaration |t= typeSyntax e1= typedMemberDeclaration |e3= conversionOperatorDeclaration |e4= destructorDeclaration |e5= eventDeclaration |e7= delegateDeclaration |e8= typeDeclaration |e9= enumDeclaration ) )
 			DebugEnterAlt(1);
-			// Truss.g:519:5: all= attributeListList m= modifiers ( ( constructorDeclarationHeadScan )=>e2= constructorDeclaration |t= typeSyntax e1= typedMemberDeclaration |e3= conversionOperatorDeclaration |{...}? =>e4= destructorDeclaration |e5= eventDeclaration |e7= delegateDeclaration |e8= typeDeclaration |e9= enumDeclaration )
+			// Truss.g:519:5: all= attributeListList m= modifiers ( ( constructorDeclarationHeadScan )=>e2= constructorDeclaration |t= typeSyntax e1= typedMemberDeclaration |e3= conversionOperatorDeclaration |e4= destructorDeclaration |e5= eventDeclaration |e7= delegateDeclaration |e8= typeDeclaration |e9= enumDeclaration )
 			{
 			DebugLocation(519, 8);
 			PushFollow(Follow._attributeListList_in_memberDeclaration3892);
@@ -4341,14 +4341,14 @@ namespace  Truss.Compiler.Parser
 				 declarationPrefix_stack.Peek().modifiers =  m; 
 			}
 			DebugLocation(521, 5);
-			// Truss.g:521:5: ( ( constructorDeclarationHeadScan )=>e2= constructorDeclaration |t= typeSyntax e1= typedMemberDeclaration |e3= conversionOperatorDeclaration |{...}? =>e4= destructorDeclaration |e5= eventDeclaration |e7= delegateDeclaration |e8= typeDeclaration |e9= enumDeclaration )
+			// Truss.g:521:5: ( ( constructorDeclarationHeadScan )=>e2= constructorDeclaration |t= typeSyntax e1= typedMemberDeclaration |e3= conversionOperatorDeclaration |e4= destructorDeclaration |e5= eventDeclaration |e7= delegateDeclaration |e8= typeDeclaration |e9= enumDeclaration )
 			int alt41=8;
 			try { DebugEnterSubRule(41);
 			try { DebugEnterDecision(41, false);
-			int LA41_1 = input.LA(1);
-
-			if ((LA41_1==IDENTIFIER))
+			switch (input.LA(1))
 			{
+			case IDENTIFIER:
+				{
 				int LA41_2 = input.LA(2);
 
 				if ((LA41_2==OP_PAREN_OPEN) && (EvaluatePredicate(synpred3_Truss_fragment)))
@@ -4366,42 +4366,71 @@ namespace  Truss.Compiler.Parser
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
-			}
-			else if ((LA41_1==KW_BOOL||LA41_1==KW_BYTE||LA41_1==KW_CHAR||LA41_1==KW_DECIMAL||LA41_1==KW_DOUBLE||LA41_1==KW_FLOAT||LA41_1==KW_INT||LA41_1==KW_LONG||LA41_1==KW_OBJECT||LA41_1==KW_SBYTE||LA41_1==KW_SHORT||LA41_1==KW_STRING||(LA41_1>=KW_UINT && LA41_1<=KW_USHORT)||LA41_1==KW_VAR||LA41_1==KW_VOID))
-			{
+				}
+				break;
+			case KW_BOOL:
+			case KW_BYTE:
+			case KW_CHAR:
+			case KW_DECIMAL:
+			case KW_DOUBLE:
+			case KW_FLOAT:
+			case KW_INT:
+			case KW_LONG:
+			case KW_OBJECT:
+			case KW_SBYTE:
+			case KW_SHORT:
+			case KW_STRING:
+			case KW_UINT:
+			case KW_ULONG:
+			case KW_USHORT:
+			case KW_VAR:
+			case KW_VOID:
+				{
 				alt41 = 2;
-			}
-			else if ((LA41_1==KW_EXPLICIT||LA41_1==KW_IMPLICIT))
-			{
+				}
+				break;
+			case KW_EXPLICIT:
+			case KW_IMPLICIT:
+				{
 				alt41 = 3;
-			}
-			else if ((LA41_1==OP_TILDE) && (( declarationPrefix_stack.Peek().modifiers.Count == 0 )))
-			{
+				}
+				break;
+			case OP_TILDE:
+				{
 				alt41 = 4;
-			}
-			else if ((LA41_1==KW_EVENT))
-			{
+				}
+				break;
+			case KW_EVENT:
+				{
 				alt41 = 5;
-			}
-			else if ((LA41_1==KW_DELEGATE))
-			{
+				}
+				break;
+			case KW_DELEGATE:
+				{
 				alt41 = 6;
-			}
-			else if ((LA41_1==KW_CLASS||LA41_1==KW_INTERFACE||LA41_1==KW_STRUCT))
-			{
+				}
+				break;
+			case KW_CLASS:
+			case KW_INTERFACE:
+			case KW_STRUCT:
+				{
 				alt41 = 7;
-			}
-			else if ((LA41_1==KW_ENUM))
-			{
+				}
+				break;
+			case KW_ENUM:
+				{
 				alt41 = 8;
+				}
+				break;
+			default:
+				{
+					if (state.backtracking>0) {state.failed=true; return value;}
+					NoViableAltException nvae = new NoViableAltException("", 41, 0, input, 1);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
 			}
-			else
-			{
-				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 41, 0, input, 1);
-				DebugRecognitionException(nvae);
-				throw nvae;
-			}
+
 			} finally { DebugExitDecision(41); }
 			switch (alt41)
 			{
@@ -4468,20 +4497,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// Truss.g:531:9: {...}? =>e4= destructorDeclaration
+				// Truss.g:531:9: e4= destructorDeclaration
 				{
-				DebugLocation(531, 9);
-				if (!(( declarationPrefix_stack.Peek().modifiers.Count == 0 )))
-				{
-					if (state.backtracking>0) {state.failed=true; return value;}
-					throw new FailedPredicateException(input, "memberDeclaration", " $declarationPrefix::modifiers.Count == 0 ");
-				}
-				DebugLocation(531, 59);
-				PushFollow(Follow._destructorDeclaration_in_memberDeclaration4022);
+				DebugLocation(531, 11);
+				PushFollow(Follow._destructorDeclaration_in_memberDeclaration4019);
 				e4=destructorDeclaration();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(531, 82);
+				DebugLocation(531, 34);
 				if (state.backtracking == 0)
 				{
 					 value = e4; 
@@ -4494,7 +4517,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:533:9: e5= eventDeclaration
 				{
 				DebugLocation(533, 11);
-				PushFollow(Follow._eventDeclaration_in_memberDeclaration4042);
+				PushFollow(Follow._eventDeclaration_in_memberDeclaration4039);
 				e5=eventDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -4511,7 +4534,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:535:9: e7= delegateDeclaration
 				{
 				DebugLocation(535, 11);
-				PushFollow(Follow._delegateDeclaration_in_memberDeclaration4062);
+				PushFollow(Follow._delegateDeclaration_in_memberDeclaration4059);
 				e7=delegateDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -4528,7 +4551,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:537:9: e8= typeDeclaration
 				{
 				DebugLocation(537, 11);
-				PushFollow(Follow._typeDeclaration_in_memberDeclaration4082);
+				PushFollow(Follow._typeDeclaration_in_memberDeclaration4079);
 				e8=typeDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -4545,7 +4568,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:539:9: e9= enumDeclaration
 				{
 				DebugLocation(539, 11);
-				PushFollow(Follow._enumDeclaration_in_memberDeclaration4102);
+				PushFollow(Follow._enumDeclaration_in_memberDeclaration4099);
 				e9=enumDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -4633,7 +4656,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:547:9: e1= operatorDeclaration
 				{
 				DebugLocation(547, 11);
-				PushFollow(Follow._operatorDeclaration_in_typedMemberDeclaration4143);
+				PushFollow(Follow._operatorDeclaration_in_typedMemberDeclaration4140);
 				e1=operatorDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -4650,7 +4673,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:550:9: e2= fieldDeclaration
 				{
 				DebugLocation(550, 11);
-				PushFollow(Follow._fieldDeclaration_in_typedMemberDeclaration4171);
+				PushFollow(Follow._fieldDeclaration_in_typedMemberDeclaration4168);
 				e2=fieldDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -4771,7 +4794,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:565:9: ( variableDeclarationWithoutType OP_SEMICOLON )=>vdwt= variableDeclarationWithoutType OP_SEMICOLON
 				{
 				DebugLocation(566, 13);
-				PushFollow(Follow._variableDeclarationWithoutType_in_fieldDeclaration4241);
+				PushFollow(Follow._variableDeclarationWithoutType_in_fieldDeclaration4238);
 				vdwt=variableDeclarationWithoutType();
 				PopFollow();
 				if (state.failed) return value;
@@ -4788,7 +4811,7 @@ namespace  Truss.Compiler.Parser
 					        
 				}
 				DebugLocation(575, 9);
-				Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_fieldDeclaration4261); if (state.failed) return value;
+				Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_fieldDeclaration4258); if (state.failed) return value;
 
 				}
 				break;
@@ -4815,12 +4838,12 @@ namespace  Truss.Compiler.Parser
 					// Truss.g:578:11: n= name OP_DOT
 					{
 					DebugLocation(578, 12);
-					PushFollow(Follow._name_in_fieldDeclaration4305);
+					PushFollow(Follow._name_in_fieldDeclaration4302);
 					n=name();
 					PopFollow();
 					if (state.failed) return value;
 					DebugLocation(578, 18);
-					Match(input,OP_DOT,Follow._OP_DOT_in_fieldDeclaration4307); if (state.failed) return value;
+					Match(input,OP_DOT,Follow._OP_DOT_in_fieldDeclaration4304); if (state.failed) return value;
 
 					}
 					break;
@@ -4829,18 +4852,18 @@ namespace  Truss.Compiler.Parser
 				} finally { DebugExitSubRule(43); }
 
 				DebugLocation(579, 9);
-				Match(input,KW_THIS,Follow._KW_THIS_in_fieldDeclaration4320); if (state.failed) return value;
+				Match(input,KW_THIS,Follow._KW_THIS_in_fieldDeclaration4317); if (state.failed) return value;
 				DebugLocation(580, 9);
-				Match(input,OP_BRACKET_OPEN,Follow._OP_BRACKET_OPEN_in_fieldDeclaration4330); if (state.failed) return value;
+				Match(input,OP_BRACKET_OPEN,Follow._OP_BRACKET_OPEN_in_fieldDeclaration4327); if (state.failed) return value;
 				DebugLocation(581, 12);
-				PushFollow(Follow._bareParameterList_in_fieldDeclaration4342);
+				PushFollow(Follow._bareParameterList_in_fieldDeclaration4339);
 				bpl=bareParameterList();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(582, 9);
-				Match(input,OP_BRACKET_CLOSE,Follow._OP_BRACKET_CLOSE_in_fieldDeclaration4352); if (state.failed) return value;
+				Match(input,OP_BRACKET_CLOSE,Follow._OP_BRACKET_CLOSE_in_fieldDeclaration4349); if (state.failed) return value;
 				DebugLocation(583, 11);
-				PushFollow(Follow._accessorList_in_fieldDeclaration4364);
+				PushFollow(Follow._accessorList_in_fieldDeclaration4361);
 				al=accessorList();
 				PopFollow();
 				if (state.failed) return value;
@@ -4867,7 +4890,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:596:9: mn= memberName (pdt= propertyDeclarationTail |mdt= methodDeclarationTail )
 				{
 				DebugLocation(596, 11);
-				PushFollow(Follow._memberName_in_fieldDeclaration4392);
+				PushFollow(Follow._memberName_in_fieldDeclaration4389);
 				mn=memberName();
 				PopFollow();
 				if (state.failed) return value;
@@ -4906,7 +4929,7 @@ namespace  Truss.Compiler.Parser
 					// Truss.g:599:13: pdt= propertyDeclarationTail
 					{
 					DebugLocation(599, 16);
-					PushFollow(Follow._propertyDeclarationTail_in_fieldDeclaration4428);
+					PushFollow(Follow._propertyDeclarationTail_in_fieldDeclaration4425);
 					pdt=propertyDeclarationTail();
 					PopFollow();
 					if (state.failed) return value;
@@ -4923,7 +4946,7 @@ namespace  Truss.Compiler.Parser
 					// Truss.g:602:13: mdt= methodDeclarationTail
 					{
 					DebugLocation(602, 16);
-					PushFollow(Follow._methodDeclarationTail_in_fieldDeclaration4468);
+					PushFollow(Follow._methodDeclarationTail_in_fieldDeclaration4465);
 					mdt=methodDeclarationTail();
 					PopFollow();
 					if (state.failed) return value;
@@ -4992,7 +5015,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:613:9: al= accessorList
 			{
 			DebugLocation(613, 11);
-			PushFollow(Follow._accessorList_in_propertyDeclarationTail4528);
+			PushFollow(Follow._accessorList_in_propertyDeclarationTail4525);
 			al=accessorList();
 			PopFollow();
 			if (state.failed) return value;
@@ -5036,7 +5059,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_methodDeclarationTail();
 	partial void LeaveRule_methodDeclarationTail();
 	// $ANTLR start "methodDeclarationTail"
-	// Truss.g:627:1: methodDeclarationTail returns [MethodDeclarationSyntax value] : pl= parameterList tpccl= typeParameterConstraintClauseList b= block ;
+	// Truss.g:627:1: methodDeclarationTail returns [MethodDeclarationSyntax value] : pl= parameterList tpccl= typeParameterConstraintClauseList (b= block | OP_SEMICOLON ) ;
 	[GrammarRule("methodDeclarationTail")]
 	private MethodDeclarationSyntax methodDeclarationTail()
 	{
@@ -5057,25 +5080,70 @@ namespace  Truss.Compiler.Parser
 		DebugLocation(627, 4);
 		try
 		{
-			// Truss.g:631:5: (pl= parameterList tpccl= typeParameterConstraintClauseList b= block )
+			// Truss.g:631:5: (pl= parameterList tpccl= typeParameterConstraintClauseList (b= block | OP_SEMICOLON ) )
 			DebugEnterAlt(1);
-			// Truss.g:632:9: pl= parameterList tpccl= typeParameterConstraintClauseList b= block
+			// Truss.g:632:9: pl= parameterList tpccl= typeParameterConstraintClauseList (b= block | OP_SEMICOLON )
 			{
 			DebugLocation(632, 11);
-			PushFollow(Follow._parameterList_in_methodDeclarationTail4574);
+			PushFollow(Follow._parameterList_in_methodDeclarationTail4571);
 			pl=parameterList();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(633, 14);
-			PushFollow(Follow._typeParameterConstraintClauseList_in_methodDeclarationTail4586);
+			PushFollow(Follow._typeParameterConstraintClauseList_in_methodDeclarationTail4583);
 			tpccl=typeParameterConstraintClauseList();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(634, 10);
-			PushFollow(Follow._block_in_methodDeclarationTail4598);
-			b=block();
-			PopFollow();
-			if (state.failed) return value;
+			DebugLocation(634, 9);
+			// Truss.g:634:9: (b= block | OP_SEMICOLON )
+			int alt46=2;
+			try { DebugEnterSubRule(46);
+			try { DebugEnterDecision(46, false);
+			int LA46_1 = input.LA(1);
+
+			if ((LA46_1==OP_BRACE_OPEN))
+			{
+				alt46 = 1;
+			}
+			else if ((LA46_1==OP_SEMICOLON))
+			{
+				alt46 = 2;
+			}
+			else
+			{
+				if (state.backtracking>0) {state.failed=true; return value;}
+				NoViableAltException nvae = new NoViableAltException("", 46, 0, input, 1);
+				DebugRecognitionException(nvae);
+				throw nvae;
+			}
+			} finally { DebugExitDecision(46); }
+			switch (alt46)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// Truss.g:634:11: b= block
+				{
+				DebugLocation(634, 12);
+				PushFollow(Follow._block_in_methodDeclarationTail4597);
+				b=block();
+				PopFollow();
+				if (state.failed) return value;
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// Truss.g:634:21: OP_SEMICOLON
+				{
+				DebugLocation(634, 21);
+				Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_methodDeclarationTail4601); if (state.failed) return value;
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(46); }
+
 			DebugLocation(635, 9);
 			if (state.backtracking == 0)
 			{
@@ -5146,30 +5214,30 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:658:9: KW_EVENT ( ( variableDeclaration OP_SEMICOLON )=>vd= variableDeclaration OP_SEMICOLON |t= typeSyntax mn= memberName al= accessorList )
 			{
 			DebugLocation(658, 9);
-			Match(input,KW_EVENT,Follow._KW_EVENT_in_eventDeclaration4644); if (state.failed) return value;
+			Match(input,KW_EVENT,Follow._KW_EVENT_in_eventDeclaration4649); if (state.failed) return value;
 			DebugLocation(659, 9);
 			// Truss.g:659:9: ( ( variableDeclaration OP_SEMICOLON )=>vd= variableDeclaration OP_SEMICOLON |t= typeSyntax mn= memberName al= accessorList )
-			int alt46=2;
-			try { DebugEnterSubRule(46);
-			try { DebugEnterDecision(46, false);
+			int alt47=2;
+			try { DebugEnterSubRule(47);
+			try { DebugEnterDecision(47, false);
 			switch (input.LA(1))
 			{
 			case KW_VAR:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 1, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 1, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5177,20 +5245,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_BOOL:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 2, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 2, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5198,20 +5266,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_BYTE:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 3, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 3, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5219,20 +5287,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_CHAR:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 4, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 4, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5240,20 +5308,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_DECIMAL:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 5, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 5, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5261,20 +5329,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_DOUBLE:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 6, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 6, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5282,20 +5350,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_FLOAT:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 7, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 7, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5303,20 +5371,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_INT:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 8, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 8, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5324,20 +5392,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_LONG:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 9, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 9, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5345,20 +5413,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_OBJECT:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 10, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 10, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5366,20 +5434,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_SBYTE:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 11, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 11, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5387,20 +5455,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_SHORT:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 12, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 12, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5408,20 +5476,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_STRING:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 13, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 13, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5429,20 +5497,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_UINT:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 14, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 14, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5450,20 +5518,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_ULONG:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 15, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 15, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5471,20 +5539,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_USHORT:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 16, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 16, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5492,20 +5560,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_VOID:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 17, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 17, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5513,20 +5581,20 @@ namespace  Truss.Compiler.Parser
 				break;
 			case IDENTIFIER:
 				{
-				int LA46_2 = input.LA(2);
+				int LA47_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred6_Truss_fragment)))
 				{
-					alt46 = 1;
+					alt47 = 1;
 				}
 				else if ((true))
 				{
-					alt46 = 2;
+					alt47 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 18, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 47, 18, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -5535,21 +5603,21 @@ namespace  Truss.Compiler.Parser
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 46, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 47, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(46); }
-			switch (alt46)
+			} finally { DebugExitDecision(47); }
+			switch (alt47)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:660:13: ( variableDeclaration OP_SEMICOLON )=>vd= variableDeclaration OP_SEMICOLON
 				{
 				DebugLocation(661, 15);
-				PushFollow(Follow._variableDeclaration_in_eventDeclaration4691);
+				PushFollow(Follow._variableDeclaration_in_eventDeclaration4696);
 				vd=variableDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -5566,7 +5634,7 @@ namespace  Truss.Compiler.Parser
 					            
 				}
 				DebugLocation(670, 13);
-				Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_eventDeclaration4719); if (state.failed) return value;
+				Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_eventDeclaration4724); if (state.failed) return value;
 
 				}
 				break;
@@ -5575,17 +5643,17 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:672:13: t= typeSyntax mn= memberName al= accessorList
 				{
 				DebugLocation(672, 14);
-				PushFollow(Follow._typeSyntax_in_eventDeclaration4745);
+				PushFollow(Follow._typeSyntax_in_eventDeclaration4750);
 				t=typeSyntax();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(673, 15);
-				PushFollow(Follow._memberName_in_eventDeclaration4761);
+				PushFollow(Follow._memberName_in_eventDeclaration4766);
 				mn=memberName();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(674, 15);
-				PushFollow(Follow._accessorList_in_eventDeclaration4777);
+				PushFollow(Follow._accessorList_in_eventDeclaration4782);
 				al=accessorList();
 				PopFollow();
 				if (state.failed) return value;
@@ -5609,7 +5677,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(46); }
+			} finally { DebugExitSubRule(47); }
 
 
 			}
@@ -5636,7 +5704,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_accessorList();
 	partial void LeaveRule_accessorList();
 	// $ANTLR start "accessorList"
-	// Truss.g:689:1: accessorList returns [ImmutableArray<AccessorDeclarationSyntax> value] : OP_BRACE_OPEN (all= attributeListList m= modifiers adt= accessorDeclarationType b= block )* OP_BRACE_CLOSE ;
+	// Truss.g:689:1: accessorList returns [ImmutableArray<AccessorDeclarationSyntax> value] : OP_BRACE_OPEN (all= attributeListList m= modifiers adt= accessorDeclarationType (b= block | OP_SEMICOLON ) )* OP_BRACE_CLOSE ;
 	[GrammarRule("accessorList")]
 	private ImmutableArray<AccessorDeclarationSyntax> accessorList()
 	{
@@ -5659,33 +5727,33 @@ namespace  Truss.Compiler.Parser
 		DebugLocation(689, 4);
 		try
 		{
-			// Truss.g:694:5: ( OP_BRACE_OPEN (all= attributeListList m= modifiers adt= accessorDeclarationType b= block )* OP_BRACE_CLOSE )
+			// Truss.g:694:5: ( OP_BRACE_OPEN (all= attributeListList m= modifiers adt= accessorDeclarationType (b= block | OP_SEMICOLON ) )* OP_BRACE_CLOSE )
 			DebugEnterAlt(1);
-			// Truss.g:695:9: OP_BRACE_OPEN (all= attributeListList m= modifiers adt= accessorDeclarationType b= block )* OP_BRACE_CLOSE
+			// Truss.g:695:9: OP_BRACE_OPEN (all= attributeListList m= modifiers adt= accessorDeclarationType (b= block | OP_SEMICOLON ) )* OP_BRACE_CLOSE
 			{
 			DebugLocation(695, 9);
-			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_accessorList4835); if (state.failed) return value;
+			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_accessorList4840); if (state.failed) return value;
 			DebugLocation(696, 9);
-			// Truss.g:696:9: (all= attributeListList m= modifiers adt= accessorDeclarationType b= block )*
-			try { DebugEnterSubRule(47);
+			// Truss.g:696:9: (all= attributeListList m= modifiers adt= accessorDeclarationType (b= block | OP_SEMICOLON ) )*
+			try { DebugEnterSubRule(49);
 			while (true)
 			{
-				int alt47=2;
-				try { DebugEnterDecision(47, false);
-				int LA47_1 = input.LA(1);
+				int alt49=2;
+				try { DebugEnterDecision(49, false);
+				int LA49_1 = input.LA(1);
 
-				if ((LA47_1==IDENTIFIER||LA47_1==KW_ABSTRACT||LA47_1==KW_ASYNC||LA47_1==KW_BOOL||LA47_1==KW_BYTE||(LA47_1>=KW_CHAR && LA47_1<=KW_CONSUMES)||LA47_1==KW_DECIMAL||LA47_1==KW_DELEGATE||LA47_1==KW_DOUBLE||(LA47_1>=KW_ENUM && LA47_1<=KW_EXTERN)||LA47_1==KW_FLOAT||LA47_1==KW_IMPLICIT||(LA47_1>=KW_IN && LA47_1<=KW_INTERNAL)||LA47_1==KW_LONG||LA47_1==KW_NEW||LA47_1==KW_OBJECT||(LA47_1>=KW_OUT && LA47_1<=KW_REF)||(LA47_1>=KW_SBYTE && LA47_1<=KW_SHORT)||(LA47_1>=KW_STATIC && LA47_1<=KW_STRUCT)||LA47_1==KW_THIS||(LA47_1>=KW_UINT && LA47_1<=KW_USHORT)||(LA47_1>=KW_VAR && LA47_1<=KW_VOLATILE)||LA47_1==OP_BRACKET_OPEN||LA47_1==OP_TILDE))
+				if ((LA49_1==IDENTIFIER||LA49_1==KW_ABSTRACT||LA49_1==KW_ASYNC||LA49_1==KW_BOOL||LA49_1==KW_BYTE||(LA49_1>=KW_CHAR && LA49_1<=KW_CONSUMES)||LA49_1==KW_DECIMAL||LA49_1==KW_DELEGATE||LA49_1==KW_DOUBLE||(LA49_1>=KW_ENUM && LA49_1<=KW_EXTERN)||LA49_1==KW_FLOAT||LA49_1==KW_IMPLICIT||(LA49_1>=KW_IN && LA49_1<=KW_INTERNAL)||LA49_1==KW_LONG||LA49_1==KW_NEW||LA49_1==KW_OBJECT||(LA49_1>=KW_OUT && LA49_1<=KW_REF)||(LA49_1>=KW_SBYTE && LA49_1<=KW_SHORT)||(LA49_1>=KW_STATIC && LA49_1<=KW_STRUCT)||LA49_1==KW_THIS||(LA49_1>=KW_UINT && LA49_1<=KW_USHORT)||(LA49_1>=KW_VAR && LA49_1<=KW_VOLATILE)||LA49_1==OP_BRACKET_OPEN||LA49_1==OP_TILDE))
 				{
-					alt47 = 1;
+					alt49 = 1;
 				}
 
 
-				} finally { DebugExitDecision(47); }
-				switch ( alt47 )
+				} finally { DebugExitDecision(49); }
+				switch ( alt49 )
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:697:13: all= attributeListList m= modifiers adt= accessorDeclarationType b= block
+					// Truss.g:697:13: all= attributeListList m= modifiers adt= accessorDeclarationType (b= block | OP_SEMICOLON )
 					{
 					DebugLocation(697, 13);
 					if (state.backtracking == 0)
@@ -5693,25 +5761,70 @@ namespace  Truss.Compiler.Parser
 						 start = input.LT(1); 
 					}
 					DebugLocation(698, 16);
-					PushFollow(Follow._attributeListList_in_accessorList4875);
+					PushFollow(Follow._attributeListList_in_accessorList4880);
 					all=attributeListList();
 					PopFollow();
 					if (state.failed) return value;
 					DebugLocation(699, 14);
-					PushFollow(Follow._modifiers_in_accessorList4891);
+					PushFollow(Follow._modifiers_in_accessorList4896);
 					m=modifiers();
 					PopFollow();
 					if (state.failed) return value;
 					DebugLocation(700, 16);
-					PushFollow(Follow._accessorDeclarationType_in_accessorList4907);
+					PushFollow(Follow._accessorDeclarationType_in_accessorList4912);
 					adt=accessorDeclarationType();
 					PopFollow();
 					if (state.failed) return value;
-					DebugLocation(701, 14);
-					PushFollow(Follow._block_in_accessorList4923);
-					b=block();
-					PopFollow();
-					if (state.failed) return value;
+					DebugLocation(701, 13);
+					// Truss.g:701:13: (b= block | OP_SEMICOLON )
+					int alt48=2;
+					try { DebugEnterSubRule(48);
+					try { DebugEnterDecision(48, false);
+					int LA48_1 = input.LA(1);
+
+					if ((LA48_1==OP_BRACE_OPEN))
+					{
+						alt48 = 1;
+					}
+					else if ((LA48_1==OP_SEMICOLON))
+					{
+						alt48 = 2;
+					}
+					else
+					{
+						if (state.backtracking>0) {state.failed=true; return value;}
+						NoViableAltException nvae = new NoViableAltException("", 48, 0, input, 1);
+						DebugRecognitionException(nvae);
+						throw nvae;
+					}
+					} finally { DebugExitDecision(48); }
+					switch (alt48)
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// Truss.g:701:15: b= block
+						{
+						DebugLocation(701, 16);
+						PushFollow(Follow._block_in_accessorList4930);
+						b=block();
+						PopFollow();
+						if (state.failed) return value;
+
+						}
+						break;
+					case 2:
+						DebugEnterAlt(2);
+						// Truss.g:701:25: OP_SEMICOLON
+						{
+						DebugLocation(701, 25);
+						Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_accessorList4934); if (state.failed) return value;
+
+						}
+						break;
+
+					}
+					} finally { DebugExitSubRule(48); }
+
 					DebugLocation(702, 13);
 					if (state.backtracking == 0)
 					{
@@ -5722,17 +5835,17 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop47;
+					goto loop49;
 				}
 			}
 
-			loop47:
+			loop49:
 				;
 
-			} finally { DebugExitSubRule(47); }
+			} finally { DebugExitSubRule(49); }
 
 			DebugLocation(704, 9);
-			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_accessorList4958); if (state.failed) return value;
+			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_accessorList4971); if (state.failed) return value;
 			DebugLocation(705, 9);
 			if (state.backtracking == 0)
 			{
@@ -5784,7 +5897,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:710:9: idn= identifierName
 			{
 			DebugLocation(710, 12);
-			PushFollow(Follow._identifierName_in_accessorDeclarationType4999);
+			PushFollow(Follow._identifierName_in_accessorDeclarationType5012);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
@@ -5834,12 +5947,12 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:716:34: identifierName OP_PAREN_OPEN
 			{
 			DebugLocation(716, 34);
-			PushFollow(Follow._identifierName_in_constructorDeclarationHeadScan5024);
+			PushFollow(Follow._identifierName_in_constructorDeclarationHeadScan5037);
 			identifierName();
 			PopFollow();
 			if (state.failed) return;
 			DebugLocation(716, 49);
-			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_constructorDeclarationHeadScan5026); if (state.failed) return;
+			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_constructorDeclarationHeadScan5039); if (state.failed) return;
 
 			}
 
@@ -5892,35 +6005,35 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:723:9: idn= identifierName pl= parameterList (ci= constructorInitializer )? b= block
 			{
 			DebugLocation(723, 12);
-			PushFollow(Follow._identifierName_in_constructorDeclaration5058);
+			PushFollow(Follow._identifierName_in_constructorDeclaration5071);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(724, 11);
-			PushFollow(Follow._parameterList_in_constructorDeclaration5070);
+			PushFollow(Follow._parameterList_in_constructorDeclaration5083);
 			pl=parameterList();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(725, 9);
 			// Truss.g:725:9: (ci= constructorInitializer )?
-			int alt48=2;
-			try { DebugEnterSubRule(48);
-			try { DebugEnterDecision(48, false);
-			int LA48_1 = input.LA(1);
+			int alt50=2;
+			try { DebugEnterSubRule(50);
+			try { DebugEnterDecision(50, false);
+			int LA50_1 = input.LA(1);
 
-			if ((LA48_1==OP_COLON))
+			if ((LA50_1==OP_COLON))
 			{
-				alt48 = 1;
+				alt50 = 1;
 			}
-			} finally { DebugExitDecision(48); }
-			switch (alt48)
+			} finally { DebugExitDecision(50); }
+			switch (alt50)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:725:11: ci= constructorInitializer
 				{
 				DebugLocation(725, 13);
-				PushFollow(Follow._constructorInitializer_in_constructorDeclaration5084);
+				PushFollow(Follow._constructorInitializer_in_constructorDeclaration5097);
 				ci=constructorInitializer();
 				PopFollow();
 				if (state.failed) return value;
@@ -5929,10 +6042,10 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(48); }
+			} finally { DebugExitSubRule(50); }
 
 			DebugLocation(726, 10);
-			PushFollow(Follow._block_in_constructorDeclaration5099);
+			PushFollow(Follow._block_in_constructorDeclaration5112);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -6001,38 +6114,38 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:746:9: OP_COLON ( KW_THIS | KW_BASE ) al= argumentList
 			{
 			DebugLocation(746, 9);
-			Match(input,OP_COLON,Follow._OP_COLON_in_constructorInitializer5143); if (state.failed) return value;
+			Match(input,OP_COLON,Follow._OP_COLON_in_constructorInitializer5156); if (state.failed) return value;
 			DebugLocation(747, 9);
 			// Truss.g:747:9: ( KW_THIS | KW_BASE )
-			int alt49=2;
-			try { DebugEnterSubRule(49);
-			try { DebugEnterDecision(49, false);
-			int LA49_1 = input.LA(1);
+			int alt51=2;
+			try { DebugEnterSubRule(51);
+			try { DebugEnterDecision(51, false);
+			int LA51_1 = input.LA(1);
 
-			if ((LA49_1==KW_THIS))
+			if ((LA51_1==KW_THIS))
 			{
-				alt49 = 1;
+				alt51 = 1;
 			}
-			else if ((LA49_1==KW_BASE))
+			else if ((LA51_1==KW_BASE))
 			{
-				alt49 = 2;
+				alt51 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 49, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 51, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(49); }
-			switch (alt49)
+			} finally { DebugExitDecision(51); }
+			switch (alt51)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:747:11: KW_THIS
 				{
 				DebugLocation(747, 11);
-				Match(input,KW_THIS,Follow._KW_THIS_in_constructorInitializer5155); if (state.failed) return value;
+				Match(input,KW_THIS,Follow._KW_THIS_in_constructorInitializer5168); if (state.failed) return value;
 				DebugLocation(747, 19);
 				if (state.backtracking == 0)
 				{
@@ -6046,7 +6159,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:748:11: KW_BASE
 				{
 				DebugLocation(748, 11);
-				Match(input,KW_BASE,Follow._KW_BASE_in_constructorInitializer5169); if (state.failed) return value;
+				Match(input,KW_BASE,Follow._KW_BASE_in_constructorInitializer5182); if (state.failed) return value;
 				DebugLocation(748, 19);
 				if (state.backtracking == 0)
 				{
@@ -6057,10 +6170,10 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(49); }
+			} finally { DebugExitSubRule(51); }
 
 			DebugLocation(750, 11);
-			PushFollow(Follow._argumentList_in_constructorInitializer5193);
+			PushFollow(Follow._argumentList_in_constructorInitializer5206);
 			al=argumentList();
 			PopFollow();
 			if (state.failed) return value;
@@ -6120,18 +6233,18 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:762:9: OP_TILDE idn= identifierName OP_PAREN_OPEN OP_PAREN_CLOSE b= block
 			{
 			DebugLocation(762, 9);
-			Match(input,OP_TILDE,Follow._OP_TILDE_in_destructorDeclaration5239); if (state.failed) return value;
+			Match(input,OP_TILDE,Follow._OP_TILDE_in_destructorDeclaration5252); if (state.failed) return value;
 			DebugLocation(763, 12);
-			PushFollow(Follow._identifierName_in_destructorDeclaration5251);
+			PushFollow(Follow._identifierName_in_destructorDeclaration5264);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(764, 9);
-			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_destructorDeclaration5261); if (state.failed) return value;
+			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_destructorDeclaration5274); if (state.failed) return value;
 			DebugLocation(765, 9);
-			Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_destructorDeclaration5271); if (state.failed) return value;
+			Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_destructorDeclaration5284); if (state.failed) return value;
 			DebugLocation(766, 10);
-			PushFollow(Follow._block_in_destructorDeclaration5283);
+			PushFollow(Follow._block_in_destructorDeclaration5296);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -6202,35 +6315,35 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(787, 9);
 			// Truss.g:787:9: ( KW_EXPLICIT | KW_IMPLICIT )
-			int alt50=2;
-			try { DebugEnterSubRule(50);
-			try { DebugEnterDecision(50, false);
-			int LA50_1 = input.LA(1);
+			int alt52=2;
+			try { DebugEnterSubRule(52);
+			try { DebugEnterDecision(52, false);
+			int LA52_1 = input.LA(1);
 
-			if ((LA50_1==KW_EXPLICIT))
+			if ((LA52_1==KW_EXPLICIT))
 			{
-				alt50 = 1;
+				alt52 = 1;
 			}
-			else if ((LA50_1==KW_IMPLICIT))
+			else if ((LA52_1==KW_IMPLICIT))
 			{
-				alt50 = 2;
+				alt52 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 50, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 52, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(50); }
-			switch (alt50)
+			} finally { DebugExitDecision(52); }
+			switch (alt52)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:787:11: KW_EXPLICIT
 				{
 				DebugLocation(787, 11);
-				Match(input,KW_EXPLICIT,Follow._KW_EXPLICIT_in_conversionOperatorDeclaration5331); if (state.failed) return value;
+				Match(input,KW_EXPLICIT,Follow._KW_EXPLICIT_in_conversionOperatorDeclaration5344); if (state.failed) return value;
 				DebugLocation(787, 23);
 				if (state.backtracking == 0)
 				{
@@ -6244,7 +6357,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:788:11: KW_IMPLICIT
 				{
 				DebugLocation(788, 11);
-				Match(input,KW_IMPLICIT,Follow._KW_IMPLICIT_in_conversionOperatorDeclaration5345); if (state.failed) return value;
+				Match(input,KW_IMPLICIT,Follow._KW_IMPLICIT_in_conversionOperatorDeclaration5358); if (state.failed) return value;
 				DebugLocation(788, 23);
 				if (state.backtracking == 0)
 				{
@@ -6255,22 +6368,22 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(50); }
+			} finally { DebugExitSubRule(52); }
 
 			DebugLocation(790, 9);
-			Match(input,KW_OPERATOR,Follow._KW_OPERATOR_in_conversionOperatorDeclaration5367); if (state.failed) return value;
+			Match(input,KW_OPERATOR,Follow._KW_OPERATOR_in_conversionOperatorDeclaration5380); if (state.failed) return value;
 			DebugLocation(791, 10);
-			PushFollow(Follow._typeSyntax_in_conversionOperatorDeclaration5379);
+			PushFollow(Follow._typeSyntax_in_conversionOperatorDeclaration5392);
 			t=typeSyntax();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(792, 11);
-			PushFollow(Follow._parameterList_in_conversionOperatorDeclaration5391);
+			PushFollow(Follow._parameterList_in_conversionOperatorDeclaration5404);
 			pl=parameterList();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(793, 10);
-			PushFollow(Follow._block_in_conversionOperatorDeclaration5403);
+			PushFollow(Follow._block_in_conversionOperatorDeclaration5416);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -6340,19 +6453,19 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:814:9: KW_OPERATOR o= operator pl= parameterList b= block
 			{
 			DebugLocation(814, 9);
-			Match(input,KW_OPERATOR,Follow._KW_OPERATOR_in_operatorDeclaration5449); if (state.failed) return value;
+			Match(input,KW_OPERATOR,Follow._KW_OPERATOR_in_operatorDeclaration5462); if (state.failed) return value;
 			DebugLocation(815, 10);
-			PushFollow(Follow._operator_in_operatorDeclaration5461);
+			PushFollow(Follow._operator_in_operatorDeclaration5474);
 			o=@operator();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(816, 11);
-			PushFollow(Follow._parameterList_in_operatorDeclaration5473);
+			PushFollow(Follow._parameterList_in_operatorDeclaration5486);
 			pl=parameterList();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(817, 10);
-			PushFollow(Follow._block_in_operatorDeclaration5485);
+			PushFollow(Follow._block_in_operatorDeclaration5498);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -6411,138 +6524,138 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:832:5: ( OP_AMPERSAND | OP_ASTERISK | OP_BAR | OP_CARET | OP_EQUALS_EQUALS | OP_EXCLAMATION | OP_EXCLAMATION_EQUALS | KW_FALSE | OP_GREATER_THAN | OP_GREATER_THAN_EQUALS | op_GREATER_THAN_GREATER_THAN | OP_LESS_THAN | OP_LESS_THAN_EQUALS | OP_LESS_THAN_LESS_THAN | OP_MINUS | OP_MINUS_MINUS | OP_PERCENT | OP_PLUS | OP_PLUS_PLUS | OP_SLASH | OP_TILDE | KW_TRUE )
-			int alt51=22;
-			try { DebugEnterDecision(51, false);
+			int alt53=22;
+			try { DebugEnterDecision(53, false);
 			switch (input.LA(1))
 			{
 			case OP_AMPERSAND:
 				{
-				alt51 = 1;
+				alt53 = 1;
 				}
 				break;
 			case OP_ASTERISK:
 				{
-				alt51 = 2;
+				alt53 = 2;
 				}
 				break;
 			case OP_BAR:
 				{
-				alt51 = 3;
+				alt53 = 3;
 				}
 				break;
 			case OP_CARET:
 				{
-				alt51 = 4;
+				alt53 = 4;
 				}
 				break;
 			case OP_EQUALS_EQUALS:
 				{
-				alt51 = 5;
+				alt53 = 5;
 				}
 				break;
 			case OP_EXCLAMATION:
 				{
-				alt51 = 6;
+				alt53 = 6;
 				}
 				break;
 			case OP_EXCLAMATION_EQUALS:
 				{
-				alt51 = 7;
+				alt53 = 7;
 				}
 				break;
 			case KW_FALSE:
 				{
-				alt51 = 8;
+				alt53 = 8;
 				}
 				break;
 			case OP_GREATER_THAN:
 				{
-				alt51 = 9;
+				alt53 = 9;
 				}
 				break;
 			case OP_GREATER_THAN_EQUALS:
 				{
-				alt51 = 10;
+				alt53 = 10;
 				}
 				break;
 			case OP_GREATER_THAN_GREATER_THAN_FIRST:
 				{
-				alt51 = 11;
+				alt53 = 11;
 				}
 				break;
 			case OP_LESS_THAN:
 				{
-				alt51 = 12;
+				alt53 = 12;
 				}
 				break;
 			case OP_LESS_THAN_EQUALS:
 				{
-				alt51 = 13;
+				alt53 = 13;
 				}
 				break;
 			case OP_LESS_THAN_LESS_THAN:
 				{
-				alt51 = 14;
+				alt53 = 14;
 				}
 				break;
 			case OP_MINUS:
 				{
-				alt51 = 15;
+				alt53 = 15;
 				}
 				break;
 			case OP_MINUS_MINUS:
 				{
-				alt51 = 16;
+				alt53 = 16;
 				}
 				break;
 			case OP_PERCENT:
 				{
-				alt51 = 17;
+				alt53 = 17;
 				}
 				break;
 			case OP_PLUS:
 				{
-				alt51 = 18;
+				alt53 = 18;
 				}
 				break;
 			case OP_PLUS_PLUS:
 				{
-				alt51 = 19;
+				alt53 = 19;
 				}
 				break;
 			case OP_SLASH:
 				{
-				alt51 = 20;
+				alt53 = 20;
 				}
 				break;
 			case OP_TILDE:
 				{
-				alt51 = 21;
+				alt53 = 21;
 				}
 				break;
 			case KW_TRUE:
 				{
-				alt51 = 22;
+				alt53 = 22;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 51, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 53, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(51); }
-			switch (alt51)
+			} finally { DebugExitDecision(53); }
+			switch (alt53)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:832:7: OP_AMPERSAND
 				{
 				DebugLocation(832, 7);
-				Match(input,OP_AMPERSAND,Follow._OP_AMPERSAND_in_operator5516); if (state.failed) return value;
+				Match(input,OP_AMPERSAND,Follow._OP_AMPERSAND_in_operator5529); if (state.failed) return value;
 				DebugLocation(832, 20);
 				if (state.backtracking == 0)
 				{
@@ -6556,7 +6669,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:833:7: OP_ASTERISK
 				{
 				DebugLocation(833, 7);
-				Match(input,OP_ASTERISK,Follow._OP_ASTERISK_in_operator5526); if (state.failed) return value;
+				Match(input,OP_ASTERISK,Follow._OP_ASTERISK_in_operator5539); if (state.failed) return value;
 				DebugLocation(833, 19);
 				if (state.backtracking == 0)
 				{
@@ -6570,7 +6683,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:834:7: OP_BAR
 				{
 				DebugLocation(834, 7);
-				Match(input,OP_BAR,Follow._OP_BAR_in_operator5536); if (state.failed) return value;
+				Match(input,OP_BAR,Follow._OP_BAR_in_operator5549); if (state.failed) return value;
 				DebugLocation(834, 14);
 				if (state.backtracking == 0)
 				{
@@ -6584,7 +6697,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:835:7: OP_CARET
 				{
 				DebugLocation(835, 7);
-				Match(input,OP_CARET,Follow._OP_CARET_in_operator5546); if (state.failed) return value;
+				Match(input,OP_CARET,Follow._OP_CARET_in_operator5559); if (state.failed) return value;
 				DebugLocation(835, 16);
 				if (state.backtracking == 0)
 				{
@@ -6598,7 +6711,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:836:7: OP_EQUALS_EQUALS
 				{
 				DebugLocation(836, 7);
-				Match(input,OP_EQUALS_EQUALS,Follow._OP_EQUALS_EQUALS_in_operator5556); if (state.failed) return value;
+				Match(input,OP_EQUALS_EQUALS,Follow._OP_EQUALS_EQUALS_in_operator5569); if (state.failed) return value;
 				DebugLocation(836, 24);
 				if (state.backtracking == 0)
 				{
@@ -6612,7 +6725,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:837:7: OP_EXCLAMATION
 				{
 				DebugLocation(837, 7);
-				Match(input,OP_EXCLAMATION,Follow._OP_EXCLAMATION_in_operator5566); if (state.failed) return value;
+				Match(input,OP_EXCLAMATION,Follow._OP_EXCLAMATION_in_operator5579); if (state.failed) return value;
 				DebugLocation(837, 22);
 				if (state.backtracking == 0)
 				{
@@ -6626,7 +6739,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:838:7: OP_EXCLAMATION_EQUALS
 				{
 				DebugLocation(838, 7);
-				Match(input,OP_EXCLAMATION_EQUALS,Follow._OP_EXCLAMATION_EQUALS_in_operator5576); if (state.failed) return value;
+				Match(input,OP_EXCLAMATION_EQUALS,Follow._OP_EXCLAMATION_EQUALS_in_operator5589); if (state.failed) return value;
 				DebugLocation(838, 29);
 				if (state.backtracking == 0)
 				{
@@ -6640,7 +6753,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:839:7: KW_FALSE
 				{
 				DebugLocation(839, 7);
-				Match(input,KW_FALSE,Follow._KW_FALSE_in_operator5586); if (state.failed) return value;
+				Match(input,KW_FALSE,Follow._KW_FALSE_in_operator5599); if (state.failed) return value;
 				DebugLocation(839, 16);
 				if (state.backtracking == 0)
 				{
@@ -6654,7 +6767,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:840:7: OP_GREATER_THAN
 				{
 				DebugLocation(840, 7);
-				Match(input,OP_GREATER_THAN,Follow._OP_GREATER_THAN_in_operator5596); if (state.failed) return value;
+				Match(input,OP_GREATER_THAN,Follow._OP_GREATER_THAN_in_operator5609); if (state.failed) return value;
 				DebugLocation(840, 23);
 				if (state.backtracking == 0)
 				{
@@ -6668,7 +6781,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:841:7: OP_GREATER_THAN_EQUALS
 				{
 				DebugLocation(841, 7);
-				Match(input,OP_GREATER_THAN_EQUALS,Follow._OP_GREATER_THAN_EQUALS_in_operator5606); if (state.failed) return value;
+				Match(input,OP_GREATER_THAN_EQUALS,Follow._OP_GREATER_THAN_EQUALS_in_operator5619); if (state.failed) return value;
 				DebugLocation(841, 30);
 				if (state.backtracking == 0)
 				{
@@ -6682,7 +6795,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:842:7: op_GREATER_THAN_GREATER_THAN
 				{
 				DebugLocation(842, 7);
-				PushFollow(Follow._op_GREATER_THAN_GREATER_THAN_in_operator5616);
+				PushFollow(Follow._op_GREATER_THAN_GREATER_THAN_in_operator5629);
 				op_GREATER_THAN_GREATER_THAN();
 				PopFollow();
 				if (state.failed) return value;
@@ -6699,7 +6812,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:843:7: OP_LESS_THAN
 				{
 				DebugLocation(843, 7);
-				Match(input,OP_LESS_THAN,Follow._OP_LESS_THAN_in_operator5626); if (state.failed) return value;
+				Match(input,OP_LESS_THAN,Follow._OP_LESS_THAN_in_operator5639); if (state.failed) return value;
 				DebugLocation(843, 20);
 				if (state.backtracking == 0)
 				{
@@ -6713,7 +6826,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:844:7: OP_LESS_THAN_EQUALS
 				{
 				DebugLocation(844, 7);
-				Match(input,OP_LESS_THAN_EQUALS,Follow._OP_LESS_THAN_EQUALS_in_operator5636); if (state.failed) return value;
+				Match(input,OP_LESS_THAN_EQUALS,Follow._OP_LESS_THAN_EQUALS_in_operator5649); if (state.failed) return value;
 				DebugLocation(844, 27);
 				if (state.backtracking == 0)
 				{
@@ -6727,7 +6840,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:845:7: OP_LESS_THAN_LESS_THAN
 				{
 				DebugLocation(845, 7);
-				Match(input,OP_LESS_THAN_LESS_THAN,Follow._OP_LESS_THAN_LESS_THAN_in_operator5646); if (state.failed) return value;
+				Match(input,OP_LESS_THAN_LESS_THAN,Follow._OP_LESS_THAN_LESS_THAN_in_operator5659); if (state.failed) return value;
 				DebugLocation(845, 30);
 				if (state.backtracking == 0)
 				{
@@ -6741,7 +6854,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:846:7: OP_MINUS
 				{
 				DebugLocation(846, 7);
-				Match(input,OP_MINUS,Follow._OP_MINUS_in_operator5656); if (state.failed) return value;
+				Match(input,OP_MINUS,Follow._OP_MINUS_in_operator5669); if (state.failed) return value;
 				DebugLocation(846, 16);
 				if (state.backtracking == 0)
 				{
@@ -6755,7 +6868,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:847:7: OP_MINUS_MINUS
 				{
 				DebugLocation(847, 7);
-				Match(input,OP_MINUS_MINUS,Follow._OP_MINUS_MINUS_in_operator5666); if (state.failed) return value;
+				Match(input,OP_MINUS_MINUS,Follow._OP_MINUS_MINUS_in_operator5679); if (state.failed) return value;
 				DebugLocation(847, 22);
 				if (state.backtracking == 0)
 				{
@@ -6769,7 +6882,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:848:7: OP_PERCENT
 				{
 				DebugLocation(848, 7);
-				Match(input,OP_PERCENT,Follow._OP_PERCENT_in_operator5676); if (state.failed) return value;
+				Match(input,OP_PERCENT,Follow._OP_PERCENT_in_operator5689); if (state.failed) return value;
 				DebugLocation(848, 18);
 				if (state.backtracking == 0)
 				{
@@ -6783,7 +6896,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:849:7: OP_PLUS
 				{
 				DebugLocation(849, 7);
-				Match(input,OP_PLUS,Follow._OP_PLUS_in_operator5686); if (state.failed) return value;
+				Match(input,OP_PLUS,Follow._OP_PLUS_in_operator5699); if (state.failed) return value;
 				DebugLocation(849, 15);
 				if (state.backtracking == 0)
 				{
@@ -6797,7 +6910,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:850:7: OP_PLUS_PLUS
 				{
 				DebugLocation(850, 7);
-				Match(input,OP_PLUS_PLUS,Follow._OP_PLUS_PLUS_in_operator5696); if (state.failed) return value;
+				Match(input,OP_PLUS_PLUS,Follow._OP_PLUS_PLUS_in_operator5709); if (state.failed) return value;
 				DebugLocation(850, 20);
 				if (state.backtracking == 0)
 				{
@@ -6811,7 +6924,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:851:7: OP_SLASH
 				{
 				DebugLocation(851, 7);
-				Match(input,OP_SLASH,Follow._OP_SLASH_in_operator5706); if (state.failed) return value;
+				Match(input,OP_SLASH,Follow._OP_SLASH_in_operator5719); if (state.failed) return value;
 				DebugLocation(851, 16);
 				if (state.backtracking == 0)
 				{
@@ -6825,7 +6938,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:852:7: OP_TILDE
 				{
 				DebugLocation(852, 7);
-				Match(input,OP_TILDE,Follow._OP_TILDE_in_operator5716); if (state.failed) return value;
+				Match(input,OP_TILDE,Follow._OP_TILDE_in_operator5729); if (state.failed) return value;
 				DebugLocation(852, 16);
 				if (state.backtracking == 0)
 				{
@@ -6839,7 +6952,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:853:7: KW_TRUE
 				{
 				DebugLocation(853, 7);
-				Match(input,KW_TRUE,Follow._KW_TRUE_in_operator5726); if (state.failed) return value;
+				Match(input,KW_TRUE,Follow._KW_TRUE_in_operator5739); if (state.failed) return value;
 				DebugLocation(853, 15);
 				if (state.backtracking == 0)
 				{
@@ -6897,31 +7010,31 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:864:9: OP_BRACE_OPEN (s= statement )* OP_BRACE_CLOSE
 			{
 			DebugLocation(864, 9);
-			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_block5764); if (state.failed) return value;
+			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_block5777); if (state.failed) return value;
 			DebugLocation(865, 9);
 			// Truss.g:865:9: (s= statement )*
-			try { DebugEnterSubRule(52);
+			try { DebugEnterSubRule(54);
 			while (true)
 			{
-				int alt52=2;
-				try { DebugEnterDecision(52, false);
-				int LA52_1 = input.LA(1);
+				int alt54=2;
+				try { DebugEnterDecision(54, false);
+				int LA54_1 = input.LA(1);
 
-				if ((LA52_1==CHAR||LA52_1==FLOAT||(LA52_1>=HEX_INTEGER && LA52_1<=IDENTIFIER)||LA52_1==INTEGER||(LA52_1>=KW_ASSERT && LA52_1<=KW_BYTE)||LA52_1==KW_CHAR||(LA52_1>=KW_CONTINUE && LA52_1<=KW_DEFAULT)||(LA52_1>=KW_DELETE && LA52_1<=KW_DOUBLE)||LA52_1==KW_FALSE||(LA52_1>=KW_FLOAT && LA52_1<=KW_IF)||LA52_1==KW_INT||(LA52_1>=KW_LONG && LA52_1<=KW_LOOP)||(LA52_1>=KW_NEW && LA52_1<=KW_OBJECT)||LA52_1==KW_READONLY||(LA52_1>=KW_RETURN && LA52_1<=KW_SBYTE)||(LA52_1>=KW_SHORT && LA52_1<=KW_SIZEOF)||LA52_1==KW_STRING||(LA52_1>=KW_SWITCH && LA52_1<=KW_VAR)||LA52_1==KW_VOID||LA52_1==KW_WHILE||LA52_1==OP_AMPERSAND||LA52_1==OP_BRACE_OPEN||LA52_1==OP_EXCLAMATION||LA52_1==OP_MINUS||LA52_1==OP_MINUS_MINUS||LA52_1==OP_PAREN_OPEN||LA52_1==OP_PLUS||LA52_1==OP_PLUS_PLUS||LA52_1==OP_SEMICOLON||(LA52_1>=OP_TILDE && LA52_1<=STRING)))
+				if ((LA54_1==CHAR||LA54_1==FLOAT||(LA54_1>=HEX_INTEGER && LA54_1<=IDENTIFIER)||LA54_1==INTEGER||(LA54_1>=KW_ASSERT && LA54_1<=KW_BYTE)||LA54_1==KW_CHAR||(LA54_1>=KW_CONTINUE && LA54_1<=KW_DEFAULT)||(LA54_1>=KW_DELETE && LA54_1<=KW_DOUBLE)||LA54_1==KW_FALSE||(LA54_1>=KW_FLOAT && LA54_1<=KW_IF)||LA54_1==KW_INT||(LA54_1>=KW_LONG && LA54_1<=KW_LOOP)||(LA54_1>=KW_NEW && LA54_1<=KW_OBJECT)||LA54_1==KW_READONLY||(LA54_1>=KW_RETURN && LA54_1<=KW_SBYTE)||(LA54_1>=KW_SHORT && LA54_1<=KW_SIZEOF)||LA54_1==KW_STRING||(LA54_1>=KW_SWITCH && LA54_1<=KW_VAR)||LA54_1==KW_VOID||LA54_1==KW_WHILE||LA54_1==OP_AMPERSAND||LA54_1==OP_BRACE_OPEN||LA54_1==OP_EXCLAMATION||LA54_1==OP_MINUS||LA54_1==OP_MINUS_MINUS||LA54_1==OP_PAREN_OPEN||LA54_1==OP_PLUS||LA54_1==OP_PLUS_PLUS||LA54_1==OP_SEMICOLON||(LA54_1>=OP_TILDE && LA54_1<=STRING)))
 				{
-					alt52 = 1;
+					alt54 = 1;
 				}
 
 
-				} finally { DebugExitDecision(52); }
-				switch ( alt52 )
+				} finally { DebugExitDecision(54); }
+				switch ( alt54 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:866:13: s= statement
 					{
 					DebugLocation(866, 14);
-					PushFollow(Follow._statement_in_block5790);
+					PushFollow(Follow._statement_in_block5803);
 					s=statement();
 					PopFollow();
 					if (state.failed) return value;
@@ -6935,17 +7048,17 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop52;
+					goto loop54;
 				}
 			}
 
-			loop52:
+			loop54:
 				;
 
-			} finally { DebugExitSubRule(52); }
+			} finally { DebugExitSubRule(54); }
 
 			DebugLocation(869, 9);
-			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_block5825); if (state.failed) return value;
+			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_block5838); if (state.failed) return value;
 			DebugLocation(870, 9);
 			if (state.backtracking == 0)
 			{
@@ -7013,26 +7126,26 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:877:5: ( ( ( KW_READONLY )? variableDeclarationHeadScan )=>e1= localDeclarationStatement |e4= assertStatement |e5= block |e6= breakContinueStatement |e7= doStatement |e8= emptyStatement |e9= expressionStatement |e10= forEachStatement |e11= forStatement |e12= ifStatement |e13= returnStatement |e14= switchStatement |e15= throwStatement |e16= tryStatement |e17= usingStatement |e18= loopStatement |e19= whileStatement |e20= deleteStatement )
-			int alt53=18;
-			try { DebugEnterDecision(53, false);
+			int alt55=18;
+			try { DebugEnterDecision(55, false);
 			try
 			{
-				alt53 = dfa53.Predict(input);
+				alt55 = dfa55.Predict(input);
 			}
 			catch (NoViableAltException nvae)
 			{
 				DebugRecognitionException(nvae);
 				throw;
 			}
-			} finally { DebugExitDecision(53); }
-			switch (alt53)
+			} finally { DebugExitDecision(55); }
+			switch (alt55)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:877:7: ( ( KW_READONLY )? variableDeclarationHeadScan )=>e1= localDeclarationStatement
 				{
 				DebugLocation(877, 56);
-				PushFollow(Follow._localDeclarationStatement_in_statement5873);
+				PushFollow(Follow._localDeclarationStatement_in_statement5886);
 				e1=localDeclarationStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7049,7 +7162,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:878:7: e4= assertStatement
 				{
 				DebugLocation(878, 9);
-				PushFollow(Follow._assertStatement_in_statement5885);
+				PushFollow(Follow._assertStatement_in_statement5898);
 				e4=assertStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7066,7 +7179,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:879:7: e5= block
 				{
 				DebugLocation(879, 9);
-				PushFollow(Follow._block_in_statement5897);
+				PushFollow(Follow._block_in_statement5910);
 				e5=block();
 				PopFollow();
 				if (state.failed) return value;
@@ -7083,7 +7196,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:880:7: e6= breakContinueStatement
 				{
 				DebugLocation(880, 9);
-				PushFollow(Follow._breakContinueStatement_in_statement5909);
+				PushFollow(Follow._breakContinueStatement_in_statement5922);
 				e6=breakContinueStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7100,7 +7213,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:881:7: e7= doStatement
 				{
 				DebugLocation(881, 9);
-				PushFollow(Follow._doStatement_in_statement5921);
+				PushFollow(Follow._doStatement_in_statement5934);
 				e7=doStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7117,7 +7230,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:882:7: e8= emptyStatement
 				{
 				DebugLocation(882, 9);
-				PushFollow(Follow._emptyStatement_in_statement5933);
+				PushFollow(Follow._emptyStatement_in_statement5946);
 				e8=emptyStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7134,7 +7247,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:883:7: e9= expressionStatement
 				{
 				DebugLocation(883, 9);
-				PushFollow(Follow._expressionStatement_in_statement5945);
+				PushFollow(Follow._expressionStatement_in_statement5958);
 				e9=expressionStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7151,7 +7264,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:884:7: e10= forEachStatement
 				{
 				DebugLocation(884, 10);
-				PushFollow(Follow._forEachStatement_in_statement5957);
+				PushFollow(Follow._forEachStatement_in_statement5970);
 				e10=forEachStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7168,7 +7281,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:885:7: e11= forStatement
 				{
 				DebugLocation(885, 10);
-				PushFollow(Follow._forStatement_in_statement5969);
+				PushFollow(Follow._forStatement_in_statement5982);
 				e11=forStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7185,7 +7298,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:886:7: e12= ifStatement
 				{
 				DebugLocation(886, 10);
-				PushFollow(Follow._ifStatement_in_statement5981);
+				PushFollow(Follow._ifStatement_in_statement5994);
 				e12=ifStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7202,7 +7315,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:887:7: e13= returnStatement
 				{
 				DebugLocation(887, 10);
-				PushFollow(Follow._returnStatement_in_statement5993);
+				PushFollow(Follow._returnStatement_in_statement6006);
 				e13=returnStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7219,7 +7332,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:888:7: e14= switchStatement
 				{
 				DebugLocation(888, 10);
-				PushFollow(Follow._switchStatement_in_statement6005);
+				PushFollow(Follow._switchStatement_in_statement6018);
 				e14=switchStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7236,7 +7349,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:889:7: e15= throwStatement
 				{
 				DebugLocation(889, 10);
-				PushFollow(Follow._throwStatement_in_statement6017);
+				PushFollow(Follow._throwStatement_in_statement6030);
 				e15=throwStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7253,7 +7366,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:890:7: e16= tryStatement
 				{
 				DebugLocation(890, 10);
-				PushFollow(Follow._tryStatement_in_statement6029);
+				PushFollow(Follow._tryStatement_in_statement6042);
 				e16=tryStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7270,7 +7383,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:891:7: e17= usingStatement
 				{
 				DebugLocation(891, 10);
-				PushFollow(Follow._usingStatement_in_statement6041);
+				PushFollow(Follow._usingStatement_in_statement6054);
 				e17=usingStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7287,7 +7400,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:892:7: e18= loopStatement
 				{
 				DebugLocation(892, 10);
-				PushFollow(Follow._loopStatement_in_statement6053);
+				PushFollow(Follow._loopStatement_in_statement6066);
 				e18=loopStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7304,7 +7417,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:893:7: e19= whileStatement
 				{
 				DebugLocation(893, 10);
-				PushFollow(Follow._whileStatement_in_statement6065);
+				PushFollow(Follow._whileStatement_in_statement6078);
 				e19=whileStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7321,7 +7434,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:894:7: e20= deleteStatement
 				{
 				DebugLocation(894, 10);
-				PushFollow(Follow._deleteStatement_in_statement6077);
+				PushFollow(Follow._deleteStatement_in_statement6090);
 				e20=deleteStatement();
 				PopFollow();
 				if (state.failed) return value;
@@ -7381,14 +7494,14 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:902:9: KW_ASSERT eod= expressionOrDeclaration OP_SEMICOLON
 			{
 			DebugLocation(902, 9);
-			Match(input,KW_ASSERT,Follow._KW_ASSERT_in_assertStatement6113); if (state.failed) return value;
+			Match(input,KW_ASSERT,Follow._KW_ASSERT_in_assertStatement6126); if (state.failed) return value;
 			DebugLocation(903, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_assertStatement6125);
+			PushFollow(Follow._expressionOrDeclaration_in_assertStatement6138);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(904, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_assertStatement6135); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_assertStatement6148); if (state.failed) return value;
 			DebugLocation(905, 9);
 			if (state.backtracking == 0)
 			{
@@ -7442,35 +7555,35 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(913, 5);
 			// Truss.g:913:5: ( KW_BREAK | KW_CONTINUE )
-			int alt54=2;
-			try { DebugEnterSubRule(54);
-			try { DebugEnterDecision(54, false);
-			int LA54_1 = input.LA(1);
+			int alt56=2;
+			try { DebugEnterSubRule(56);
+			try { DebugEnterDecision(56, false);
+			int LA56_1 = input.LA(1);
 
-			if ((LA54_1==KW_BREAK))
+			if ((LA56_1==KW_BREAK))
 			{
-				alt54 = 1;
+				alt56 = 1;
 			}
-			else if ((LA54_1==KW_CONTINUE))
+			else if ((LA56_1==KW_CONTINUE))
 			{
-				alt54 = 2;
+				alt56 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 54, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 56, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(54); }
-			switch (alt54)
+			} finally { DebugExitDecision(56); }
+			switch (alt56)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:913:7: KW_BREAK
 				{
 				DebugLocation(913, 7);
-				Match(input,KW_BREAK,Follow._KW_BREAK_in_breakContinueStatement6177); if (state.failed) return value;
+				Match(input,KW_BREAK,Follow._KW_BREAK_in_breakContinueStatement6190); if (state.failed) return value;
 				DebugLocation(913, 16);
 				if (state.backtracking == 0)
 				{
@@ -7484,7 +7597,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:914:7: KW_CONTINUE
 				{
 				DebugLocation(914, 7);
-				Match(input,KW_CONTINUE,Follow._KW_CONTINUE_in_breakContinueStatement6187); if (state.failed) return value;
+				Match(input,KW_CONTINUE,Follow._KW_CONTINUE_in_breakContinueStatement6200); if (state.failed) return value;
 				DebugLocation(914, 19);
 				if (state.backtracking == 0)
 				{
@@ -7495,10 +7608,10 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(54); }
+			} finally { DebugExitSubRule(56); }
 
 			DebugLocation(916, 5);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_breakContinueStatement6201); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_breakContinueStatement6214); if (state.failed) return value;
 
 			}
 
@@ -7549,21 +7662,21 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:924:9: KW_DO b= block KW_WHILE eod= expressionOrDeclaration OP_SEMICOLON
 			{
 			DebugLocation(924, 9);
-			Match(input,KW_DO,Follow._KW_DO_in_doStatement6235); if (state.failed) return value;
+			Match(input,KW_DO,Follow._KW_DO_in_doStatement6248); if (state.failed) return value;
 			DebugLocation(925, 10);
-			PushFollow(Follow._block_in_doStatement6247);
+			PushFollow(Follow._block_in_doStatement6260);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(926, 9);
-			Match(input,KW_WHILE,Follow._KW_WHILE_in_doStatement6257); if (state.failed) return value;
+			Match(input,KW_WHILE,Follow._KW_WHILE_in_doStatement6270); if (state.failed) return value;
 			DebugLocation(927, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_doStatement6269);
+			PushFollow(Follow._expressionOrDeclaration_in_doStatement6282);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(928, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_doStatement6279); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_doStatement6292); if (state.failed) return value;
 			DebugLocation(929, 9);
 			if (state.backtracking == 0)
 			{
@@ -7616,7 +7729,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:937:9: OP_SEMICOLON
 			{
 			DebugLocation(937, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_emptyStatement6323); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_emptyStatement6336); if (state.failed) return value;
 			DebugLocation(938, 9);
 			if (state.backtracking == 0)
 			{
@@ -7671,12 +7784,12 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:946:9: e= expression OP_SEMICOLON
 			{
 			DebugLocation(946, 10);
-			PushFollow(Follow._expression_in_expressionStatement6369);
+			PushFollow(Follow._expression_in_expressionStatement6382);
 			e=expression();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(947, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_expressionStatement6379); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_expressionStatement6392); if (state.failed) return value;
 			DebugLocation(948, 9);
 			if (state.backtracking == 0)
 			{
@@ -7734,26 +7847,26 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:956:9: KW_FOREACH t= typeSyntax idn= identifierName KW_IN e= expression b= block
 			{
 			DebugLocation(956, 9);
-			Match(input,KW_FOREACH,Follow._KW_FOREACH_in_forEachStatement6423); if (state.failed) return value;
+			Match(input,KW_FOREACH,Follow._KW_FOREACH_in_forEachStatement6436); if (state.failed) return value;
 			DebugLocation(957, 10);
-			PushFollow(Follow._typeSyntax_in_forEachStatement6435);
+			PushFollow(Follow._typeSyntax_in_forEachStatement6448);
 			t=typeSyntax();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(958, 12);
-			PushFollow(Follow._identifierName_in_forEachStatement6447);
+			PushFollow(Follow._identifierName_in_forEachStatement6460);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(959, 9);
-			Match(input,KW_IN,Follow._KW_IN_in_forEachStatement6457); if (state.failed) return value;
+			Match(input,KW_IN,Follow._KW_IN_in_forEachStatement6470); if (state.failed) return value;
 			DebugLocation(960, 10);
-			PushFollow(Follow._expression_in_forEachStatement6469);
+			PushFollow(Follow._expression_in_forEachStatement6482);
 			e=expression();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(961, 10);
-			PushFollow(Follow._block_in_forEachStatement6481);
+			PushFollow(Follow._block_in_forEachStatement6494);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -7815,108 +7928,108 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:970:9: KW_FOR ( ( variableDeclarationHeadScan )=>vd= variableDeclaration |el1= expressionList )? OP_SEMICOLON (e= expression )? OP_SEMICOLON (el2= expressionList )? b= block
 			{
 			DebugLocation(970, 9);
-			Match(input,KW_FOR,Follow._KW_FOR_in_forStatement6525); if (state.failed) return value;
+			Match(input,KW_FOR,Follow._KW_FOR_in_forStatement6538); if (state.failed) return value;
 			DebugLocation(971, 9);
 			// Truss.g:971:9: ( ( variableDeclarationHeadScan )=>vd= variableDeclaration |el1= expressionList )?
-			int alt55=3;
-			try { DebugEnterSubRule(55);
-			try { DebugEnterDecision(55, false);
-			int LA55_1 = input.LA(1);
+			int alt57=3;
+			try { DebugEnterSubRule(57);
+			try { DebugEnterDecision(57, false);
+			int LA57_1 = input.LA(1);
 
-			if ((LA55_1==KW_VAR) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			if ((LA57_1==KW_VAR) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_BOOL) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_BOOL) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_BYTE) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_BYTE) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_CHAR) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_CHAR) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_DECIMAL) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_DECIMAL) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_DOUBLE) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_DOUBLE) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_FLOAT) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_FLOAT) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_INT) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_INT) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_LONG) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_LONG) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_OBJECT) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_OBJECT) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_SBYTE) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_SBYTE) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_SHORT) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_SHORT) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_STRING) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_STRING) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_UINT) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_UINT) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_ULONG) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_ULONG) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_USHORT) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_USHORT) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==KW_VOID) && (EvaluatePredicate(synpred8_Truss_fragment)))
+			else if ((LA57_1==KW_VOID) && (EvaluatePredicate(synpred8_Truss_fragment)))
 			{
-				alt55 = 1;
+				alt57 = 1;
 			}
-			else if ((LA55_1==IDENTIFIER))
+			else if ((LA57_1==IDENTIFIER))
 			{
-				int LA55_2 = input.LA(2);
+				int LA57_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred8_Truss_fragment)))
 				{
-					alt55 = 1;
+					alt57 = 1;
 				}
 				else if ((true))
 				{
-					alt55 = 2;
+					alt57 = 2;
 				}
 			}
-			else if ((LA55_1==CHAR||LA55_1==FLOAT||LA55_1==HEX_INTEGER||LA55_1==INTEGER||(LA55_1>=KW_ASYNC && LA55_1<=KW_BASE)||LA55_1==KW_DEFAULT||LA55_1==KW_FALSE||(LA55_1>=KW_NEW && LA55_1<=KW_NIL)||LA55_1==KW_SIZEOF||LA55_1==KW_THIS||LA55_1==KW_TRUE||LA55_1==KW_TYPEOF||LA55_1==OP_AMPERSAND||LA55_1==OP_EXCLAMATION||LA55_1==OP_MINUS||LA55_1==OP_MINUS_MINUS||LA55_1==OP_PAREN_OPEN||LA55_1==OP_PLUS||LA55_1==OP_PLUS_PLUS||(LA55_1>=OP_TILDE && LA55_1<=STRING)))
+			else if ((LA57_1==CHAR||LA57_1==FLOAT||LA57_1==HEX_INTEGER||LA57_1==INTEGER||(LA57_1>=KW_ASYNC && LA57_1<=KW_BASE)||LA57_1==KW_DEFAULT||LA57_1==KW_FALSE||(LA57_1>=KW_NEW && LA57_1<=KW_NIL)||LA57_1==KW_SIZEOF||LA57_1==KW_THIS||LA57_1==KW_TRUE||LA57_1==KW_TYPEOF||LA57_1==OP_AMPERSAND||LA57_1==OP_EXCLAMATION||LA57_1==OP_MINUS||LA57_1==OP_MINUS_MINUS||LA57_1==OP_PAREN_OPEN||LA57_1==OP_PLUS||LA57_1==OP_PLUS_PLUS||(LA57_1>=OP_TILDE && LA57_1<=STRING)))
 			{
-				alt55 = 2;
+				alt57 = 2;
 			}
-			} finally { DebugExitDecision(55); }
-			switch (alt55)
+			} finally { DebugExitDecision(57); }
+			switch (alt57)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:972:13: ( variableDeclarationHeadScan )=>vd= variableDeclaration
 				{
 				DebugLocation(973, 15);
-				PushFollow(Follow._variableDeclaration_in_forStatement6570);
+				PushFollow(Follow._variableDeclaration_in_forStatement6583);
 				vd=variableDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -7928,72 +8041,8 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:975:13: el1= expressionList
 				{
 				DebugLocation(975, 16);
-				PushFollow(Follow._expressionList_in_forStatement6596);
+				PushFollow(Follow._expressionList_in_forStatement6609);
 				el1=expressionList();
-				PopFollow();
-				if (state.failed) return value;
-
-				}
-				break;
-
-			}
-			} finally { DebugExitSubRule(55); }
-
-			DebugLocation(977, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_forStatement6617); if (state.failed) return value;
-			DebugLocation(978, 9);
-			// Truss.g:978:9: (e= expression )?
-			int alt56=2;
-			try { DebugEnterSubRule(56);
-			try { DebugEnterDecision(56, false);
-			int LA56_1 = input.LA(1);
-
-			if ((LA56_1==CHAR||LA56_1==FLOAT||(LA56_1>=HEX_INTEGER && LA56_1<=IDENTIFIER)||LA56_1==INTEGER||(LA56_1>=KW_ASYNC && LA56_1<=KW_BASE)||LA56_1==KW_DEFAULT||LA56_1==KW_FALSE||(LA56_1>=KW_NEW && LA56_1<=KW_NIL)||LA56_1==KW_SIZEOF||LA56_1==KW_THIS||LA56_1==KW_TRUE||LA56_1==KW_TYPEOF||LA56_1==OP_AMPERSAND||LA56_1==OP_EXCLAMATION||LA56_1==OP_MINUS||LA56_1==OP_MINUS_MINUS||LA56_1==OP_PAREN_OPEN||LA56_1==OP_PLUS||LA56_1==OP_PLUS_PLUS||(LA56_1>=OP_TILDE && LA56_1<=STRING)))
-			{
-				alt56 = 1;
-			}
-			} finally { DebugExitDecision(56); }
-			switch (alt56)
-			{
-			case 1:
-				DebugEnterAlt(1);
-				// Truss.g:978:11: e= expression
-				{
-				DebugLocation(978, 12);
-				PushFollow(Follow._expression_in_forStatement6631);
-				e=expression();
-				PopFollow();
-				if (state.failed) return value;
-
-				}
-				break;
-
-			}
-			} finally { DebugExitSubRule(56); }
-
-			DebugLocation(979, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_forStatement6644); if (state.failed) return value;
-			DebugLocation(980, 9);
-			// Truss.g:980:9: (el2= expressionList )?
-			int alt57=2;
-			try { DebugEnterSubRule(57);
-			try { DebugEnterDecision(57, false);
-			int LA57_1 = input.LA(1);
-
-			if ((LA57_1==CHAR||LA57_1==FLOAT||(LA57_1>=HEX_INTEGER && LA57_1<=IDENTIFIER)||LA57_1==INTEGER||(LA57_1>=KW_ASYNC && LA57_1<=KW_BASE)||LA57_1==KW_DEFAULT||LA57_1==KW_FALSE||(LA57_1>=KW_NEW && LA57_1<=KW_NIL)||LA57_1==KW_SIZEOF||LA57_1==KW_THIS||LA57_1==KW_TRUE||LA57_1==KW_TYPEOF||LA57_1==OP_AMPERSAND||LA57_1==OP_EXCLAMATION||LA57_1==OP_MINUS||LA57_1==OP_MINUS_MINUS||LA57_1==OP_PAREN_OPEN||LA57_1==OP_PLUS||LA57_1==OP_PLUS_PLUS||(LA57_1>=OP_TILDE && LA57_1<=STRING)))
-			{
-				alt57 = 1;
-			}
-			} finally { DebugExitDecision(57); }
-			switch (alt57)
-			{
-			case 1:
-				DebugEnterAlt(1);
-				// Truss.g:980:11: el2= expressionList
-				{
-				DebugLocation(980, 14);
-				PushFollow(Follow._expressionList_in_forStatement6658);
-				el2=expressionList();
 				PopFollow();
 				if (state.failed) return value;
 
@@ -8003,8 +8052,72 @@ namespace  Truss.Compiler.Parser
 			}
 			} finally { DebugExitSubRule(57); }
 
+			DebugLocation(977, 9);
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_forStatement6630); if (state.failed) return value;
+			DebugLocation(978, 9);
+			// Truss.g:978:9: (e= expression )?
+			int alt58=2;
+			try { DebugEnterSubRule(58);
+			try { DebugEnterDecision(58, false);
+			int LA58_1 = input.LA(1);
+
+			if ((LA58_1==CHAR||LA58_1==FLOAT||(LA58_1>=HEX_INTEGER && LA58_1<=IDENTIFIER)||LA58_1==INTEGER||(LA58_1>=KW_ASYNC && LA58_1<=KW_BASE)||LA58_1==KW_DEFAULT||LA58_1==KW_FALSE||(LA58_1>=KW_NEW && LA58_1<=KW_NIL)||LA58_1==KW_SIZEOF||LA58_1==KW_THIS||LA58_1==KW_TRUE||LA58_1==KW_TYPEOF||LA58_1==OP_AMPERSAND||LA58_1==OP_EXCLAMATION||LA58_1==OP_MINUS||LA58_1==OP_MINUS_MINUS||LA58_1==OP_PAREN_OPEN||LA58_1==OP_PLUS||LA58_1==OP_PLUS_PLUS||(LA58_1>=OP_TILDE && LA58_1<=STRING)))
+			{
+				alt58 = 1;
+			}
+			} finally { DebugExitDecision(58); }
+			switch (alt58)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// Truss.g:978:11: e= expression
+				{
+				DebugLocation(978, 12);
+				PushFollow(Follow._expression_in_forStatement6644);
+				e=expression();
+				PopFollow();
+				if (state.failed) return value;
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(58); }
+
+			DebugLocation(979, 9);
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_forStatement6657); if (state.failed) return value;
+			DebugLocation(980, 9);
+			// Truss.g:980:9: (el2= expressionList )?
+			int alt59=2;
+			try { DebugEnterSubRule(59);
+			try { DebugEnterDecision(59, false);
+			int LA59_1 = input.LA(1);
+
+			if ((LA59_1==CHAR||LA59_1==FLOAT||(LA59_1>=HEX_INTEGER && LA59_1<=IDENTIFIER)||LA59_1==INTEGER||(LA59_1>=KW_ASYNC && LA59_1<=KW_BASE)||LA59_1==KW_DEFAULT||LA59_1==KW_FALSE||(LA59_1>=KW_NEW && LA59_1<=KW_NIL)||LA59_1==KW_SIZEOF||LA59_1==KW_THIS||LA59_1==KW_TRUE||LA59_1==KW_TYPEOF||LA59_1==OP_AMPERSAND||LA59_1==OP_EXCLAMATION||LA59_1==OP_MINUS||LA59_1==OP_MINUS_MINUS||LA59_1==OP_PAREN_OPEN||LA59_1==OP_PLUS||LA59_1==OP_PLUS_PLUS||(LA59_1>=OP_TILDE && LA59_1<=STRING)))
+			{
+				alt59 = 1;
+			}
+			} finally { DebugExitDecision(59); }
+			switch (alt59)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// Truss.g:980:11: el2= expressionList
+				{
+				DebugLocation(980, 14);
+				PushFollow(Follow._expressionList_in_forStatement6671);
+				el2=expressionList();
+				PopFollow();
+				if (state.failed) return value;
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(59); }
+
 			DebugLocation(981, 10);
-			PushFollow(Follow._block_in_forStatement6673);
+			PushFollow(Follow._block_in_forStatement6686);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -8062,7 +8175,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:990:9: e= expression ( OP_COMMA e= expression )*
 			{
 			DebugLocation(990, 10);
-			PushFollow(Follow._expression_in_expressionList6719);
+			PushFollow(Follow._expression_in_expressionList6732);
 			e=expression();
 			PopFollow();
 			if (state.failed) return value;
@@ -8073,30 +8186,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(992, 9);
 			// Truss.g:992:9: ( OP_COMMA e= expression )*
-			try { DebugEnterSubRule(58);
+			try { DebugEnterSubRule(60);
 			while (true)
 			{
-				int alt58=2;
-				try { DebugEnterDecision(58, false);
-				int LA58_1 = input.LA(1);
+				int alt60=2;
+				try { DebugEnterDecision(60, false);
+				int LA60_1 = input.LA(1);
 
-				if ((LA58_1==OP_COMMA))
+				if ((LA60_1==OP_COMMA))
 				{
-					alt58 = 1;
+					alt60 = 1;
 				}
 
 
-				} finally { DebugExitDecision(58); }
-				switch ( alt58 )
+				} finally { DebugExitDecision(60); }
+				switch ( alt60 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:993:13: OP_COMMA e= expression
 					{
 					DebugLocation(993, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_expressionList6753); if (state.failed) return value;
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_expressionList6766); if (state.failed) return value;
 					DebugLocation(994, 14);
-					PushFollow(Follow._expression_in_expressionList6769);
+					PushFollow(Follow._expression_in_expressionList6782);
 					e=expression();
 					PopFollow();
 					if (state.failed) return value;
@@ -8110,14 +8223,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop58;
+					goto loop60;
 				}
 			}
 
-			loop58:
+			loop60:
 				;
 
-			} finally { DebugExitSubRule(58); }
+			} finally { DebugExitSubRule(60); }
 
 			DebugLocation(997, 9);
 			if (state.backtracking == 0)
@@ -8173,7 +8286,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1005:9: eod= expressionOrDeclaration ( OP_COMMA eod= expressionOrDeclaration )*
 			{
 			DebugLocation(1005, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_expressionOrDeclarationList6840);
+			PushFollow(Follow._expressionOrDeclaration_in_expressionOrDeclarationList6853);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
@@ -8184,30 +8297,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1007, 9);
 			// Truss.g:1007:9: ( OP_COMMA eod= expressionOrDeclaration )*
-			try { DebugEnterSubRule(59);
+			try { DebugEnterSubRule(61);
 			while (true)
 			{
-				int alt59=2;
-				try { DebugEnterDecision(59, false);
-				int LA59_1 = input.LA(1);
+				int alt61=2;
+				try { DebugEnterDecision(61, false);
+				int LA61_1 = input.LA(1);
 
-				if ((LA59_1==OP_COMMA))
+				if ((LA61_1==OP_COMMA))
 				{
-					alt59 = 1;
+					alt61 = 1;
 				}
 
 
-				} finally { DebugExitDecision(59); }
-				switch ( alt59 )
+				} finally { DebugExitDecision(61); }
+				switch ( alt61 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1008:13: OP_COMMA eod= expressionOrDeclaration
 					{
 					DebugLocation(1008, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_expressionOrDeclarationList6874); if (state.failed) return value;
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_expressionOrDeclarationList6887); if (state.failed) return value;
 					DebugLocation(1009, 16);
-					PushFollow(Follow._expressionOrDeclaration_in_expressionOrDeclarationList6890);
+					PushFollow(Follow._expressionOrDeclaration_in_expressionOrDeclarationList6903);
 					eod=expressionOrDeclaration();
 					PopFollow();
 					if (state.failed) return value;
@@ -8221,14 +8334,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop59;
+					goto loop61;
 				}
 			}
 
-			loop59:
+			loop61:
 				;
 
-			} finally { DebugExitSubRule(59); }
+			} finally { DebugExitSubRule(61); }
 
 			DebugLocation(1012, 9);
 			if (state.backtracking == 0)
@@ -8288,41 +8401,41 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1021:9: KW_IF eod= expressionOrDeclaration b= block (eic= elIfClause )* (ec= elseClause )?
 			{
 			DebugLocation(1021, 9);
-			Match(input,KW_IF,Follow._KW_IF_in_ifStatement6959); if (state.failed) return value;
+			Match(input,KW_IF,Follow._KW_IF_in_ifStatement6972); if (state.failed) return value;
 			DebugLocation(1022, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_ifStatement6971);
+			PushFollow(Follow._expressionOrDeclaration_in_ifStatement6984);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1023, 10);
-			PushFollow(Follow._block_in_ifStatement6983);
+			PushFollow(Follow._block_in_ifStatement6996);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1024, 9);
 			// Truss.g:1024:9: (eic= elIfClause )*
-			try { DebugEnterSubRule(60);
+			try { DebugEnterSubRule(62);
 			while (true)
 			{
-				int alt60=2;
-				try { DebugEnterDecision(60, false);
-				int LA60_1 = input.LA(1);
+				int alt62=2;
+				try { DebugEnterDecision(62, false);
+				int LA62_1 = input.LA(1);
 
-				if ((LA60_1==KW_ELIF))
+				if ((LA62_1==KW_ELIF))
 				{
-					alt60 = 1;
+					alt62 = 1;
 				}
 
 
-				} finally { DebugExitDecision(60); }
-				switch ( alt60 )
+				} finally { DebugExitDecision(62); }
+				switch ( alt62 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1024:11: eic= elIfClause
 					{
 					DebugLocation(1024, 14);
-					PushFollow(Follow._elIfClause_in_ifStatement6997);
+					PushFollow(Follow._elIfClause_in_ifStatement7010);
 					eic=elIfClause();
 					PopFollow();
 					if (state.failed) return value;
@@ -8336,35 +8449,35 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop60;
+					goto loop62;
 				}
 			}
 
-			loop60:
+			loop62:
 				;
 
-			} finally { DebugExitSubRule(60); }
+			} finally { DebugExitSubRule(62); }
 
 			DebugLocation(1025, 9);
 			// Truss.g:1025:9: (ec= elseClause )?
-			int alt61=2;
-			try { DebugEnterSubRule(61);
-			try { DebugEnterDecision(61, false);
-			int LA61_1 = input.LA(1);
+			int alt63=2;
+			try { DebugEnterSubRule(63);
+			try { DebugEnterDecision(63, false);
+			int LA63_1 = input.LA(1);
 
-			if ((LA61_1==KW_ELSE))
+			if ((LA63_1==KW_ELSE))
 			{
-				alt61 = 1;
+				alt63 = 1;
 			}
-			} finally { DebugExitDecision(61); }
-			switch (alt61)
+			} finally { DebugExitDecision(63); }
+			switch (alt63)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1025:11: ec= elseClause
 				{
 				DebugLocation(1025, 13);
-				PushFollow(Follow._elseClause_in_ifStatement7016);
+				PushFollow(Follow._elseClause_in_ifStatement7029);
 				ec=elseClause();
 				PopFollow();
 				if (state.failed) return value;
@@ -8378,7 +8491,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(61); }
+			} finally { DebugExitSubRule(63); }
 
 			DebugLocation(1026, 9);
 			if (state.backtracking == 0)
@@ -8435,14 +8548,14 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1034:9: KW_ELIF eod= expressionOrDeclaration b= block
 			{
 			DebugLocation(1034, 9);
-			Match(input,KW_ELIF,Follow._KW_ELIF_in_elIfClause7065); if (state.failed) return value;
+			Match(input,KW_ELIF,Follow._KW_ELIF_in_elIfClause7078); if (state.failed) return value;
 			DebugLocation(1035, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_elIfClause7077);
+			PushFollow(Follow._expressionOrDeclaration_in_elIfClause7090);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1036, 10);
-			PushFollow(Follow._block_in_elIfClause7089);
+			PushFollow(Follow._block_in_elIfClause7102);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -8500,9 +8613,9 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1045:9: KW_ELSE b= block
 			{
 			DebugLocation(1045, 9);
-			Match(input,KW_ELSE,Follow._KW_ELSE_in_elseClause7133); if (state.failed) return value;
+			Match(input,KW_ELSE,Follow._KW_ELSE_in_elseClause7146); if (state.failed) return value;
 			DebugLocation(1046, 10);
-			PushFollow(Follow._block_in_elseClause7145);
+			PushFollow(Follow._block_in_elseClause7158);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -8562,24 +8675,24 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(1056, 9);
 			// Truss.g:1056:9: ( KW_READONLY )?
-			int alt62=2;
-			try { DebugEnterSubRule(62);
-			try { DebugEnterDecision(62, false);
-			int LA62_1 = input.LA(1);
+			int alt64=2;
+			try { DebugEnterSubRule(64);
+			try { DebugEnterDecision(64, false);
+			int LA64_1 = input.LA(1);
 
-			if ((LA62_1==KW_READONLY))
+			if ((LA64_1==KW_READONLY))
 			{
-				alt62 = 1;
+				alt64 = 1;
 			}
-			} finally { DebugExitDecision(62); }
-			switch (alt62)
+			} finally { DebugExitDecision(64); }
+			switch (alt64)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1057:13: KW_READONLY
 				{
 				DebugLocation(1057, 13);
-				Match(input,KW_READONLY,Follow._KW_READONLY_in_localDeclarationStatement7203); if (state.failed) return value;
+				Match(input,KW_READONLY,Follow._KW_READONLY_in_localDeclarationStatement7216); if (state.failed) return value;
 				DebugLocation(1058, 13);
 				if (state.backtracking == 0)
 				{
@@ -8590,15 +8703,15 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(62); }
+			} finally { DebugExitSubRule(64); }
 
 			DebugLocation(1060, 11);
-			PushFollow(Follow._variableDeclaration_in_localDeclarationStatement7240);
+			PushFollow(Follow._variableDeclaration_in_localDeclarationStatement7253);
 			vd=variableDeclaration();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1061, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_localDeclarationStatement7250); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_localDeclarationStatement7263); if (state.failed) return value;
 			DebugLocation(1062, 9);
 			if (state.backtracking == 0)
 			{
@@ -8645,12 +8758,12 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1065:31: typeSyntax identifierName
 			{
 			DebugLocation(1065, 31);
-			PushFollow(Follow._typeSyntax_in_variableDeclarationHeadScan7273);
+			PushFollow(Follow._typeSyntax_in_variableDeclarationHeadScan7286);
 			typeSyntax();
 			PopFollow();
 			if (state.failed) return;
 			DebugLocation(1065, 42);
-			PushFollow(Follow._identifierName_in_variableDeclarationHeadScan7275);
+			PushFollow(Follow._identifierName_in_variableDeclarationHeadScan7288);
 			identifierName();
 			PopFollow();
 			if (state.failed) return;
@@ -8703,7 +8816,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1070:9: t= typeSyntax vdwt= variableDeclarationWithoutType
 			{
 			DebugLocation(1070, 10);
-			PushFollow(Follow._typeSyntax_in_variableDeclaration7307);
+			PushFollow(Follow._typeSyntax_in_variableDeclaration7320);
 			t=typeSyntax();
 			PopFollow();
 			if (state.failed) return value;
@@ -8713,7 +8826,7 @@ namespace  Truss.Compiler.Parser
 				 declarationPrefix_stack.Peek().type =  t; 
 			}
 			DebugLocation(1072, 13);
-			PushFollow(Follow._variableDeclarationWithoutType_in_variableDeclaration7329);
+			PushFollow(Follow._variableDeclarationWithoutType_in_variableDeclaration7342);
 			vdwt=variableDeclarationWithoutType();
 			PopFollow();
 			if (state.failed) return value;
@@ -8774,7 +8887,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1082:9: vd= variableDeclarator ( OP_COMMA vd= variableDeclarator )*
 			{
 			DebugLocation(1082, 11);
-			PushFollow(Follow._variableDeclarator_in_variableDeclarationWithoutType7375);
+			PushFollow(Follow._variableDeclarator_in_variableDeclarationWithoutType7388);
 			vd=variableDeclarator();
 			PopFollow();
 			if (state.failed) return value;
@@ -8785,30 +8898,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1084, 9);
 			// Truss.g:1084:9: ( OP_COMMA vd= variableDeclarator )*
-			try { DebugEnterSubRule(63);
+			try { DebugEnterSubRule(65);
 			while (true)
 			{
-				int alt63=2;
-				try { DebugEnterDecision(63, false);
-				int LA63_1 = input.LA(1);
+				int alt65=2;
+				try { DebugEnterDecision(65, false);
+				int LA65_1 = input.LA(1);
 
-				if ((LA63_1==OP_COMMA))
+				if ((LA65_1==OP_COMMA))
 				{
-					alt63 = 1;
+					alt65 = 1;
 				}
 
 
-				} finally { DebugExitDecision(63); }
-				switch ( alt63 )
+				} finally { DebugExitDecision(65); }
+				switch ( alt65 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1085:13: OP_COMMA vd= variableDeclarator
 					{
 					DebugLocation(1085, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_variableDeclarationWithoutType7409); if (state.failed) return value;
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_variableDeclarationWithoutType7422); if (state.failed) return value;
 					DebugLocation(1086, 15);
-					PushFollow(Follow._variableDeclarator_in_variableDeclarationWithoutType7425);
+					PushFollow(Follow._variableDeclarator_in_variableDeclarationWithoutType7438);
 					vd=variableDeclarator();
 					PopFollow();
 					if (state.failed) return value;
@@ -8822,14 +8935,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop63;
+					goto loop65;
 				}
 			}
 
-			loop63:
+			loop65:
 				;
 
-			} finally { DebugExitSubRule(63); }
+			} finally { DebugExitSubRule(65); }
 
 			DebugLocation(1089, 9);
 			if (state.backtracking == 0)
@@ -8886,32 +8999,32 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1097:9: idn= identifierName ( OP_EQUALS e= expression )?
 			{
 			DebugLocation(1097, 12);
-			PushFollow(Follow._identifierName_in_variableDeclarator7496);
+			PushFollow(Follow._identifierName_in_variableDeclarator7509);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1098, 9);
 			// Truss.g:1098:9: ( OP_EQUALS e= expression )?
-			int alt64=2;
-			try { DebugEnterSubRule(64);
-			try { DebugEnterDecision(64, false);
-			int LA64_1 = input.LA(1);
+			int alt66=2;
+			try { DebugEnterSubRule(66);
+			try { DebugEnterDecision(66, false);
+			int LA66_1 = input.LA(1);
 
-			if ((LA64_1==OP_EQUALS))
+			if ((LA66_1==OP_EQUALS))
 			{
-				alt64 = 1;
+				alt66 = 1;
 			}
-			} finally { DebugExitDecision(64); }
-			switch (alt64)
+			} finally { DebugExitDecision(66); }
+			switch (alt66)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1099:13: OP_EQUALS e= expression
 				{
 				DebugLocation(1099, 13);
-				Match(input,OP_EQUALS,Follow._OP_EQUALS_in_variableDeclarator7520); if (state.failed) return value;
+				Match(input,OP_EQUALS,Follow._OP_EQUALS_in_variableDeclarator7533); if (state.failed) return value;
 				DebugLocation(1100, 14);
-				PushFollow(Follow._expression_in_variableDeclarator7536);
+				PushFollow(Follow._expression_in_variableDeclarator7549);
 				e=expression();
 				PopFollow();
 				if (state.failed) return value;
@@ -8920,7 +9033,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(64); }
+			} finally { DebugExitSubRule(66); }
 
 			DebugLocation(1102, 9);
 			if (state.backtracking == 0)
@@ -8976,27 +9089,27 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1110:9: KW_RETURN (eod= expressionOrDeclaration )? OP_SEMICOLON
 			{
 			DebugLocation(1110, 9);
-			Match(input,KW_RETURN,Follow._KW_RETURN_in_returnStatement7591); if (state.failed) return value;
+			Match(input,KW_RETURN,Follow._KW_RETURN_in_returnStatement7604); if (state.failed) return value;
 			DebugLocation(1112, 9);
 			// Truss.g:1112:9: (eod= expressionOrDeclaration )?
-			int alt65=2;
-			try { DebugEnterSubRule(65);
-			try { DebugEnterDecision(65, false);
-			int LA65_1 = input.LA(1);
+			int alt67=2;
+			try { DebugEnterSubRule(67);
+			try { DebugEnterDecision(67, false);
+			int LA67_1 = input.LA(1);
 
-			if ((LA65_1==CHAR||LA65_1==FLOAT||(LA65_1>=HEX_INTEGER && LA65_1<=IDENTIFIER)||LA65_1==INTEGER||(LA65_1>=KW_ASYNC && LA65_1<=KW_BOOL)||LA65_1==KW_BYTE||LA65_1==KW_CHAR||(LA65_1>=KW_DECIMAL && LA65_1<=KW_DEFAULT)||LA65_1==KW_DOUBLE||LA65_1==KW_FALSE||LA65_1==KW_FLOAT||LA65_1==KW_INT||LA65_1==KW_LONG||(LA65_1>=KW_NEW && LA65_1<=KW_OBJECT)||LA65_1==KW_SBYTE||(LA65_1>=KW_SHORT && LA65_1<=KW_SIZEOF)||LA65_1==KW_STRING||LA65_1==KW_THIS||LA65_1==KW_TRUE||(LA65_1>=KW_TYPEOF && LA65_1<=KW_USHORT)||LA65_1==KW_VAR||LA65_1==KW_VOID||LA65_1==OP_AMPERSAND||LA65_1==OP_EXCLAMATION||LA65_1==OP_MINUS||LA65_1==OP_MINUS_MINUS||LA65_1==OP_PAREN_OPEN||LA65_1==OP_PLUS||LA65_1==OP_PLUS_PLUS||(LA65_1>=OP_TILDE && LA65_1<=STRING)))
+			if ((LA67_1==CHAR||LA67_1==FLOAT||(LA67_1>=HEX_INTEGER && LA67_1<=IDENTIFIER)||LA67_1==INTEGER||(LA67_1>=KW_ASYNC && LA67_1<=KW_BOOL)||LA67_1==KW_BYTE||LA67_1==KW_CHAR||(LA67_1>=KW_DECIMAL && LA67_1<=KW_DEFAULT)||LA67_1==KW_DOUBLE||LA67_1==KW_FALSE||LA67_1==KW_FLOAT||LA67_1==KW_INT||LA67_1==KW_LONG||(LA67_1>=KW_NEW && LA67_1<=KW_OBJECT)||LA67_1==KW_SBYTE||(LA67_1>=KW_SHORT && LA67_1<=KW_SIZEOF)||LA67_1==KW_STRING||LA67_1==KW_THIS||LA67_1==KW_TRUE||(LA67_1>=KW_TYPEOF && LA67_1<=KW_USHORT)||LA67_1==KW_VAR||LA67_1==KW_VOID||LA67_1==OP_AMPERSAND||LA67_1==OP_EXCLAMATION||LA67_1==OP_MINUS||LA67_1==OP_MINUS_MINUS||LA67_1==OP_PAREN_OPEN||LA67_1==OP_PLUS||LA67_1==OP_PLUS_PLUS||(LA67_1>=OP_TILDE && LA67_1<=STRING)))
 			{
-				alt65 = 1;
+				alt67 = 1;
 			}
-			} finally { DebugExitDecision(65); }
-			switch (alt65)
+			} finally { DebugExitDecision(67); }
+			switch (alt67)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1112:11: eod= expressionOrDeclaration
 				{
 				DebugLocation(1112, 14);
-				PushFollow(Follow._expressionOrDeclaration_in_returnStatement7614);
+				PushFollow(Follow._expressionOrDeclaration_in_returnStatement7627);
 				eod=expressionOrDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -9005,10 +9118,10 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(65); }
+			} finally { DebugExitSubRule(67); }
 
 			DebugLocation(1113, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_returnStatement7627); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_returnStatement7640); if (state.failed) return value;
 			DebugLocation(1114, 9);
 			if (state.backtracking == 0)
 			{
@@ -9065,38 +9178,38 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1123:9: KW_SWITCH eod= expressionOrDeclaration OP_BRACE_OPEN (ss= switchSection )* OP_BRACE_CLOSE
 			{
 			DebugLocation(1123, 9);
-			Match(input,KW_SWITCH,Follow._KW_SWITCH_in_switchStatement7671); if (state.failed) return value;
+			Match(input,KW_SWITCH,Follow._KW_SWITCH_in_switchStatement7684); if (state.failed) return value;
 			DebugLocation(1124, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_switchStatement7683);
+			PushFollow(Follow._expressionOrDeclaration_in_switchStatement7696);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1125, 9);
-			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_switchStatement7693); if (state.failed) return value;
+			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_switchStatement7706); if (state.failed) return value;
 			DebugLocation(1126, 9);
 			// Truss.g:1126:9: (ss= switchSection )*
-			try { DebugEnterSubRule(66);
+			try { DebugEnterSubRule(68);
 			while (true)
 			{
-				int alt66=2;
-				try { DebugEnterDecision(66, false);
-				int LA66_1 = input.LA(1);
+				int alt68=2;
+				try { DebugEnterDecision(68, false);
+				int LA68_1 = input.LA(1);
 
-				if ((LA66_1==KW_CASE||LA66_1==KW_DEFAULT))
+				if ((LA68_1==KW_CASE||LA68_1==KW_DEFAULT))
 				{
-					alt66 = 1;
+					alt68 = 1;
 				}
 
 
-				} finally { DebugExitDecision(66); }
-				switch ( alt66 )
+				} finally { DebugExitDecision(68); }
+				switch ( alt68 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1127:13: ss= switchSection
 					{
 					DebugLocation(1127, 15);
-					PushFollow(Follow._switchSection_in_switchStatement7719);
+					PushFollow(Follow._switchSection_in_switchStatement7732);
 					ss=switchSection();
 					PopFollow();
 					if (state.failed) return value;
@@ -9110,17 +9223,17 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop66;
+					goto loop68;
 				}
 			}
 
-			loop66:
+			loop68:
 				;
 
-			} finally { DebugExitSubRule(66); }
+			} finally { DebugExitSubRule(68); }
 
 			DebugLocation(1130, 9);
-			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_switchStatement7754); if (state.failed) return value;
+			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_switchStatement7767); if (state.failed) return value;
 			DebugLocation(1131, 9);
 			if (state.backtracking == 0)
 			{
@@ -9178,35 +9291,35 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(1140, 9);
 			// Truss.g:1140:9: ( KW_DEFAULT | KW_CASE el= expressionList )
-			int alt67=2;
-			try { DebugEnterSubRule(67);
-			try { DebugEnterDecision(67, false);
-			int LA67_1 = input.LA(1);
+			int alt69=2;
+			try { DebugEnterSubRule(69);
+			try { DebugEnterDecision(69, false);
+			int LA69_1 = input.LA(1);
 
-			if ((LA67_1==KW_DEFAULT))
+			if ((LA69_1==KW_DEFAULT))
 			{
-				alt67 = 1;
+				alt69 = 1;
 			}
-			else if ((LA67_1==KW_CASE))
+			else if ((LA69_1==KW_CASE))
 			{
-				alt67 = 2;
+				alt69 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 67, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 69, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(67); }
-			switch (alt67)
+			} finally { DebugExitDecision(69); }
+			switch (alt69)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1141:13: KW_DEFAULT
 				{
 				DebugLocation(1141, 13);
-				Match(input,KW_DEFAULT,Follow._KW_DEFAULT_in_switchSection7812); if (state.failed) return value;
+				Match(input,KW_DEFAULT,Follow._KW_DEFAULT_in_switchSection7825); if (state.failed) return value;
 				DebugLocation(1142, 13);
 				if (state.backtracking == 0)
 				{
@@ -9220,14 +9333,14 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1144:13: KW_CASE el= expressionList
 				{
 				DebugLocation(1144, 13);
-				Match(input,KW_CASE,Follow._KW_CASE_in_switchSection7850); if (state.failed) return value;
+				Match(input,KW_CASE,Follow._KW_CASE_in_switchSection7863); if (state.failed) return value;
 				DebugLocation(1145, 13);
 				if (state.backtracking == 0)
 				{
 					 type = CaseOrDefault.Case; 
 				}
 				DebugLocation(1146, 15);
-				PushFollow(Follow._expressionList_in_switchSection7880);
+				PushFollow(Follow._expressionList_in_switchSection7893);
 				el=expressionList();
 				PopFollow();
 				if (state.failed) return value;
@@ -9236,10 +9349,10 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(67); }
+			} finally { DebugExitSubRule(69); }
 
 			DebugLocation(1148, 10);
-			PushFollow(Follow._block_in_switchSection7902);
+			PushFollow(Follow._block_in_switchSection7915);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -9304,27 +9417,27 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1164:9: KW_THROW (eod= expressionOrDeclaration )? OP_SEMICOLON
 			{
 			DebugLocation(1164, 9);
-			Match(input,KW_THROW,Follow._KW_THROW_in_throwStatement7946); if (state.failed) return value;
+			Match(input,KW_THROW,Follow._KW_THROW_in_throwStatement7959); if (state.failed) return value;
 			DebugLocation(1166, 12);
 			// Truss.g:1166:12: (eod= expressionOrDeclaration )?
-			int alt68=2;
-			try { DebugEnterSubRule(68);
-			try { DebugEnterDecision(68, false);
-			int LA68_1 = input.LA(1);
+			int alt70=2;
+			try { DebugEnterSubRule(70);
+			try { DebugEnterDecision(70, false);
+			int LA70_1 = input.LA(1);
 
-			if ((LA68_1==CHAR||LA68_1==FLOAT||(LA68_1>=HEX_INTEGER && LA68_1<=IDENTIFIER)||LA68_1==INTEGER||(LA68_1>=KW_ASYNC && LA68_1<=KW_BOOL)||LA68_1==KW_BYTE||LA68_1==KW_CHAR||(LA68_1>=KW_DECIMAL && LA68_1<=KW_DEFAULT)||LA68_1==KW_DOUBLE||LA68_1==KW_FALSE||LA68_1==KW_FLOAT||LA68_1==KW_INT||LA68_1==KW_LONG||(LA68_1>=KW_NEW && LA68_1<=KW_OBJECT)||LA68_1==KW_SBYTE||(LA68_1>=KW_SHORT && LA68_1<=KW_SIZEOF)||LA68_1==KW_STRING||LA68_1==KW_THIS||LA68_1==KW_TRUE||(LA68_1>=KW_TYPEOF && LA68_1<=KW_USHORT)||LA68_1==KW_VAR||LA68_1==KW_VOID||LA68_1==OP_AMPERSAND||LA68_1==OP_EXCLAMATION||LA68_1==OP_MINUS||LA68_1==OP_MINUS_MINUS||LA68_1==OP_PAREN_OPEN||LA68_1==OP_PLUS||LA68_1==OP_PLUS_PLUS||(LA68_1>=OP_TILDE && LA68_1<=STRING)))
+			if ((LA70_1==CHAR||LA70_1==FLOAT||(LA70_1>=HEX_INTEGER && LA70_1<=IDENTIFIER)||LA70_1==INTEGER||(LA70_1>=KW_ASYNC && LA70_1<=KW_BOOL)||LA70_1==KW_BYTE||LA70_1==KW_CHAR||(LA70_1>=KW_DECIMAL && LA70_1<=KW_DEFAULT)||LA70_1==KW_DOUBLE||LA70_1==KW_FALSE||LA70_1==KW_FLOAT||LA70_1==KW_INT||LA70_1==KW_LONG||(LA70_1>=KW_NEW && LA70_1<=KW_OBJECT)||LA70_1==KW_SBYTE||(LA70_1>=KW_SHORT && LA70_1<=KW_SIZEOF)||LA70_1==KW_STRING||LA70_1==KW_THIS||LA70_1==KW_TRUE||(LA70_1>=KW_TYPEOF && LA70_1<=KW_USHORT)||LA70_1==KW_VAR||LA70_1==KW_VOID||LA70_1==OP_AMPERSAND||LA70_1==OP_EXCLAMATION||LA70_1==OP_MINUS||LA70_1==OP_MINUS_MINUS||LA70_1==OP_PAREN_OPEN||LA70_1==OP_PLUS||LA70_1==OP_PLUS_PLUS||(LA70_1>=OP_TILDE && LA70_1<=STRING)))
 			{
-				alt68 = 1;
+				alt70 = 1;
 			}
-			} finally { DebugExitDecision(68); }
-			switch (alt68)
+			} finally { DebugExitDecision(70); }
+			switch (alt70)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1166:12: eod= expressionOrDeclaration
 				{
 				DebugLocation(1166, 12);
-				PushFollow(Follow._expressionOrDeclaration_in_throwStatement7967);
+				PushFollow(Follow._expressionOrDeclaration_in_throwStatement7980);
 				eod=expressionOrDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -9333,10 +9446,10 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(68); }
+			} finally { DebugExitSubRule(70); }
 
 			DebugLocation(1167, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_throwStatement7978); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_throwStatement7991); if (state.failed) return value;
 			DebugLocation(1168, 9);
 			if (state.backtracking == 0)
 			{
@@ -9391,14 +9504,14 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1176:9: KW_DELETE eod= expressionOrDeclaration OP_SEMICOLON
 			{
 			DebugLocation(1176, 9);
-			Match(input,KW_DELETE,Follow._KW_DELETE_in_deleteStatement8022); if (state.failed) return value;
+			Match(input,KW_DELETE,Follow._KW_DELETE_in_deleteStatement8035); if (state.failed) return value;
 			DebugLocation(1178, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_deleteStatement8043);
+			PushFollow(Follow._expressionOrDeclaration_in_deleteStatement8056);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1179, 9);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_deleteStatement8053); if (state.failed) return value;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_deleteStatement8066); if (state.failed) return value;
 			DebugLocation(1180, 9);
 			if (state.backtracking == 0)
 			{
@@ -9456,36 +9569,36 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1189:9: KW_TRY b= block (cc= catchClause )* (fc= finallyClause )?
 			{
 			DebugLocation(1189, 9);
-			Match(input,KW_TRY,Follow._KW_TRY_in_tryStatement8097); if (state.failed) return value;
+			Match(input,KW_TRY,Follow._KW_TRY_in_tryStatement8110); if (state.failed) return value;
 			DebugLocation(1190, 10);
-			PushFollow(Follow._block_in_tryStatement8109);
+			PushFollow(Follow._block_in_tryStatement8122);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1191, 9);
 			// Truss.g:1191:9: (cc= catchClause )*
-			try { DebugEnterSubRule(69);
+			try { DebugEnterSubRule(71);
 			while (true)
 			{
-				int alt69=2;
-				try { DebugEnterDecision(69, false);
-				int LA69_1 = input.LA(1);
+				int alt71=2;
+				try { DebugEnterDecision(71, false);
+				int LA71_1 = input.LA(1);
 
-				if ((LA69_1==KW_CATCH))
+				if ((LA71_1==KW_CATCH))
 				{
-					alt69 = 1;
+					alt71 = 1;
 				}
 
 
-				} finally { DebugExitDecision(69); }
-				switch ( alt69 )
+				} finally { DebugExitDecision(71); }
+				switch ( alt71 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1192:13: cc= catchClause
 					{
 					DebugLocation(1192, 15);
-					PushFollow(Follow._catchClause_in_tryStatement8135);
+					PushFollow(Follow._catchClause_in_tryStatement8148);
 					cc=catchClause();
 					PopFollow();
 					if (state.failed) return value;
@@ -9499,35 +9612,35 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop69;
+					goto loop71;
 				}
 			}
 
-			loop69:
+			loop71:
 				;
 
-			} finally { DebugExitSubRule(69); }
+			} finally { DebugExitSubRule(71); }
 
 			DebugLocation(1195, 9);
 			// Truss.g:1195:9: (fc= finallyClause )?
-			int alt70=2;
-			try { DebugEnterSubRule(70);
-			try { DebugEnterDecision(70, false);
-			int LA70_1 = input.LA(1);
+			int alt72=2;
+			try { DebugEnterSubRule(72);
+			try { DebugEnterDecision(72, false);
+			int LA72_1 = input.LA(1);
 
-			if ((LA70_1==KW_FINALLY))
+			if ((LA72_1==KW_FINALLY))
 			{
-				alt70 = 1;
+				alt72 = 1;
 			}
-			} finally { DebugExitDecision(70); }
-			switch (alt70)
+			} finally { DebugExitDecision(72); }
+			switch (alt72)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1195:11: fc= finallyClause
 				{
 				DebugLocation(1195, 13);
-				PushFollow(Follow._finallyClause_in_tryStatement8174);
+				PushFollow(Follow._finallyClause_in_tryStatement8187);
 				fc=finallyClause();
 				PopFollow();
 				if (state.failed) return value;
@@ -9536,7 +9649,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(70); }
+			} finally { DebugExitSubRule(72); }
 
 			DebugLocation(1196, 9);
 			if (state.backtracking == 0)
@@ -9594,50 +9707,50 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1204:9: KW_CATCH (t= typeSyntax (idn= identifierName )? )? b= block
 			{
 			DebugLocation(1204, 9);
-			Match(input,KW_CATCH,Follow._KW_CATCH_in_catchClause8221); if (state.failed) return value;
+			Match(input,KW_CATCH,Follow._KW_CATCH_in_catchClause8234); if (state.failed) return value;
 			DebugLocation(1205, 9);
 			// Truss.g:1205:9: (t= typeSyntax (idn= identifierName )? )?
-			int alt72=2;
-			try { DebugEnterSubRule(72);
-			try { DebugEnterDecision(72, false);
-			int LA72_1 = input.LA(1);
+			int alt74=2;
+			try { DebugEnterSubRule(74);
+			try { DebugEnterDecision(74, false);
+			int LA74_1 = input.LA(1);
 
-			if ((LA72_1==IDENTIFIER||LA72_1==KW_BOOL||LA72_1==KW_BYTE||LA72_1==KW_CHAR||LA72_1==KW_DECIMAL||LA72_1==KW_DOUBLE||LA72_1==KW_FLOAT||LA72_1==KW_INT||LA72_1==KW_LONG||LA72_1==KW_OBJECT||LA72_1==KW_SBYTE||LA72_1==KW_SHORT||LA72_1==KW_STRING||(LA72_1>=KW_UINT && LA72_1<=KW_USHORT)||LA72_1==KW_VAR||LA72_1==KW_VOID))
+			if ((LA74_1==IDENTIFIER||LA74_1==KW_BOOL||LA74_1==KW_BYTE||LA74_1==KW_CHAR||LA74_1==KW_DECIMAL||LA74_1==KW_DOUBLE||LA74_1==KW_FLOAT||LA74_1==KW_INT||LA74_1==KW_LONG||LA74_1==KW_OBJECT||LA74_1==KW_SBYTE||LA74_1==KW_SHORT||LA74_1==KW_STRING||(LA74_1>=KW_UINT && LA74_1<=KW_USHORT)||LA74_1==KW_VAR||LA74_1==KW_VOID))
 			{
-				alt72 = 1;
+				alt74 = 1;
 			}
-			} finally { DebugExitDecision(72); }
-			switch (alt72)
+			} finally { DebugExitDecision(74); }
+			switch (alt74)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1206:13: t= typeSyntax (idn= identifierName )?
 				{
 				DebugLocation(1206, 14);
-				PushFollow(Follow._typeSyntax_in_catchClause8247);
+				PushFollow(Follow._typeSyntax_in_catchClause8260);
 				t=typeSyntax();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1207, 13);
 				// Truss.g:1207:13: (idn= identifierName )?
-				int alt71=2;
-				try { DebugEnterSubRule(71);
-				try { DebugEnterDecision(71, false);
-				int LA71_1 = input.LA(1);
+				int alt73=2;
+				try { DebugEnterSubRule(73);
+				try { DebugEnterDecision(73, false);
+				int LA73_1 = input.LA(1);
 
-				if ((LA71_1==IDENTIFIER))
+				if ((LA73_1==IDENTIFIER))
 				{
-					alt71 = 1;
+					alt73 = 1;
 				}
-				} finally { DebugExitDecision(71); }
-				switch (alt71)
+				} finally { DebugExitDecision(73); }
+				switch (alt73)
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1207:15: idn= identifierName
 					{
 					DebugLocation(1207, 18);
-					PushFollow(Follow._identifierName_in_catchClause8265);
+					PushFollow(Follow._identifierName_in_catchClause8278);
 					idn=identifierName();
 					PopFollow();
 					if (state.failed) return value;
@@ -9646,17 +9759,17 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				}
-				} finally { DebugExitSubRule(71); }
+				} finally { DebugExitSubRule(73); }
 
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(72); }
+			} finally { DebugExitSubRule(74); }
 
 			DebugLocation(1209, 10);
-			PushFollow(Follow._block_in_catchClause8291);
+			PushFollow(Follow._block_in_catchClause8304);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -9714,9 +9827,9 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1218:9: KW_FINALLY b= block
 			{
 			DebugLocation(1218, 9);
-			Match(input,KW_FINALLY,Follow._KW_FINALLY_in_finallyClause8335); if (state.failed) return value;
+			Match(input,KW_FINALLY,Follow._KW_FINALLY_in_finallyClause8348); if (state.failed) return value;
 			DebugLocation(1219, 10);
-			PushFollow(Follow._block_in_finallyClause8347);
+			PushFollow(Follow._block_in_finallyClause8360);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -9776,122 +9889,122 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1228:9: KW_USING ( ( variableDeclarationHeadScan )=>vd= variableDeclaration |e= expression ) b= block
 			{
 			DebugLocation(1228, 9);
-			Match(input,KW_USING,Follow._KW_USING_in_usingStatement8391); if (state.failed) return value;
+			Match(input,KW_USING,Follow._KW_USING_in_usingStatement8404); if (state.failed) return value;
 			DebugLocation(1229, 9);
 			// Truss.g:1229:9: ( ( variableDeclarationHeadScan )=>vd= variableDeclaration |e= expression )
-			int alt73=2;
-			try { DebugEnterSubRule(73);
-			try { DebugEnterDecision(73, false);
-			int LA73_1 = input.LA(1);
+			int alt75=2;
+			try { DebugEnterSubRule(75);
+			try { DebugEnterDecision(75, false);
+			int LA75_1 = input.LA(1);
 
-			if ((LA73_1==KW_VAR) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			if ((LA75_1==KW_VAR) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_BOOL) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_BOOL) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_BYTE) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_BYTE) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_CHAR) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_CHAR) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_DECIMAL) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_DECIMAL) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_DOUBLE) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_DOUBLE) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_FLOAT) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_FLOAT) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_INT) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_INT) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_LONG) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_LONG) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_OBJECT) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_OBJECT) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_SBYTE) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_SBYTE) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_SHORT) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_SHORT) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_STRING) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_STRING) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_UINT) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_UINT) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_ULONG) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_ULONG) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_USHORT) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_USHORT) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==KW_VOID) && (EvaluatePredicate(synpred9_Truss_fragment)))
+			else if ((LA75_1==KW_VOID) && (EvaluatePredicate(synpred9_Truss_fragment)))
 			{
-				alt73 = 1;
+				alt75 = 1;
 			}
-			else if ((LA73_1==IDENTIFIER))
+			else if ((LA75_1==IDENTIFIER))
 			{
-				int LA73_2 = input.LA(2);
+				int LA75_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred9_Truss_fragment)))
 				{
-					alt73 = 1;
+					alt75 = 1;
 				}
 				else if ((true))
 				{
-					alt73 = 2;
+					alt75 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 73, 18, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 75, 18, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
-			else if ((LA73_1==CHAR||LA73_1==FLOAT||LA73_1==HEX_INTEGER||LA73_1==INTEGER||(LA73_1>=KW_ASYNC && LA73_1<=KW_BASE)||LA73_1==KW_DEFAULT||LA73_1==KW_FALSE||(LA73_1>=KW_NEW && LA73_1<=KW_NIL)||LA73_1==KW_SIZEOF||LA73_1==KW_THIS||LA73_1==KW_TRUE||LA73_1==KW_TYPEOF||LA73_1==OP_AMPERSAND||LA73_1==OP_EXCLAMATION||LA73_1==OP_MINUS||LA73_1==OP_MINUS_MINUS||LA73_1==OP_PAREN_OPEN||LA73_1==OP_PLUS||LA73_1==OP_PLUS_PLUS||(LA73_1>=OP_TILDE && LA73_1<=STRING)))
+			else if ((LA75_1==CHAR||LA75_1==FLOAT||LA75_1==HEX_INTEGER||LA75_1==INTEGER||(LA75_1>=KW_ASYNC && LA75_1<=KW_BASE)||LA75_1==KW_DEFAULT||LA75_1==KW_FALSE||(LA75_1>=KW_NEW && LA75_1<=KW_NIL)||LA75_1==KW_SIZEOF||LA75_1==KW_THIS||LA75_1==KW_TRUE||LA75_1==KW_TYPEOF||LA75_1==OP_AMPERSAND||LA75_1==OP_EXCLAMATION||LA75_1==OP_MINUS||LA75_1==OP_MINUS_MINUS||LA75_1==OP_PAREN_OPEN||LA75_1==OP_PLUS||LA75_1==OP_PLUS_PLUS||(LA75_1>=OP_TILDE && LA75_1<=STRING)))
 			{
-				alt73 = 2;
+				alt75 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 73, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 75, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(73); }
-			switch (alt73)
+			} finally { DebugExitDecision(75); }
+			switch (alt75)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1230:13: ( variableDeclarationHeadScan )=>vd= variableDeclaration
 				{
 				DebugLocation(1231, 15);
-				PushFollow(Follow._variableDeclaration_in_usingStatement8436);
+				PushFollow(Follow._variableDeclaration_in_usingStatement8449);
 				vd=variableDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -9903,7 +10016,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1233:13: e= expression
 				{
 				DebugLocation(1233, 14);
-				PushFollow(Follow._expression_in_usingStatement8462);
+				PushFollow(Follow._expression_in_usingStatement8475);
 				e=expression();
 				PopFollow();
 				if (state.failed) return value;
@@ -9912,10 +10025,10 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(73); }
+			} finally { DebugExitSubRule(75); }
 
 			DebugLocation(1235, 10);
-			PushFollow(Follow._block_in_usingStatement8484);
+			PushFollow(Follow._block_in_usingStatement8497);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -9973,9 +10086,9 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1244:9: KW_LOOP b= block
 			{
 			DebugLocation(1244, 9);
-			Match(input,KW_LOOP,Follow._KW_LOOP_in_loopStatement8528); if (state.failed) return value;
+			Match(input,KW_LOOP,Follow._KW_LOOP_in_loopStatement8541); if (state.failed) return value;
 			DebugLocation(1245, 10);
-			PushFollow(Follow._block_in_loopStatement8540);
+			PushFollow(Follow._block_in_loopStatement8553);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -10034,14 +10147,14 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1254:9: KW_WHILE eod= expressionOrDeclaration b= block
 			{
 			DebugLocation(1254, 9);
-			Match(input,KW_WHILE,Follow._KW_WHILE_in_whileStatement8584); if (state.failed) return value;
+			Match(input,KW_WHILE,Follow._KW_WHILE_in_whileStatement8597); if (state.failed) return value;
 			DebugLocation(1255, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_whileStatement8596);
+			PushFollow(Follow._expressionOrDeclaration_in_whileStatement8609);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1256, 10);
-			PushFollow(Follow._block_in_whileStatement8608);
+			PushFollow(Follow._block_in_whileStatement8621);
 			b=block();
 			PopFollow();
 			if (state.failed) return value;
@@ -10093,118 +10206,118 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1263:5: ( ( variableDeclarationHeadScan )=>vde= variableDeclarationExpression |e= expression )
-			int alt74=2;
-			try { DebugEnterDecision(74, false);
-			int LA74_1 = input.LA(1);
+			int alt76=2;
+			try { DebugEnterDecision(76, false);
+			int LA76_1 = input.LA(1);
 
-			if ((LA74_1==KW_VAR) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			if ((LA76_1==KW_VAR) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_BOOL) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_BOOL) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_BYTE) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_BYTE) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_CHAR) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_CHAR) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_DECIMAL) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_DECIMAL) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_DOUBLE) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_DOUBLE) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_FLOAT) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_FLOAT) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_INT) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_INT) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_LONG) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_LONG) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_OBJECT) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_OBJECT) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_SBYTE) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_SBYTE) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_SHORT) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_SHORT) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_STRING) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_STRING) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_UINT) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_UINT) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_ULONG) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_ULONG) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_USHORT) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_USHORT) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==KW_VOID) && (EvaluatePredicate(synpred10_Truss_fragment)))
+			else if ((LA76_1==KW_VOID) && (EvaluatePredicate(synpred10_Truss_fragment)))
 			{
-				alt74 = 1;
+				alt76 = 1;
 			}
-			else if ((LA74_1==IDENTIFIER))
+			else if ((LA76_1==IDENTIFIER))
 			{
-				int LA74_2 = input.LA(2);
+				int LA76_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred10_Truss_fragment)))
 				{
-					alt74 = 1;
+					alt76 = 1;
 				}
 				else if ((true))
 				{
-					alt74 = 2;
+					alt76 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 74, 18, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 76, 18, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
-			else if ((LA74_1==CHAR||LA74_1==FLOAT||LA74_1==HEX_INTEGER||LA74_1==INTEGER||(LA74_1>=KW_ASYNC && LA74_1<=KW_BASE)||LA74_1==KW_DEFAULT||LA74_1==KW_FALSE||(LA74_1>=KW_NEW && LA74_1<=KW_NIL)||LA74_1==KW_SIZEOF||LA74_1==KW_THIS||LA74_1==KW_TRUE||LA74_1==KW_TYPEOF||LA74_1==OP_AMPERSAND||LA74_1==OP_EXCLAMATION||LA74_1==OP_MINUS||LA74_1==OP_MINUS_MINUS||LA74_1==OP_PAREN_OPEN||LA74_1==OP_PLUS||LA74_1==OP_PLUS_PLUS||(LA74_1>=OP_TILDE && LA74_1<=STRING)))
+			else if ((LA76_1==CHAR||LA76_1==FLOAT||LA76_1==HEX_INTEGER||LA76_1==INTEGER||(LA76_1>=KW_ASYNC && LA76_1<=KW_BASE)||LA76_1==KW_DEFAULT||LA76_1==KW_FALSE||(LA76_1>=KW_NEW && LA76_1<=KW_NIL)||LA76_1==KW_SIZEOF||LA76_1==KW_THIS||LA76_1==KW_TRUE||LA76_1==KW_TYPEOF||LA76_1==OP_AMPERSAND||LA76_1==OP_EXCLAMATION||LA76_1==OP_MINUS||LA76_1==OP_MINUS_MINUS||LA76_1==OP_PAREN_OPEN||LA76_1==OP_PLUS||LA76_1==OP_PLUS_PLUS||(LA76_1>=OP_TILDE && LA76_1<=STRING)))
 			{
-				alt74 = 2;
+				alt76 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 74, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 76, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(74); }
-			switch (alt74)
+			} finally { DebugExitDecision(76); }
+			switch (alt76)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1263:7: ( variableDeclarationHeadScan )=>vde= variableDeclarationExpression
 				{
 				DebugLocation(1263, 44);
-				PushFollow(Follow._variableDeclarationExpression_in_expressionOrDeclaration8650);
+				PushFollow(Follow._variableDeclarationExpression_in_expressionOrDeclaration8663);
 				vde=variableDeclarationExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -10221,7 +10334,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1264:7: e= expression
 				{
 				DebugLocation(1264, 8);
-				PushFollow(Follow._expression_in_expressionOrDeclaration8662);
+				PushFollow(Follow._expression_in_expressionOrDeclaration8675);
 				e=expression();
 				PopFollow();
 				if (state.failed) return value;
@@ -10275,74 +10388,74 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1268:5: ( ( lambdaExpressionHeadScan )=>e2= lambdaExpression |ae= assignmentExpression )
-			int alt75=2;
-			try { DebugEnterDecision(75, false);
-			int LA75_1 = input.LA(1);
+			int alt77=2;
+			try { DebugEnterDecision(77, false);
+			int LA77_1 = input.LA(1);
 
-			if ((LA75_1==KW_ASYNC) && (EvaluatePredicate(synpred11_Truss_fragment)))
+			if ((LA77_1==KW_ASYNC) && (EvaluatePredicate(synpred11_Truss_fragment)))
 			{
-				alt75 = 1;
+				alt77 = 1;
 			}
-			else if ((LA75_1==OP_PAREN_OPEN))
+			else if ((LA77_1==OP_PAREN_OPEN))
 			{
-				int LA75_2 = input.LA(2);
+				int LA77_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred11_Truss_fragment)))
 				{
-					alt75 = 1;
+					alt77 = 1;
 				}
 				else if ((true))
 				{
-					alt75 = 2;
+					alt77 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 75, 2, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 77, 2, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
-			else if ((LA75_1==IDENTIFIER))
+			else if ((LA77_1==IDENTIFIER))
 			{
-				int LA75_2 = input.LA(2);
+				int LA77_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred11_Truss_fragment)))
 				{
-					alt75 = 1;
+					alt77 = 1;
 				}
 				else if ((true))
 				{
-					alt75 = 2;
+					alt77 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 75, 3, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 77, 3, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
-			else if ((LA75_1==CHAR||LA75_1==FLOAT||LA75_1==HEX_INTEGER||LA75_1==INTEGER||(LA75_1>=KW_AWAIT && LA75_1<=KW_BASE)||LA75_1==KW_DEFAULT||LA75_1==KW_FALSE||(LA75_1>=KW_NEW && LA75_1<=KW_NIL)||LA75_1==KW_SIZEOF||LA75_1==KW_THIS||LA75_1==KW_TRUE||LA75_1==KW_TYPEOF||LA75_1==OP_AMPERSAND||LA75_1==OP_EXCLAMATION||LA75_1==OP_MINUS||LA75_1==OP_MINUS_MINUS||LA75_1==OP_PLUS||LA75_1==OP_PLUS_PLUS||(LA75_1>=OP_TILDE && LA75_1<=STRING)))
+			else if ((LA77_1==CHAR||LA77_1==FLOAT||LA77_1==HEX_INTEGER||LA77_1==INTEGER||(LA77_1>=KW_AWAIT && LA77_1<=KW_BASE)||LA77_1==KW_DEFAULT||LA77_1==KW_FALSE||(LA77_1>=KW_NEW && LA77_1<=KW_NIL)||LA77_1==KW_SIZEOF||LA77_1==KW_THIS||LA77_1==KW_TRUE||LA77_1==KW_TYPEOF||LA77_1==OP_AMPERSAND||LA77_1==OP_EXCLAMATION||LA77_1==OP_MINUS||LA77_1==OP_MINUS_MINUS||LA77_1==OP_PLUS||LA77_1==OP_PLUS_PLUS||(LA77_1>=OP_TILDE && LA77_1<=STRING)))
 			{
-				alt75 = 2;
+				alt77 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 75, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 77, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(75); }
-			switch (alt75)
+			} finally { DebugExitDecision(77); }
+			switch (alt77)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1269:9: ( lambdaExpressionHeadScan )=>e2= lambdaExpression
 				{
 				DebugLocation(1269, 42);
-				PushFollow(Follow._lambdaExpression_in_expression8702);
+				PushFollow(Follow._lambdaExpression_in_expression8715);
 				e2=lambdaExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -10359,7 +10472,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1272:9: ae= assignmentExpression
 				{
 				DebugLocation(1272, 11);
-				PushFollow(Follow._assignmentExpression_in_expression8730);
+				PushFollow(Follow._assignmentExpression_in_expression8743);
 				ae=assignmentExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -10421,7 +10534,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1281:9: nae= nonAssignmentExpression (ao= assignmentOperator eod= expressionOrDeclaration )?
 			{
 			DebugLocation(1281, 12);
-			PushFollow(Follow._nonAssignmentExpression_in_assignmentExpression8776);
+			PushFollow(Follow._nonAssignmentExpression_in_assignmentExpression8789);
 			nae=nonAssignmentExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -10432,29 +10545,29 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1283, 9);
 			// Truss.g:1283:9: (ao= assignmentOperator eod= expressionOrDeclaration )?
-			int alt76=2;
-			try { DebugEnterSubRule(76);
-			try { DebugEnterDecision(76, false);
-			int LA76_1 = input.LA(1);
+			int alt78=2;
+			try { DebugEnterSubRule(78);
+			try { DebugEnterDecision(78, false);
+			int LA78_1 = input.LA(1);
 
-			if ((LA76_1==OP_AMPERSAND_EQUALS||LA76_1==OP_ASTERISK_EQUALS||LA76_1==OP_BAR_EQUALS||LA76_1==OP_CARET_EQUALS||LA76_1==OP_EQUALS||LA76_1==OP_GREATER_THAN_GREATER_THAN_EQUALS||LA76_1==OP_LESS_THAN_LESS_THAN_EQUALS||LA76_1==OP_MINUS_EQUALS||LA76_1==OP_PERCENT_EQUALS||LA76_1==OP_PLUS_EQUALS||LA76_1==OP_SLASH_EQUALS))
+			if ((LA78_1==OP_AMPERSAND_EQUALS||LA78_1==OP_ASTERISK_EQUALS||LA78_1==OP_BAR_EQUALS||LA78_1==OP_CARET_EQUALS||LA78_1==OP_EQUALS||LA78_1==OP_GREATER_THAN_GREATER_THAN_EQUALS||LA78_1==OP_LESS_THAN_LESS_THAN_EQUALS||LA78_1==OP_MINUS_EQUALS||LA78_1==OP_PERCENT_EQUALS||LA78_1==OP_PLUS_EQUALS||LA78_1==OP_SLASH_EQUALS))
 			{
-				alt76 = 1;
+				alt78 = 1;
 			}
-			} finally { DebugExitDecision(76); }
-			switch (alt76)
+			} finally { DebugExitDecision(78); }
+			switch (alt78)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1284:13: ao= assignmentOperator eod= expressionOrDeclaration
 				{
 				DebugLocation(1284, 15);
-				PushFollow(Follow._assignmentOperator_in_assignmentExpression8812);
+				PushFollow(Follow._assignmentOperator_in_assignmentExpression8825);
 				ao=assignmentOperator();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1285, 16);
-				PushFollow(Follow._expressionOrDeclaration_in_assignmentExpression8828);
+				PushFollow(Follow._expressionOrDeclaration_in_assignmentExpression8841);
 				eod=expressionOrDeclaration();
 				PopFollow();
 				if (state.failed) return value;
@@ -10468,7 +10581,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(76); }
+			} finally { DebugExitSubRule(78); }
 
 
 			}
@@ -10516,7 +10629,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1292:9: ce= conditionalExpression
 			{
 			DebugLocation(1292, 11);
-			PushFollow(Follow._conditionalExpression_in_nonAssignmentExpression8884);
+			PushFollow(Follow._conditionalExpression_in_nonAssignmentExpression8897);
 			ce=conditionalExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -10565,83 +10678,83 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1297:5: ( OP_EQUALS | OP_PLUS_EQUALS | OP_MINUS_EQUALS | OP_ASTERISK_EQUALS | OP_SLASH_EQUALS | OP_PERCENT_EQUALS | OP_GREATER_THAN_GREATER_THAN_EQUALS | OP_LESS_THAN_LESS_THAN_EQUALS | OP_AMPERSAND_EQUALS | OP_BAR_EQUALS | OP_CARET_EQUALS )
-			int alt77=11;
-			try { DebugEnterDecision(77, false);
+			int alt79=11;
+			try { DebugEnterDecision(79, false);
 			switch (input.LA(1))
 			{
 			case OP_EQUALS:
 				{
-				alt77 = 1;
+				alt79 = 1;
 				}
 				break;
 			case OP_PLUS_EQUALS:
 				{
-				alt77 = 2;
+				alt79 = 2;
 				}
 				break;
 			case OP_MINUS_EQUALS:
 				{
-				alt77 = 3;
+				alt79 = 3;
 				}
 				break;
 			case OP_ASTERISK_EQUALS:
 				{
-				alt77 = 4;
+				alt79 = 4;
 				}
 				break;
 			case OP_SLASH_EQUALS:
 				{
-				alt77 = 5;
+				alt79 = 5;
 				}
 				break;
 			case OP_PERCENT_EQUALS:
 				{
-				alt77 = 6;
+				alt79 = 6;
 				}
 				break;
 			case OP_GREATER_THAN_GREATER_THAN_EQUALS:
 				{
-				alt77 = 7;
+				alt79 = 7;
 				}
 				break;
 			case OP_LESS_THAN_LESS_THAN_EQUALS:
 				{
-				alt77 = 8;
+				alt79 = 8;
 				}
 				break;
 			case OP_AMPERSAND_EQUALS:
 				{
-				alt77 = 9;
+				alt79 = 9;
 				}
 				break;
 			case OP_BAR_EQUALS:
 				{
-				alt77 = 10;
+				alt79 = 10;
 				}
 				break;
 			case OP_CARET_EQUALS:
 				{
-				alt77 = 11;
+				alt79 = 11;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 77, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 79, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(77); }
-			switch (alt77)
+			} finally { DebugExitDecision(79); }
+			switch (alt79)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1297:7: OP_EQUALS
 				{
 				DebugLocation(1297, 7);
-				Match(input,OP_EQUALS,Follow._OP_EQUALS_in_assignmentOperator8915); if (state.failed) return value;
+				Match(input,OP_EQUALS,Follow._OP_EQUALS_in_assignmentOperator8928); if (state.failed) return value;
 				DebugLocation(1297, 17);
 				if (state.backtracking == 0)
 				{
@@ -10655,7 +10768,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1298:7: OP_PLUS_EQUALS
 				{
 				DebugLocation(1298, 7);
-				Match(input,OP_PLUS_EQUALS,Follow._OP_PLUS_EQUALS_in_assignmentOperator8925); if (state.failed) return value;
+				Match(input,OP_PLUS_EQUALS,Follow._OP_PLUS_EQUALS_in_assignmentOperator8938); if (state.failed) return value;
 				DebugLocation(1298, 22);
 				if (state.backtracking == 0)
 				{
@@ -10669,7 +10782,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1299:7: OP_MINUS_EQUALS
 				{
 				DebugLocation(1299, 7);
-				Match(input,OP_MINUS_EQUALS,Follow._OP_MINUS_EQUALS_in_assignmentOperator8935); if (state.failed) return value;
+				Match(input,OP_MINUS_EQUALS,Follow._OP_MINUS_EQUALS_in_assignmentOperator8948); if (state.failed) return value;
 				DebugLocation(1299, 23);
 				if (state.backtracking == 0)
 				{
@@ -10683,7 +10796,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1300:7: OP_ASTERISK_EQUALS
 				{
 				DebugLocation(1300, 7);
-				Match(input,OP_ASTERISK_EQUALS,Follow._OP_ASTERISK_EQUALS_in_assignmentOperator8945); if (state.failed) return value;
+				Match(input,OP_ASTERISK_EQUALS,Follow._OP_ASTERISK_EQUALS_in_assignmentOperator8958); if (state.failed) return value;
 				DebugLocation(1300, 26);
 				if (state.backtracking == 0)
 				{
@@ -10697,7 +10810,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1301:7: OP_SLASH_EQUALS
 				{
 				DebugLocation(1301, 7);
-				Match(input,OP_SLASH_EQUALS,Follow._OP_SLASH_EQUALS_in_assignmentOperator8955); if (state.failed) return value;
+				Match(input,OP_SLASH_EQUALS,Follow._OP_SLASH_EQUALS_in_assignmentOperator8968); if (state.failed) return value;
 				DebugLocation(1301, 23);
 				if (state.backtracking == 0)
 				{
@@ -10711,7 +10824,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1302:7: OP_PERCENT_EQUALS
 				{
 				DebugLocation(1302, 7);
-				Match(input,OP_PERCENT_EQUALS,Follow._OP_PERCENT_EQUALS_in_assignmentOperator8965); if (state.failed) return value;
+				Match(input,OP_PERCENT_EQUALS,Follow._OP_PERCENT_EQUALS_in_assignmentOperator8978); if (state.failed) return value;
 				DebugLocation(1302, 25);
 				if (state.backtracking == 0)
 				{
@@ -10725,7 +10838,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1303:7: OP_GREATER_THAN_GREATER_THAN_EQUALS
 				{
 				DebugLocation(1303, 7);
-				Match(input,OP_GREATER_THAN_GREATER_THAN_EQUALS,Follow._OP_GREATER_THAN_GREATER_THAN_EQUALS_in_assignmentOperator8975); if (state.failed) return value;
+				Match(input,OP_GREATER_THAN_GREATER_THAN_EQUALS,Follow._OP_GREATER_THAN_GREATER_THAN_EQUALS_in_assignmentOperator8988); if (state.failed) return value;
 				DebugLocation(1303, 43);
 				if (state.backtracking == 0)
 				{
@@ -10739,7 +10852,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1304:7: OP_LESS_THAN_LESS_THAN_EQUALS
 				{
 				DebugLocation(1304, 7);
-				Match(input,OP_LESS_THAN_LESS_THAN_EQUALS,Follow._OP_LESS_THAN_LESS_THAN_EQUALS_in_assignmentOperator8985); if (state.failed) return value;
+				Match(input,OP_LESS_THAN_LESS_THAN_EQUALS,Follow._OP_LESS_THAN_LESS_THAN_EQUALS_in_assignmentOperator8998); if (state.failed) return value;
 				DebugLocation(1304, 37);
 				if (state.backtracking == 0)
 				{
@@ -10753,7 +10866,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1305:7: OP_AMPERSAND_EQUALS
 				{
 				DebugLocation(1305, 7);
-				Match(input,OP_AMPERSAND_EQUALS,Follow._OP_AMPERSAND_EQUALS_in_assignmentOperator8995); if (state.failed) return value;
+				Match(input,OP_AMPERSAND_EQUALS,Follow._OP_AMPERSAND_EQUALS_in_assignmentOperator9008); if (state.failed) return value;
 				DebugLocation(1305, 27);
 				if (state.backtracking == 0)
 				{
@@ -10767,7 +10880,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1306:7: OP_BAR_EQUALS
 				{
 				DebugLocation(1306, 7);
-				Match(input,OP_BAR_EQUALS,Follow._OP_BAR_EQUALS_in_assignmentOperator9005); if (state.failed) return value;
+				Match(input,OP_BAR_EQUALS,Follow._OP_BAR_EQUALS_in_assignmentOperator9018); if (state.failed) return value;
 				DebugLocation(1306, 21);
 				if (state.backtracking == 0)
 				{
@@ -10781,7 +10894,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1307:7: OP_CARET_EQUALS
 				{
 				DebugLocation(1307, 7);
-				Match(input,OP_CARET_EQUALS,Follow._OP_CARET_EQUALS_in_assignmentOperator9015); if (state.failed) return value;
+				Match(input,OP_CARET_EQUALS,Follow._OP_CARET_EQUALS_in_assignmentOperator9028); if (state.failed) return value;
 				DebugLocation(1307, 23);
 				if (state.backtracking == 0)
 				{
@@ -10831,38 +10944,38 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(1310, 28);
 			// Truss.g:1310:28: ( KW_ASYNC )?
-			int alt78=2;
-			try { DebugEnterSubRule(78);
-			try { DebugEnterDecision(78, false);
-			int LA78_1 = input.LA(1);
+			int alt80=2;
+			try { DebugEnterSubRule(80);
+			try { DebugEnterDecision(80, false);
+			int LA80_1 = input.LA(1);
 
-			if ((LA78_1==KW_ASYNC))
+			if ((LA80_1==KW_ASYNC))
 			{
-				alt78 = 1;
+				alt80 = 1;
 			}
-			} finally { DebugExitDecision(78); }
-			switch (alt78)
+			} finally { DebugExitDecision(80); }
+			switch (alt80)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1310:28: KW_ASYNC
 				{
 				DebugLocation(1310, 28);
-				Match(input,KW_ASYNC,Follow._KW_ASYNC_in_lambdaExpressionHeadScan9030); if (state.failed) return;
+				Match(input,KW_ASYNC,Follow._KW_ASYNC_in_lambdaExpressionHeadScan9043); if (state.failed) return;
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(78); }
+			} finally { DebugExitSubRule(80); }
 
 			DebugLocation(1310, 38);
-			PushFollow(Follow._lambdaParameterList_in_lambdaExpressionHeadScan9033);
+			PushFollow(Follow._lambdaParameterList_in_lambdaExpressionHeadScan9046);
 			lambdaParameterList();
 			PopFollow();
 			if (state.failed) return;
 			DebugLocation(1310, 58);
-			Match(input,OP_EQUALS_GREATER_THAN,Follow._OP_EQUALS_GREATER_THAN_in_lambdaExpressionHeadScan9035); if (state.failed) return;
+			Match(input,OP_EQUALS_GREATER_THAN,Follow._OP_EQUALS_GREATER_THAN_in_lambdaExpressionHeadScan9048); if (state.failed) return;
 
 			}
 
@@ -10916,24 +11029,24 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(1318, 9);
 			// Truss.g:1318:9: ( KW_ASYNC )?
-			int alt79=2;
-			try { DebugEnterSubRule(79);
-			try { DebugEnterDecision(79, false);
-			int LA79_1 = input.LA(1);
+			int alt81=2;
+			try { DebugEnterSubRule(81);
+			try { DebugEnterDecision(81, false);
+			int LA81_1 = input.LA(1);
 
-			if ((LA79_1==KW_ASYNC))
+			if ((LA81_1==KW_ASYNC))
 			{
-				alt79 = 1;
+				alt81 = 1;
 			}
-			} finally { DebugExitDecision(79); }
-			switch (alt79)
+			} finally { DebugExitDecision(81); }
+			switch (alt81)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1319:13: KW_ASYNC
 				{
 				DebugLocation(1319, 13);
-				Match(input,KW_ASYNC,Follow._KW_ASYNC_in_lambdaExpression9080); if (state.failed) return value;
+				Match(input,KW_ASYNC,Follow._KW_ASYNC_in_lambdaExpression9093); if (state.failed) return value;
 				DebugLocation(1320, 13);
 				if (state.backtracking == 0)
 				{
@@ -10944,46 +11057,46 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(79); }
+			} finally { DebugExitSubRule(81); }
 
 			DebugLocation(1322, 12);
-			PushFollow(Follow._lambdaParameterList_in_lambdaExpression9117);
+			PushFollow(Follow._lambdaParameterList_in_lambdaExpression9130);
 			lpl=lambdaParameterList();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1323, 9);
-			Match(input,OP_EQUALS_GREATER_THAN,Follow._OP_EQUALS_GREATER_THAN_in_lambdaExpression9127); if (state.failed) return value;
+			Match(input,OP_EQUALS_GREATER_THAN,Follow._OP_EQUALS_GREATER_THAN_in_lambdaExpression9140); if (state.failed) return value;
 			DebugLocation(1324, 9);
 			// Truss.g:1324:9: (e= expression |b= block )
-			int alt80=2;
-			try { DebugEnterSubRule(80);
-			try { DebugEnterDecision(80, false);
-			int LA80_1 = input.LA(1);
+			int alt82=2;
+			try { DebugEnterSubRule(82);
+			try { DebugEnterDecision(82, false);
+			int LA82_1 = input.LA(1);
 
-			if ((LA80_1==CHAR||LA80_1==FLOAT||(LA80_1>=HEX_INTEGER && LA80_1<=IDENTIFIER)||LA80_1==INTEGER||(LA80_1>=KW_ASYNC && LA80_1<=KW_BASE)||LA80_1==KW_DEFAULT||LA80_1==KW_FALSE||(LA80_1>=KW_NEW && LA80_1<=KW_NIL)||LA80_1==KW_SIZEOF||LA80_1==KW_THIS||LA80_1==KW_TRUE||LA80_1==KW_TYPEOF||LA80_1==OP_AMPERSAND||LA80_1==OP_EXCLAMATION||LA80_1==OP_MINUS||LA80_1==OP_MINUS_MINUS||LA80_1==OP_PAREN_OPEN||LA80_1==OP_PLUS||LA80_1==OP_PLUS_PLUS||(LA80_1>=OP_TILDE && LA80_1<=STRING)))
+			if ((LA82_1==CHAR||LA82_1==FLOAT||(LA82_1>=HEX_INTEGER && LA82_1<=IDENTIFIER)||LA82_1==INTEGER||(LA82_1>=KW_ASYNC && LA82_1<=KW_BASE)||LA82_1==KW_DEFAULT||LA82_1==KW_FALSE||(LA82_1>=KW_NEW && LA82_1<=KW_NIL)||LA82_1==KW_SIZEOF||LA82_1==KW_THIS||LA82_1==KW_TRUE||LA82_1==KW_TYPEOF||LA82_1==OP_AMPERSAND||LA82_1==OP_EXCLAMATION||LA82_1==OP_MINUS||LA82_1==OP_MINUS_MINUS||LA82_1==OP_PAREN_OPEN||LA82_1==OP_PLUS||LA82_1==OP_PLUS_PLUS||(LA82_1>=OP_TILDE && LA82_1<=STRING)))
 			{
-				alt80 = 1;
+				alt82 = 1;
 			}
-			else if ((LA80_1==OP_BRACE_OPEN))
+			else if ((LA82_1==OP_BRACE_OPEN))
 			{
-				alt80 = 2;
+				alt82 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 80, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 82, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(80); }
-			switch (alt80)
+			} finally { DebugExitDecision(82); }
+			switch (alt82)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1325:13: e= expression
 				{
 				DebugLocation(1325, 14);
-				PushFollow(Follow._expression_in_lambdaExpression9153);
+				PushFollow(Follow._expression_in_lambdaExpression9166);
 				e=expression();
 				PopFollow();
 				if (state.failed) return value;
@@ -11000,7 +11113,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1328:13: b= block
 				{
 				DebugLocation(1328, 14);
-				PushFollow(Follow._block_in_lambdaExpression9193);
+				PushFollow(Follow._block_in_lambdaExpression9206);
 				b=block();
 				PopFollow();
 				if (state.failed) return value;
@@ -11014,7 +11127,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(80); }
+			} finally { DebugExitSubRule(82); }
 
 
 			}
@@ -11060,39 +11173,39 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1334:5: ( OP_PAREN_OPEN (elpl= explicitLambdaParameterList |ilpl= implicitLambdaParameterList |) OP_PAREN_CLOSE |ilp= implicitLambdaParameter )
-			int alt82=2;
-			try { DebugEnterDecision(82, false);
-			int LA82_1 = input.LA(1);
+			int alt84=2;
+			try { DebugEnterDecision(84, false);
+			int LA84_1 = input.LA(1);
 
-			if ((LA82_1==OP_PAREN_OPEN))
+			if ((LA84_1==OP_PAREN_OPEN))
 			{
-				alt82 = 1;
+				alt84 = 1;
 			}
-			else if ((LA82_1==IDENTIFIER))
+			else if ((LA84_1==IDENTIFIER))
 			{
-				alt82 = 2;
+				alt84 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 82, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 84, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(82); }
-			switch (alt82)
+			} finally { DebugExitDecision(84); }
+			switch (alt84)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1335:9: OP_PAREN_OPEN (elpl= explicitLambdaParameterList |ilpl= implicitLambdaParameterList |) OP_PAREN_CLOSE
 				{
 				DebugLocation(1335, 9);
-				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_lambdaParameterList9246); if (state.failed) return value;
+				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_lambdaParameterList9259); if (state.failed) return value;
 				DebugLocation(1336, 9);
 				// Truss.g:1336:9: (elpl= explicitLambdaParameterList |ilpl= implicitLambdaParameterList |)
-				int alt81=3;
-				try { DebugEnterSubRule(81);
-				try { DebugEnterDecision(81, false);
+				int alt83=3;
+				try { DebugEnterSubRule(83);
+				try { DebugEnterDecision(83, false);
 				switch (input.LA(1))
 				{
 				case KW_BOOL:
@@ -11115,25 +11228,25 @@ namespace  Truss.Compiler.Parser
 				case KW_VAR:
 				case KW_VOID:
 					{
-					alt81 = 1;
+					alt83 = 1;
 					}
 					break;
 				case IDENTIFIER:
 					{
-					int LA81_2 = input.LA(2);
+					int LA83_2 = input.LA(2);
 
-					if ((LA81_2==IDENTIFIER||(LA81_2>=OP_BRACKET_OPEN && LA81_2<=OP_CARET)||LA81_2==OP_COLON_COLON||LA81_2==OP_DOT||LA81_2==OP_LESS_THAN||LA81_2==OP_QUESTION))
+					if ((LA83_2==IDENTIFIER||(LA83_2>=OP_BRACKET_OPEN && LA83_2<=OP_CARET)||LA83_2==OP_COLON_COLON||LA83_2==OP_DOT||LA83_2==OP_LESS_THAN||LA83_2==OP_QUESTION))
 					{
-						alt81 = 1;
+						alt83 = 1;
 					}
-					else if ((LA81_2==OP_COMMA||LA81_2==OP_PAREN_CLOSE))
+					else if ((LA83_2==OP_COMMA||LA83_2==OP_PAREN_CLOSE))
 					{
-						alt81 = 2;
+						alt83 = 2;
 					}
 					else
 					{
 						if (state.backtracking>0) {state.failed=true; return value;}
-						NoViableAltException nvae = new NoViableAltException("", 81, 2, input, 2);
+						NoViableAltException nvae = new NoViableAltException("", 83, 2, input, 2);
 						DebugRecognitionException(nvae);
 						throw nvae;
 					}
@@ -11141,27 +11254,27 @@ namespace  Truss.Compiler.Parser
 					break;
 				case OP_PAREN_CLOSE:
 					{
-					alt81 = 3;
+					alt83 = 3;
 					}
 					break;
 				default:
 					{
 						if (state.backtracking>0) {state.failed=true; return value;}
-						NoViableAltException nvae = new NoViableAltException("", 81, 0, input, 1);
+						NoViableAltException nvae = new NoViableAltException("", 83, 0, input, 1);
 						DebugRecognitionException(nvae);
 						throw nvae;
 					}
 				}
 
-				} finally { DebugExitDecision(81); }
-				switch (alt81)
+				} finally { DebugExitDecision(83); }
+				switch (alt83)
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1337:13: elpl= explicitLambdaParameterList
 					{
 					DebugLocation(1337, 17);
-					PushFollow(Follow._explicitLambdaParameterList_in_lambdaParameterList9272);
+					PushFollow(Follow._explicitLambdaParameterList_in_lambdaParameterList9285);
 					elpl=explicitLambdaParameterList();
 					PopFollow();
 					if (state.failed) return value;
@@ -11178,7 +11291,7 @@ namespace  Truss.Compiler.Parser
 					// Truss.g:1340:13: ilpl= implicitLambdaParameterList
 					{
 					DebugLocation(1340, 17);
-					PushFollow(Follow._implicitLambdaParameterList_in_lambdaParameterList9312);
+					PushFollow(Follow._implicitLambdaParameterList_in_lambdaParameterList9325);
 					ilpl=implicitLambdaParameterList();
 					PopFollow();
 					if (state.failed) return value;
@@ -11204,10 +11317,10 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				}
-				} finally { DebugExitSubRule(81); }
+				} finally { DebugExitSubRule(83); }
 
 				DebugLocation(1345, 9);
-				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_lambdaParameterList9370); if (state.failed) return value;
+				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_lambdaParameterList9383); if (state.failed) return value;
 
 				}
 				break;
@@ -11216,7 +11329,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1347:9: ilp= implicitLambdaParameter
 				{
 				DebugLocation(1347, 12);
-				PushFollow(Follow._implicitLambdaParameter_in_lambdaParameterList9388);
+				PushFollow(Follow._implicitLambdaParameter_in_lambdaParameterList9401);
 				ilp=implicitLambdaParameter();
 				PopFollow();
 				if (state.failed) return value;
@@ -11276,7 +11389,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1356:9: elp= explicitLambdaParameter ( OP_COMMA elp= explicitLambdaParameter )*
 			{
 			DebugLocation(1356, 12);
-			PushFollow(Follow._explicitLambdaParameter_in_explicitLambdaParameterList9434);
+			PushFollow(Follow._explicitLambdaParameter_in_explicitLambdaParameterList9447);
 			elp=explicitLambdaParameter();
 			PopFollow();
 			if (state.failed) return value;
@@ -11287,30 +11400,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1358, 9);
 			// Truss.g:1358:9: ( OP_COMMA elp= explicitLambdaParameter )*
-			try { DebugEnterSubRule(83);
+			try { DebugEnterSubRule(85);
 			while (true)
 			{
-				int alt83=2;
-				try { DebugEnterDecision(83, false);
-				int LA83_1 = input.LA(1);
+				int alt85=2;
+				try { DebugEnterDecision(85, false);
+				int LA85_1 = input.LA(1);
 
-				if ((LA83_1==OP_COMMA))
+				if ((LA85_1==OP_COMMA))
 				{
-					alt83 = 1;
+					alt85 = 1;
 				}
 
 
-				} finally { DebugExitDecision(83); }
-				switch ( alt83 )
+				} finally { DebugExitDecision(85); }
+				switch ( alt85 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1359:13: OP_COMMA elp= explicitLambdaParameter
 					{
 					DebugLocation(1359, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_explicitLambdaParameterList9468); if (state.failed) return value;
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_explicitLambdaParameterList9481); if (state.failed) return value;
 					DebugLocation(1360, 16);
-					PushFollow(Follow._explicitLambdaParameter_in_explicitLambdaParameterList9484);
+					PushFollow(Follow._explicitLambdaParameter_in_explicitLambdaParameterList9497);
 					elp=explicitLambdaParameter();
 					PopFollow();
 					if (state.failed) return value;
@@ -11324,14 +11437,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop83;
+					goto loop85;
 				}
 			}
 
-			loop83:
+			loop85:
 				;
 
-			} finally { DebugExitSubRule(83); }
+			} finally { DebugExitSubRule(85); }
 
 			DebugLocation(1363, 9);
 			if (state.backtracking == 0)
@@ -11391,24 +11504,24 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(1372, 9);
 			// Truss.g:1372:9: (am= argumentModifier )?
-			int alt84=2;
-			try { DebugEnterSubRule(84);
-			try { DebugEnterDecision(84, false);
-			int LA84_1 = input.LA(1);
+			int alt86=2;
+			try { DebugEnterSubRule(86);
+			try { DebugEnterDecision(86, false);
+			int LA86_1 = input.LA(1);
 
-			if ((LA84_1==KW_OUT||LA84_1==KW_REF))
+			if ((LA86_1==KW_OUT||LA86_1==KW_REF))
 			{
-				alt84 = 1;
+				alt86 = 1;
 			}
-			} finally { DebugExitDecision(84); }
-			switch (alt84)
+			} finally { DebugExitDecision(86); }
+			switch (alt86)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1372:11: am= argumentModifier
 				{
 				DebugLocation(1372, 13);
-				PushFollow(Follow._argumentModifier_in_explicitLambdaParameter9557);
+				PushFollow(Follow._argumentModifier_in_explicitLambdaParameter9570);
 				am=argumentModifier();
 				PopFollow();
 				if (state.failed) return value;
@@ -11422,15 +11535,15 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(84); }
+			} finally { DebugExitSubRule(86); }
 
 			DebugLocation(1372, 54);
-			PushFollow(Follow._typeSyntax_in_explicitLambdaParameter9566);
+			PushFollow(Follow._typeSyntax_in_explicitLambdaParameter9579);
 			t=typeSyntax();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1372, 69);
-			PushFollow(Follow._identifierName_in_explicitLambdaParameter9570);
+			PushFollow(Follow._identifierName_in_explicitLambdaParameter9583);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
@@ -11496,7 +11609,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1389:9: ilp= implicitLambdaParameter ( OP_COMMA ilp= implicitLambdaParameter )*
 			{
 			DebugLocation(1389, 12);
-			PushFollow(Follow._implicitLambdaParameter_in_implicitLambdaParameterList9616);
+			PushFollow(Follow._implicitLambdaParameter_in_implicitLambdaParameterList9629);
 			ilp=implicitLambdaParameter();
 			PopFollow();
 			if (state.failed) return value;
@@ -11507,30 +11620,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1391, 9);
 			// Truss.g:1391:9: ( OP_COMMA ilp= implicitLambdaParameter )*
-			try { DebugEnterSubRule(85);
+			try { DebugEnterSubRule(87);
 			while (true)
 			{
-				int alt85=2;
-				try { DebugEnterDecision(85, false);
-				int LA85_1 = input.LA(1);
+				int alt87=2;
+				try { DebugEnterDecision(87, false);
+				int LA87_1 = input.LA(1);
 
-				if ((LA85_1==OP_COMMA))
+				if ((LA87_1==OP_COMMA))
 				{
-					alt85 = 1;
+					alt87 = 1;
 				}
 
 
-				} finally { DebugExitDecision(85); }
-				switch ( alt85 )
+				} finally { DebugExitDecision(87); }
+				switch ( alt87 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1392:13: OP_COMMA ilp= implicitLambdaParameter
 					{
 					DebugLocation(1392, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_implicitLambdaParameterList9650); if (state.failed) return value;
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_implicitLambdaParameterList9663); if (state.failed) return value;
 					DebugLocation(1393, 16);
-					PushFollow(Follow._implicitLambdaParameter_in_implicitLambdaParameterList9666);
+					PushFollow(Follow._implicitLambdaParameter_in_implicitLambdaParameterList9679);
 					ilp=implicitLambdaParameter();
 					PopFollow();
 					if (state.failed) return value;
@@ -11544,14 +11657,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop85;
+					goto loop87;
 				}
 			}
 
-			loop85:
+			loop87:
 				;
 
-			} finally { DebugExitSubRule(85); }
+			} finally { DebugExitSubRule(87); }
 
 			DebugLocation(1396, 9);
 			if (state.backtracking == 0)
@@ -11607,7 +11720,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1404:9: idn= identifierName
 			{
 			DebugLocation(1404, 12);
-			PushFollow(Follow._identifierName_in_implicitLambdaParameter9737);
+			PushFollow(Follow._identifierName_in_implicitLambdaParameter9750);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
@@ -11674,7 +11787,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1421:9: ce= coalescingExpression ( OP_QUESTION e= expression OP_COLON ce= conditionalExpression )?
 			{
 			DebugLocation(1421, 11);
-			PushFollow(Follow._coalescingExpression_in_conditionalExpression9783);
+			PushFollow(Follow._coalescingExpression_in_conditionalExpression9796);
 			ce=coalescingExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -11685,33 +11798,33 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1423, 9);
 			// Truss.g:1423:9: ( OP_QUESTION e= expression OP_COLON ce= conditionalExpression )?
-			int alt86=2;
-			try { DebugEnterSubRule(86);
-			try { DebugEnterDecision(86, false);
-			int LA86_1 = input.LA(1);
+			int alt88=2;
+			try { DebugEnterSubRule(88);
+			try { DebugEnterDecision(88, false);
+			int LA88_1 = input.LA(1);
 
-			if ((LA86_1==OP_QUESTION))
+			if ((LA88_1==OP_QUESTION))
 			{
-				alt86 = 1;
+				alt88 = 1;
 			}
-			} finally { DebugExitDecision(86); }
-			switch (alt86)
+			} finally { DebugExitDecision(88); }
+			switch (alt88)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1424:13: OP_QUESTION e= expression OP_COLON ce= conditionalExpression
 				{
 				DebugLocation(1424, 13);
-				Match(input,OP_QUESTION,Follow._OP_QUESTION_in_conditionalExpression9817); if (state.failed) return value;
+				Match(input,OP_QUESTION,Follow._OP_QUESTION_in_conditionalExpression9830); if (state.failed) return value;
 				DebugLocation(1424, 26);
-				PushFollow(Follow._expression_in_conditionalExpression9821);
+				PushFollow(Follow._expression_in_conditionalExpression9834);
 				e=expression();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1425, 13);
-				Match(input,OP_COLON,Follow._OP_COLON_in_conditionalExpression9835); if (state.failed) return value;
+				Match(input,OP_COLON,Follow._OP_COLON_in_conditionalExpression9848); if (state.failed) return value;
 				DebugLocation(1425, 24);
-				PushFollow(Follow._conditionalExpression_in_conditionalExpression9839);
+				PushFollow(Follow._conditionalExpression_in_conditionalExpression9852);
 				ce=conditionalExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -11725,7 +11838,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(86); }
+			} finally { DebugExitSubRule(88); }
 
 
 			}
@@ -11776,7 +11889,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1435:9: loe= logicalOrExpression ( OP_QUESTION_QUESTION loe= logicalOrExpression )?
 			{
 			DebugLocation(1435, 12);
-			PushFollow(Follow._logicalOrExpression_in_coalescingExpression9900);
+			PushFollow(Follow._logicalOrExpression_in_coalescingExpression9913);
 			loe=logicalOrExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -11787,26 +11900,26 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1437, 9);
 			// Truss.g:1437:9: ( OP_QUESTION_QUESTION loe= logicalOrExpression )?
-			int alt87=2;
-			try { DebugEnterSubRule(87);
-			try { DebugEnterDecision(87, false);
-			int LA87_1 = input.LA(1);
+			int alt89=2;
+			try { DebugEnterSubRule(89);
+			try { DebugEnterDecision(89, false);
+			int LA89_1 = input.LA(1);
 
-			if ((LA87_1==OP_QUESTION_QUESTION))
+			if ((LA89_1==OP_QUESTION_QUESTION))
 			{
-				alt87 = 1;
+				alt89 = 1;
 			}
-			} finally { DebugExitDecision(87); }
-			switch (alt87)
+			} finally { DebugExitDecision(89); }
+			switch (alt89)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1438:13: OP_QUESTION_QUESTION loe= logicalOrExpression
 				{
 				DebugLocation(1438, 13);
-				Match(input,OP_QUESTION_QUESTION,Follow._OP_QUESTION_QUESTION_in_coalescingExpression9934); if (state.failed) return value;
+				Match(input,OP_QUESTION_QUESTION,Follow._OP_QUESTION_QUESTION_in_coalescingExpression9947); if (state.failed) return value;
 				DebugLocation(1439, 16);
-				PushFollow(Follow._logicalOrExpression_in_coalescingExpression9950);
+				PushFollow(Follow._logicalOrExpression_in_coalescingExpression9963);
 				loe=logicalOrExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -11820,7 +11933,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(87); }
+			} finally { DebugExitSubRule(89); }
 
 
 			}
@@ -11871,7 +11984,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1449:9: lae= logicalAndExpression ( OP_BAR_BAR lae= logicalAndExpression )*
 			{
 			DebugLocation(1449, 12);
-			PushFollow(Follow._logicalAndExpression_in_logicalOrExpression10011);
+			PushFollow(Follow._logicalAndExpression_in_logicalOrExpression10024);
 			lae=logicalAndExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -11882,30 +11995,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1451, 9);
 			// Truss.g:1451:9: ( OP_BAR_BAR lae= logicalAndExpression )*
-			try { DebugEnterSubRule(88);
+			try { DebugEnterSubRule(90);
 			while (true)
 			{
-				int alt88=2;
-				try { DebugEnterDecision(88, false);
-				int LA88_1 = input.LA(1);
+				int alt90=2;
+				try { DebugEnterDecision(90, false);
+				int LA90_1 = input.LA(1);
 
-				if ((LA88_1==OP_BAR_BAR))
+				if ((LA90_1==OP_BAR_BAR))
 				{
-					alt88 = 1;
+					alt90 = 1;
 				}
 
 
-				} finally { DebugExitDecision(88); }
-				switch ( alt88 )
+				} finally { DebugExitDecision(90); }
+				switch ( alt90 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1452:13: OP_BAR_BAR lae= logicalAndExpression
 					{
 					DebugLocation(1452, 13);
-					Match(input,OP_BAR_BAR,Follow._OP_BAR_BAR_in_logicalOrExpression10045); if (state.failed) return value;
+					Match(input,OP_BAR_BAR,Follow._OP_BAR_BAR_in_logicalOrExpression10058); if (state.failed) return value;
 					DebugLocation(1452, 27);
-					PushFollow(Follow._logicalAndExpression_in_logicalOrExpression10049);
+					PushFollow(Follow._logicalAndExpression_in_logicalOrExpression10062);
 					lae=logicalAndExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -11919,14 +12032,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop88;
+					goto loop90;
 				}
 			}
 
-			loop88:
+			loop90:
 				;
 
-			} finally { DebugExitSubRule(88); }
+			} finally { DebugExitSubRule(90); }
 
 
 			}
@@ -11977,7 +12090,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1462:9: boe= bitwiseOrExpression ( OP_AMPERSAND_AMPERSAND boe= bitwiseOrExpression )*
 			{
 			DebugLocation(1462, 12);
-			PushFollow(Follow._bitwiseOrExpression_in_logicalAndExpression10110);
+			PushFollow(Follow._bitwiseOrExpression_in_logicalAndExpression10123);
 			boe=bitwiseOrExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -11988,30 +12101,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1464, 9);
 			// Truss.g:1464:9: ( OP_AMPERSAND_AMPERSAND boe= bitwiseOrExpression )*
-			try { DebugEnterSubRule(89);
+			try { DebugEnterSubRule(91);
 			while (true)
 			{
-				int alt89=2;
-				try { DebugEnterDecision(89, false);
-				int LA89_1 = input.LA(1);
+				int alt91=2;
+				try { DebugEnterDecision(91, false);
+				int LA91_1 = input.LA(1);
 
-				if ((LA89_1==OP_AMPERSAND_AMPERSAND))
+				if ((LA91_1==OP_AMPERSAND_AMPERSAND))
 				{
-					alt89 = 1;
+					alt91 = 1;
 				}
 
 
-				} finally { DebugExitDecision(89); }
-				switch ( alt89 )
+				} finally { DebugExitDecision(91); }
+				switch ( alt91 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1465:13: OP_AMPERSAND_AMPERSAND boe= bitwiseOrExpression
 					{
 					DebugLocation(1465, 13);
-					Match(input,OP_AMPERSAND_AMPERSAND,Follow._OP_AMPERSAND_AMPERSAND_in_logicalAndExpression10144); if (state.failed) return value;
+					Match(input,OP_AMPERSAND_AMPERSAND,Follow._OP_AMPERSAND_AMPERSAND_in_logicalAndExpression10157); if (state.failed) return value;
 					DebugLocation(1465, 39);
-					PushFollow(Follow._bitwiseOrExpression_in_logicalAndExpression10148);
+					PushFollow(Follow._bitwiseOrExpression_in_logicalAndExpression10161);
 					boe=bitwiseOrExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -12025,14 +12138,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop89;
+					goto loop91;
 				}
 			}
 
-			loop89:
+			loop91:
 				;
 
-			} finally { DebugExitSubRule(89); }
+			} finally { DebugExitSubRule(91); }
 
 
 			}
@@ -12083,7 +12196,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1475:9: bxe= bitwiseXorExpression ( OP_BAR bxe= bitwiseXorExpression )*
 			{
 			DebugLocation(1475, 12);
-			PushFollow(Follow._bitwiseXorExpression_in_bitwiseOrExpression10209);
+			PushFollow(Follow._bitwiseXorExpression_in_bitwiseOrExpression10222);
 			bxe=bitwiseXorExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -12094,30 +12207,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1477, 9);
 			// Truss.g:1477:9: ( OP_BAR bxe= bitwiseXorExpression )*
-			try { DebugEnterSubRule(90);
+			try { DebugEnterSubRule(92);
 			while (true)
 			{
-				int alt90=2;
-				try { DebugEnterDecision(90, false);
-				int LA90_1 = input.LA(1);
+				int alt92=2;
+				try { DebugEnterDecision(92, false);
+				int LA92_1 = input.LA(1);
 
-				if ((LA90_1==OP_BAR))
+				if ((LA92_1==OP_BAR))
 				{
-					alt90 = 1;
+					alt92 = 1;
 				}
 
 
-				} finally { DebugExitDecision(90); }
-				switch ( alt90 )
+				} finally { DebugExitDecision(92); }
+				switch ( alt92 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1478:13: OP_BAR bxe= bitwiseXorExpression
 					{
 					DebugLocation(1478, 13);
-					Match(input,OP_BAR,Follow._OP_BAR_in_bitwiseOrExpression10243); if (state.failed) return value;
+					Match(input,OP_BAR,Follow._OP_BAR_in_bitwiseOrExpression10256); if (state.failed) return value;
 					DebugLocation(1478, 23);
-					PushFollow(Follow._bitwiseXorExpression_in_bitwiseOrExpression10247);
+					PushFollow(Follow._bitwiseXorExpression_in_bitwiseOrExpression10260);
 					bxe=bitwiseXorExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -12131,14 +12244,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop90;
+					goto loop92;
 				}
 			}
 
-			loop90:
+			loop92:
 				;
 
-			} finally { DebugExitSubRule(90); }
+			} finally { DebugExitSubRule(92); }
 
 
 			}
@@ -12189,7 +12302,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1488:9: bae= bitwiseAndExpression ( OP_CARET bae= bitwiseAndExpression )*
 			{
 			DebugLocation(1488, 12);
-			PushFollow(Follow._bitwiseAndExpression_in_bitwiseXorExpression10308);
+			PushFollow(Follow._bitwiseAndExpression_in_bitwiseXorExpression10321);
 			bae=bitwiseAndExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -12200,30 +12313,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1490, 9);
 			// Truss.g:1490:9: ( OP_CARET bae= bitwiseAndExpression )*
-			try { DebugEnterSubRule(91);
+			try { DebugEnterSubRule(93);
 			while (true)
 			{
-				int alt91=2;
-				try { DebugEnterDecision(91, false);
-				int LA91_1 = input.LA(1);
+				int alt93=2;
+				try { DebugEnterDecision(93, false);
+				int LA93_1 = input.LA(1);
 
-				if ((LA91_1==OP_CARET))
+				if ((LA93_1==OP_CARET))
 				{
-					alt91 = 1;
+					alt93 = 1;
 				}
 
 
-				} finally { DebugExitDecision(91); }
-				switch ( alt91 )
+				} finally { DebugExitDecision(93); }
+				switch ( alt93 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1491:13: OP_CARET bae= bitwiseAndExpression
 					{
 					DebugLocation(1491, 13);
-					Match(input,OP_CARET,Follow._OP_CARET_in_bitwiseXorExpression10342); if (state.failed) return value;
+					Match(input,OP_CARET,Follow._OP_CARET_in_bitwiseXorExpression10355); if (state.failed) return value;
 					DebugLocation(1491, 25);
-					PushFollow(Follow._bitwiseAndExpression_in_bitwiseXorExpression10346);
+					PushFollow(Follow._bitwiseAndExpression_in_bitwiseXorExpression10359);
 					bae=bitwiseAndExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -12237,14 +12350,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop91;
+					goto loop93;
 				}
 			}
 
-			loop91:
+			loop93:
 				;
 
-			} finally { DebugExitSubRule(91); }
+			} finally { DebugExitSubRule(93); }
 
 
 			}
@@ -12295,7 +12408,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1501:9: ee= equalityExpression ( OP_AMPERSAND ee= equalityExpression )*
 			{
 			DebugLocation(1501, 11);
-			PushFollow(Follow._equalityExpression_in_bitwiseAndExpression10407);
+			PushFollow(Follow._equalityExpression_in_bitwiseAndExpression10420);
 			ee=equalityExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -12306,30 +12419,30 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1503, 9);
 			// Truss.g:1503:9: ( OP_AMPERSAND ee= equalityExpression )*
-			try { DebugEnterSubRule(92);
+			try { DebugEnterSubRule(94);
 			while (true)
 			{
-				int alt92=2;
-				try { DebugEnterDecision(92, false);
-				int LA92_1 = input.LA(1);
+				int alt94=2;
+				try { DebugEnterDecision(94, false);
+				int LA94_1 = input.LA(1);
 
-				if ((LA92_1==OP_AMPERSAND))
+				if ((LA94_1==OP_AMPERSAND))
 				{
-					alt92 = 1;
+					alt94 = 1;
 				}
 
 
-				} finally { DebugExitDecision(92); }
-				switch ( alt92 )
+				} finally { DebugExitDecision(94); }
+				switch ( alt94 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1504:13: OP_AMPERSAND ee= equalityExpression
 					{
 					DebugLocation(1504, 13);
-					Match(input,OP_AMPERSAND,Follow._OP_AMPERSAND_in_bitwiseAndExpression10441); if (state.failed) return value;
+					Match(input,OP_AMPERSAND,Follow._OP_AMPERSAND_in_bitwiseAndExpression10454); if (state.failed) return value;
 					DebugLocation(1504, 28);
-					PushFollow(Follow._equalityExpression_in_bitwiseAndExpression10445);
+					PushFollow(Follow._equalityExpression_in_bitwiseAndExpression10458);
 					ee=equalityExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -12343,14 +12456,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop92;
+					goto loop94;
 				}
 			}
 
-			loop92:
+			loop94:
 				;
 
-			} finally { DebugExitSubRule(92); }
+			} finally { DebugExitSubRule(94); }
 
 
 			}
@@ -12402,7 +12515,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1514:9: rex= relationalExpression (eo= equalityOperator rex= relationalExpression )*
 			{
 			DebugLocation(1514, 12);
-			PushFollow(Follow._relationalExpression_in_equalityExpression10506);
+			PushFollow(Follow._relationalExpression_in_equalityExpression10519);
 			rex=relationalExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -12413,33 +12526,33 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1516, 9);
 			// Truss.g:1516:9: (eo= equalityOperator rex= relationalExpression )*
-			try { DebugEnterSubRule(93);
+			try { DebugEnterSubRule(95);
 			while (true)
 			{
-				int alt93=2;
-				try { DebugEnterDecision(93, false);
-				int LA93_1 = input.LA(1);
+				int alt95=2;
+				try { DebugEnterDecision(95, false);
+				int LA95_1 = input.LA(1);
 
-				if ((LA93_1==OP_EQUALS_EQUALS||LA93_1==OP_EXCLAMATION_EQUALS))
+				if ((LA95_1==OP_EQUALS_EQUALS||LA95_1==OP_EXCLAMATION_EQUALS))
 				{
-					alt93 = 1;
+					alt95 = 1;
 				}
 
 
-				} finally { DebugExitDecision(93); }
-				switch ( alt93 )
+				} finally { DebugExitDecision(95); }
+				switch ( alt95 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1517:13: eo= equalityOperator rex= relationalExpression
 					{
 					DebugLocation(1517, 15);
-					PushFollow(Follow._equalityOperator_in_equalityExpression10542);
+					PushFollow(Follow._equalityOperator_in_equalityExpression10555);
 					eo=equalityOperator();
 					PopFollow();
 					if (state.failed) return value;
 					DebugLocation(1517, 36);
-					PushFollow(Follow._relationalExpression_in_equalityExpression10546);
+					PushFollow(Follow._relationalExpression_in_equalityExpression10559);
 					rex=relationalExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -12453,14 +12566,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop93;
+					goto loop95;
 				}
 			}
 
-			loop93:
+			loop95:
 				;
 
-			} finally { DebugExitSubRule(93); }
+			} finally { DebugExitSubRule(95); }
 
 
 			}
@@ -12502,34 +12615,34 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1523:5: ( OP_EQUALS_EQUALS | OP_EXCLAMATION_EQUALS )
-			int alt94=2;
-			try { DebugEnterDecision(94, false);
-			int LA94_1 = input.LA(1);
+			int alt96=2;
+			try { DebugEnterDecision(96, false);
+			int LA96_1 = input.LA(1);
 
-			if ((LA94_1==OP_EQUALS_EQUALS))
+			if ((LA96_1==OP_EQUALS_EQUALS))
 			{
-				alt94 = 1;
+				alt96 = 1;
 			}
-			else if ((LA94_1==OP_EXCLAMATION_EQUALS))
+			else if ((LA96_1==OP_EXCLAMATION_EQUALS))
 			{
-				alt94 = 2;
+				alt96 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 94, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 96, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(94); }
-			switch (alt94)
+			} finally { DebugExitDecision(96); }
+			switch (alt96)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1523:7: OP_EQUALS_EQUALS
 				{
 				DebugLocation(1523, 7);
-				Match(input,OP_EQUALS_EQUALS,Follow._OP_EQUALS_EQUALS_in_equalityOperator10592); if (state.failed) return value;
+				Match(input,OP_EQUALS_EQUALS,Follow._OP_EQUALS_EQUALS_in_equalityOperator10605); if (state.failed) return value;
 				DebugLocation(1523, 24);
 				if (state.backtracking == 0)
 				{
@@ -12543,7 +12656,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1524:7: OP_EXCLAMATION_EQUALS
 				{
 				DebugLocation(1524, 7);
-				Match(input,OP_EXCLAMATION_EQUALS,Follow._OP_EXCLAMATION_EQUALS_in_equalityOperator10602); if (state.failed) return value;
+				Match(input,OP_EXCLAMATION_EQUALS,Follow._OP_EXCLAMATION_EQUALS_in_equalityOperator10615); if (state.failed) return value;
 				DebugLocation(1524, 29);
 				if (state.backtracking == 0)
 				{
@@ -12603,7 +12716,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1532:9: se= shiftExpression ( (ro= relationalOperator se= shiftExpression |iao= isAsOperator n= name ) )*
 			{
 			DebugLocation(1532, 11);
-			PushFollow(Follow._shiftExpression_in_relationalExpression10640);
+			PushFollow(Follow._shiftExpression_in_relationalExpression10653);
 			se=shiftExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -12614,21 +12727,21 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1534, 9);
 			// Truss.g:1534:9: ( (ro= relationalOperator se= shiftExpression |iao= isAsOperator n= name ) )*
-			try { DebugEnterSubRule(96);
+			try { DebugEnterSubRule(98);
 			while (true)
 			{
-				int alt96=2;
-				try { DebugEnterDecision(96, false);
-				int LA96_1 = input.LA(1);
+				int alt98=2;
+				try { DebugEnterDecision(98, false);
+				int LA98_1 = input.LA(1);
 
-				if ((LA96_1==KW_AS||LA96_1==KW_IS||(LA96_1>=OP_GREATER_THAN && LA96_1<=OP_GREATER_THAN_EQUALS)||(LA96_1>=OP_LESS_THAN && LA96_1<=OP_LESS_THAN_EQUALS)))
+				if ((LA98_1==KW_AS||LA98_1==KW_IS||(LA98_1>=OP_GREATER_THAN && LA98_1<=OP_GREATER_THAN_EQUALS)||(LA98_1>=OP_LESS_THAN && LA98_1<=OP_LESS_THAN_EQUALS)))
 				{
-					alt96 = 1;
+					alt98 = 1;
 				}
 
 
-				} finally { DebugExitDecision(96); }
-				switch ( alt96 )
+				} finally { DebugExitDecision(98); }
+				switch ( alt98 )
 				{
 				case 1:
 					DebugEnterAlt(1);
@@ -12636,40 +12749,40 @@ namespace  Truss.Compiler.Parser
 					{
 					DebugLocation(1535, 13);
 					// Truss.g:1535:13: (ro= relationalOperator se= shiftExpression |iao= isAsOperator n= name )
-					int alt95=2;
-					try { DebugEnterSubRule(95);
-					try { DebugEnterDecision(95, false);
-					int LA95_1 = input.LA(1);
+					int alt97=2;
+					try { DebugEnterSubRule(97);
+					try { DebugEnterDecision(97, false);
+					int LA97_1 = input.LA(1);
 
-					if (((LA95_1>=OP_GREATER_THAN && LA95_1<=OP_GREATER_THAN_EQUALS)||(LA95_1>=OP_LESS_THAN && LA95_1<=OP_LESS_THAN_EQUALS)))
+					if (((LA97_1>=OP_GREATER_THAN && LA97_1<=OP_GREATER_THAN_EQUALS)||(LA97_1>=OP_LESS_THAN && LA97_1<=OP_LESS_THAN_EQUALS)))
 					{
-						alt95 = 1;
+						alt97 = 1;
 					}
-					else if ((LA95_1==KW_AS||LA95_1==KW_IS))
+					else if ((LA97_1==KW_AS||LA97_1==KW_IS))
 					{
-						alt95 = 2;
+						alt97 = 2;
 					}
 					else
 					{
 						if (state.backtracking>0) {state.failed=true; return value;}
-						NoViableAltException nvae = new NoViableAltException("", 95, 0, input, 1);
+						NoViableAltException nvae = new NoViableAltException("", 97, 0, input, 1);
 						DebugRecognitionException(nvae);
 						throw nvae;
 					}
-					} finally { DebugExitDecision(95); }
-					switch (alt95)
+					} finally { DebugExitDecision(97); }
+					switch (alt97)
 					{
 					case 1:
 						DebugEnterAlt(1);
 						// Truss.g:1536:17: ro= relationalOperator se= shiftExpression
 						{
 						DebugLocation(1536, 19);
-						PushFollow(Follow._relationalOperator_in_relationalExpression10694);
+						PushFollow(Follow._relationalOperator_in_relationalExpression10707);
 						ro=relationalOperator();
 						PopFollow();
 						if (state.failed) return value;
 						DebugLocation(1536, 41);
-						PushFollow(Follow._shiftExpression_in_relationalExpression10698);
+						PushFollow(Follow._shiftExpression_in_relationalExpression10711);
 						se=shiftExpression();
 						PopFollow();
 						if (state.failed) return value;
@@ -12686,12 +12799,12 @@ namespace  Truss.Compiler.Parser
 						// Truss.g:1539:17: iao= isAsOperator n= name
 						{
 						DebugLocation(1539, 20);
-						PushFollow(Follow._isAsOperator_in_relationalExpression10750);
+						PushFollow(Follow._isAsOperator_in_relationalExpression10763);
 						iao=isAsOperator();
 						PopFollow();
 						if (state.failed) return value;
 						DebugLocation(1539, 35);
-						PushFollow(Follow._name_in_relationalExpression10754);
+						PushFollow(Follow._name_in_relationalExpression10767);
 						n=name();
 						PopFollow();
 						if (state.failed) return value;
@@ -12705,21 +12818,21 @@ namespace  Truss.Compiler.Parser
 						break;
 
 					}
-					} finally { DebugExitSubRule(95); }
+					} finally { DebugExitSubRule(97); }
 
 
 					}
 					break;
 
 				default:
-					goto loop96;
+					goto loop98;
 				}
 			}
 
-			loop96:
+			loop98:
 				;
 
-			} finally { DebugExitSubRule(96); }
+			} finally { DebugExitSubRule(98); }
 
 
 			}
@@ -12761,48 +12874,48 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1546:5: ( OP_GREATER_THAN | OP_GREATER_THAN_EQUALS | OP_LESS_THAN | OP_LESS_THAN_EQUALS )
-			int alt97=4;
-			try { DebugEnterDecision(97, false);
+			int alt99=4;
+			try { DebugEnterDecision(99, false);
 			switch (input.LA(1))
 			{
 			case OP_GREATER_THAN:
 				{
-				alt97 = 1;
+				alt99 = 1;
 				}
 				break;
 			case OP_GREATER_THAN_EQUALS:
 				{
-				alt97 = 2;
+				alt99 = 2;
 				}
 				break;
 			case OP_LESS_THAN:
 				{
-				alt97 = 3;
+				alt99 = 3;
 				}
 				break;
 			case OP_LESS_THAN_EQUALS:
 				{
-				alt97 = 4;
+				alt99 = 4;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 97, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 99, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(97); }
-			switch (alt97)
+			} finally { DebugExitDecision(99); }
+			switch (alt99)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1546:7: OP_GREATER_THAN
 				{
 				DebugLocation(1546, 7);
-				Match(input,OP_GREATER_THAN,Follow._OP_GREATER_THAN_in_relationalOperator10818); if (state.failed) return value;
+				Match(input,OP_GREATER_THAN,Follow._OP_GREATER_THAN_in_relationalOperator10831); if (state.failed) return value;
 				DebugLocation(1546, 23);
 				if (state.backtracking == 0)
 				{
@@ -12816,7 +12929,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1547:7: OP_GREATER_THAN_EQUALS
 				{
 				DebugLocation(1547, 7);
-				Match(input,OP_GREATER_THAN_EQUALS,Follow._OP_GREATER_THAN_EQUALS_in_relationalOperator10828); if (state.failed) return value;
+				Match(input,OP_GREATER_THAN_EQUALS,Follow._OP_GREATER_THAN_EQUALS_in_relationalOperator10841); if (state.failed) return value;
 				DebugLocation(1547, 30);
 				if (state.backtracking == 0)
 				{
@@ -12830,7 +12943,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1548:7: OP_LESS_THAN
 				{
 				DebugLocation(1548, 7);
-				Match(input,OP_LESS_THAN,Follow._OP_LESS_THAN_in_relationalOperator10838); if (state.failed) return value;
+				Match(input,OP_LESS_THAN,Follow._OP_LESS_THAN_in_relationalOperator10851); if (state.failed) return value;
 				DebugLocation(1548, 20);
 				if (state.backtracking == 0)
 				{
@@ -12844,7 +12957,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1549:7: OP_LESS_THAN_EQUALS
 				{
 				DebugLocation(1549, 7);
-				Match(input,OP_LESS_THAN_EQUALS,Follow._OP_LESS_THAN_EQUALS_in_relationalOperator10848); if (state.failed) return value;
+				Match(input,OP_LESS_THAN_EQUALS,Follow._OP_LESS_THAN_EQUALS_in_relationalOperator10861); if (state.failed) return value;
 				DebugLocation(1549, 27);
 				if (state.backtracking == 0)
 				{
@@ -12892,34 +13005,34 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1553:5: ( KW_IS | KW_AS )
-			int alt98=2;
-			try { DebugEnterDecision(98, false);
-			int LA98_1 = input.LA(1);
+			int alt100=2;
+			try { DebugEnterDecision(100, false);
+			int LA100_1 = input.LA(1);
 
-			if ((LA98_1==KW_IS))
+			if ((LA100_1==KW_IS))
 			{
-				alt98 = 1;
+				alt100 = 1;
 			}
-			else if ((LA98_1==KW_AS))
+			else if ((LA100_1==KW_AS))
 			{
-				alt98 = 2;
+				alt100 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 98, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 100, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(98); }
-			switch (alt98)
+			} finally { DebugExitDecision(100); }
+			switch (alt100)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1553:7: KW_IS
 				{
 				DebugLocation(1553, 7);
-				Match(input,KW_IS,Follow._KW_IS_in_isAsOperator10871); if (state.failed) return value;
+				Match(input,KW_IS,Follow._KW_IS_in_isAsOperator10884); if (state.failed) return value;
 				DebugLocation(1553, 13);
 				if (state.backtracking == 0)
 				{
@@ -12933,7 +13046,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1554:7: KW_AS
 				{
 				DebugLocation(1554, 7);
-				Match(input,KW_AS,Follow._KW_AS_in_isAsOperator10881); if (state.failed) return value;
+				Match(input,KW_AS,Follow._KW_AS_in_isAsOperator10894); if (state.failed) return value;
 				DebugLocation(1554, 13);
 				if (state.backtracking == 0)
 				{
@@ -12991,7 +13104,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1562:9: ae= additiveExpression (so= shiftOperator ae= additiveExpression )*
 			{
 			DebugLocation(1562, 11);
-			PushFollow(Follow._additiveExpression_in_shiftExpression10919);
+			PushFollow(Follow._additiveExpression_in_shiftExpression10932);
 			ae=additiveExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -13002,33 +13115,33 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1564, 9);
 			// Truss.g:1564:9: (so= shiftOperator ae= additiveExpression )*
-			try { DebugEnterSubRule(99);
+			try { DebugEnterSubRule(101);
 			while (true)
 			{
-				int alt99=2;
-				try { DebugEnterDecision(99, false);
-				int LA99_1 = input.LA(1);
+				int alt101=2;
+				try { DebugEnterDecision(101, false);
+				int LA101_1 = input.LA(1);
 
-				if ((LA99_1==OP_GREATER_THAN_GREATER_THAN_FIRST||LA99_1==OP_LESS_THAN_LESS_THAN))
+				if ((LA101_1==OP_GREATER_THAN_GREATER_THAN_FIRST||LA101_1==OP_LESS_THAN_LESS_THAN))
 				{
-					alt99 = 1;
+					alt101 = 1;
 				}
 
 
-				} finally { DebugExitDecision(99); }
-				switch ( alt99 )
+				} finally { DebugExitDecision(101); }
+				switch ( alt101 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1565:13: so= shiftOperator ae= additiveExpression
 					{
 					DebugLocation(1565, 15);
-					PushFollow(Follow._shiftOperator_in_shiftExpression10955);
+					PushFollow(Follow._shiftOperator_in_shiftExpression10968);
 					so=shiftOperator();
 					PopFollow();
 					if (state.failed) return value;
 					DebugLocation(1565, 32);
-					PushFollow(Follow._additiveExpression_in_shiftExpression10959);
+					PushFollow(Follow._additiveExpression_in_shiftExpression10972);
 					ae=additiveExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -13042,14 +13155,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop99;
+					goto loop101;
 				}
 			}
 
-			loop99:
+			loop101:
 				;
 
-			} finally { DebugExitSubRule(99); }
+			} finally { DebugExitSubRule(101); }
 
 
 			}
@@ -13091,34 +13204,34 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1571:5: ( op_GREATER_THAN_GREATER_THAN | OP_LESS_THAN_LESS_THAN )
-			int alt100=2;
-			try { DebugEnterDecision(100, false);
-			int LA100_1 = input.LA(1);
+			int alt102=2;
+			try { DebugEnterDecision(102, false);
+			int LA102_1 = input.LA(1);
 
-			if ((LA100_1==OP_GREATER_THAN_GREATER_THAN_FIRST))
+			if ((LA102_1==OP_GREATER_THAN_GREATER_THAN_FIRST))
 			{
-				alt100 = 1;
+				alt102 = 1;
 			}
-			else if ((LA100_1==OP_LESS_THAN_LESS_THAN))
+			else if ((LA102_1==OP_LESS_THAN_LESS_THAN))
 			{
-				alt100 = 2;
+				alt102 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 100, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 102, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(100); }
-			switch (alt100)
+			} finally { DebugExitDecision(102); }
+			switch (alt102)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1571:7: op_GREATER_THAN_GREATER_THAN
 				{
 				DebugLocation(1571, 7);
-				PushFollow(Follow._op_GREATER_THAN_GREATER_THAN_in_shiftOperator11005);
+				PushFollow(Follow._op_GREATER_THAN_GREATER_THAN_in_shiftOperator11018);
 				op_GREATER_THAN_GREATER_THAN();
 				PopFollow();
 				if (state.failed) return value;
@@ -13135,7 +13248,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1572:7: OP_LESS_THAN_LESS_THAN
 				{
 				DebugLocation(1572, 7);
-				Match(input,OP_LESS_THAN_LESS_THAN,Follow._OP_LESS_THAN_LESS_THAN_in_shiftOperator11015); if (state.failed) return value;
+				Match(input,OP_LESS_THAN_LESS_THAN,Follow._OP_LESS_THAN_LESS_THAN_in_shiftOperator11028); if (state.failed) return value;
 				DebugLocation(1572, 30);
 				if (state.backtracking == 0)
 				{
@@ -13193,7 +13306,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1580:9: me= multiplicativeExpression (ao= additiveOperator me= multiplicativeExpression )*
 			{
 			DebugLocation(1580, 11);
-			PushFollow(Follow._multiplicativeExpression_in_additiveExpression11053);
+			PushFollow(Follow._multiplicativeExpression_in_additiveExpression11066);
 			me=multiplicativeExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -13204,33 +13317,33 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1582, 9);
 			// Truss.g:1582:9: (ao= additiveOperator me= multiplicativeExpression )*
-			try { DebugEnterSubRule(101);
+			try { DebugEnterSubRule(103);
 			while (true)
 			{
-				int alt101=2;
-				try { DebugEnterDecision(101, false);
-				int LA101_1 = input.LA(1);
+				int alt103=2;
+				try { DebugEnterDecision(103, false);
+				int LA103_1 = input.LA(1);
 
-				if ((LA101_1==OP_MINUS||LA101_1==OP_PLUS))
+				if ((LA103_1==OP_MINUS||LA103_1==OP_PLUS))
 				{
-					alt101 = 1;
+					alt103 = 1;
 				}
 
 
-				} finally { DebugExitDecision(101); }
-				switch ( alt101 )
+				} finally { DebugExitDecision(103); }
+				switch ( alt103 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1583:13: ao= additiveOperator me= multiplicativeExpression
 					{
 					DebugLocation(1583, 15);
-					PushFollow(Follow._additiveOperator_in_additiveExpression11089);
+					PushFollow(Follow._additiveOperator_in_additiveExpression11102);
 					ao=additiveOperator();
 					PopFollow();
 					if (state.failed) return value;
 					DebugLocation(1583, 35);
-					PushFollow(Follow._multiplicativeExpression_in_additiveExpression11093);
+					PushFollow(Follow._multiplicativeExpression_in_additiveExpression11106);
 					me=multiplicativeExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -13244,14 +13357,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop101;
+					goto loop103;
 				}
 			}
 
-			loop101:
+			loop103:
 				;
 
-			} finally { DebugExitSubRule(101); }
+			} finally { DebugExitSubRule(103); }
 
 
 			}
@@ -13293,34 +13406,34 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1589:5: ( OP_PLUS | OP_MINUS )
-			int alt102=2;
-			try { DebugEnterDecision(102, false);
-			int LA102_1 = input.LA(1);
+			int alt104=2;
+			try { DebugEnterDecision(104, false);
+			int LA104_1 = input.LA(1);
 
-			if ((LA102_1==OP_PLUS))
+			if ((LA104_1==OP_PLUS))
 			{
-				alt102 = 1;
+				alt104 = 1;
 			}
-			else if ((LA102_1==OP_MINUS))
+			else if ((LA104_1==OP_MINUS))
 			{
-				alt102 = 2;
+				alt104 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 102, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 104, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(102); }
-			switch (alt102)
+			} finally { DebugExitDecision(104); }
+			switch (alt104)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1589:7: OP_PLUS
 				{
 				DebugLocation(1589, 7);
-				Match(input,OP_PLUS,Follow._OP_PLUS_in_additiveOperator11139); if (state.failed) return value;
+				Match(input,OP_PLUS,Follow._OP_PLUS_in_additiveOperator11152); if (state.failed) return value;
 				DebugLocation(1589, 15);
 				if (state.backtracking == 0)
 				{
@@ -13334,7 +13447,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1590:7: OP_MINUS
 				{
 				DebugLocation(1590, 7);
-				Match(input,OP_MINUS,Follow._OP_MINUS_in_additiveOperator11149); if (state.failed) return value;
+				Match(input,OP_MINUS,Follow._OP_MINUS_in_additiveOperator11162); if (state.failed) return value;
 				DebugLocation(1590, 16);
 				if (state.backtracking == 0)
 				{
@@ -13393,7 +13506,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1598:9: eu= unaryExpression (mo= multiplicativeOperator ue= unaryExpression )*
 			{
 			DebugLocation(1598, 11);
-			PushFollow(Follow._unaryExpression_in_multiplicativeExpression11187);
+			PushFollow(Follow._unaryExpression_in_multiplicativeExpression11200);
 			eu=unaryExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -13404,33 +13517,33 @@ namespace  Truss.Compiler.Parser
 			}
 			DebugLocation(1600, 9);
 			// Truss.g:1600:9: (mo= multiplicativeOperator ue= unaryExpression )*
-			try { DebugEnterSubRule(103);
+			try { DebugEnterSubRule(105);
 			while (true)
 			{
-				int alt103=2;
-				try { DebugEnterDecision(103, false);
-				int LA103_1 = input.LA(1);
+				int alt105=2;
+				try { DebugEnterDecision(105, false);
+				int LA105_1 = input.LA(1);
 
-				if ((LA103_1==OP_ASTERISK||LA103_1==OP_PERCENT||LA103_1==OP_SLASH))
+				if ((LA105_1==OP_ASTERISK||LA105_1==OP_PERCENT||LA105_1==OP_SLASH))
 				{
-					alt103 = 1;
+					alt105 = 1;
 				}
 
 
-				} finally { DebugExitDecision(103); }
-				switch ( alt103 )
+				} finally { DebugExitDecision(105); }
+				switch ( alt105 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1601:13: mo= multiplicativeOperator ue= unaryExpression
 					{
 					DebugLocation(1601, 15);
-					PushFollow(Follow._multiplicativeOperator_in_multiplicativeExpression11223);
+					PushFollow(Follow._multiplicativeOperator_in_multiplicativeExpression11236);
 					mo=multiplicativeOperator();
 					PopFollow();
 					if (state.failed) return value;
 					DebugLocation(1601, 41);
-					PushFollow(Follow._unaryExpression_in_multiplicativeExpression11227);
+					PushFollow(Follow._unaryExpression_in_multiplicativeExpression11240);
 					ue=unaryExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -13444,14 +13557,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop103;
+					goto loop105;
 				}
 			}
 
-			loop103:
+			loop105:
 				;
 
-			} finally { DebugExitSubRule(103); }
+			} finally { DebugExitSubRule(105); }
 
 
 			}
@@ -13493,43 +13606,43 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1607:5: ( OP_ASTERISK | OP_SLASH | OP_PERCENT )
-			int alt104=3;
-			try { DebugEnterDecision(104, false);
+			int alt106=3;
+			try { DebugEnterDecision(106, false);
 			switch (input.LA(1))
 			{
 			case OP_ASTERISK:
 				{
-				alt104 = 1;
+				alt106 = 1;
 				}
 				break;
 			case OP_SLASH:
 				{
-				alt104 = 2;
+				alt106 = 2;
 				}
 				break;
 			case OP_PERCENT:
 				{
-				alt104 = 3;
+				alt106 = 3;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 104, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 106, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(104); }
-			switch (alt104)
+			} finally { DebugExitDecision(106); }
+			switch (alt106)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1607:7: OP_ASTERISK
 				{
 				DebugLocation(1607, 7);
-				Match(input,OP_ASTERISK,Follow._OP_ASTERISK_in_multiplicativeOperator11273); if (state.failed) return value;
+				Match(input,OP_ASTERISK,Follow._OP_ASTERISK_in_multiplicativeOperator11286); if (state.failed) return value;
 				DebugLocation(1607, 19);
 				if (state.backtracking == 0)
 				{
@@ -13543,7 +13656,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1608:7: OP_SLASH
 				{
 				DebugLocation(1608, 7);
-				Match(input,OP_SLASH,Follow._OP_SLASH_in_multiplicativeOperator11283); if (state.failed) return value;
+				Match(input,OP_SLASH,Follow._OP_SLASH_in_multiplicativeOperator11296); if (state.failed) return value;
 				DebugLocation(1608, 16);
 				if (state.backtracking == 0)
 				{
@@ -13557,7 +13670,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1609:7: OP_PERCENT
 				{
 				DebugLocation(1609, 7);
-				Match(input,OP_PERCENT,Follow._OP_PERCENT_in_multiplicativeOperator11293); if (state.failed) return value;
+				Match(input,OP_PERCENT,Follow._OP_PERCENT_in_multiplicativeOperator11306); if (state.failed) return value;
 				DebugLocation(1609, 18);
 				if (state.backtracking == 0)
 				{
@@ -13616,8 +13729,8 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1616:5: (puo1= prefixUnaryOperator ue= unaryExpression | ( OP_PAREN_OPEN castType OP_PAREN_CLOSE expression )=>ce= castExpression |ae= awaitExpression |p= primaryExpression (s= selector )* (puo2= postfixUnaryOperator )? )
-			int alt107=4;
-			try { DebugEnterDecision(107, false);
+			int alt109=4;
+			try { DebugEnterDecision(109, false);
 			switch (input.LA(1))
 			{
 			case OP_AMPERSAND:
@@ -13628,25 +13741,25 @@ namespace  Truss.Compiler.Parser
 			case OP_PLUS_PLUS:
 			case OP_TILDE:
 				{
-				alt107 = 1;
+				alt109 = 1;
 				}
 				break;
 			case OP_PAREN_OPEN:
 				{
-				int LA107_2 = input.LA(2);
+				int LA109_2 = input.LA(2);
 
 				if ((EvaluatePredicate(synpred12_Truss_fragment)))
 				{
-					alt107 = 2;
+					alt109 = 2;
 				}
 				else if ((true))
 				{
-					alt107 = 4;
+					alt109 = 4;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 107, 8, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 109, 8, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -13654,7 +13767,7 @@ namespace  Truss.Compiler.Parser
 				break;
 			case KW_AWAIT:
 				{
-				alt107 = 3;
+				alt109 = 3;
 				}
 				break;
 			case CHAR:
@@ -13673,32 +13786,32 @@ namespace  Truss.Compiler.Parser
 			case KW_TYPEOF:
 			case STRING:
 				{
-				alt107 = 4;
+				alt109 = 4;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 107, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 109, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(107); }
-			switch (alt107)
+			} finally { DebugExitDecision(109); }
+			switch (alt109)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1617:9: puo1= prefixUnaryOperator ue= unaryExpression
 				{
 				DebugLocation(1617, 13);
-				PushFollow(Follow._prefixUnaryOperator_in_unaryExpression11331);
+				PushFollow(Follow._prefixUnaryOperator_in_unaryExpression11344);
 				puo1=prefixUnaryOperator();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1617, 36);
-				PushFollow(Follow._unaryExpression_in_unaryExpression11335);
+				PushFollow(Follow._unaryExpression_in_unaryExpression11348);
 				ue=unaryExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -13715,7 +13828,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1620:9: ( OP_PAREN_OPEN castType OP_PAREN_CLOSE expression )=>ce= castExpression
 				{
 				DebugLocation(1621, 11);
-				PushFollow(Follow._castExpression_in_unaryExpression11384);
+				PushFollow(Follow._castExpression_in_unaryExpression11397);
 				ce=castExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -13732,7 +13845,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1624:9: ae= awaitExpression
 				{
 				DebugLocation(1624, 11);
-				PushFollow(Follow._awaitExpression_in_unaryExpression11412);
+				PushFollow(Follow._awaitExpression_in_unaryExpression11425);
 				ae=awaitExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -13749,7 +13862,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1627:9: p= primaryExpression (s= selector )* (puo2= postfixUnaryOperator )?
 				{
 				DebugLocation(1627, 10);
-				PushFollow(Follow._primaryExpression_in_unaryExpression11440);
+				PushFollow(Follow._primaryExpression_in_unaryExpression11453);
 				p=primaryExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -13760,28 +13873,28 @@ namespace  Truss.Compiler.Parser
 				}
 				DebugLocation(1629, 9);
 				// Truss.g:1629:9: (s= selector )*
-				try { DebugEnterSubRule(105);
+				try { DebugEnterSubRule(107);
 				while (true)
 				{
-					int alt105=2;
-					try { DebugEnterDecision(105, false);
-					int LA105_1 = input.LA(1);
+					int alt107=2;
+					try { DebugEnterDecision(107, false);
+					int LA107_1 = input.LA(1);
 
-					if ((LA105_1==OP_BRACKET_OPEN||LA105_1==OP_DOT||LA105_1==OP_PAREN_OPEN))
+					if ((LA107_1==OP_BRACKET_OPEN||LA107_1==OP_DOT||LA107_1==OP_PAREN_OPEN))
 					{
-						alt105 = 1;
+						alt107 = 1;
 					}
 
 
-					} finally { DebugExitDecision(105); }
-					switch ( alt105 )
+					} finally { DebugExitDecision(107); }
+					switch ( alt107 )
 					{
 					case 1:
 						DebugEnterAlt(1);
 						// Truss.g:1630:13: s= selector
 						{
 						DebugLocation(1630, 14);
-						PushFollow(Follow._selector_in_unaryExpression11476);
+						PushFollow(Follow._selector_in_unaryExpression11489);
 						s=selector();
 						PopFollow();
 						if (state.failed) return value;
@@ -13795,35 +13908,35 @@ namespace  Truss.Compiler.Parser
 						break;
 
 					default:
-						goto loop105;
+						goto loop107;
 					}
 				}
 
-				loop105:
+				loop107:
 					;
 
-				} finally { DebugExitSubRule(105); }
+				} finally { DebugExitSubRule(107); }
 
 				DebugLocation(1633, 9);
 				// Truss.g:1633:9: (puo2= postfixUnaryOperator )?
-				int alt106=2;
-				try { DebugEnterSubRule(106);
-				try { DebugEnterDecision(106, false);
-				int LA106_1 = input.LA(1);
+				int alt108=2;
+				try { DebugEnterSubRule(108);
+				try { DebugEnterDecision(108, false);
+				int LA108_1 = input.LA(1);
 
-				if ((LA106_1==OP_MINUS_MINUS||LA106_1==OP_PLUS_PLUS))
+				if ((LA108_1==OP_MINUS_MINUS||LA108_1==OP_PLUS_PLUS))
 				{
-					alt106 = 1;
+					alt108 = 1;
 				}
-				} finally { DebugExitDecision(106); }
-				switch (alt106)
+				} finally { DebugExitDecision(108); }
+				switch (alt108)
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1634:13: puo2= postfixUnaryOperator
 					{
 					DebugLocation(1634, 17);
-					PushFollow(Follow._postfixUnaryOperator_in_unaryExpression11527);
+					PushFollow(Follow._postfixUnaryOperator_in_unaryExpression11540);
 					puo2=postfixUnaryOperator();
 					PopFollow();
 					if (state.failed) return value;
@@ -13837,7 +13950,7 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				}
-				} finally { DebugExitSubRule(106); }
+				} finally { DebugExitSubRule(108); }
 
 
 				}
@@ -13890,9 +14003,9 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1644:9: KW_AWAIT ue= unaryExpression
 			{
 			DebugLocation(1644, 9);
-			Match(input,KW_AWAIT,Follow._KW_AWAIT_in_awaitExpression11586); if (state.failed) return value;
+			Match(input,KW_AWAIT,Follow._KW_AWAIT_in_awaitExpression11599); if (state.failed) return value;
 			DebugLocation(1645, 11);
-			PushFollow(Follow._unaryExpression_in_awaitExpression11598);
+			PushFollow(Follow._unaryExpression_in_awaitExpression11611);
 			ue=unaryExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -13941,63 +14054,63 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1650:5: ( OP_AMPERSAND | OP_EXCLAMATION | OP_MINUS | OP_MINUS_MINUS | OP_PLUS | OP_PLUS_PLUS | OP_TILDE )
-			int alt108=7;
-			try { DebugEnterDecision(108, false);
+			int alt110=7;
+			try { DebugEnterDecision(110, false);
 			switch (input.LA(1))
 			{
 			case OP_AMPERSAND:
 				{
-				alt108 = 1;
+				alt110 = 1;
 				}
 				break;
 			case OP_EXCLAMATION:
 				{
-				alt108 = 2;
+				alt110 = 2;
 				}
 				break;
 			case OP_MINUS:
 				{
-				alt108 = 3;
+				alt110 = 3;
 				}
 				break;
 			case OP_MINUS_MINUS:
 				{
-				alt108 = 4;
+				alt110 = 4;
 				}
 				break;
 			case OP_PLUS:
 				{
-				alt108 = 5;
+				alt110 = 5;
 				}
 				break;
 			case OP_PLUS_PLUS:
 				{
-				alt108 = 6;
+				alt110 = 6;
 				}
 				break;
 			case OP_TILDE:
 				{
-				alt108 = 7;
+				alt110 = 7;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 108, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 110, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(108); }
-			switch (alt108)
+			} finally { DebugExitDecision(110); }
+			switch (alt110)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1650:7: OP_AMPERSAND
 				{
 				DebugLocation(1650, 7);
-				Match(input,OP_AMPERSAND,Follow._OP_AMPERSAND_in_prefixUnaryOperator11629); if (state.failed) return value;
+				Match(input,OP_AMPERSAND,Follow._OP_AMPERSAND_in_prefixUnaryOperator11642); if (state.failed) return value;
 				DebugLocation(1650, 20);
 				if (state.backtracking == 0)
 				{
@@ -14011,7 +14124,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1651:7: OP_EXCLAMATION
 				{
 				DebugLocation(1651, 7);
-				Match(input,OP_EXCLAMATION,Follow._OP_EXCLAMATION_in_prefixUnaryOperator11639); if (state.failed) return value;
+				Match(input,OP_EXCLAMATION,Follow._OP_EXCLAMATION_in_prefixUnaryOperator11652); if (state.failed) return value;
 				DebugLocation(1651, 22);
 				if (state.backtracking == 0)
 				{
@@ -14025,7 +14138,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1652:7: OP_MINUS
 				{
 				DebugLocation(1652, 7);
-				Match(input,OP_MINUS,Follow._OP_MINUS_in_prefixUnaryOperator11649); if (state.failed) return value;
+				Match(input,OP_MINUS,Follow._OP_MINUS_in_prefixUnaryOperator11662); if (state.failed) return value;
 				DebugLocation(1652, 16);
 				if (state.backtracking == 0)
 				{
@@ -14039,7 +14152,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1653:7: OP_MINUS_MINUS
 				{
 				DebugLocation(1653, 7);
-				Match(input,OP_MINUS_MINUS,Follow._OP_MINUS_MINUS_in_prefixUnaryOperator11659); if (state.failed) return value;
+				Match(input,OP_MINUS_MINUS,Follow._OP_MINUS_MINUS_in_prefixUnaryOperator11672); if (state.failed) return value;
 				DebugLocation(1653, 22);
 				if (state.backtracking == 0)
 				{
@@ -14053,7 +14166,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1654:7: OP_PLUS
 				{
 				DebugLocation(1654, 7);
-				Match(input,OP_PLUS,Follow._OP_PLUS_in_prefixUnaryOperator11669); if (state.failed) return value;
+				Match(input,OP_PLUS,Follow._OP_PLUS_in_prefixUnaryOperator11682); if (state.failed) return value;
 				DebugLocation(1654, 15);
 				if (state.backtracking == 0)
 				{
@@ -14067,7 +14180,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1655:7: OP_PLUS_PLUS
 				{
 				DebugLocation(1655, 7);
-				Match(input,OP_PLUS_PLUS,Follow._OP_PLUS_PLUS_in_prefixUnaryOperator11679); if (state.failed) return value;
+				Match(input,OP_PLUS_PLUS,Follow._OP_PLUS_PLUS_in_prefixUnaryOperator11692); if (state.failed) return value;
 				DebugLocation(1655, 20);
 				if (state.backtracking == 0)
 				{
@@ -14081,7 +14194,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1656:7: OP_TILDE
 				{
 				DebugLocation(1656, 7);
-				Match(input,OP_TILDE,Follow._OP_TILDE_in_prefixUnaryOperator11689); if (state.failed) return value;
+				Match(input,OP_TILDE,Follow._OP_TILDE_in_prefixUnaryOperator11702); if (state.failed) return value;
 				DebugLocation(1656, 16);
 				if (state.backtracking == 0)
 				{
@@ -14129,34 +14242,34 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1660:5: ( OP_MINUS_MINUS | OP_PLUS_PLUS )
-			int alt109=2;
-			try { DebugEnterDecision(109, false);
-			int LA109_1 = input.LA(1);
+			int alt111=2;
+			try { DebugEnterDecision(111, false);
+			int LA111_1 = input.LA(1);
 
-			if ((LA109_1==OP_MINUS_MINUS))
+			if ((LA111_1==OP_MINUS_MINUS))
 			{
-				alt109 = 1;
+				alt111 = 1;
 			}
-			else if ((LA109_1==OP_PLUS_PLUS))
+			else if ((LA111_1==OP_PLUS_PLUS))
 			{
-				alt109 = 2;
+				alt111 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 109, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 111, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(109); }
-			switch (alt109)
+			} finally { DebugExitDecision(111); }
+			switch (alt111)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1660:7: OP_MINUS_MINUS
 				{
 				DebugLocation(1660, 7);
-				Match(input,OP_MINUS_MINUS,Follow._OP_MINUS_MINUS_in_postfixUnaryOperator11712); if (state.failed) return value;
+				Match(input,OP_MINUS_MINUS,Follow._OP_MINUS_MINUS_in_postfixUnaryOperator11725); if (state.failed) return value;
 				DebugLocation(1660, 22);
 				if (state.backtracking == 0)
 				{
@@ -14170,7 +14283,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1661:7: OP_PLUS_PLUS
 				{
 				DebugLocation(1661, 7);
-				Match(input,OP_PLUS_PLUS,Follow._OP_PLUS_PLUS_in_postfixUnaryOperator11722); if (state.failed) return value;
+				Match(input,OP_PLUS_PLUS,Follow._OP_PLUS_PLUS_in_postfixUnaryOperator11735); if (state.failed) return value;
 				DebugLocation(1661, 20);
 				if (state.backtracking == 0)
 				{
@@ -14228,16 +14341,16 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1669:9: OP_PAREN_OPEN ct= castType OP_PAREN_CLOSE ue= unaryExpression
 			{
 			DebugLocation(1669, 9);
-			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_castExpression11758); if (state.failed) return value;
+			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_castExpression11771); if (state.failed) return value;
 			DebugLocation(1669, 25);
-			PushFollow(Follow._castType_in_castExpression11762);
+			PushFollow(Follow._castType_in_castExpression11775);
 			ct=castType();
 			PopFollow();
 			if (state.failed) return value;
 			DebugLocation(1669, 35);
-			Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_castExpression11764); if (state.failed) return value;
+			Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_castExpression11777); if (state.failed) return value;
 			DebugLocation(1670, 11);
-			PushFollow(Follow._unaryExpression_in_castExpression11776);
+			PushFollow(Follow._unaryExpression_in_castExpression11789);
 			ue=unaryExpression();
 			PopFollow();
 			if (state.failed) return value;
@@ -14298,28 +14411,28 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(1680, 9);
 			// Truss.g:1680:9: (pm= argumentModifier )*
-			try { DebugEnterSubRule(110);
+			try { DebugEnterSubRule(112);
 			while (true)
 			{
-				int alt110=2;
-				try { DebugEnterDecision(110, false);
-				int LA110_1 = input.LA(1);
+				int alt112=2;
+				try { DebugEnterDecision(112, false);
+				int LA112_1 = input.LA(1);
 
-				if ((LA110_1==KW_OUT||LA110_1==KW_REF))
+				if ((LA112_1==KW_OUT||LA112_1==KW_REF))
 				{
-					alt110 = 1;
+					alt112 = 1;
 				}
 
 
-				} finally { DebugExitDecision(110); }
-				switch ( alt110 )
+				} finally { DebugExitDecision(112); }
+				switch ( alt112 )
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1681:13: pm= argumentModifier
 					{
 					DebugLocation(1681, 15);
-					PushFollow(Follow._argumentModifier_in_argument11836);
+					PushFollow(Follow._argumentModifier_in_argument11849);
 					pm=argumentModifier();
 					PopFollow();
 					if (state.failed) return value;
@@ -14333,17 +14446,17 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop110;
+					goto loop112;
 				}
 			}
 
-			loop110:
+			loop112:
 				;
 
-			} finally { DebugExitSubRule(110); }
+			} finally { DebugExitSubRule(112); }
 
 			DebugLocation(1684, 12);
-			PushFollow(Follow._expressionOrDeclaration_in_argument11873);
+			PushFollow(Follow._expressionOrDeclaration_in_argument11886);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
@@ -14403,18 +14516,18 @@ namespace  Truss.Compiler.Parser
 		try
 		{
 			// Truss.g:1692:5: ( KW_THIS | KW_BASE |e2= literal | OP_PAREN_OPEN e4= expressionOrDeclaration OP_PAREN_CLOSE | KW_TYPEOF OP_PAREN_OPEN e5= typeSyntax OP_PAREN_CLOSE | KW_SIZEOF OP_PAREN_OPEN e6= typeSyntax OP_PAREN_CLOSE | KW_DEFAULT OP_PAREN_OPEN e7= typeSyntax OP_PAREN_CLOSE |e12= identifierName |e13= primaryNewExpression )
-			int alt111=9;
-			try { DebugEnterDecision(111, false);
+			int alt113=9;
+			try { DebugEnterDecision(113, false);
 			switch (input.LA(1))
 			{
 			case KW_THIS:
 				{
-				alt111 = 1;
+				alt113 = 1;
 				}
 				break;
 			case KW_BASE:
 				{
-				alt111 = 2;
+				alt113 = 2;
 				}
 				break;
 			case CHAR:
@@ -14426,57 +14539,57 @@ namespace  Truss.Compiler.Parser
 			case KW_TRUE:
 			case STRING:
 				{
-				alt111 = 3;
+				alt113 = 3;
 				}
 				break;
 			case OP_PAREN_OPEN:
 				{
-				alt111 = 4;
+				alt113 = 4;
 				}
 				break;
 			case KW_TYPEOF:
 				{
-				alt111 = 5;
+				alt113 = 5;
 				}
 				break;
 			case KW_SIZEOF:
 				{
-				alt111 = 6;
+				alt113 = 6;
 				}
 				break;
 			case KW_DEFAULT:
 				{
-				alt111 = 7;
+				alt113 = 7;
 				}
 				break;
 			case IDENTIFIER:
 				{
-				alt111 = 8;
+				alt113 = 8;
 				}
 				break;
 			case KW_NEW:
 				{
-				alt111 = 9;
+				alt113 = 9;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 111, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 113, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(111); }
-			switch (alt111)
+			} finally { DebugExitDecision(113); }
+			switch (alt113)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1692:7: KW_THIS
 				{
 				DebugLocation(1692, 7);
-				Match(input,KW_THIS,Follow._KW_THIS_in_primaryExpression11909); if (state.failed) return value;
+				Match(input,KW_THIS,Follow._KW_THIS_in_primaryExpression11922); if (state.failed) return value;
 				DebugLocation(1692, 15);
 				if (state.backtracking == 0)
 				{
@@ -14490,7 +14603,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1693:7: KW_BASE
 				{
 				DebugLocation(1693, 7);
-				Match(input,KW_BASE,Follow._KW_BASE_in_primaryExpression11919); if (state.failed) return value;
+				Match(input,KW_BASE,Follow._KW_BASE_in_primaryExpression11932); if (state.failed) return value;
 				DebugLocation(1693, 15);
 				if (state.backtracking == 0)
 				{
@@ -14504,7 +14617,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1694:7: e2= literal
 				{
 				DebugLocation(1694, 9);
-				PushFollow(Follow._literal_in_primaryExpression11931);
+				PushFollow(Follow._literal_in_primaryExpression11944);
 				e2=literal();
 				PopFollow();
 				if (state.failed) return value;
@@ -14521,14 +14634,14 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1695:7: OP_PAREN_OPEN e4= expressionOrDeclaration OP_PAREN_CLOSE
 				{
 				DebugLocation(1695, 7);
-				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_primaryExpression11941); if (state.failed) return value;
+				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_primaryExpression11954); if (state.failed) return value;
 				DebugLocation(1695, 23);
-				PushFollow(Follow._expressionOrDeclaration_in_primaryExpression11945);
+				PushFollow(Follow._expressionOrDeclaration_in_primaryExpression11958);
 				e4=expressionOrDeclaration();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1695, 48);
-				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_primaryExpression11947); if (state.failed) return value;
+				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_primaryExpression11960); if (state.failed) return value;
 				DebugLocation(1695, 63);
 				if (state.backtracking == 0)
 				{
@@ -14542,16 +14655,16 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1696:7: KW_TYPEOF OP_PAREN_OPEN e5= typeSyntax OP_PAREN_CLOSE
 				{
 				DebugLocation(1696, 7);
-				Match(input,KW_TYPEOF,Follow._KW_TYPEOF_in_primaryExpression11957); if (state.failed) return value;
+				Match(input,KW_TYPEOF,Follow._KW_TYPEOF_in_primaryExpression11970); if (state.failed) return value;
 				DebugLocation(1696, 17);
-				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_primaryExpression11959); if (state.failed) return value;
+				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_primaryExpression11972); if (state.failed) return value;
 				DebugLocation(1696, 33);
-				PushFollow(Follow._typeSyntax_in_primaryExpression11963);
+				PushFollow(Follow._typeSyntax_in_primaryExpression11976);
 				e5=typeSyntax();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1696, 45);
-				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_primaryExpression11965); if (state.failed) return value;
+				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_primaryExpression11978); if (state.failed) return value;
 				DebugLocation(1696, 60);
 				if (state.backtracking == 0)
 				{
@@ -14565,16 +14678,16 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1697:7: KW_SIZEOF OP_PAREN_OPEN e6= typeSyntax OP_PAREN_CLOSE
 				{
 				DebugLocation(1697, 7);
-				Match(input,KW_SIZEOF,Follow._KW_SIZEOF_in_primaryExpression11975); if (state.failed) return value;
+				Match(input,KW_SIZEOF,Follow._KW_SIZEOF_in_primaryExpression11988); if (state.failed) return value;
 				DebugLocation(1697, 17);
-				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_primaryExpression11977); if (state.failed) return value;
+				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_primaryExpression11990); if (state.failed) return value;
 				DebugLocation(1697, 33);
-				PushFollow(Follow._typeSyntax_in_primaryExpression11981);
+				PushFollow(Follow._typeSyntax_in_primaryExpression11994);
 				e6=typeSyntax();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1697, 45);
-				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_primaryExpression11983); if (state.failed) return value;
+				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_primaryExpression11996); if (state.failed) return value;
 				DebugLocation(1697, 60);
 				if (state.backtracking == 0)
 				{
@@ -14588,16 +14701,16 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1698:7: KW_DEFAULT OP_PAREN_OPEN e7= typeSyntax OP_PAREN_CLOSE
 				{
 				DebugLocation(1698, 7);
-				Match(input,KW_DEFAULT,Follow._KW_DEFAULT_in_primaryExpression11993); if (state.failed) return value;
+				Match(input,KW_DEFAULT,Follow._KW_DEFAULT_in_primaryExpression12006); if (state.failed) return value;
 				DebugLocation(1698, 18);
-				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_primaryExpression11995); if (state.failed) return value;
+				Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_primaryExpression12008); if (state.failed) return value;
 				DebugLocation(1698, 34);
-				PushFollow(Follow._typeSyntax_in_primaryExpression11999);
+				PushFollow(Follow._typeSyntax_in_primaryExpression12012);
 				e7=typeSyntax();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1698, 46);
-				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_primaryExpression12001); if (state.failed) return value;
+				Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_primaryExpression12014); if (state.failed) return value;
 				DebugLocation(1698, 61);
 				if (state.backtracking == 0)
 				{
@@ -14611,7 +14724,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1699:7: e12= identifierName
 				{
 				DebugLocation(1699, 10);
-				PushFollow(Follow._identifierName_in_primaryExpression12013);
+				PushFollow(Follow._identifierName_in_primaryExpression12026);
 				e12=identifierName();
 				PopFollow();
 				if (state.failed) return value;
@@ -14628,7 +14741,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1700:7: e13= primaryNewExpression
 				{
 				DebugLocation(1700, 10);
-				PushFollow(Follow._primaryNewExpression_in_primaryExpression12025);
+				PushFollow(Follow._primaryNewExpression_in_primaryExpression12038);
 				e13=primaryNewExpression();
 				PopFollow();
 				if (state.failed) return value;
@@ -14708,12 +14821,12 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1713:9: KW_NEW (t= typeSyntax (oce= objectCreationExpression |ooci= objectOrCollectionInitializer |ace= arrayCreationExpression ) |aoi= anonymousObjectInitializer |rs= rankSpecifier ai= arrayInitializer )
 			{
 			DebugLocation(1713, 9);
-			Match(input,KW_NEW,Follow._KW_NEW_in_primaryNewExpression12065); if (state.failed) return value;
+			Match(input,KW_NEW,Follow._KW_NEW_in_primaryNewExpression12078); if (state.failed) return value;
 			DebugLocation(1714, 9);
 			// Truss.g:1714:9: (t= typeSyntax (oce= objectCreationExpression |ooci= objectOrCollectionInitializer |ace= arrayCreationExpression ) |aoi= anonymousObjectInitializer |rs= rankSpecifier ai= arrayInitializer )
-			int alt113=3;
-			try { DebugEnterSubRule(113);
-			try { DebugEnterDecision(113, false);
+			int alt115=3;
+			try { DebugEnterSubRule(115);
+			try { DebugEnterDecision(115, false);
 			switch (input.LA(1))
 			{
 			case IDENTIFIER:
@@ -14735,37 +14848,37 @@ namespace  Truss.Compiler.Parser
 			case KW_VAR:
 			case KW_VOID:
 				{
-				alt113 = 1;
+				alt115 = 1;
 				}
 				break;
 			case OP_BRACE_OPEN:
 				{
-				alt113 = 2;
+				alt115 = 2;
 				}
 				break;
 			case OP_BRACKET_OPEN:
 				{
-				alt113 = 3;
+				alt115 = 3;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 113, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 115, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(113); }
-			switch (alt113)
+			} finally { DebugExitDecision(115); }
+			switch (alt115)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:1715:13: t= typeSyntax (oce= objectCreationExpression |ooci= objectOrCollectionInitializer |ace= arrayCreationExpression )
 				{
 				DebugLocation(1715, 14);
-				PushFollow(Follow._typeSyntax_in_primaryNewExpression12091);
+				PushFollow(Follow._typeSyntax_in_primaryNewExpression12104);
 				t=typeSyntax();
 				PopFollow();
 				if (state.failed) return value;
@@ -14776,44 +14889,44 @@ namespace  Truss.Compiler.Parser
 				}
 				DebugLocation(1717, 13);
 				// Truss.g:1717:13: (oce= objectCreationExpression |ooci= objectOrCollectionInitializer |ace= arrayCreationExpression )
-				int alt112=3;
-				try { DebugEnterSubRule(112);
-				try { DebugEnterDecision(112, false);
+				int alt114=3;
+				try { DebugEnterSubRule(114);
+				try { DebugEnterDecision(114, false);
 				switch (input.LA(1))
 				{
 				case OP_PAREN_OPEN:
 					{
-					alt112 = 1;
+					alt114 = 1;
 					}
 					break;
 				case OP_BRACE_OPEN:
 					{
-					alt112 = 2;
+					alt114 = 2;
 					}
 					break;
 				case OP_BRACKET_OPEN:
 					{
-					alt112 = 3;
+					alt114 = 3;
 					}
 					break;
 				default:
 					{
 						if (state.backtracking>0) {state.failed=true; return value;}
-						NoViableAltException nvae = new NoViableAltException("", 112, 0, input, 1);
+						NoViableAltException nvae = new NoViableAltException("", 114, 0, input, 1);
 						DebugRecognitionException(nvae);
 						throw nvae;
 					}
 				}
 
-				} finally { DebugExitDecision(112); }
-				switch (alt112)
+				} finally { DebugExitDecision(114); }
+				switch (alt114)
 				{
 				case 1:
 					DebugEnterAlt(1);
 					// Truss.g:1718:17: oce= objectCreationExpression
 					{
 					DebugLocation(1718, 20);
-					PushFollow(Follow._objectCreationExpression_in_primaryNewExpression12139);
+					PushFollow(Follow._objectCreationExpression_in_primaryNewExpression12152);
 					oce=objectCreationExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -14830,7 +14943,7 @@ namespace  Truss.Compiler.Parser
 					// Truss.g:1721:17: ooci= objectOrCollectionInitializer
 					{
 					DebugLocation(1721, 21);
-					PushFollow(Follow._objectOrCollectionInitializer_in_primaryNewExpression12191);
+					PushFollow(Follow._objectOrCollectionInitializer_in_primaryNewExpression12204);
 					ooci=objectOrCollectionInitializer();
 					PopFollow();
 					if (state.failed) return value;
@@ -14862,7 +14975,7 @@ namespace  Truss.Compiler.Parser
 					// Truss.g:1739:17: ace= arrayCreationExpression
 					{
 					DebugLocation(1739, 20);
-					PushFollow(Follow._arrayCreationExpression_in_primaryNewExpression12243);
+					PushFollow(Follow._arrayCreationExpression_in_primaryNewExpression12256);
 					ace=arrayCreationExpression();
 					PopFollow();
 					if (state.failed) return value;
@@ -14876,7 +14989,7 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				}
-				} finally { DebugExitSubRule(112); }
+				} finally { DebugExitSubRule(114); }
 
 
 				}
@@ -14886,7 +14999,7 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1743:13: aoi= anonymousObjectInitializer
 				{
 				DebugLocation(1743, 16);
-				PushFollow(Follow._anonymousObjectInitializer_in_primaryNewExpression12301);
+				PushFollow(Follow._anonymousObjectInitializer_in_primaryNewExpression12314);
 				aoi=anonymousObjectInitializer();
 				PopFollow();
 				if (state.failed) return value;
@@ -14903,12 +15016,12 @@ namespace  Truss.Compiler.Parser
 				// Truss.g:1746:13: rs= rankSpecifier ai= arrayInitializer
 				{
 				DebugLocation(1746, 15);
-				PushFollow(Follow._rankSpecifier_in_primaryNewExpression12341);
+				PushFollow(Follow._rankSpecifier_in_primaryNewExpression12354);
 				rs=rankSpecifier();
 				PopFollow();
 				if (state.failed) return value;
 				DebugLocation(1747, 15);
-				PushFollow(Follow._arrayInitializer_in_primaryNewExpression12357);
+				PushFollow(Follow._arrayInitializer_in_primaryNewExpression12370);
 				ai=arrayInitializer();
 				PopFollow();
 				if (state.failed) return value;
@@ -14928,7 +15041,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(113); }
+			} finally { DebugExitSubRule(115); }
 
 
 			}
@@ -14956,7 +15069,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_arrayCreationExpression();
 	partial void LeaveRule_arrayCreationExpression();
 	// $ANTLR start "arrayCreationExpression"
-	// Truss.g:1758:1: arrayCreationExpression returns [ExpressionSyntax value] : obo= OP_BRACKET_OPEN eod= expressionOrDeclaration OP_BRACKET_CLOSE (rsl= rankSpecifierList )? ( ( OP_BRACE_OPEN )=>ai= arrayInitializer )? ;
+	// Truss.g:1758:1: arrayCreationExpression returns [ExpressionSyntax value] : obo= OP_BRACKET_OPEN eod= expressionOrDeclaration OP_BRACKET_CLOSE ( ( OP_CARET )=> OP_CARET )? (rsl= rankSpecifierList )? ( ( OP_BRACE_OPEN )=>ai= arrayInitializer )? ;
 	[GrammarRule("arrayCreationExpression")]
 	private ExpressionSyntax arrayCreationExpression()
 	{
@@ -14973,58 +15086,96 @@ namespace  Truss.Compiler.Parser
 
 
 		    var builder = new ImmutableArray<ArrayRankSpecifierSyntax>.Builder();
+		    bool isTracked = false;
 
 		try { DebugEnterRule(GrammarFileName, "arrayCreationExpression");
 		DebugLocation(1758, 4);
 		try
 		{
-			// Truss.g:1762:5: (obo= OP_BRACKET_OPEN eod= expressionOrDeclaration OP_BRACKET_CLOSE (rsl= rankSpecifierList )? ( ( OP_BRACE_OPEN )=>ai= arrayInitializer )? )
+			// Truss.g:1763:5: (obo= OP_BRACKET_OPEN eod= expressionOrDeclaration OP_BRACKET_CLOSE ( ( OP_CARET )=> OP_CARET )? (rsl= rankSpecifierList )? ( ( OP_BRACE_OPEN )=>ai= arrayInitializer )? )
 			DebugEnterAlt(1);
-			// Truss.g:1763:9: obo= OP_BRACKET_OPEN eod= expressionOrDeclaration OP_BRACKET_CLOSE (rsl= rankSpecifierList )? ( ( OP_BRACE_OPEN )=>ai= arrayInitializer )?
+			// Truss.g:1764:9: obo= OP_BRACKET_OPEN eod= expressionOrDeclaration OP_BRACKET_CLOSE ( ( OP_CARET )=> OP_CARET )? (rsl= rankSpecifierList )? ( ( OP_BRACE_OPEN )=>ai= arrayInitializer )?
 			{
-			DebugLocation(1763, 12);
-			obo=(IToken)Match(input,OP_BRACKET_OPEN,Follow._OP_BRACKET_OPEN_in_arrayCreationExpression12417); if (state.failed) return value;
-			DebugLocation(1763, 32);
-			PushFollow(Follow._expressionOrDeclaration_in_arrayCreationExpression12421);
+			DebugLocation(1764, 12);
+			obo=(IToken)Match(input,OP_BRACKET_OPEN,Follow._OP_BRACKET_OPEN_in_arrayCreationExpression12430); if (state.failed) return value;
+			DebugLocation(1765, 12);
+			PushFollow(Follow._expressionOrDeclaration_in_arrayCreationExpression12442);
 			eod=expressionOrDeclaration();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(1763, 57);
-			Match(input,OP_BRACKET_CLOSE,Follow._OP_BRACKET_CLOSE_in_arrayCreationExpression12423); if (state.failed) return value;
-			DebugLocation(1764, 9);
-			if (state.backtracking == 0)
-			{
-				 builder.Add(new ArrayRankSpecifierSyntax(eod, Span(obo))); 
-			}
-			DebugLocation(1765, 9);
-			// Truss.g:1765:9: (rsl= rankSpecifierList )?
-			int alt114=2;
-			try { DebugEnterSubRule(114);
-			try { DebugEnterDecision(114, false);
-			int LA114_1 = input.LA(1);
+			DebugLocation(1766, 9);
+			Match(input,OP_BRACKET_CLOSE,Follow._OP_BRACKET_CLOSE_in_arrayCreationExpression12452); if (state.failed) return value;
+			DebugLocation(1767, 9);
+			// Truss.g:1767:9: ( ( OP_CARET )=> OP_CARET )?
+			int alt116=2;
+			try { DebugEnterSubRule(116);
+			try { DebugEnterDecision(116, false);
+			int LA116_1 = input.LA(1);
 
-			if ((LA114_1==OP_BRACKET_OPEN))
+			if ((LA116_1==OP_CARET))
 			{
-				int LA114_2 = input.LA(2);
+				int LA116_2 = input.LA(2);
 
-				if ((LA114_2==OP_BRACKET_CLOSE))
+				if ((EvaluatePredicate(synpred13_Truss_fragment)))
 				{
-					alt114 = 1;
+					alt116 = 1;
 				}
 			}
-			} finally { DebugExitDecision(114); }
-			switch (alt114)
+			} finally { DebugExitDecision(116); }
+			switch (alt116)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1766:13: rsl= rankSpecifierList
+				// Truss.g:1768:13: ( OP_CARET )=> OP_CARET
 				{
-				DebugLocation(1766, 16);
-				PushFollow(Follow._rankSpecifierList_in_arrayCreationExpression12459);
+				DebugLocation(1769, 13);
+				Match(input,OP_CARET,Follow._OP_CARET_in_arrayCreationExpression12495); if (state.failed) return value;
+				DebugLocation(1770, 13);
+				if (state.backtracking == 0)
+				{
+					 isTracked = true; 
+				}
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(116); }
+
+			DebugLocation(1772, 9);
+			if (state.backtracking == 0)
+			{
+				 builder.Add(new ArrayRankSpecifierSyntax(eod, isTracked, Span(obo))); 
+			}
+			DebugLocation(1773, 9);
+			// Truss.g:1773:9: (rsl= rankSpecifierList )?
+			int alt117=2;
+			try { DebugEnterSubRule(117);
+			try { DebugEnterDecision(117, false);
+			int LA117_1 = input.LA(1);
+
+			if ((LA117_1==OP_BRACKET_OPEN))
+			{
+				int LA117_2 = input.LA(2);
+
+				if ((LA117_2==OP_BRACKET_CLOSE))
+				{
+					alt117 = 1;
+				}
+			}
+			} finally { DebugExitDecision(117); }
+			switch (alt117)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// Truss.g:1774:13: rsl= rankSpecifierList
+				{
+				DebugLocation(1774, 16);
+				PushFollow(Follow._rankSpecifierList_in_arrayCreationExpression12556);
 				rsl=rankSpecifierList();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1767, 13);
+				DebugLocation(1775, 13);
 				if (state.backtracking == 0)
 				{
 					 builder.AddRange(rsl); 
@@ -15034,33 +15185,33 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(114); }
+			} finally { DebugExitSubRule(117); }
 
-			DebugLocation(1769, 9);
-			// Truss.g:1769:9: ( ( OP_BRACE_OPEN )=>ai= arrayInitializer )?
-			int alt115=2;
-			try { DebugEnterSubRule(115);
-			try { DebugEnterDecision(115, false);
-			int LA115_1 = input.LA(1);
+			DebugLocation(1777, 9);
+			// Truss.g:1777:9: ( ( OP_BRACE_OPEN )=>ai= arrayInitializer )?
+			int alt118=2;
+			try { DebugEnterSubRule(118);
+			try { DebugEnterDecision(118, false);
+			int LA118_1 = input.LA(1);
 
-			if ((LA115_1==OP_BRACE_OPEN))
+			if ((LA118_1==OP_BRACE_OPEN))
 			{
-				int LA115_2 = input.LA(2);
+				int LA118_2 = input.LA(2);
 
-				if ((EvaluatePredicate(synpred13_Truss_fragment)))
+				if ((EvaluatePredicate(synpred14_Truss_fragment)))
 				{
-					alt115 = 1;
+					alt118 = 1;
 				}
 			}
-			} finally { DebugExitDecision(115); }
-			switch (alt115)
+			} finally { DebugExitDecision(118); }
+			switch (alt118)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1770:13: ( OP_BRACE_OPEN )=>ai= arrayInitializer
+				// Truss.g:1778:13: ( OP_BRACE_OPEN )=>ai= arrayInitializer
 				{
-				DebugLocation(1771, 15);
-				PushFollow(Follow._arrayInitializer_in_arrayCreationExpression12529);
+				DebugLocation(1779, 15);
+				PushFollow(Follow._arrayInitializer_in_arrayCreationExpression12626);
 				ai=arrayInitializer();
 				PopFollow();
 				if (state.failed) return value;
@@ -15069,9 +15220,9 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(115); }
+			} finally { DebugExitSubRule(118); }
 
-			DebugLocation(1773, 9);
+			DebugLocation(1781, 9);
 			if (state.backtracking == 0)
 			{
 
@@ -15101,7 +15252,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("arrayCreationExpression", 112);
 			LeaveRule_arrayCreationExpression();
 		}
-		DebugLocation(1784, 4);
+		DebugLocation(1792, 4);
 		} finally { DebugExitRule(GrammarFileName, "arrayCreationExpression"); }
 		return value;
 
@@ -15111,7 +15262,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_objectCreationExpression();
 	partial void LeaveRule_objectCreationExpression();
 	// $ANTLR start "objectCreationExpression"
-	// Truss.g:1786:1: objectCreationExpression returns [ExpressionSyntax value] : al= argumentList ( ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer )? ;
+	// Truss.g:1794:1: objectCreationExpression returns [ExpressionSyntax value] : al= argumentList ( ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer )? ;
 	[GrammarRule("objectCreationExpression")]
 	private ExpressionSyntax objectCreationExpression()
 	{
@@ -15125,43 +15276,43 @@ namespace  Truss.Compiler.Parser
 		InitializerExpressionSyntax ooci = default(InitializerExpressionSyntax);
 
 		try { DebugEnterRule(GrammarFileName, "objectCreationExpression");
-		DebugLocation(1786, 4);
+		DebugLocation(1794, 4);
 		try
 		{
-			// Truss.g:1787:5: (al= argumentList ( ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer )? )
+			// Truss.g:1795:5: (al= argumentList ( ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer )? )
 			DebugEnterAlt(1);
-			// Truss.g:1788:9: al= argumentList ( ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer )?
+			// Truss.g:1796:9: al= argumentList ( ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer )?
 			{
-			DebugLocation(1788, 11);
-			PushFollow(Follow._argumentList_in_objectCreationExpression12581);
+			DebugLocation(1796, 11);
+			PushFollow(Follow._argumentList_in_objectCreationExpression12678);
 			al=argumentList();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(1789, 9);
-			// Truss.g:1789:9: ( ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer )?
-			int alt116=2;
-			try { DebugEnterSubRule(116);
-			try { DebugEnterDecision(116, false);
-			int LA116_1 = input.LA(1);
+			DebugLocation(1797, 9);
+			// Truss.g:1797:9: ( ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer )?
+			int alt119=2;
+			try { DebugEnterSubRule(119);
+			try { DebugEnterDecision(119, false);
+			int LA119_1 = input.LA(1);
 
-			if ((LA116_1==OP_BRACE_OPEN))
+			if ((LA119_1==OP_BRACE_OPEN))
 			{
-				int LA116_2 = input.LA(2);
+				int LA119_2 = input.LA(2);
 
-				if ((EvaluatePredicate(synpred14_Truss_fragment)))
+				if ((EvaluatePredicate(synpred15_Truss_fragment)))
 				{
-					alt116 = 1;
+					alt119 = 1;
 				}
 			}
-			} finally { DebugExitDecision(116); }
-			switch (alt116)
+			} finally { DebugExitDecision(119); }
+			switch (alt119)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1790:13: ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer
+				// Truss.g:1798:13: ( OP_BRACE_OPEN )=>ooci= objectOrCollectionInitializer
 				{
-				DebugLocation(1791, 17);
-				PushFollow(Follow._objectOrCollectionInitializer_in_objectCreationExpression12626);
+				DebugLocation(1799, 17);
+				PushFollow(Follow._objectOrCollectionInitializer_in_objectCreationExpression12723);
 				ooci=objectOrCollectionInitializer();
 				PopFollow();
 				if (state.failed) return value;
@@ -15170,9 +15321,9 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(116); }
+			} finally { DebugExitSubRule(119); }
 
-			DebugLocation(1793, 9);
+			DebugLocation(1801, 9);
 			if (state.backtracking == 0)
 			{
 
@@ -15199,7 +15350,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("objectCreationExpression", 113);
 			LeaveRule_objectCreationExpression();
 		}
-		DebugLocation(1801, 4);
+		DebugLocation(1809, 4);
 		} finally { DebugExitRule(GrammarFileName, "objectCreationExpression"); }
 		return value;
 
@@ -15209,7 +15360,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_arrayInitializer();
 	partial void LeaveRule_arrayInitializer();
 	// $ANTLR start "arrayInitializer"
-	// Truss.g:1803:1: arrayInitializer returns [InitializerExpressionSyntax value] : OP_BRACE_OPEN (vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )? )? OP_BRACE_CLOSE ;
+	// Truss.g:1811:1: arrayInitializer returns [InitializerExpressionSyntax value] : OP_BRACE_OPEN (vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )? )? OP_BRACE_CLOSE ;
 	[GrammarRule("arrayInitializer")]
 	private InitializerExpressionSyntax arrayInitializer()
 	{
@@ -15226,80 +15377,80 @@ namespace  Truss.Compiler.Parser
 		    var builder = new ImmutableArray<ExpressionSyntax>.Builder();
 
 		try { DebugEnterRule(GrammarFileName, "arrayInitializer");
-		DebugLocation(1803, 4);
+		DebugLocation(1811, 4);
 		try
 		{
-			// Truss.g:1808:5: ( OP_BRACE_OPEN (vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )? )? OP_BRACE_CLOSE )
+			// Truss.g:1816:5: ( OP_BRACE_OPEN (vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )? )? OP_BRACE_CLOSE )
 			DebugEnterAlt(1);
-			// Truss.g:1809:9: OP_BRACE_OPEN (vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )? )? OP_BRACE_CLOSE
+			// Truss.g:1817:9: OP_BRACE_OPEN (vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )? )? OP_BRACE_CLOSE
 			{
-			DebugLocation(1809, 9);
-			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_arrayInitializer12681); if (state.failed) return value;
-			DebugLocation(1810, 9);
-			// Truss.g:1810:9: (vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )? )?
-			int alt119=2;
-			try { DebugEnterSubRule(119);
-			try { DebugEnterDecision(119, false);
-			int LA119_1 = input.LA(1);
+			DebugLocation(1817, 9);
+			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_arrayInitializer12778); if (state.failed) return value;
+			DebugLocation(1818, 9);
+			// Truss.g:1818:9: (vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )? )?
+			int alt122=2;
+			try { DebugEnterSubRule(122);
+			try { DebugEnterDecision(122, false);
+			int LA122_1 = input.LA(1);
 
-			if ((LA119_1==CHAR||LA119_1==FLOAT||(LA119_1>=HEX_INTEGER && LA119_1<=IDENTIFIER)||LA119_1==INTEGER||(LA119_1>=KW_ASYNC && LA119_1<=KW_BOOL)||LA119_1==KW_BYTE||LA119_1==KW_CHAR||(LA119_1>=KW_DECIMAL && LA119_1<=KW_DEFAULT)||LA119_1==KW_DOUBLE||LA119_1==KW_FALSE||LA119_1==KW_FLOAT||LA119_1==KW_INT||LA119_1==KW_LONG||(LA119_1>=KW_NEW && LA119_1<=KW_OBJECT)||LA119_1==KW_SBYTE||(LA119_1>=KW_SHORT && LA119_1<=KW_SIZEOF)||LA119_1==KW_STRING||LA119_1==KW_THIS||LA119_1==KW_TRUE||(LA119_1>=KW_TYPEOF && LA119_1<=KW_USHORT)||LA119_1==KW_VAR||LA119_1==KW_VOID||LA119_1==OP_AMPERSAND||LA119_1==OP_BRACE_OPEN||LA119_1==OP_EXCLAMATION||LA119_1==OP_MINUS||LA119_1==OP_MINUS_MINUS||LA119_1==OP_PAREN_OPEN||LA119_1==OP_PLUS||LA119_1==OP_PLUS_PLUS||(LA119_1>=OP_TILDE && LA119_1<=STRING)))
+			if ((LA122_1==CHAR||LA122_1==FLOAT||(LA122_1>=HEX_INTEGER && LA122_1<=IDENTIFIER)||LA122_1==INTEGER||(LA122_1>=KW_ASYNC && LA122_1<=KW_BOOL)||LA122_1==KW_BYTE||LA122_1==KW_CHAR||(LA122_1>=KW_DECIMAL && LA122_1<=KW_DEFAULT)||LA122_1==KW_DOUBLE||LA122_1==KW_FALSE||LA122_1==KW_FLOAT||LA122_1==KW_INT||LA122_1==KW_LONG||(LA122_1>=KW_NEW && LA122_1<=KW_OBJECT)||LA122_1==KW_SBYTE||(LA122_1>=KW_SHORT && LA122_1<=KW_SIZEOF)||LA122_1==KW_STRING||LA122_1==KW_THIS||LA122_1==KW_TRUE||(LA122_1>=KW_TYPEOF && LA122_1<=KW_USHORT)||LA122_1==KW_VAR||LA122_1==KW_VOID||LA122_1==OP_AMPERSAND||LA122_1==OP_BRACE_OPEN||LA122_1==OP_EXCLAMATION||LA122_1==OP_MINUS||LA122_1==OP_MINUS_MINUS||LA122_1==OP_PAREN_OPEN||LA122_1==OP_PLUS||LA122_1==OP_PLUS_PLUS||(LA122_1>=OP_TILDE && LA122_1<=STRING)))
 			{
-				alt119 = 1;
+				alt122 = 1;
 			}
-			} finally { DebugExitDecision(119); }
-			switch (alt119)
+			} finally { DebugExitDecision(122); }
+			switch (alt122)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1811:13: vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )?
+				// Truss.g:1819:13: vi= variableInitializer ( OP_COMMA vi= variableInitializer )* ( OP_COMMA )?
 				{
-				DebugLocation(1811, 15);
-				PushFollow(Follow._variableInitializer_in_arrayInitializer12707);
+				DebugLocation(1819, 15);
+				PushFollow(Follow._variableInitializer_in_arrayInitializer12804);
 				vi=variableInitializer();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1812, 13);
+				DebugLocation(1820, 13);
 				if (state.backtracking == 0)
 				{
 					 builder.Add(vi); 
 				}
-				DebugLocation(1813, 13);
-				// Truss.g:1813:13: ( OP_COMMA vi= variableInitializer )*
-				try { DebugEnterSubRule(117);
+				DebugLocation(1821, 13);
+				// Truss.g:1821:13: ( OP_COMMA vi= variableInitializer )*
+				try { DebugEnterSubRule(120);
 				while (true)
 				{
-					int alt117=2;
-					try { DebugEnterDecision(117, false);
-					int LA117_1 = input.LA(1);
+					int alt120=2;
+					try { DebugEnterDecision(120, false);
+					int LA120_1 = input.LA(1);
 
-					if ((LA117_1==OP_COMMA))
+					if ((LA120_1==OP_COMMA))
 					{
-						int LA117_2 = input.LA(2);
+						int LA120_2 = input.LA(2);
 
-						if ((LA117_2==CHAR||LA117_2==FLOAT||(LA117_2>=HEX_INTEGER && LA117_2<=IDENTIFIER)||LA117_2==INTEGER||(LA117_2>=KW_ASYNC && LA117_2<=KW_BOOL)||LA117_2==KW_BYTE||LA117_2==KW_CHAR||(LA117_2>=KW_DECIMAL && LA117_2<=KW_DEFAULT)||LA117_2==KW_DOUBLE||LA117_2==KW_FALSE||LA117_2==KW_FLOAT||LA117_2==KW_INT||LA117_2==KW_LONG||(LA117_2>=KW_NEW && LA117_2<=KW_OBJECT)||LA117_2==KW_SBYTE||(LA117_2>=KW_SHORT && LA117_2<=KW_SIZEOF)||LA117_2==KW_STRING||LA117_2==KW_THIS||LA117_2==KW_TRUE||(LA117_2>=KW_TYPEOF && LA117_2<=KW_USHORT)||LA117_2==KW_VAR||LA117_2==KW_VOID||LA117_2==OP_AMPERSAND||LA117_2==OP_BRACE_OPEN||LA117_2==OP_EXCLAMATION||LA117_2==OP_MINUS||LA117_2==OP_MINUS_MINUS||LA117_2==OP_PAREN_OPEN||LA117_2==OP_PLUS||LA117_2==OP_PLUS_PLUS||(LA117_2>=OP_TILDE && LA117_2<=STRING)))
+						if ((LA120_2==CHAR||LA120_2==FLOAT||(LA120_2>=HEX_INTEGER && LA120_2<=IDENTIFIER)||LA120_2==INTEGER||(LA120_2>=KW_ASYNC && LA120_2<=KW_BOOL)||LA120_2==KW_BYTE||LA120_2==KW_CHAR||(LA120_2>=KW_DECIMAL && LA120_2<=KW_DEFAULT)||LA120_2==KW_DOUBLE||LA120_2==KW_FALSE||LA120_2==KW_FLOAT||LA120_2==KW_INT||LA120_2==KW_LONG||(LA120_2>=KW_NEW && LA120_2<=KW_OBJECT)||LA120_2==KW_SBYTE||(LA120_2>=KW_SHORT && LA120_2<=KW_SIZEOF)||LA120_2==KW_STRING||LA120_2==KW_THIS||LA120_2==KW_TRUE||(LA120_2>=KW_TYPEOF && LA120_2<=KW_USHORT)||LA120_2==KW_VAR||LA120_2==KW_VOID||LA120_2==OP_AMPERSAND||LA120_2==OP_BRACE_OPEN||LA120_2==OP_EXCLAMATION||LA120_2==OP_MINUS||LA120_2==OP_MINUS_MINUS||LA120_2==OP_PAREN_OPEN||LA120_2==OP_PLUS||LA120_2==OP_PLUS_PLUS||(LA120_2>=OP_TILDE && LA120_2<=STRING)))
 						{
-							alt117 = 1;
+							alt120 = 1;
 						}
 
 
 					}
 
 
-					} finally { DebugExitDecision(117); }
-					switch ( alt117 )
+					} finally { DebugExitDecision(120); }
+					switch ( alt120 )
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// Truss.g:1814:17: OP_COMMA vi= variableInitializer
+						// Truss.g:1822:17: OP_COMMA vi= variableInitializer
 						{
-						DebugLocation(1814, 17);
-						Match(input,OP_COMMA,Follow._OP_COMMA_in_arrayInitializer12753); if (state.failed) return value;
-						DebugLocation(1815, 19);
-						PushFollow(Follow._variableInitializer_in_arrayInitializer12773);
+						DebugLocation(1822, 17);
+						Match(input,OP_COMMA,Follow._OP_COMMA_in_arrayInitializer12850); if (state.failed) return value;
+						DebugLocation(1823, 19);
+						PushFollow(Follow._variableInitializer_in_arrayInitializer12870);
 						vi=variableInitializer();
 						PopFollow();
 						if (state.failed) return value;
-						DebugLocation(1816, 17);
+						DebugLocation(1824, 17);
 						if (state.backtracking == 0)
 						{
 							 builder.Add(vi); 
@@ -15309,52 +15460,52 @@ namespace  Truss.Compiler.Parser
 						break;
 
 					default:
-						goto loop117;
+						goto loop120;
 					}
 				}
 
-				loop117:
+				loop120:
 					;
 
-				} finally { DebugExitSubRule(117); }
+				} finally { DebugExitSubRule(120); }
 
-				DebugLocation(1818, 13);
-				// Truss.g:1818:13: ( OP_COMMA )?
-				int alt118=2;
-				try { DebugEnterSubRule(118);
-				try { DebugEnterDecision(118, false);
-				int LA118_1 = input.LA(1);
+				DebugLocation(1826, 13);
+				// Truss.g:1826:13: ( OP_COMMA )?
+				int alt121=2;
+				try { DebugEnterSubRule(121);
+				try { DebugEnterDecision(121, false);
+				int LA121_1 = input.LA(1);
 
-				if ((LA118_1==OP_COMMA))
+				if ((LA121_1==OP_COMMA))
 				{
-					alt118 = 1;
+					alt121 = 1;
 				}
-				} finally { DebugExitDecision(118); }
-				switch (alt118)
+				} finally { DebugExitDecision(121); }
+				switch (alt121)
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:1818:13: OP_COMMA
+					// Truss.g:1826:13: OP_COMMA
 					{
-					DebugLocation(1818, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_arrayInitializer12820); if (state.failed) return value;
+					DebugLocation(1826, 13);
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_arrayInitializer12917); if (state.failed) return value;
 
 					}
 					break;
 
 				}
-				} finally { DebugExitSubRule(118); }
+				} finally { DebugExitSubRule(121); }
 
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(119); }
+			} finally { DebugExitSubRule(122); }
 
-			DebugLocation(1820, 9);
-			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_arrayInitializer12842); if (state.failed) return value;
-			DebugLocation(1821, 9);
+			DebugLocation(1828, 9);
+			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_arrayInitializer12939); if (state.failed) return value;
+			DebugLocation(1829, 9);
 			if (state.backtracking == 0)
 			{
 
@@ -15379,7 +15530,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("arrayInitializer", 114);
 			LeaveRule_arrayInitializer();
 		}
-		DebugLocation(1827, 4);
+		DebugLocation(1835, 4);
 		} finally { DebugExitRule(GrammarFileName, "arrayInitializer"); }
 		return value;
 
@@ -15389,7 +15540,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_variableInitializer();
 	partial void LeaveRule_variableInitializer();
 	// $ANTLR start "variableInitializer"
-	// Truss.g:1829:1: variableInitializer returns [ExpressionSyntax value] : (e1= expressionOrDeclaration |e2= arrayInitializer );
+	// Truss.g:1837:1: variableInitializer returns [ExpressionSyntax value] : (e1= expressionOrDeclaration |e2= arrayInitializer );
 	[GrammarRule("variableInitializer")]
 	private ExpressionSyntax variableInitializer()
 	{
@@ -15403,42 +15554,42 @@ namespace  Truss.Compiler.Parser
 		InitializerExpressionSyntax e2 = default(InitializerExpressionSyntax);
 
 		try { DebugEnterRule(GrammarFileName, "variableInitializer");
-		DebugLocation(1829, 4);
+		DebugLocation(1837, 4);
 		try
 		{
-			// Truss.g:1830:5: (e1= expressionOrDeclaration |e2= arrayInitializer )
-			int alt120=2;
-			try { DebugEnterDecision(120, false);
-			int LA120_1 = input.LA(1);
+			// Truss.g:1838:5: (e1= expressionOrDeclaration |e2= arrayInitializer )
+			int alt123=2;
+			try { DebugEnterDecision(123, false);
+			int LA123_1 = input.LA(1);
 
-			if ((LA120_1==CHAR||LA120_1==FLOAT||(LA120_1>=HEX_INTEGER && LA120_1<=IDENTIFIER)||LA120_1==INTEGER||(LA120_1>=KW_ASYNC && LA120_1<=KW_BOOL)||LA120_1==KW_BYTE||LA120_1==KW_CHAR||(LA120_1>=KW_DECIMAL && LA120_1<=KW_DEFAULT)||LA120_1==KW_DOUBLE||LA120_1==KW_FALSE||LA120_1==KW_FLOAT||LA120_1==KW_INT||LA120_1==KW_LONG||(LA120_1>=KW_NEW && LA120_1<=KW_OBJECT)||LA120_1==KW_SBYTE||(LA120_1>=KW_SHORT && LA120_1<=KW_SIZEOF)||LA120_1==KW_STRING||LA120_1==KW_THIS||LA120_1==KW_TRUE||(LA120_1>=KW_TYPEOF && LA120_1<=KW_USHORT)||LA120_1==KW_VAR||LA120_1==KW_VOID||LA120_1==OP_AMPERSAND||LA120_1==OP_EXCLAMATION||LA120_1==OP_MINUS||LA120_1==OP_MINUS_MINUS||LA120_1==OP_PAREN_OPEN||LA120_1==OP_PLUS||LA120_1==OP_PLUS_PLUS||(LA120_1>=OP_TILDE && LA120_1<=STRING)))
+			if ((LA123_1==CHAR||LA123_1==FLOAT||(LA123_1>=HEX_INTEGER && LA123_1<=IDENTIFIER)||LA123_1==INTEGER||(LA123_1>=KW_ASYNC && LA123_1<=KW_BOOL)||LA123_1==KW_BYTE||LA123_1==KW_CHAR||(LA123_1>=KW_DECIMAL && LA123_1<=KW_DEFAULT)||LA123_1==KW_DOUBLE||LA123_1==KW_FALSE||LA123_1==KW_FLOAT||LA123_1==KW_INT||LA123_1==KW_LONG||(LA123_1>=KW_NEW && LA123_1<=KW_OBJECT)||LA123_1==KW_SBYTE||(LA123_1>=KW_SHORT && LA123_1<=KW_SIZEOF)||LA123_1==KW_STRING||LA123_1==KW_THIS||LA123_1==KW_TRUE||(LA123_1>=KW_TYPEOF && LA123_1<=KW_USHORT)||LA123_1==KW_VAR||LA123_1==KW_VOID||LA123_1==OP_AMPERSAND||LA123_1==OP_EXCLAMATION||LA123_1==OP_MINUS||LA123_1==OP_MINUS_MINUS||LA123_1==OP_PAREN_OPEN||LA123_1==OP_PLUS||LA123_1==OP_PLUS_PLUS||(LA123_1>=OP_TILDE && LA123_1<=STRING)))
 			{
-				alt120 = 1;
+				alt123 = 1;
 			}
-			else if ((LA120_1==OP_BRACE_OPEN))
+			else if ((LA123_1==OP_BRACE_OPEN))
 			{
-				alt120 = 2;
+				alt123 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 120, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 123, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(120); }
-			switch (alt120)
+			} finally { DebugExitDecision(123); }
+			switch (alt123)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1830:7: e1= expressionOrDeclaration
+				// Truss.g:1838:7: e1= expressionOrDeclaration
 				{
-				DebugLocation(1830, 9);
-				PushFollow(Follow._expressionOrDeclaration_in_variableInitializer12875);
+				DebugLocation(1838, 9);
+				PushFollow(Follow._expressionOrDeclaration_in_variableInitializer12972);
 				e1=expressionOrDeclaration();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1830, 34);
+				DebugLocation(1838, 34);
 				if (state.backtracking == 0)
 				{
 					 value = e1; 
@@ -15448,14 +15599,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:1831:7: e2= arrayInitializer
+				// Truss.g:1839:7: e2= arrayInitializer
 				{
-				DebugLocation(1831, 9);
-				PushFollow(Follow._arrayInitializer_in_variableInitializer12887);
+				DebugLocation(1839, 9);
+				PushFollow(Follow._arrayInitializer_in_variableInitializer12984);
 				e2=arrayInitializer();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1831, 27);
+				DebugLocation(1839, 27);
 				if (state.backtracking == 0)
 				{
 					 value = e2; 
@@ -15477,7 +15628,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("variableInitializer", 115);
 			LeaveRule_variableInitializer();
 		}
-		DebugLocation(1832, 4);
+		DebugLocation(1840, 4);
 		} finally { DebugExitRule(GrammarFileName, "variableInitializer"); }
 		return value;
 
@@ -15487,7 +15638,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_anonymousObjectInitializer();
 	partial void LeaveRule_anonymousObjectInitializer();
 	// $ANTLR start "anonymousObjectInitializer"
-	// Truss.g:1834:1: anonymousObjectInitializer returns [AnonymousObjectCreationExpressionSyntax value] : OP_BRACE_OPEN (md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )? )? OP_BRACE_CLOSE ;
+	// Truss.g:1842:1: anonymousObjectInitializer returns [AnonymousObjectCreationExpressionSyntax value] : OP_BRACE_OPEN (md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )? )? OP_BRACE_CLOSE ;
 	[GrammarRule("anonymousObjectInitializer")]
 	private AnonymousObjectCreationExpressionSyntax anonymousObjectInitializer()
 	{
@@ -15503,80 +15654,80 @@ namespace  Truss.Compiler.Parser
 		    var builder = new ImmutableArray<AnonymousObjectMemberDeclaratorSyntax>.Builder();
 
 		try { DebugEnterRule(GrammarFileName, "anonymousObjectInitializer");
-		DebugLocation(1834, 4);
+		DebugLocation(1842, 4);
 		try
 		{
-			// Truss.g:1838:5: ( OP_BRACE_OPEN (md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )? )? OP_BRACE_CLOSE )
+			// Truss.g:1846:5: ( OP_BRACE_OPEN (md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )? )? OP_BRACE_CLOSE )
 			DebugEnterAlt(1);
-			// Truss.g:1839:9: OP_BRACE_OPEN (md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )? )? OP_BRACE_CLOSE
+			// Truss.g:1847:9: OP_BRACE_OPEN (md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )? )? OP_BRACE_CLOSE
 			{
-			DebugLocation(1839, 9);
-			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_anonymousObjectInitializer12923); if (state.failed) return value;
-			DebugLocation(1840, 9);
-			// Truss.g:1840:9: (md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )? )?
-			int alt123=2;
-			try { DebugEnterSubRule(123);
-			try { DebugEnterDecision(123, false);
-			int LA123_1 = input.LA(1);
+			DebugLocation(1847, 9);
+			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_anonymousObjectInitializer13020); if (state.failed) return value;
+			DebugLocation(1848, 9);
+			// Truss.g:1848:9: (md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )? )?
+			int alt126=2;
+			try { DebugEnterSubRule(126);
+			try { DebugEnterDecision(126, false);
+			int LA126_1 = input.LA(1);
 
-			if ((LA123_1==CHAR||LA123_1==FLOAT||(LA123_1>=HEX_INTEGER && LA123_1<=IDENTIFIER)||LA123_1==INTEGER||LA123_1==KW_BASE||LA123_1==KW_DEFAULT||LA123_1==KW_FALSE||(LA123_1>=KW_NEW && LA123_1<=KW_NIL)||LA123_1==KW_SIZEOF||LA123_1==KW_THIS||LA123_1==KW_TRUE||LA123_1==KW_TYPEOF||LA123_1==OP_PAREN_OPEN||LA123_1==STRING))
+			if ((LA126_1==CHAR||LA126_1==FLOAT||(LA126_1>=HEX_INTEGER && LA126_1<=IDENTIFIER)||LA126_1==INTEGER||LA126_1==KW_BASE||LA126_1==KW_DEFAULT||LA126_1==KW_FALSE||(LA126_1>=KW_NEW && LA126_1<=KW_NIL)||LA126_1==KW_SIZEOF||LA126_1==KW_THIS||LA126_1==KW_TRUE||LA126_1==KW_TYPEOF||LA126_1==OP_PAREN_OPEN||LA126_1==STRING))
 			{
-				alt123 = 1;
+				alt126 = 1;
 			}
-			} finally { DebugExitDecision(123); }
-			switch (alt123)
+			} finally { DebugExitDecision(126); }
+			switch (alt126)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1841:13: md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )?
+				// Truss.g:1849:13: md= memberDeclarator ( OP_COMMA md= memberDeclarator )* ( OP_COMMA )?
 				{
-				DebugLocation(1841, 15);
-				PushFollow(Follow._memberDeclarator_in_anonymousObjectInitializer12949);
+				DebugLocation(1849, 15);
+				PushFollow(Follow._memberDeclarator_in_anonymousObjectInitializer13046);
 				md=memberDeclarator();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1842, 13);
+				DebugLocation(1850, 13);
 				if (state.backtracking == 0)
 				{
 					 builder.Add(md); 
 				}
-				DebugLocation(1843, 13);
-				// Truss.g:1843:13: ( OP_COMMA md= memberDeclarator )*
-				try { DebugEnterSubRule(121);
+				DebugLocation(1851, 13);
+				// Truss.g:1851:13: ( OP_COMMA md= memberDeclarator )*
+				try { DebugEnterSubRule(124);
 				while (true)
 				{
-					int alt121=2;
-					try { DebugEnterDecision(121, false);
-					int LA121_1 = input.LA(1);
+					int alt124=2;
+					try { DebugEnterDecision(124, false);
+					int LA124_1 = input.LA(1);
 
-					if ((LA121_1==OP_COMMA))
+					if ((LA124_1==OP_COMMA))
 					{
-						int LA121_2 = input.LA(2);
+						int LA124_2 = input.LA(2);
 
-						if ((LA121_2==CHAR||LA121_2==FLOAT||(LA121_2>=HEX_INTEGER && LA121_2<=IDENTIFIER)||LA121_2==INTEGER||LA121_2==KW_BASE||LA121_2==KW_DEFAULT||LA121_2==KW_FALSE||(LA121_2>=KW_NEW && LA121_2<=KW_NIL)||LA121_2==KW_SIZEOF||LA121_2==KW_THIS||LA121_2==KW_TRUE||LA121_2==KW_TYPEOF||LA121_2==OP_PAREN_OPEN||LA121_2==STRING))
+						if ((LA124_2==CHAR||LA124_2==FLOAT||(LA124_2>=HEX_INTEGER && LA124_2<=IDENTIFIER)||LA124_2==INTEGER||LA124_2==KW_BASE||LA124_2==KW_DEFAULT||LA124_2==KW_FALSE||(LA124_2>=KW_NEW && LA124_2<=KW_NIL)||LA124_2==KW_SIZEOF||LA124_2==KW_THIS||LA124_2==KW_TRUE||LA124_2==KW_TYPEOF||LA124_2==OP_PAREN_OPEN||LA124_2==STRING))
 						{
-							alt121 = 1;
+							alt124 = 1;
 						}
 
 
 					}
 
 
-					} finally { DebugExitDecision(121); }
-					switch ( alt121 )
+					} finally { DebugExitDecision(124); }
+					switch ( alt124 )
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// Truss.g:1844:17: OP_COMMA md= memberDeclarator
+						// Truss.g:1852:17: OP_COMMA md= memberDeclarator
 						{
-						DebugLocation(1844, 17);
-						Match(input,OP_COMMA,Follow._OP_COMMA_in_anonymousObjectInitializer12995); if (state.failed) return value;
-						DebugLocation(1845, 19);
-						PushFollow(Follow._memberDeclarator_in_anonymousObjectInitializer13015);
+						DebugLocation(1852, 17);
+						Match(input,OP_COMMA,Follow._OP_COMMA_in_anonymousObjectInitializer13092); if (state.failed) return value;
+						DebugLocation(1853, 19);
+						PushFollow(Follow._memberDeclarator_in_anonymousObjectInitializer13112);
 						md=memberDeclarator();
 						PopFollow();
 						if (state.failed) return value;
-						DebugLocation(1846, 17);
+						DebugLocation(1854, 17);
 						if (state.backtracking == 0)
 						{
 							 builder.Add(md); 
@@ -15586,52 +15737,52 @@ namespace  Truss.Compiler.Parser
 						break;
 
 					default:
-						goto loop121;
+						goto loop124;
 					}
 				}
 
-				loop121:
+				loop124:
 					;
 
-				} finally { DebugExitSubRule(121); }
+				} finally { DebugExitSubRule(124); }
 
-				DebugLocation(1848, 13);
-				// Truss.g:1848:13: ( OP_COMMA )?
-				int alt122=2;
-				try { DebugEnterSubRule(122);
-				try { DebugEnterDecision(122, false);
-				int LA122_1 = input.LA(1);
+				DebugLocation(1856, 13);
+				// Truss.g:1856:13: ( OP_COMMA )?
+				int alt125=2;
+				try { DebugEnterSubRule(125);
+				try { DebugEnterDecision(125, false);
+				int LA125_1 = input.LA(1);
 
-				if ((LA122_1==OP_COMMA))
+				if ((LA125_1==OP_COMMA))
 				{
-					alt122 = 1;
+					alt125 = 1;
 				}
-				} finally { DebugExitDecision(122); }
-				switch (alt122)
+				} finally { DebugExitDecision(125); }
+				switch (alt125)
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:1848:13: OP_COMMA
+					// Truss.g:1856:13: OP_COMMA
 					{
-					DebugLocation(1848, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_anonymousObjectInitializer13062); if (state.failed) return value;
+					DebugLocation(1856, 13);
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_anonymousObjectInitializer13159); if (state.failed) return value;
 
 					}
 					break;
 
 				}
-				} finally { DebugExitSubRule(122); }
+				} finally { DebugExitSubRule(125); }
 
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(123); }
+			} finally { DebugExitSubRule(126); }
 
-			DebugLocation(1850, 9);
-			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_anonymousObjectInitializer13084); if (state.failed) return value;
-			DebugLocation(1851, 9);
+			DebugLocation(1858, 9);
+			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_anonymousObjectInitializer13181); if (state.failed) return value;
+			DebugLocation(1859, 9);
 			if (state.backtracking == 0)
 			{
 
@@ -15656,7 +15807,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("anonymousObjectInitializer", 116);
 			LeaveRule_anonymousObjectInitializer();
 		}
-		DebugLocation(1857, 4);
+		DebugLocation(1865, 4);
 		} finally { DebugExitRule(GrammarFileName, "anonymousObjectInitializer"); }
 		return value;
 
@@ -15666,7 +15817,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_memberDeclarator();
 	partial void LeaveRule_memberDeclarator();
 	// $ANTLR start "memberDeclarator"
-	// Truss.g:1859:1: memberDeclarator returns [AnonymousObjectMemberDeclaratorSyntax value] : (pe= primaryExpression |idn= identifierName OP_EQUALS eod= expressionOrDeclaration );
+	// Truss.g:1867:1: memberDeclarator returns [AnonymousObjectMemberDeclaratorSyntax value] : (pe= primaryExpression |idn= identifierName OP_EQUALS eod= expressionOrDeclaration );
 	[GrammarRule("memberDeclarator")]
 	private AnonymousObjectMemberDeclaratorSyntax memberDeclarator()
 	{
@@ -15684,34 +15835,34 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "memberDeclarator");
-		DebugLocation(1859, 4);
+		DebugLocation(1867, 4);
 		try
 		{
-			// Truss.g:1863:5: (pe= primaryExpression |idn= identifierName OP_EQUALS eod= expressionOrDeclaration )
-			int alt124=2;
-			try { DebugEnterDecision(124, false);
-			int LA124_1 = input.LA(1);
+			// Truss.g:1871:5: (pe= primaryExpression |idn= identifierName OP_EQUALS eod= expressionOrDeclaration )
+			int alt127=2;
+			try { DebugEnterDecision(127, false);
+			int LA127_1 = input.LA(1);
 
-			if ((LA124_1==CHAR||LA124_1==FLOAT||LA124_1==HEX_INTEGER||LA124_1==INTEGER||LA124_1==KW_BASE||LA124_1==KW_DEFAULT||LA124_1==KW_FALSE||(LA124_1>=KW_NEW && LA124_1<=KW_NIL)||LA124_1==KW_SIZEOF||LA124_1==KW_THIS||LA124_1==KW_TRUE||LA124_1==KW_TYPEOF||LA124_1==OP_PAREN_OPEN||LA124_1==STRING))
+			if ((LA127_1==CHAR||LA127_1==FLOAT||LA127_1==HEX_INTEGER||LA127_1==INTEGER||LA127_1==KW_BASE||LA127_1==KW_DEFAULT||LA127_1==KW_FALSE||(LA127_1>=KW_NEW && LA127_1<=KW_NIL)||LA127_1==KW_SIZEOF||LA127_1==KW_THIS||LA127_1==KW_TRUE||LA127_1==KW_TYPEOF||LA127_1==OP_PAREN_OPEN||LA127_1==STRING))
 			{
-				alt124 = 1;
+				alt127 = 1;
 			}
-			else if ((LA124_1==IDENTIFIER))
+			else if ((LA127_1==IDENTIFIER))
 			{
-				int LA124_2 = input.LA(2);
+				int LA127_2 = input.LA(2);
 
-				if ((LA124_2==OP_BRACE_CLOSE||LA124_2==OP_COMMA))
+				if ((LA127_2==OP_BRACE_CLOSE||LA127_2==OP_COMMA))
 				{
-					alt124 = 1;
+					alt127 = 1;
 				}
-				else if ((LA124_2==OP_EQUALS))
+				else if ((LA127_2==OP_EQUALS))
 				{
-					alt124 = 2;
+					alt127 = 2;
 				}
 				else
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 124, 2, input, 2);
+					NoViableAltException nvae = new NoViableAltException("", 127, 2, input, 2);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
@@ -15719,23 +15870,23 @@ namespace  Truss.Compiler.Parser
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 124, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 127, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(124); }
-			switch (alt124)
+			} finally { DebugExitDecision(127); }
+			switch (alt127)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1864:9: pe= primaryExpression
+				// Truss.g:1872:9: pe= primaryExpression
 				{
-				DebugLocation(1864, 11);
-				PushFollow(Follow._primaryExpression_in_memberDeclarator13130);
+				DebugLocation(1872, 11);
+				PushFollow(Follow._primaryExpression_in_memberDeclarator13227);
 				pe=primaryExpression();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1865, 9);
+				DebugLocation(1873, 9);
 				if (state.backtracking == 0)
 				{
 
@@ -15751,21 +15902,21 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:1873:9: idn= identifierName OP_EQUALS eod= expressionOrDeclaration
+				// Truss.g:1881:9: idn= identifierName OP_EQUALS eod= expressionOrDeclaration
 				{
-				DebugLocation(1873, 12);
-				PushFollow(Follow._identifierName_in_memberDeclarator13158);
+				DebugLocation(1881, 12);
+				PushFollow(Follow._identifierName_in_memberDeclarator13255);
 				idn=identifierName();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1873, 28);
-				Match(input,OP_EQUALS,Follow._OP_EQUALS_in_memberDeclarator13160); if (state.failed) return value;
-				DebugLocation(1873, 41);
-				PushFollow(Follow._expressionOrDeclaration_in_memberDeclarator13164);
+				DebugLocation(1881, 28);
+				Match(input,OP_EQUALS,Follow._OP_EQUALS_in_memberDeclarator13257); if (state.failed) return value;
+				DebugLocation(1881, 41);
+				PushFollow(Follow._expressionOrDeclaration_in_memberDeclarator13261);
 				eod=expressionOrDeclaration();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1874, 9);
+				DebugLocation(1882, 9);
 				if (state.backtracking == 0)
 				{
 
@@ -15793,7 +15944,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("memberDeclarator", 117);
 			LeaveRule_memberDeclarator();
 		}
-		DebugLocation(1881, 4);
+		DebugLocation(1889, 4);
 		} finally { DebugExitRule(GrammarFileName, "memberDeclarator"); }
 		return value;
 
@@ -15803,7 +15954,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_objectOrCollectionInitializer();
 	partial void LeaveRule_objectOrCollectionInitializer();
 	// $ANTLR start "objectOrCollectionInitializer"
-	// Truss.g:1883:1: objectOrCollectionInitializer returns [InitializerExpressionSyntax value] : ( OP_BRACE_OPEN OP_BRACE_CLOSE |oi= objectInitializer |ci= collectionInitializer );
+	// Truss.g:1891:1: objectOrCollectionInitializer returns [InitializerExpressionSyntax value] : ( OP_BRACE_OPEN OP_BRACE_CLOSE |oi= objectInitializer |ci= collectionInitializer );
 	[GrammarRule("objectOrCollectionInitializer")]
 	private InitializerExpressionSyntax objectOrCollectionInitializer()
 	{
@@ -15820,39 +15971,39 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "objectOrCollectionInitializer");
-		DebugLocation(1883, 4);
+		DebugLocation(1891, 4);
 		try
 		{
-			// Truss.g:1887:5: ( OP_BRACE_OPEN OP_BRACE_CLOSE |oi= objectInitializer |ci= collectionInitializer )
-			int alt125=3;
-			try { DebugEnterDecision(125, false);
-			int LA125_1 = input.LA(1);
+			// Truss.g:1895:5: ( OP_BRACE_OPEN OP_BRACE_CLOSE |oi= objectInitializer |ci= collectionInitializer )
+			int alt128=3;
+			try { DebugEnterDecision(128, false);
+			int LA128_1 = input.LA(1);
 
-			if ((LA125_1==OP_BRACE_OPEN))
+			if ((LA128_1==OP_BRACE_OPEN))
 			{
 				switch (input.LA(2))
 				{
 				case OP_BRACE_CLOSE:
 					{
-					alt125 = 1;
+					alt128 = 1;
 					}
 					break;
 				case IDENTIFIER:
 					{
-					int LA125_3 = input.LA(3);
+					int LA128_3 = input.LA(3);
 
-					if ((LA125_3==OP_EQUALS||LA125_3==OP_PLUS_EQUALS))
+					if ((LA128_3==OP_EQUALS||LA128_3==OP_PLUS_EQUALS))
 					{
-						alt125 = 2;
+						alt128 = 2;
 					}
-					else if ((LA125_3==KW_AS||LA125_3==KW_IS||(LA125_3>=OP_AMPERSAND && LA125_3<=OP_AMPERSAND_AMPERSAND)||LA125_3==OP_ASTERISK||(LA125_3>=OP_BAR && LA125_3<=OP_BAR_BAR)||LA125_3==OP_BRACE_CLOSE||(LA125_3>=OP_BRACKET_OPEN && LA125_3<=OP_CARET)||(LA125_3>=OP_COMMA && LA125_3<=OP_DOT)||LA125_3==OP_EQUALS_EQUALS||(LA125_3>=OP_EXCLAMATION_EQUALS && LA125_3<=OP_GREATER_THAN_EQUALS)||LA125_3==OP_GREATER_THAN_GREATER_THAN_FIRST||(LA125_3>=OP_LESS_THAN && LA125_3<=OP_LESS_THAN_LESS_THAN)||LA125_3==OP_MINUS||LA125_3==OP_MINUS_MINUS||(LA125_3>=OP_PAREN_OPEN && LA125_3<=OP_PERCENT)||LA125_3==OP_PLUS||(LA125_3>=OP_PLUS_PLUS && LA125_3<=OP_QUESTION_QUESTION)||LA125_3==OP_SLASH))
+					else if ((LA128_3==KW_AS||LA128_3==KW_IS||(LA128_3>=OP_AMPERSAND && LA128_3<=OP_AMPERSAND_AMPERSAND)||LA128_3==OP_ASTERISK||(LA128_3>=OP_BAR && LA128_3<=OP_BAR_BAR)||LA128_3==OP_BRACE_CLOSE||(LA128_3>=OP_BRACKET_OPEN && LA128_3<=OP_CARET)||(LA128_3>=OP_COMMA && LA128_3<=OP_DOT)||LA128_3==OP_EQUALS_EQUALS||(LA128_3>=OP_EXCLAMATION_EQUALS && LA128_3<=OP_GREATER_THAN_EQUALS)||LA128_3==OP_GREATER_THAN_GREATER_THAN_FIRST||(LA128_3>=OP_LESS_THAN && LA128_3<=OP_LESS_THAN_LESS_THAN)||LA128_3==OP_MINUS||LA128_3==OP_MINUS_MINUS||(LA128_3>=OP_PAREN_OPEN && LA128_3<=OP_PERCENT)||LA128_3==OP_PLUS||(LA128_3>=OP_PLUS_PLUS && LA128_3<=OP_QUESTION_QUESTION)||LA128_3==OP_SLASH))
 					{
-						alt125 = 3;
+						alt128 = 3;
 					}
 					else
 					{
 						if (state.backtracking>0) {state.failed=true; return value;}
-						NoViableAltException nvae = new NoViableAltException("", 125, 3, input, 3);
+						NoViableAltException nvae = new NoViableAltException("", 128, 3, input, 3);
 						DebugRecognitionException(nvae);
 						throw nvae;
 					}
@@ -15883,13 +16034,13 @@ namespace  Truss.Compiler.Parser
 				case OP_TILDE:
 				case STRING:
 					{
-					alt125 = 3;
+					alt128 = 3;
 					}
 					break;
 				default:
 					{
 						if (state.backtracking>0) {state.failed=true; return value;}
-						NoViableAltException nvae = new NoViableAltException("", 125, 1, input, 2);
+						NoViableAltException nvae = new NoViableAltException("", 128, 1, input, 2);
 						DebugRecognitionException(nvae);
 						throw nvae;
 					}
@@ -15899,22 +16050,22 @@ namespace  Truss.Compiler.Parser
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 125, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 128, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(125); }
-			switch (alt125)
+			} finally { DebugExitDecision(128); }
+			switch (alt128)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1888:9: OP_BRACE_OPEN OP_BRACE_CLOSE
+				// Truss.g:1896:9: OP_BRACE_OPEN OP_BRACE_CLOSE
 				{
-				DebugLocation(1888, 9);
-				Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_objectOrCollectionInitializer13208); if (state.failed) return value;
-				DebugLocation(1888, 23);
-				Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_objectOrCollectionInitializer13210); if (state.failed) return value;
-				DebugLocation(1889, 9);
+				DebugLocation(1896, 9);
+				Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_objectOrCollectionInitializer13305); if (state.failed) return value;
+				DebugLocation(1896, 23);
+				Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_objectOrCollectionInitializer13307); if (state.failed) return value;
+				DebugLocation(1897, 9);
 				if (state.backtracking == 0)
 				{
 
@@ -15929,14 +16080,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:1896:9: oi= objectInitializer
+				// Truss.g:1904:9: oi= objectInitializer
 				{
-				DebugLocation(1896, 11);
-				PushFollow(Follow._objectInitializer_in_objectOrCollectionInitializer13238);
+				DebugLocation(1904, 11);
+				PushFollow(Follow._objectInitializer_in_objectOrCollectionInitializer13335);
 				oi=objectInitializer();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1897, 9);
+				DebugLocation(1905, 9);
 				if (state.backtracking == 0)
 				{
 					 value = oi; 
@@ -15946,14 +16097,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Truss.g:1899:9: ci= collectionInitializer
+				// Truss.g:1907:9: ci= collectionInitializer
 				{
-				DebugLocation(1899, 11);
-				PushFollow(Follow._collectionInitializer_in_objectOrCollectionInitializer13266);
+				DebugLocation(1907, 11);
+				PushFollow(Follow._collectionInitializer_in_objectOrCollectionInitializer13363);
 				ci=collectionInitializer();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1900, 9);
+				DebugLocation(1908, 9);
 				if (state.backtracking == 0)
 				{
 					 value = ci; 
@@ -15975,7 +16126,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("objectOrCollectionInitializer", 118);
 			LeaveRule_objectOrCollectionInitializer();
 		}
-		DebugLocation(1901, 4);
+		DebugLocation(1909, 4);
 		} finally { DebugExitRule(GrammarFileName, "objectOrCollectionInitializer"); }
 		return value;
 
@@ -15985,7 +16136,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_objectInitializer();
 	partial void LeaveRule_objectInitializer();
 	// $ANTLR start "objectInitializer"
-	// Truss.g:1903:1: objectInitializer returns [InitializerExpressionSyntax value] : OP_BRACE_OPEN mi= memberInitializer ( OP_COMMA mi= memberInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE ;
+	// Truss.g:1911:1: objectInitializer returns [InitializerExpressionSyntax value] : OP_BRACE_OPEN mi= memberInitializer ( OP_COMMA mi= memberInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE ;
 	[GrammarRule("objectInitializer")]
 	private InitializerExpressionSyntax objectInitializer()
 	{
@@ -16002,62 +16153,62 @@ namespace  Truss.Compiler.Parser
 		    var builder = new ImmutableArray<ExpressionSyntax>.Builder();
 
 		try { DebugEnterRule(GrammarFileName, "objectInitializer");
-		DebugLocation(1903, 4);
+		DebugLocation(1911, 4);
 		try
 		{
-			// Truss.g:1908:5: ( OP_BRACE_OPEN mi= memberInitializer ( OP_COMMA mi= memberInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE )
+			// Truss.g:1916:5: ( OP_BRACE_OPEN mi= memberInitializer ( OP_COMMA mi= memberInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE )
 			DebugEnterAlt(1);
-			// Truss.g:1909:9: OP_BRACE_OPEN mi= memberInitializer ( OP_COMMA mi= memberInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE
+			// Truss.g:1917:9: OP_BRACE_OPEN mi= memberInitializer ( OP_COMMA mi= memberInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE
 			{
-			DebugLocation(1909, 9);
-			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_objectInitializer13310); if (state.failed) return value;
-			DebugLocation(1910, 11);
-			PushFollow(Follow._memberInitializer_in_objectInitializer13322);
+			DebugLocation(1917, 9);
+			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_objectInitializer13407); if (state.failed) return value;
+			DebugLocation(1918, 11);
+			PushFollow(Follow._memberInitializer_in_objectInitializer13419);
 			mi=memberInitializer();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(1911, 9);
+			DebugLocation(1919, 9);
 			if (state.backtracking == 0)
 			{
 				 builder.Add(mi); 
 			}
-			DebugLocation(1912, 9);
-			// Truss.g:1912:9: ( OP_COMMA mi= memberInitializer )*
-			try { DebugEnterSubRule(126);
+			DebugLocation(1920, 9);
+			// Truss.g:1920:9: ( OP_COMMA mi= memberInitializer )*
+			try { DebugEnterSubRule(129);
 			while (true)
 			{
-				int alt126=2;
-				try { DebugEnterDecision(126, false);
-				int LA126_1 = input.LA(1);
+				int alt129=2;
+				try { DebugEnterDecision(129, false);
+				int LA129_1 = input.LA(1);
 
-				if ((LA126_1==OP_COMMA))
+				if ((LA129_1==OP_COMMA))
 				{
-					int LA126_2 = input.LA(2);
+					int LA129_2 = input.LA(2);
 
-					if ((LA126_2==IDENTIFIER))
+					if ((LA129_2==IDENTIFIER))
 					{
-						alt126 = 1;
+						alt129 = 1;
 					}
 
 
 				}
 
 
-				} finally { DebugExitDecision(126); }
-				switch ( alt126 )
+				} finally { DebugExitDecision(129); }
+				switch ( alt129 )
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:1913:13: OP_COMMA mi= memberInitializer
+					// Truss.g:1921:13: OP_COMMA mi= memberInitializer
 					{
-					DebugLocation(1913, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_objectInitializer13356); if (state.failed) return value;
-					DebugLocation(1914, 15);
-					PushFollow(Follow._memberInitializer_in_objectInitializer13372);
+					DebugLocation(1921, 13);
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_objectInitializer13453); if (state.failed) return value;
+					DebugLocation(1922, 15);
+					PushFollow(Follow._memberInitializer_in_objectInitializer13469);
 					mi=memberInitializer();
 					PopFollow();
 					if (state.failed) return value;
-					DebugLocation(1915, 13);
+					DebugLocation(1923, 13);
 					if (state.backtracking == 0)
 					{
 						 builder.Add(mi); 
@@ -16067,45 +16218,45 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop126;
+					goto loop129;
 				}
 			}
 
-			loop126:
+			loop129:
 				;
 
-			} finally { DebugExitSubRule(126); }
+			} finally { DebugExitSubRule(129); }
 
-			DebugLocation(1917, 9);
-			// Truss.g:1917:9: ( OP_COMMA )?
-			int alt127=2;
-			try { DebugEnterSubRule(127);
-			try { DebugEnterDecision(127, false);
-			int LA127_1 = input.LA(1);
+			DebugLocation(1925, 9);
+			// Truss.g:1925:9: ( OP_COMMA )?
+			int alt130=2;
+			try { DebugEnterSubRule(130);
+			try { DebugEnterDecision(130, false);
+			int LA130_1 = input.LA(1);
 
-			if ((LA127_1==OP_COMMA))
+			if ((LA130_1==OP_COMMA))
 			{
-				alt127 = 1;
+				alt130 = 1;
 			}
-			} finally { DebugExitDecision(127); }
-			switch (alt127)
+			} finally { DebugExitDecision(130); }
+			switch (alt130)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1917:9: OP_COMMA
+				// Truss.g:1925:9: OP_COMMA
 				{
-				DebugLocation(1917, 9);
-				Match(input,OP_COMMA,Follow._OP_COMMA_in_objectInitializer13407); if (state.failed) return value;
+				DebugLocation(1925, 9);
+				Match(input,OP_COMMA,Follow._OP_COMMA_in_objectInitializer13504); if (state.failed) return value;
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(127); }
+			} finally { DebugExitSubRule(130); }
 
-			DebugLocation(1918, 9);
-			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_objectInitializer13418); if (state.failed) return value;
-			DebugLocation(1919, 9);
+			DebugLocation(1926, 9);
+			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_objectInitializer13515); if (state.failed) return value;
+			DebugLocation(1927, 9);
 			if (state.backtracking == 0)
 			{
 
@@ -16130,7 +16281,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("objectInitializer", 119);
 			LeaveRule_objectInitializer();
 		}
-		DebugLocation(1925, 4);
+		DebugLocation(1933, 4);
 		} finally { DebugExitRule(GrammarFileName, "objectInitializer"); }
 		return value;
 
@@ -16140,7 +16291,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_memberInitializer();
 	partial void LeaveRule_memberInitializer();
 	// $ANTLR start "memberInitializer"
-	// Truss.g:1927:1: memberInitializer returns [ExpressionSyntax value] : idn= identifierName ( OP_EQUALS | OP_PLUS_EQUALS ) miv= memberInitializerValue ;
+	// Truss.g:1935:1: memberInitializer returns [ExpressionSyntax value] : idn= identifierName ( OP_EQUALS | OP_PLUS_EQUALS ) miv= memberInitializerValue ;
 	[GrammarRule("memberInitializer")]
 	private ExpressionSyntax memberInitializer()
 	{
@@ -16158,50 +16309,50 @@ namespace  Truss.Compiler.Parser
 		    BinaryOperator? operator_ = null;
 
 		try { DebugEnterRule(GrammarFileName, "memberInitializer");
-		DebugLocation(1927, 4);
+		DebugLocation(1935, 4);
 		try
 		{
-			// Truss.g:1932:5: (idn= identifierName ( OP_EQUALS | OP_PLUS_EQUALS ) miv= memberInitializerValue )
+			// Truss.g:1940:5: (idn= identifierName ( OP_EQUALS | OP_PLUS_EQUALS ) miv= memberInitializerValue )
 			DebugEnterAlt(1);
-			// Truss.g:1933:9: idn= identifierName ( OP_EQUALS | OP_PLUS_EQUALS ) miv= memberInitializerValue
+			// Truss.g:1941:9: idn= identifierName ( OP_EQUALS | OP_PLUS_EQUALS ) miv= memberInitializerValue
 			{
-			DebugLocation(1933, 12);
-			PushFollow(Follow._identifierName_in_memberInitializer13464);
+			DebugLocation(1941, 12);
+			PushFollow(Follow._identifierName_in_memberInitializer13561);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(1934, 9);
-			// Truss.g:1934:9: ( OP_EQUALS | OP_PLUS_EQUALS )
-			int alt128=2;
-			try { DebugEnterSubRule(128);
-			try { DebugEnterDecision(128, false);
-			int LA128_1 = input.LA(1);
+			DebugLocation(1942, 9);
+			// Truss.g:1942:9: ( OP_EQUALS | OP_PLUS_EQUALS )
+			int alt131=2;
+			try { DebugEnterSubRule(131);
+			try { DebugEnterDecision(131, false);
+			int LA131_1 = input.LA(1);
 
-			if ((LA128_1==OP_EQUALS))
+			if ((LA131_1==OP_EQUALS))
 			{
-				alt128 = 1;
+				alt131 = 1;
 			}
-			else if ((LA128_1==OP_PLUS_EQUALS))
+			else if ((LA131_1==OP_PLUS_EQUALS))
 			{
-				alt128 = 2;
+				alt131 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 128, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 131, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(128); }
-			switch (alt128)
+			} finally { DebugExitDecision(131); }
+			switch (alt131)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1935:13: OP_EQUALS
+				// Truss.g:1943:13: OP_EQUALS
 				{
-				DebugLocation(1935, 13);
-				Match(input,OP_EQUALS,Follow._OP_EQUALS_in_memberInitializer13488); if (state.failed) return value;
-				DebugLocation(1936, 13);
+				DebugLocation(1943, 13);
+				Match(input,OP_EQUALS,Follow._OP_EQUALS_in_memberInitializer13585); if (state.failed) return value;
+				DebugLocation(1944, 13);
 				if (state.backtracking == 0)
 				{
 					 operator_ = BinaryOperator.Equals; 
@@ -16211,11 +16362,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:1938:13: OP_PLUS_EQUALS
+				// Truss.g:1946:13: OP_PLUS_EQUALS
 				{
-				DebugLocation(1938, 13);
-				Match(input,OP_PLUS_EQUALS,Follow._OP_PLUS_EQUALS_in_memberInitializer13526); if (state.failed) return value;
-				DebugLocation(1939, 13);
+				DebugLocation(1946, 13);
+				Match(input,OP_PLUS_EQUALS,Follow._OP_PLUS_EQUALS_in_memberInitializer13623); if (state.failed) return value;
+				DebugLocation(1947, 13);
 				if (state.backtracking == 0)
 				{
 					 operator_ = BinaryOperator.PlusEquals; 
@@ -16225,14 +16376,14 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(128); }
+			} finally { DebugExitSubRule(131); }
 
-			DebugLocation(1941, 12);
-			PushFollow(Follow._memberInitializerValue_in_memberInitializer13562);
+			DebugLocation(1949, 12);
+			PushFollow(Follow._memberInitializerValue_in_memberInitializer13659);
 			miv=memberInitializerValue();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(1942, 9);
+			DebugLocation(1950, 9);
 			if (state.backtracking == 0)
 			{
 				 value = new BinaryExpressionSyntax(operator_.Value, idn, miv, Span(start)); 
@@ -16252,7 +16403,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("memberInitializer", 120);
 			LeaveRule_memberInitializer();
 		}
-		DebugLocation(1943, 4);
+		DebugLocation(1951, 4);
 		} finally { DebugExitRule(GrammarFileName, "memberInitializer"); }
 		return value;
 
@@ -16262,7 +16413,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_memberInitializerValue();
 	partial void LeaveRule_memberInitializerValue();
 	// $ANTLR start "memberInitializerValue"
-	// Truss.g:1945:1: memberInitializerValue returns [ExpressionSyntax value] : (e1= expressionOrDeclaration |e2= objectOrCollectionInitializer );
+	// Truss.g:1953:1: memberInitializerValue returns [ExpressionSyntax value] : (e1= expressionOrDeclaration |e2= objectOrCollectionInitializer );
 	[GrammarRule("memberInitializerValue")]
 	private ExpressionSyntax memberInitializerValue()
 	{
@@ -16276,42 +16427,42 @@ namespace  Truss.Compiler.Parser
 		InitializerExpressionSyntax e2 = default(InitializerExpressionSyntax);
 
 		try { DebugEnterRule(GrammarFileName, "memberInitializerValue");
-		DebugLocation(1945, 4);
+		DebugLocation(1953, 4);
 		try
 		{
-			// Truss.g:1946:5: (e1= expressionOrDeclaration |e2= objectOrCollectionInitializer )
-			int alt129=2;
-			try { DebugEnterDecision(129, false);
-			int LA129_1 = input.LA(1);
+			// Truss.g:1954:5: (e1= expressionOrDeclaration |e2= objectOrCollectionInitializer )
+			int alt132=2;
+			try { DebugEnterDecision(132, false);
+			int LA132_1 = input.LA(1);
 
-			if ((LA129_1==CHAR||LA129_1==FLOAT||(LA129_1>=HEX_INTEGER && LA129_1<=IDENTIFIER)||LA129_1==INTEGER||(LA129_1>=KW_ASYNC && LA129_1<=KW_BOOL)||LA129_1==KW_BYTE||LA129_1==KW_CHAR||(LA129_1>=KW_DECIMAL && LA129_1<=KW_DEFAULT)||LA129_1==KW_DOUBLE||LA129_1==KW_FALSE||LA129_1==KW_FLOAT||LA129_1==KW_INT||LA129_1==KW_LONG||(LA129_1>=KW_NEW && LA129_1<=KW_OBJECT)||LA129_1==KW_SBYTE||(LA129_1>=KW_SHORT && LA129_1<=KW_SIZEOF)||LA129_1==KW_STRING||LA129_1==KW_THIS||LA129_1==KW_TRUE||(LA129_1>=KW_TYPEOF && LA129_1<=KW_USHORT)||LA129_1==KW_VAR||LA129_1==KW_VOID||LA129_1==OP_AMPERSAND||LA129_1==OP_EXCLAMATION||LA129_1==OP_MINUS||LA129_1==OP_MINUS_MINUS||LA129_1==OP_PAREN_OPEN||LA129_1==OP_PLUS||LA129_1==OP_PLUS_PLUS||(LA129_1>=OP_TILDE && LA129_1<=STRING)))
+			if ((LA132_1==CHAR||LA132_1==FLOAT||(LA132_1>=HEX_INTEGER && LA132_1<=IDENTIFIER)||LA132_1==INTEGER||(LA132_1>=KW_ASYNC && LA132_1<=KW_BOOL)||LA132_1==KW_BYTE||LA132_1==KW_CHAR||(LA132_1>=KW_DECIMAL && LA132_1<=KW_DEFAULT)||LA132_1==KW_DOUBLE||LA132_1==KW_FALSE||LA132_1==KW_FLOAT||LA132_1==KW_INT||LA132_1==KW_LONG||(LA132_1>=KW_NEW && LA132_1<=KW_OBJECT)||LA132_1==KW_SBYTE||(LA132_1>=KW_SHORT && LA132_1<=KW_SIZEOF)||LA132_1==KW_STRING||LA132_1==KW_THIS||LA132_1==KW_TRUE||(LA132_1>=KW_TYPEOF && LA132_1<=KW_USHORT)||LA132_1==KW_VAR||LA132_1==KW_VOID||LA132_1==OP_AMPERSAND||LA132_1==OP_EXCLAMATION||LA132_1==OP_MINUS||LA132_1==OP_MINUS_MINUS||LA132_1==OP_PAREN_OPEN||LA132_1==OP_PLUS||LA132_1==OP_PLUS_PLUS||(LA132_1>=OP_TILDE && LA132_1<=STRING)))
 			{
-				alt129 = 1;
+				alt132 = 1;
 			}
-			else if ((LA129_1==OP_BRACE_OPEN))
+			else if ((LA132_1==OP_BRACE_OPEN))
 			{
-				alt129 = 2;
+				alt132 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 129, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 132, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(129); }
-			switch (alt129)
+			} finally { DebugExitDecision(132); }
+			switch (alt132)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1946:7: e1= expressionOrDeclaration
+				// Truss.g:1954:7: e1= expressionOrDeclaration
 				{
-				DebugLocation(1946, 9);
-				PushFollow(Follow._expressionOrDeclaration_in_memberInitializerValue13595);
+				DebugLocation(1954, 9);
+				PushFollow(Follow._expressionOrDeclaration_in_memberInitializerValue13692);
 				e1=expressionOrDeclaration();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1946, 34);
+				DebugLocation(1954, 34);
 				if (state.backtracking == 0)
 				{
 					 value = e1; 
@@ -16321,14 +16472,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:1947:7: e2= objectOrCollectionInitializer
+				// Truss.g:1955:7: e2= objectOrCollectionInitializer
 				{
-				DebugLocation(1947, 9);
-				PushFollow(Follow._objectOrCollectionInitializer_in_memberInitializerValue13607);
+				DebugLocation(1955, 9);
+				PushFollow(Follow._objectOrCollectionInitializer_in_memberInitializerValue13704);
 				e2=objectOrCollectionInitializer();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1947, 40);
+				DebugLocation(1955, 40);
 				if (state.backtracking == 0)
 				{
 					 value = e2; 
@@ -16350,7 +16501,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("memberInitializerValue", 121);
 			LeaveRule_memberInitializerValue();
 		}
-		DebugLocation(1948, 4);
+		DebugLocation(1956, 4);
 		} finally { DebugExitRule(GrammarFileName, "memberInitializerValue"); }
 		return value;
 
@@ -16360,7 +16511,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_collectionInitializer();
 	partial void LeaveRule_collectionInitializer();
 	// $ANTLR start "collectionInitializer"
-	// Truss.g:1950:1: collectionInitializer returns [InitializerExpressionSyntax value] : OP_BRACE_OPEN ei= elementInitializer ( OP_COMMA ei= elementInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE ;
+	// Truss.g:1958:1: collectionInitializer returns [InitializerExpressionSyntax value] : OP_BRACE_OPEN ei= elementInitializer ( OP_COMMA ei= elementInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE ;
 	[GrammarRule("collectionInitializer")]
 	private InitializerExpressionSyntax collectionInitializer()
 	{
@@ -16377,62 +16528,62 @@ namespace  Truss.Compiler.Parser
 		    var builder = new ImmutableArray<ExpressionSyntax>.Builder();
 
 		try { DebugEnterRule(GrammarFileName, "collectionInitializer");
-		DebugLocation(1950, 4);
+		DebugLocation(1958, 4);
 		try
 		{
-			// Truss.g:1955:5: ( OP_BRACE_OPEN ei= elementInitializer ( OP_COMMA ei= elementInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE )
+			// Truss.g:1963:5: ( OP_BRACE_OPEN ei= elementInitializer ( OP_COMMA ei= elementInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE )
 			DebugEnterAlt(1);
-			// Truss.g:1956:9: OP_BRACE_OPEN ei= elementInitializer ( OP_COMMA ei= elementInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE
+			// Truss.g:1964:9: OP_BRACE_OPEN ei= elementInitializer ( OP_COMMA ei= elementInitializer )* ( OP_COMMA )? OP_BRACE_CLOSE
 			{
-			DebugLocation(1956, 9);
-			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_collectionInitializer13643); if (state.failed) return value;
-			DebugLocation(1957, 11);
-			PushFollow(Follow._elementInitializer_in_collectionInitializer13655);
+			DebugLocation(1964, 9);
+			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_collectionInitializer13740); if (state.failed) return value;
+			DebugLocation(1965, 11);
+			PushFollow(Follow._elementInitializer_in_collectionInitializer13752);
 			ei=elementInitializer();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(1958, 9);
+			DebugLocation(1966, 9);
 			if (state.backtracking == 0)
 			{
 				 builder.Add(ei); 
 			}
-			DebugLocation(1959, 9);
-			// Truss.g:1959:9: ( OP_COMMA ei= elementInitializer )*
-			try { DebugEnterSubRule(130);
+			DebugLocation(1967, 9);
+			// Truss.g:1967:9: ( OP_COMMA ei= elementInitializer )*
+			try { DebugEnterSubRule(133);
 			while (true)
 			{
-				int alt130=2;
-				try { DebugEnterDecision(130, false);
-				int LA130_1 = input.LA(1);
+				int alt133=2;
+				try { DebugEnterDecision(133, false);
+				int LA133_1 = input.LA(1);
 
-				if ((LA130_1==OP_COMMA))
+				if ((LA133_1==OP_COMMA))
 				{
-					int LA130_2 = input.LA(2);
+					int LA133_2 = input.LA(2);
 
-					if ((LA130_2==CHAR||LA130_2==FLOAT||(LA130_2>=HEX_INTEGER && LA130_2<=IDENTIFIER)||LA130_2==INTEGER||(LA130_2>=KW_AWAIT && LA130_2<=KW_BASE)||LA130_2==KW_DEFAULT||LA130_2==KW_FALSE||(LA130_2>=KW_NEW && LA130_2<=KW_NIL)||LA130_2==KW_SIZEOF||LA130_2==KW_THIS||LA130_2==KW_TRUE||LA130_2==KW_TYPEOF||LA130_2==OP_AMPERSAND||LA130_2==OP_BRACE_OPEN||LA130_2==OP_EXCLAMATION||LA130_2==OP_MINUS||LA130_2==OP_MINUS_MINUS||LA130_2==OP_PAREN_OPEN||LA130_2==OP_PLUS||LA130_2==OP_PLUS_PLUS||(LA130_2>=OP_TILDE && LA130_2<=STRING)))
+					if ((LA133_2==CHAR||LA133_2==FLOAT||(LA133_2>=HEX_INTEGER && LA133_2<=IDENTIFIER)||LA133_2==INTEGER||(LA133_2>=KW_AWAIT && LA133_2<=KW_BASE)||LA133_2==KW_DEFAULT||LA133_2==KW_FALSE||(LA133_2>=KW_NEW && LA133_2<=KW_NIL)||LA133_2==KW_SIZEOF||LA133_2==KW_THIS||LA133_2==KW_TRUE||LA133_2==KW_TYPEOF||LA133_2==OP_AMPERSAND||LA133_2==OP_BRACE_OPEN||LA133_2==OP_EXCLAMATION||LA133_2==OP_MINUS||LA133_2==OP_MINUS_MINUS||LA133_2==OP_PAREN_OPEN||LA133_2==OP_PLUS||LA133_2==OP_PLUS_PLUS||(LA133_2>=OP_TILDE && LA133_2<=STRING)))
 					{
-						alt130 = 1;
+						alt133 = 1;
 					}
 
 
 				}
 
 
-				} finally { DebugExitDecision(130); }
-				switch ( alt130 )
+				} finally { DebugExitDecision(133); }
+				switch ( alt133 )
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:1960:13: OP_COMMA ei= elementInitializer
+					// Truss.g:1968:13: OP_COMMA ei= elementInitializer
 					{
-					DebugLocation(1960, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_collectionInitializer13689); if (state.failed) return value;
-					DebugLocation(1961, 15);
-					PushFollow(Follow._elementInitializer_in_collectionInitializer13705);
+					DebugLocation(1968, 13);
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_collectionInitializer13786); if (state.failed) return value;
+					DebugLocation(1969, 15);
+					PushFollow(Follow._elementInitializer_in_collectionInitializer13802);
 					ei=elementInitializer();
 					PopFollow();
 					if (state.failed) return value;
-					DebugLocation(1962, 13);
+					DebugLocation(1970, 13);
 					if (state.backtracking == 0)
 					{
 						 builder.Add(ei); 
@@ -16442,45 +16593,45 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop130;
+					goto loop133;
 				}
 			}
 
-			loop130:
+			loop133:
 				;
 
-			} finally { DebugExitSubRule(130); }
+			} finally { DebugExitSubRule(133); }
 
-			DebugLocation(1964, 9);
-			// Truss.g:1964:9: ( OP_COMMA )?
-			int alt131=2;
-			try { DebugEnterSubRule(131);
-			try { DebugEnterDecision(131, false);
-			int LA131_1 = input.LA(1);
+			DebugLocation(1972, 9);
+			// Truss.g:1972:9: ( OP_COMMA )?
+			int alt134=2;
+			try { DebugEnterSubRule(134);
+			try { DebugEnterDecision(134, false);
+			int LA134_1 = input.LA(1);
 
-			if ((LA131_1==OP_COMMA))
+			if ((LA134_1==OP_COMMA))
 			{
-				alt131 = 1;
+				alt134 = 1;
 			}
-			} finally { DebugExitDecision(131); }
-			switch (alt131)
+			} finally { DebugExitDecision(134); }
+			switch (alt134)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1964:9: OP_COMMA
+				// Truss.g:1972:9: OP_COMMA
 				{
-				DebugLocation(1964, 9);
-				Match(input,OP_COMMA,Follow._OP_COMMA_in_collectionInitializer13740); if (state.failed) return value;
+				DebugLocation(1972, 9);
+				Match(input,OP_COMMA,Follow._OP_COMMA_in_collectionInitializer13837); if (state.failed) return value;
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(131); }
+			} finally { DebugExitSubRule(134); }
 
-			DebugLocation(1965, 9);
-			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_collectionInitializer13751); if (state.failed) return value;
-			DebugLocation(1966, 9);
+			DebugLocation(1973, 9);
+			Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_collectionInitializer13848); if (state.failed) return value;
+			DebugLocation(1974, 9);
 			if (state.backtracking == 0)
 			{
 
@@ -16505,7 +16656,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("collectionInitializer", 122);
 			LeaveRule_collectionInitializer();
 		}
-		DebugLocation(1972, 4);
+		DebugLocation(1980, 4);
 		} finally { DebugExitRule(GrammarFileName, "collectionInitializer"); }
 		return value;
 
@@ -16515,7 +16666,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_elementInitializer();
 	partial void LeaveRule_elementInitializer();
 	// $ANTLR start "elementInitializer"
-	// Truss.g:1974:1: elementInitializer returns [ExpressionSyntax value] : (nae= nonAssignmentExpression | OP_BRACE_OPEN eodl= expressionOrDeclarationList OP_BRACE_CLOSE );
+	// Truss.g:1982:1: elementInitializer returns [ExpressionSyntax value] : (nae= nonAssignmentExpression | OP_BRACE_OPEN eodl= expressionOrDeclarationList OP_BRACE_CLOSE );
 	[GrammarRule("elementInitializer")]
 	private ExpressionSyntax elementInitializer()
 	{
@@ -16532,42 +16683,42 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "elementInitializer");
-		DebugLocation(1974, 4);
+		DebugLocation(1982, 4);
 		try
 		{
-			// Truss.g:1978:5: (nae= nonAssignmentExpression | OP_BRACE_OPEN eodl= expressionOrDeclarationList OP_BRACE_CLOSE )
-			int alt132=2;
-			try { DebugEnterDecision(132, false);
-			int LA132_1 = input.LA(1);
+			// Truss.g:1986:5: (nae= nonAssignmentExpression | OP_BRACE_OPEN eodl= expressionOrDeclarationList OP_BRACE_CLOSE )
+			int alt135=2;
+			try { DebugEnterDecision(135, false);
+			int LA135_1 = input.LA(1);
 
-			if ((LA132_1==CHAR||LA132_1==FLOAT||(LA132_1>=HEX_INTEGER && LA132_1<=IDENTIFIER)||LA132_1==INTEGER||(LA132_1>=KW_AWAIT && LA132_1<=KW_BASE)||LA132_1==KW_DEFAULT||LA132_1==KW_FALSE||(LA132_1>=KW_NEW && LA132_1<=KW_NIL)||LA132_1==KW_SIZEOF||LA132_1==KW_THIS||LA132_1==KW_TRUE||LA132_1==KW_TYPEOF||LA132_1==OP_AMPERSAND||LA132_1==OP_EXCLAMATION||LA132_1==OP_MINUS||LA132_1==OP_MINUS_MINUS||LA132_1==OP_PAREN_OPEN||LA132_1==OP_PLUS||LA132_1==OP_PLUS_PLUS||(LA132_1>=OP_TILDE && LA132_1<=STRING)))
+			if ((LA135_1==CHAR||LA135_1==FLOAT||(LA135_1>=HEX_INTEGER && LA135_1<=IDENTIFIER)||LA135_1==INTEGER||(LA135_1>=KW_AWAIT && LA135_1<=KW_BASE)||LA135_1==KW_DEFAULT||LA135_1==KW_FALSE||(LA135_1>=KW_NEW && LA135_1<=KW_NIL)||LA135_1==KW_SIZEOF||LA135_1==KW_THIS||LA135_1==KW_TRUE||LA135_1==KW_TYPEOF||LA135_1==OP_AMPERSAND||LA135_1==OP_EXCLAMATION||LA135_1==OP_MINUS||LA135_1==OP_MINUS_MINUS||LA135_1==OP_PAREN_OPEN||LA135_1==OP_PLUS||LA135_1==OP_PLUS_PLUS||(LA135_1>=OP_TILDE && LA135_1<=STRING)))
 			{
-				alt132 = 1;
+				alt135 = 1;
 			}
-			else if ((LA132_1==OP_BRACE_OPEN))
+			else if ((LA135_1==OP_BRACE_OPEN))
 			{
-				alt132 = 2;
+				alt135 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 132, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 135, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(132); }
-			switch (alt132)
+			} finally { DebugExitDecision(135); }
+			switch (alt135)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:1979:9: nae= nonAssignmentExpression
+				// Truss.g:1987:9: nae= nonAssignmentExpression
 				{
-				DebugLocation(1979, 12);
-				PushFollow(Follow._nonAssignmentExpression_in_elementInitializer13797);
+				DebugLocation(1987, 12);
+				PushFollow(Follow._nonAssignmentExpression_in_elementInitializer13894);
 				nae=nonAssignmentExpression();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1980, 9);
+				DebugLocation(1988, 9);
 				if (state.backtracking == 0)
 				{
 					 value = nae; 
@@ -16577,18 +16728,18 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:1982:9: OP_BRACE_OPEN eodl= expressionOrDeclarationList OP_BRACE_CLOSE
+				// Truss.g:1990:9: OP_BRACE_OPEN eodl= expressionOrDeclarationList OP_BRACE_CLOSE
 				{
-				DebugLocation(1982, 9);
-				Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_elementInitializer13823); if (state.failed) return value;
-				DebugLocation(1982, 27);
-				PushFollow(Follow._expressionOrDeclarationList_in_elementInitializer13827);
+				DebugLocation(1990, 9);
+				Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_elementInitializer13920); if (state.failed) return value;
+				DebugLocation(1990, 27);
+				PushFollow(Follow._expressionOrDeclarationList_in_elementInitializer13924);
 				eodl=expressionOrDeclarationList();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(1982, 56);
-				Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_elementInitializer13829); if (state.failed) return value;
-				DebugLocation(1983, 9);
+				DebugLocation(1990, 56);
+				Match(input,OP_BRACE_CLOSE,Follow._OP_BRACE_CLOSE_in_elementInitializer13926); if (state.failed) return value;
+				DebugLocation(1991, 9);
 				if (state.backtracking == 0)
 				{
 
@@ -16615,7 +16766,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("elementInitializer", 123);
 			LeaveRule_elementInitializer();
 		}
-		DebugLocation(1989, 4);
+		DebugLocation(1997, 4);
 		} finally { DebugExitRule(GrammarFileName, "elementInitializer"); }
 		return value;
 
@@ -16625,7 +16776,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_variableDeclarationExpression();
 	partial void LeaveRule_variableDeclarationExpression();
 	// $ANTLR start "variableDeclarationExpression"
-	// Truss.g:1991:1: variableDeclarationExpression returns [ExpressionSyntax value] : t= typeSyntax idn= identifierName ;
+	// Truss.g:1999:1: variableDeclarationExpression returns [ExpressionSyntax value] : t= typeSyntax idn= identifierName ;
 	[GrammarRule("variableDeclarationExpression")]
 	private ExpressionSyntax variableDeclarationExpression()
 	{
@@ -16642,24 +16793,24 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "variableDeclarationExpression");
-		DebugLocation(1991, 4);
+		DebugLocation(1999, 4);
 		try
 		{
-			// Truss.g:1995:5: (t= typeSyntax idn= identifierName )
+			// Truss.g:2003:5: (t= typeSyntax idn= identifierName )
 			DebugEnterAlt(1);
-			// Truss.g:1996:9: t= typeSyntax idn= identifierName
+			// Truss.g:2004:9: t= typeSyntax idn= identifierName
 			{
-			DebugLocation(1996, 10);
-			PushFollow(Follow._typeSyntax_in_variableDeclarationExpression13875);
+			DebugLocation(2004, 10);
+			PushFollow(Follow._typeSyntax_in_variableDeclarationExpression13972);
 			t=typeSyntax();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(1997, 12);
-			PushFollow(Follow._identifierName_in_variableDeclarationExpression13887);
+			DebugLocation(2005, 12);
+			PushFollow(Follow._identifierName_in_variableDeclarationExpression13984);
 			idn=identifierName();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(1998, 9);
+			DebugLocation(2006, 9);
 			if (state.backtracking == 0)
 			{
 				 value = new VariableDeclarationExpressionSyntax(t, idn, Span(start)); 
@@ -16679,7 +16830,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("variableDeclarationExpression", 124);
 			LeaveRule_variableDeclarationExpression();
 		}
-		DebugLocation(1999, 4);
+		DebugLocation(2007, 4);
 		} finally { DebugExitRule(GrammarFileName, "variableDeclarationExpression"); }
 		return value;
 
@@ -16689,7 +16840,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_selector();
 	partial void LeaveRule_selector();
 	// $ANTLR start "selector"
-	// Truss.g:2001:1: selector returns [ISelector value] : ( OP_DOT sn= simpleName |al= argumentList | OP_BRACKET_OPEN eodl= expressionOrDeclarationList OP_BRACKET_CLOSE );
+	// Truss.g:2009:1: selector returns [ISelector value] : ( OP_DOT sn= simpleName |al= argumentList | OP_BRACKET_OPEN eodl= expressionOrDeclarationList OP_BRACKET_CLOSE );
 	[GrammarRule("selector")]
 	private ISelector selector()
 	{
@@ -16707,53 +16858,53 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "selector");
-		DebugLocation(2001, 4);
+		DebugLocation(2009, 4);
 		try
 		{
-			// Truss.g:2005:5: ( OP_DOT sn= simpleName |al= argumentList | OP_BRACKET_OPEN eodl= expressionOrDeclarationList OP_BRACKET_CLOSE )
-			int alt133=3;
-			try { DebugEnterDecision(133, false);
+			// Truss.g:2013:5: ( OP_DOT sn= simpleName |al= argumentList | OP_BRACKET_OPEN eodl= expressionOrDeclarationList OP_BRACKET_CLOSE )
+			int alt136=3;
+			try { DebugEnterDecision(136, false);
 			switch (input.LA(1))
 			{
 			case OP_DOT:
 				{
-				alt133 = 1;
+				alt136 = 1;
 				}
 				break;
 			case OP_PAREN_OPEN:
 				{
-				alt133 = 2;
+				alt136 = 2;
 				}
 				break;
 			case OP_BRACKET_OPEN:
 				{
-				alt133 = 3;
+				alt136 = 3;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 133, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 136, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(133); }
-			switch (alt133)
+			} finally { DebugExitDecision(136); }
+			switch (alt136)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2005:7: OP_DOT sn= simpleName
+				// Truss.g:2013:7: OP_DOT sn= simpleName
 				{
-				DebugLocation(2005, 7);
-				Match(input,OP_DOT,Follow._OP_DOT_in_selector13923); if (state.failed) return value;
-				DebugLocation(2005, 16);
-				PushFollow(Follow._simpleName_in_selector13927);
+				DebugLocation(2013, 7);
+				Match(input,OP_DOT,Follow._OP_DOT_in_selector14020); if (state.failed) return value;
+				DebugLocation(2013, 16);
+				PushFollow(Follow._simpleName_in_selector14024);
 				sn=simpleName();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2005, 28);
+				DebugLocation(2013, 28);
 				if (state.backtracking == 0)
 				{
 					 return new MemberAccessSelector(sn, Span(start)); 
@@ -16763,14 +16914,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2006:7: al= argumentList
+				// Truss.g:2014:7: al= argumentList
 				{
-				DebugLocation(2006, 9);
-				PushFollow(Follow._argumentList_in_selector13939);
+				DebugLocation(2014, 9);
+				PushFollow(Follow._argumentList_in_selector14036);
 				al=argumentList();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2006, 23);
+				DebugLocation(2014, 23);
 				if (state.backtracking == 0)
 				{
 					 return new ArgumentListSelector(al, Span(start)); 
@@ -16780,18 +16931,18 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Truss.g:2007:7: OP_BRACKET_OPEN eodl= expressionOrDeclarationList OP_BRACKET_CLOSE
+				// Truss.g:2015:7: OP_BRACKET_OPEN eodl= expressionOrDeclarationList OP_BRACKET_CLOSE
 				{
-				DebugLocation(2007, 7);
-				Match(input,OP_BRACKET_OPEN,Follow._OP_BRACKET_OPEN_in_selector13949); if (state.failed) return value;
-				DebugLocation(2007, 27);
-				PushFollow(Follow._expressionOrDeclarationList_in_selector13953);
+				DebugLocation(2015, 7);
+				Match(input,OP_BRACKET_OPEN,Follow._OP_BRACKET_OPEN_in_selector14046); if (state.failed) return value;
+				DebugLocation(2015, 27);
+				PushFollow(Follow._expressionOrDeclarationList_in_selector14050);
 				eodl=expressionOrDeclarationList();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2007, 56);
-				Match(input,OP_BRACKET_CLOSE,Follow._OP_BRACKET_CLOSE_in_selector13955); if (state.failed) return value;
-				DebugLocation(2007, 73);
+				DebugLocation(2015, 56);
+				Match(input,OP_BRACKET_CLOSE,Follow._OP_BRACKET_CLOSE_in_selector14052); if (state.failed) return value;
+				DebugLocation(2015, 73);
 				if (state.backtracking == 0)
 				{
 					 return new IndexSelector(eodl, Span(start)); 
@@ -16813,7 +16964,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("selector", 125);
 			LeaveRule_selector();
 		}
-		DebugLocation(2008, 4);
+		DebugLocation(2016, 4);
 		} finally { DebugExitRule(GrammarFileName, "selector"); }
 		return value;
 
@@ -16823,7 +16974,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_argumentList();
 	partial void LeaveRule_argumentList();
 	// $ANTLR start "argumentList"
-	// Truss.g:2010:1: argumentList returns [ImmutableArray<ArgumentSyntax> value] : OP_PAREN_OPEN (a= argument ( OP_COMMA a= argument )* )? OP_PAREN_CLOSE ;
+	// Truss.g:2018:1: argumentList returns [ImmutableArray<ArgumentSyntax> value] : OP_PAREN_OPEN (a= argument ( OP_COMMA a= argument )* )? OP_PAREN_CLOSE ;
 	[GrammarRule("argumentList")]
 	private ImmutableArray<ArgumentSyntax> argumentList()
 	{
@@ -16839,73 +16990,73 @@ namespace  Truss.Compiler.Parser
 		    var arguments = new ImmutableArray<ArgumentSyntax>.Builder();
 
 		try { DebugEnterRule(GrammarFileName, "argumentList");
-		DebugLocation(2010, 4);
+		DebugLocation(2018, 4);
 		try
 		{
-			// Truss.g:2014:5: ( OP_PAREN_OPEN (a= argument ( OP_COMMA a= argument )* )? OP_PAREN_CLOSE )
+			// Truss.g:2022:5: ( OP_PAREN_OPEN (a= argument ( OP_COMMA a= argument )* )? OP_PAREN_CLOSE )
 			DebugEnterAlt(1);
-			// Truss.g:2015:9: OP_PAREN_OPEN (a= argument ( OP_COMMA a= argument )* )? OP_PAREN_CLOSE
+			// Truss.g:2023:9: OP_PAREN_OPEN (a= argument ( OP_COMMA a= argument )* )? OP_PAREN_CLOSE
 			{
-			DebugLocation(2015, 9);
-			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_argumentList13991); if (state.failed) return value;
-			DebugLocation(2016, 9);
-			// Truss.g:2016:9: (a= argument ( OP_COMMA a= argument )* )?
-			int alt135=2;
-			try { DebugEnterSubRule(135);
-			try { DebugEnterDecision(135, false);
-			int LA135_1 = input.LA(1);
+			DebugLocation(2023, 9);
+			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_argumentList14088); if (state.failed) return value;
+			DebugLocation(2024, 9);
+			// Truss.g:2024:9: (a= argument ( OP_COMMA a= argument )* )?
+			int alt138=2;
+			try { DebugEnterSubRule(138);
+			try { DebugEnterDecision(138, false);
+			int LA138_1 = input.LA(1);
 
-			if ((LA135_1==CHAR||LA135_1==FLOAT||(LA135_1>=HEX_INTEGER && LA135_1<=IDENTIFIER)||LA135_1==INTEGER||(LA135_1>=KW_ASYNC && LA135_1<=KW_BOOL)||LA135_1==KW_BYTE||LA135_1==KW_CHAR||(LA135_1>=KW_DECIMAL && LA135_1<=KW_DEFAULT)||LA135_1==KW_DOUBLE||LA135_1==KW_FALSE||LA135_1==KW_FLOAT||LA135_1==KW_INT||LA135_1==KW_LONG||(LA135_1>=KW_NEW && LA135_1<=KW_OBJECT)||LA135_1==KW_OUT||LA135_1==KW_REF||LA135_1==KW_SBYTE||(LA135_1>=KW_SHORT && LA135_1<=KW_SIZEOF)||LA135_1==KW_STRING||LA135_1==KW_THIS||LA135_1==KW_TRUE||(LA135_1>=KW_TYPEOF && LA135_1<=KW_USHORT)||LA135_1==KW_VAR||LA135_1==KW_VOID||LA135_1==OP_AMPERSAND||LA135_1==OP_EXCLAMATION||LA135_1==OP_MINUS||LA135_1==OP_MINUS_MINUS||LA135_1==OP_PAREN_OPEN||LA135_1==OP_PLUS||LA135_1==OP_PLUS_PLUS||(LA135_1>=OP_TILDE && LA135_1<=STRING)))
+			if ((LA138_1==CHAR||LA138_1==FLOAT||(LA138_1>=HEX_INTEGER && LA138_1<=IDENTIFIER)||LA138_1==INTEGER||(LA138_1>=KW_ASYNC && LA138_1<=KW_BOOL)||LA138_1==KW_BYTE||LA138_1==KW_CHAR||(LA138_1>=KW_DECIMAL && LA138_1<=KW_DEFAULT)||LA138_1==KW_DOUBLE||LA138_1==KW_FALSE||LA138_1==KW_FLOAT||LA138_1==KW_INT||LA138_1==KW_LONG||(LA138_1>=KW_NEW && LA138_1<=KW_OBJECT)||LA138_1==KW_OUT||LA138_1==KW_REF||LA138_1==KW_SBYTE||(LA138_1>=KW_SHORT && LA138_1<=KW_SIZEOF)||LA138_1==KW_STRING||LA138_1==KW_THIS||LA138_1==KW_TRUE||(LA138_1>=KW_TYPEOF && LA138_1<=KW_USHORT)||LA138_1==KW_VAR||LA138_1==KW_VOID||LA138_1==OP_AMPERSAND||LA138_1==OP_EXCLAMATION||LA138_1==OP_MINUS||LA138_1==OP_MINUS_MINUS||LA138_1==OP_PAREN_OPEN||LA138_1==OP_PLUS||LA138_1==OP_PLUS_PLUS||(LA138_1>=OP_TILDE && LA138_1<=STRING)))
 			{
-				alt135 = 1;
+				alt138 = 1;
 			}
-			} finally { DebugExitDecision(135); }
-			switch (alt135)
+			} finally { DebugExitDecision(138); }
+			switch (alt138)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2017:13: a= argument ( OP_COMMA a= argument )*
+				// Truss.g:2025:13: a= argument ( OP_COMMA a= argument )*
 				{
-				DebugLocation(2017, 14);
-				PushFollow(Follow._argument_in_argumentList14017);
+				DebugLocation(2025, 14);
+				PushFollow(Follow._argument_in_argumentList14114);
 				a=argument();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2018, 13);
+				DebugLocation(2026, 13);
 				if (state.backtracking == 0)
 				{
 					 arguments.Add(a); 
 				}
-				DebugLocation(2019, 13);
-				// Truss.g:2019:13: ( OP_COMMA a= argument )*
-				try { DebugEnterSubRule(134);
+				DebugLocation(2027, 13);
+				// Truss.g:2027:13: ( OP_COMMA a= argument )*
+				try { DebugEnterSubRule(137);
 				while (true)
 				{
-					int alt134=2;
-					try { DebugEnterDecision(134, false);
-					int LA134_1 = input.LA(1);
+					int alt137=2;
+					try { DebugEnterDecision(137, false);
+					int LA137_1 = input.LA(1);
 
-					if ((LA134_1==OP_COMMA))
+					if ((LA137_1==OP_COMMA))
 					{
-						alt134 = 1;
+						alt137 = 1;
 					}
 
 
-					} finally { DebugExitDecision(134); }
-					switch ( alt134 )
+					} finally { DebugExitDecision(137); }
+					switch ( alt137 )
 					{
 					case 1:
 						DebugEnterAlt(1);
-						// Truss.g:2020:17: OP_COMMA a= argument
+						// Truss.g:2028:17: OP_COMMA a= argument
 						{
-						DebugLocation(2020, 17);
-						Match(input,OP_COMMA,Follow._OP_COMMA_in_argumentList14063); if (state.failed) return value;
-						DebugLocation(2021, 18);
-						PushFollow(Follow._argument_in_argumentList14083);
+						DebugLocation(2028, 17);
+						Match(input,OP_COMMA,Follow._OP_COMMA_in_argumentList14160); if (state.failed) return value;
+						DebugLocation(2029, 18);
+						PushFollow(Follow._argument_in_argumentList14180);
 						a=argument();
 						PopFollow();
 						if (state.failed) return value;
-						DebugLocation(2022, 17);
+						DebugLocation(2030, 17);
 						if (state.backtracking == 0)
 						{
 							 arguments.Add(a); 
@@ -16915,25 +17066,25 @@ namespace  Truss.Compiler.Parser
 						break;
 
 					default:
-						goto loop134;
+						goto loop137;
 					}
 				}
 
-				loop134:
+				loop137:
 					;
 
-				} finally { DebugExitSubRule(134); }
+				} finally { DebugExitSubRule(137); }
 
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(135); }
+			} finally { DebugExitSubRule(138); }
 
-			DebugLocation(2025, 9);
-			Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_argumentList14137); if (state.failed) return value;
-			DebugLocation(2026, 9);
+			DebugLocation(2033, 9);
+			Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_argumentList14234); if (state.failed) return value;
+			DebugLocation(2034, 9);
 			if (state.backtracking == 0)
 			{
 				 value = arguments.Build(); 
@@ -16953,7 +17104,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("argumentList", 126);
 			LeaveRule_argumentList();
 		}
-		DebugLocation(2027, 4);
+		DebugLocation(2035, 4);
 		} finally { DebugExitRule(GrammarFileName, "argumentList"); }
 		return value;
 
@@ -16963,7 +17114,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_literal();
 	partial void LeaveRule_literal();
 	// $ANTLR start "literal"
-	// Truss.g:2029:1: literal returns [LiteralExpressionSyntax value] : ( KW_TRUE | KW_FALSE | KW_NIL |hi= HEX_INTEGER |i= INTEGER |f= FLOAT |c= CHAR |s= STRING );
+	// Truss.g:2037:1: literal returns [LiteralExpressionSyntax value] : ( KW_TRUE | KW_FALSE | KW_NIL |hi= HEX_INTEGER |i= INTEGER |f= FLOAT |c= CHAR |s= STRING );
 	[GrammarRule("literal")]
 	private LiteralExpressionSyntax literal()
 	{
@@ -16985,73 +17136,73 @@ namespace  Truss.Compiler.Parser
 		    string text = null;
 
 		try { DebugEnterRule(GrammarFileName, "literal");
-		DebugLocation(2029, 4);
+		DebugLocation(2037, 4);
 		try
 		{
-			// Truss.g:2038:5: ( KW_TRUE | KW_FALSE | KW_NIL |hi= HEX_INTEGER |i= INTEGER |f= FLOAT |c= CHAR |s= STRING )
-			int alt136=8;
-			try { DebugEnterDecision(136, false);
+			// Truss.g:2046:5: ( KW_TRUE | KW_FALSE | KW_NIL |hi= HEX_INTEGER |i= INTEGER |f= FLOAT |c= CHAR |s= STRING )
+			int alt139=8;
+			try { DebugEnterDecision(139, false);
 			switch (input.LA(1))
 			{
 			case KW_TRUE:
 				{
-				alt136 = 1;
+				alt139 = 1;
 				}
 				break;
 			case KW_FALSE:
 				{
-				alt136 = 2;
+				alt139 = 2;
 				}
 				break;
 			case KW_NIL:
 				{
-				alt136 = 3;
+				alt139 = 3;
 				}
 				break;
 			case HEX_INTEGER:
 				{
-				alt136 = 4;
+				alt139 = 4;
 				}
 				break;
 			case INTEGER:
 				{
-				alt136 = 5;
+				alt139 = 5;
 				}
 				break;
 			case FLOAT:
 				{
-				alt136 = 6;
+				alt139 = 6;
 				}
 				break;
 			case CHAR:
 				{
-				alt136 = 7;
+				alt139 = 7;
 				}
 				break;
 			case STRING:
 				{
-				alt136 = 8;
+				alt139 = 8;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 136, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 139, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(136); }
-			switch (alt136)
+			} finally { DebugExitDecision(139); }
+			switch (alt139)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2038:7: KW_TRUE
+				// Truss.g:2046:7: KW_TRUE
 				{
-				DebugLocation(2038, 7);
-				Match(input,KW_TRUE,Follow._KW_TRUE_in_literal14178); if (state.failed) return value;
-				DebugLocation(2038, 15);
+				DebugLocation(2046, 7);
+				Match(input,KW_TRUE,Follow._KW_TRUE_in_literal14275); if (state.failed) return value;
+				DebugLocation(2046, 15);
 				if (state.backtracking == 0)
 				{
 					 type = LiteralType.True; 
@@ -17061,11 +17212,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2039:7: KW_FALSE
+				// Truss.g:2047:7: KW_FALSE
 				{
-				DebugLocation(2039, 7);
-				Match(input,KW_FALSE,Follow._KW_FALSE_in_literal14188); if (state.failed) return value;
-				DebugLocation(2039, 16);
+				DebugLocation(2047, 7);
+				Match(input,KW_FALSE,Follow._KW_FALSE_in_literal14285); if (state.failed) return value;
+				DebugLocation(2047, 16);
 				if (state.backtracking == 0)
 				{
 					 type = LiteralType.False; 
@@ -17075,11 +17226,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Truss.g:2040:7: KW_NIL
+				// Truss.g:2048:7: KW_NIL
 				{
-				DebugLocation(2040, 7);
-				Match(input,KW_NIL,Follow._KW_NIL_in_literal14198); if (state.failed) return value;
-				DebugLocation(2040, 14);
+				DebugLocation(2048, 7);
+				Match(input,KW_NIL,Follow._KW_NIL_in_literal14295); if (state.failed) return value;
+				DebugLocation(2048, 14);
 				if (state.backtracking == 0)
 				{
 					 type = LiteralType.Nil; 
@@ -17089,11 +17240,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// Truss.g:2041:7: hi= HEX_INTEGER
+				// Truss.g:2049:7: hi= HEX_INTEGER
 				{
-				DebugLocation(2041, 9);
-				hi=(IToken)Match(input,HEX_INTEGER,Follow._HEX_INTEGER_in_literal14210); if (state.failed) return value;
-				DebugLocation(2041, 22);
+				DebugLocation(2049, 9);
+				hi=(IToken)Match(input,HEX_INTEGER,Follow._HEX_INTEGER_in_literal14307); if (state.failed) return value;
+				DebugLocation(2049, 22);
 				if (state.backtracking == 0)
 				{
 					 text = hi.Text; type = LiteralType.Hex; 
@@ -17103,11 +17254,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// Truss.g:2042:7: i= INTEGER
+				// Truss.g:2050:7: i= INTEGER
 				{
-				DebugLocation(2042, 8);
-				i=(IToken)Match(input,INTEGER,Follow._INTEGER_in_literal14222); if (state.failed) return value;
-				DebugLocation(2042, 17);
+				DebugLocation(2050, 8);
+				i=(IToken)Match(input,INTEGER,Follow._INTEGER_in_literal14319); if (state.failed) return value;
+				DebugLocation(2050, 17);
 				if (state.backtracking == 0)
 				{
 					 text = i.Text; type = LiteralType.Integer; 
@@ -17117,11 +17268,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// Truss.g:2043:7: f= FLOAT
+				// Truss.g:2051:7: f= FLOAT
 				{
-				DebugLocation(2043, 8);
-				f=(IToken)Match(input,FLOAT,Follow._FLOAT_in_literal14234); if (state.failed) return value;
-				DebugLocation(2043, 15);
+				DebugLocation(2051, 8);
+				f=(IToken)Match(input,FLOAT,Follow._FLOAT_in_literal14331); if (state.failed) return value;
+				DebugLocation(2051, 15);
 				if (state.backtracking == 0)
 				{
 					 text = f.Text; type = LiteralType.Float; 
@@ -17131,11 +17282,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 7:
 				DebugEnterAlt(7);
-				// Truss.g:2044:7: c= CHAR
+				// Truss.g:2052:7: c= CHAR
 				{
-				DebugLocation(2044, 8);
-				c=(IToken)Match(input,CHAR,Follow._CHAR_in_literal14246); if (state.failed) return value;
-				DebugLocation(2044, 14);
+				DebugLocation(2052, 8);
+				c=(IToken)Match(input,CHAR,Follow._CHAR_in_literal14343); if (state.failed) return value;
+				DebugLocation(2052, 14);
 				if (state.backtracking == 0)
 				{
 					 text = c.Text; type = LiteralType.Char; 
@@ -17145,11 +17296,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 8:
 				DebugEnterAlt(8);
-				// Truss.g:2045:7: s= STRING
+				// Truss.g:2053:7: s= STRING
 				{
-				DebugLocation(2045, 8);
-				s=(IToken)Match(input,STRING,Follow._STRING_in_literal14258); if (state.failed) return value;
-				DebugLocation(2045, 16);
+				DebugLocation(2053, 8);
+				s=(IToken)Match(input,STRING,Follow._STRING_in_literal14355); if (state.failed) return value;
+				DebugLocation(2053, 16);
 				if (state.backtracking == 0)
 				{
 					 text = s.Text; type = LiteralType.String; 
@@ -17177,7 +17328,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("literal", 127);
 			LeaveRule_literal();
 		}
-		DebugLocation(2046, 4);
+		DebugLocation(2054, 4);
 		} finally { DebugExitRule(GrammarFileName, "literal"); }
 		return value;
 
@@ -17187,7 +17338,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_identifierName();
 	partial void LeaveRule_identifierName();
 	// $ANTLR start "identifierName"
-	// Truss.g:2065:1: identifierName returns [IdentifierNameSyntax value] : i= IDENTIFIER ;
+	// Truss.g:2073:1: identifierName returns [IdentifierNameSyntax value] : i= IDENTIFIER ;
 	[GrammarRule("identifierName")]
 	private IdentifierNameSyntax identifierName()
 	{
@@ -17203,16 +17354,16 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "identifierName");
-		DebugLocation(2065, 4);
+		DebugLocation(2073, 4);
 		try
 		{
-			// Truss.g:2069:5: (i= IDENTIFIER )
+			// Truss.g:2077:5: (i= IDENTIFIER )
 			DebugEnterAlt(1);
-			// Truss.g:2070:9: i= IDENTIFIER
+			// Truss.g:2078:9: i= IDENTIFIER
 			{
-			DebugLocation(2070, 10);
-			i=(IToken)Match(input,IDENTIFIER,Follow._IDENTIFIER_in_identifierName14313); if (state.failed) return value;
-			DebugLocation(2071, 9);
+			DebugLocation(2078, 10);
+			i=(IToken)Match(input,IDENTIFIER,Follow._IDENTIFIER_in_identifierName14410); if (state.failed) return value;
+			DebugLocation(2079, 9);
 			if (state.backtracking == 0)
 			{
 				 value = new IdentifierNameSyntax(i.Text, Span(start)); 
@@ -17232,7 +17383,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("identifierName", 128);
 			LeaveRule_identifierName();
 		}
-		DebugLocation(2072, 4);
+		DebugLocation(2080, 4);
 		} finally { DebugExitRule(GrammarFileName, "identifierName"); }
 		return value;
 
@@ -17242,7 +17393,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_castType();
 	partial void LeaveRule_castType();
 	// $ANTLR start "castType"
-	// Truss.g:2076:1: castType returns [TypeSyntax value] : (n= nullable |t= typeSyntax );
+	// Truss.g:2084:1: castType returns [TypeSyntax value] : (n= nullable |t= typeSyntax );
 	[GrammarRule("castType")]
 	private TypeSyntax castType()
 	{
@@ -17252,49 +17403,49 @@ namespace  Truss.Compiler.Parser
 		TypeSyntax value = default(TypeSyntax);
 
 
-		Nullable n = default(Nullable);
+		Nullability n = default(Nullability);
 		TypeSyntax t = default(TypeSyntax);
 
 
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "castType");
-		DebugLocation(2076, 4);
+		DebugLocation(2084, 4);
 		try
 		{
-			// Truss.g:2080:5: (n= nullable |t= typeSyntax )
-			int alt137=2;
-			try { DebugEnterDecision(137, false);
-			int LA137_1 = input.LA(1);
+			// Truss.g:2088:5: (n= nullable |t= typeSyntax )
+			int alt140=2;
+			try { DebugEnterDecision(140, false);
+			int LA140_1 = input.LA(1);
 
-			if ((LA137_1==OP_EXCLAMATION||LA137_1==OP_QUESTION))
+			if ((LA140_1==OP_EXCLAMATION||LA140_1==OP_QUESTION))
 			{
-				alt137 = 1;
+				alt140 = 1;
 			}
-			else if ((LA137_1==IDENTIFIER||LA137_1==KW_BOOL||LA137_1==KW_BYTE||LA137_1==KW_CHAR||LA137_1==KW_DECIMAL||LA137_1==KW_DOUBLE||LA137_1==KW_FLOAT||LA137_1==KW_INT||LA137_1==KW_LONG||LA137_1==KW_OBJECT||LA137_1==KW_SBYTE||LA137_1==KW_SHORT||LA137_1==KW_STRING||(LA137_1>=KW_UINT && LA137_1<=KW_USHORT)||LA137_1==KW_VAR||LA137_1==KW_VOID))
+			else if ((LA140_1==IDENTIFIER||LA140_1==KW_BOOL||LA140_1==KW_BYTE||LA140_1==KW_CHAR||LA140_1==KW_DECIMAL||LA140_1==KW_DOUBLE||LA140_1==KW_FLOAT||LA140_1==KW_INT||LA140_1==KW_LONG||LA140_1==KW_OBJECT||LA140_1==KW_SBYTE||LA140_1==KW_SHORT||LA140_1==KW_STRING||(LA140_1>=KW_UINT && LA140_1<=KW_USHORT)||LA140_1==KW_VAR||LA140_1==KW_VOID))
 			{
-				alt137 = 2;
+				alt140 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 137, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 140, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(137); }
-			switch (alt137)
+			} finally { DebugExitDecision(140); }
+			switch (alt140)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2081:9: n= nullable
+				// Truss.g:2089:9: n= nullable
 				{
-				DebugLocation(2081, 10);
-				PushFollow(Follow._nullable_in_castType14361);
+				DebugLocation(2089, 10);
+				PushFollow(Follow._nullable_in_castType14458);
 				n=nullable();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2082, 9);
+				DebugLocation(2090, 9);
 				if (state.backtracking == 0)
 				{
 					 value = new NakedNullableTypeSyntax(n, Span(start)); 
@@ -17304,14 +17455,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2084:9: t= typeSyntax
+				// Truss.g:2092:9: t= typeSyntax
 				{
-				DebugLocation(2084, 10);
-				PushFollow(Follow._typeSyntax_in_castType14389);
+				DebugLocation(2092, 10);
+				PushFollow(Follow._typeSyntax_in_castType14486);
 				t=typeSyntax();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2085, 9);
+				DebugLocation(2093, 9);
 				if (state.backtracking == 0)
 				{
 					 value = t; 
@@ -17333,7 +17484,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("castType", 129);
 			LeaveRule_castType();
 		}
-		DebugLocation(2086, 4);
+		DebugLocation(2094, 4);
 		} finally { DebugExitRule(GrammarFileName, "castType"); }
 		return value;
 
@@ -17343,7 +17494,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_name();
 	partial void LeaveRule_name();
 	// $ANTLR start "name"
-	// Truss.g:2090:1: name returns [NameSyntax value] : qn= np__qualifiedName ;
+	// Truss.g:2098:1: name returns [NameSyntax value] : qn= np__qualifiedName ;
 	[GrammarRule("name")]
 	private NameSyntax name()
 	{
@@ -17356,19 +17507,19 @@ namespace  Truss.Compiler.Parser
 		NameParser qn = default(NameParser);
 
 		try { DebugEnterRule(GrammarFileName, "name");
-		DebugLocation(2090, 4);
+		DebugLocation(2098, 4);
 		try
 		{
-			// Truss.g:2091:5: (qn= np__qualifiedName )
+			// Truss.g:2099:5: (qn= np__qualifiedName )
 			DebugEnterAlt(1);
-			// Truss.g:2092:9: qn= np__qualifiedName
+			// Truss.g:2100:9: qn= np__qualifiedName
 			{
-			DebugLocation(2092, 11);
-			PushFollow(Follow._np__qualifiedName_in_name14432);
+			DebugLocation(2100, 11);
+			PushFollow(Follow._np__qualifiedName_in_name14529);
 			qn=np__qualifiedName();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(2093, 9);
+			DebugLocation(2101, 9);
 			if (state.backtracking == 0)
 			{
 				 value = qn.ToName(); 
@@ -17388,7 +17539,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("name", 130);
 			LeaveRule_name();
 		}
-		DebugLocation(2094, 4);
+		DebugLocation(2102, 4);
 		} finally { DebugExitRule(GrammarFileName, "name"); }
 		return value;
 
@@ -17398,7 +17549,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_typeSyntax();
 	partial void LeaveRule_typeSyntax();
 	// $ANTLR start "typeSyntax"
-	// Truss.g:2096:1: typeSyntax returns [TypeSyntax value] : ( KW_VAR |t= np__type );
+	// Truss.g:2104:1: typeSyntax returns [TypeSyntax value] : ( KW_VAR |t= np__type );
 	[GrammarRule("typeSyntax")]
 	private TypeSyntax typeSyntax()
 	{
@@ -17414,39 +17565,39 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "typeSyntax");
-		DebugLocation(2096, 4);
+		DebugLocation(2104, 4);
 		try
 		{
-			// Truss.g:2100:5: ( KW_VAR |t= np__type )
-			int alt138=2;
-			try { DebugEnterDecision(138, false);
-			int LA138_1 = input.LA(1);
+			// Truss.g:2108:5: ( KW_VAR |t= np__type )
+			int alt141=2;
+			try { DebugEnterDecision(141, false);
+			int LA141_1 = input.LA(1);
 
-			if ((LA138_1==KW_VAR))
+			if ((LA141_1==KW_VAR))
 			{
-				alt138 = 1;
+				alt141 = 1;
 			}
-			else if ((LA138_1==IDENTIFIER||LA138_1==KW_BOOL||LA138_1==KW_BYTE||LA138_1==KW_CHAR||LA138_1==KW_DECIMAL||LA138_1==KW_DOUBLE||LA138_1==KW_FLOAT||LA138_1==KW_INT||LA138_1==KW_LONG||LA138_1==KW_OBJECT||LA138_1==KW_SBYTE||LA138_1==KW_SHORT||LA138_1==KW_STRING||(LA138_1>=KW_UINT && LA138_1<=KW_USHORT)||LA138_1==KW_VOID))
+			else if ((LA141_1==IDENTIFIER||LA141_1==KW_BOOL||LA141_1==KW_BYTE||LA141_1==KW_CHAR||LA141_1==KW_DECIMAL||LA141_1==KW_DOUBLE||LA141_1==KW_FLOAT||LA141_1==KW_INT||LA141_1==KW_LONG||LA141_1==KW_OBJECT||LA141_1==KW_SBYTE||LA141_1==KW_SHORT||LA141_1==KW_STRING||(LA141_1>=KW_UINT && LA141_1<=KW_USHORT)||LA141_1==KW_VOID))
 			{
-				alt138 = 2;
+				alt141 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 138, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 141, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(138); }
-			switch (alt138)
+			} finally { DebugExitDecision(141); }
+			switch (alt141)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2103:9: KW_VAR
+				// Truss.g:2111:9: KW_VAR
 				{
-				DebugLocation(2103, 9);
-				Match(input,KW_VAR,Follow._KW_VAR_in_typeSyntax14494); if (state.failed) return value;
-				DebugLocation(2104, 9);
+				DebugLocation(2111, 9);
+				Match(input,KW_VAR,Follow._KW_VAR_in_typeSyntax14591); if (state.failed) return value;
+				DebugLocation(2112, 9);
 				if (state.backtracking == 0)
 				{
 					 value = new VarTypeSyntax(Span(start)); 
@@ -17456,14 +17607,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2106:9: t= np__type
+				// Truss.g:2114:9: t= np__type
 				{
-				DebugLocation(2106, 10);
-				PushFollow(Follow._np__type_in_typeSyntax14522);
+				DebugLocation(2114, 10);
+				PushFollow(Follow._np__type_in_typeSyntax14619);
 				t=np__type();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2107, 9);
+				DebugLocation(2115, 9);
 				if (state.backtracking == 0)
 				{
 					 value = t.ToType(); 
@@ -17485,7 +17636,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("typeSyntax", 131);
 			LeaveRule_typeSyntax();
 		}
-		DebugLocation(2108, 4);
+		DebugLocation(2116, 4);
 		} finally { DebugExitRule(GrammarFileName, "typeSyntax"); }
 		return value;
 
@@ -17495,7 +17646,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_memberName();
 	partial void LeaveRule_memberName();
 	// $ANTLR start "memberName"
-	// Truss.g:2110:1: memberName returns [MemberName value] : n= np__qualifiedName ;
+	// Truss.g:2118:1: memberName returns [MemberName value] : n= np__qualifiedName ;
 	[GrammarRule("memberName")]
 	private MemberName memberName()
 	{
@@ -17508,19 +17659,19 @@ namespace  Truss.Compiler.Parser
 		NameParser n = default(NameParser);
 
 		try { DebugEnterRule(GrammarFileName, "memberName");
-		DebugLocation(2110, 4);
+		DebugLocation(2118, 4);
 		try
 		{
-			// Truss.g:2111:5: (n= np__qualifiedName )
+			// Truss.g:2119:5: (n= np__qualifiedName )
 			DebugEnterAlt(1);
-			// Truss.g:2112:9: n= np__qualifiedName
+			// Truss.g:2120:9: n= np__qualifiedName
 			{
-			DebugLocation(2112, 10);
-			PushFollow(Follow._np__qualifiedName_in_memberName14563);
+			DebugLocation(2120, 10);
+			PushFollow(Follow._np__qualifiedName_in_memberName14660);
 			n=np__qualifiedName();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(2113, 9);
+			DebugLocation(2121, 9);
 			if (state.backtracking == 0)
 			{
 				 value = n.ToMemberName(); 
@@ -17540,7 +17691,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("memberName", 132);
 			LeaveRule_memberName();
 		}
-		DebugLocation(2114, 4);
+		DebugLocation(2122, 4);
 		} finally { DebugExitRule(GrammarFileName, "memberName"); }
 		return value;
 
@@ -17550,7 +17701,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_simpleName();
 	partial void LeaveRule_simpleName();
 	// $ANTLR start "simpleName"
-	// Truss.g:2116:1: simpleName returns [SimpleNameSyntax value] : sn= np__simpleName ;
+	// Truss.g:2124:1: simpleName returns [SimpleNameSyntax value] : sn= np__simpleName ;
 	[GrammarRule("simpleName")]
 	private SimpleNameSyntax simpleName()
 	{
@@ -17563,19 +17714,19 @@ namespace  Truss.Compiler.Parser
 		SimpleNameParser sn = default(SimpleNameParser);
 
 		try { DebugEnterRule(GrammarFileName, "simpleName");
-		DebugLocation(2116, 4);
+		DebugLocation(2124, 4);
 		try
 		{
-			// Truss.g:2117:5: (sn= np__simpleName )
+			// Truss.g:2125:5: (sn= np__simpleName )
 			DebugEnterAlt(1);
-			// Truss.g:2118:9: sn= np__simpleName
+			// Truss.g:2126:9: sn= np__simpleName
 			{
-			DebugLocation(2118, 11);
-			PushFollow(Follow._np__simpleName_in_simpleName14604);
+			DebugLocation(2126, 11);
+			PushFollow(Follow._np__simpleName_in_simpleName14701);
 			sn=np__simpleName();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(2119, 9);
+			DebugLocation(2127, 9);
 			if (state.backtracking == 0)
 			{
 				 value = sn.ToSimpleName(); 
@@ -17595,7 +17746,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("simpleName", 133);
 			LeaveRule_simpleName();
 		}
-		DebugLocation(2120, 4);
+		DebugLocation(2128, 4);
 		} finally { DebugExitRule(GrammarFileName, "simpleName"); }
 		return value;
 
@@ -17605,7 +17756,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_np__type();
 	partial void LeaveRule_np__type();
 	// $ANTLR start "np__type"
-	// Truss.g:2127:1: np__type returns [TypeParser value] : bt= np__baseType ( ( OP_QUESTION )=> OP_QUESTION )? ( ( rankSpecifier )=>rsl= rankSpecifierList )? ( OP_CARET )? ;
+	// Truss.g:2135:1: np__type returns [TypeParser value] : bt= np__baseType ( ( OP_QUESTION )=> OP_QUESTION )? ( ( OP_CARET )=> OP_CARET )? ( ( rankSpecifier )=>rsl= rankSpecifierList )? ;
 	[GrammarRule("np__type")]
 	private TypeParser np__type()
 	{
@@ -17623,44 +17774,44 @@ namespace  Truss.Compiler.Parser
 		    var builder = new ImmutableArray<ArrayRankSpecifierSyntax>.Builder();
 
 		try { DebugEnterRule(GrammarFileName, "np__type");
-		DebugLocation(2127, 4);
+		DebugLocation(2135, 4);
 		try
 		{
-			// Truss.g:2132:5: (bt= np__baseType ( ( OP_QUESTION )=> OP_QUESTION )? ( ( rankSpecifier )=>rsl= rankSpecifierList )? ( OP_CARET )? )
+			// Truss.g:2140:5: (bt= np__baseType ( ( OP_QUESTION )=> OP_QUESTION )? ( ( OP_CARET )=> OP_CARET )? ( ( rankSpecifier )=>rsl= rankSpecifierList )? )
 			DebugEnterAlt(1);
-			// Truss.g:2133:9: bt= np__baseType ( ( OP_QUESTION )=> OP_QUESTION )? ( ( rankSpecifier )=>rsl= rankSpecifierList )? ( OP_CARET )?
+			// Truss.g:2141:9: bt= np__baseType ( ( OP_QUESTION )=> OP_QUESTION )? ( ( OP_CARET )=> OP_CARET )? ( ( rankSpecifier )=>rsl= rankSpecifierList )?
 			{
-			DebugLocation(2133, 11);
-			PushFollow(Follow._np__baseType_in_np__type14655);
+			DebugLocation(2141, 11);
+			PushFollow(Follow._np__baseType_in_np__type14752);
 			bt=np__baseType();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(2134, 9);
+			DebugLocation(2142, 9);
 			if (state.backtracking == 0)
 			{
 				 value = bt; 
 			}
-			DebugLocation(2135, 9);
-			// Truss.g:2135:9: ( ( OP_QUESTION )=> OP_QUESTION )?
-			int alt139=2;
-			try { DebugEnterSubRule(139);
-			try { DebugEnterDecision(139, false);
-			int LA139_1 = input.LA(1);
+			DebugLocation(2143, 9);
+			// Truss.g:2143:9: ( ( OP_QUESTION )=> OP_QUESTION )?
+			int alt142=2;
+			try { DebugEnterSubRule(142);
+			try { DebugEnterDecision(142, false);
+			int LA142_1 = input.LA(1);
 
-			if ((LA139_1==OP_QUESTION) && (EvaluatePredicate(synpred15_Truss_fragment)))
+			if ((LA142_1==OP_QUESTION) && (EvaluatePredicate(synpred16_Truss_fragment)))
 			{
-				alt139 = 1;
+				alt142 = 1;
 			}
-			} finally { DebugExitDecision(139); }
-			switch (alt139)
+			} finally { DebugExitDecision(142); }
+			switch (alt142)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2136:13: ( OP_QUESTION )=> OP_QUESTION
+				// Truss.g:2144:13: ( OP_QUESTION )=> OP_QUESTION
 				{
-				DebugLocation(2137, 13);
-				Match(input,OP_QUESTION,Follow._OP_QUESTION_in_np__type14708); if (state.failed) return value;
-				DebugLocation(2138, 13);
+				DebugLocation(2145, 13);
+				Match(input,OP_QUESTION,Follow._OP_QUESTION_in_np__type14805); if (state.failed) return value;
+				DebugLocation(2146, 13);
 				if (state.backtracking == 0)
 				{
 					 value = new NullableTypeParser(value, Span(start)); 
@@ -17670,69 +17821,29 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(139); }
+			} finally { DebugExitSubRule(142); }
 
-			DebugLocation(2140, 9);
-			// Truss.g:2140:9: ( ( rankSpecifier )=>rsl= rankSpecifierList )?
-			int alt140=2;
-			try { DebugEnterSubRule(140);
-			try { DebugEnterDecision(140, false);
-			int LA140_1 = input.LA(1);
+			DebugLocation(2148, 9);
+			// Truss.g:2148:9: ( ( OP_CARET )=> OP_CARET )?
+			int alt143=2;
+			try { DebugEnterSubRule(143);
+			try { DebugEnterDecision(143, false);
+			int LA143_1 = input.LA(1);
 
-			if ((LA140_1==OP_BRACKET_OPEN))
+			if ((LA143_1==OP_CARET) && (EvaluatePredicate(synpred17_Truss_fragment)))
 			{
-				int LA140_2 = input.LA(2);
-
-				if ((LA140_2==OP_BRACKET_CLOSE) && (EvaluatePredicate(synpred16_Truss_fragment)))
-				{
-					alt140 = 1;
-				}
+				alt143 = 1;
 			}
-			} finally { DebugExitDecision(140); }
-			switch (alt140)
+			} finally { DebugExitDecision(143); }
+			switch (alt143)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2141:13: ( rankSpecifier )=>rsl= rankSpecifierList
+				// Truss.g:2149:13: ( OP_CARET )=> OP_CARET
 				{
-				DebugLocation(2142, 16);
-				PushFollow(Follow._rankSpecifierList_in_np__type14778);
-				rsl=rankSpecifierList();
-				PopFollow();
-				if (state.failed) return value;
-				DebugLocation(2143, 13);
-				if (state.backtracking == 0)
-				{
-					 value = new ArrayTypeParser(value, rsl, Span(start)); 
-				}
-
-				}
-				break;
-
-			}
-			} finally { DebugExitSubRule(140); }
-
-			DebugLocation(2145, 9);
-			// Truss.g:2145:9: ( OP_CARET )?
-			int alt141=2;
-			try { DebugEnterSubRule(141);
-			try { DebugEnterDecision(141, false);
-			int LA141_1 = input.LA(1);
-
-			if ((LA141_1==OP_CARET))
-			{
-				alt141 = 1;
-			}
-			} finally { DebugExitDecision(141); }
-			switch (alt141)
-			{
-			case 1:
-				DebugEnterAlt(1);
-				// Truss.g:2146:13: OP_CARET
-				{
-				DebugLocation(2146, 13);
-				Match(input,OP_CARET,Follow._OP_CARET_in_np__type14827); if (state.failed) return value;
-				DebugLocation(2147, 13);
+				DebugLocation(2150, 13);
+				Match(input,OP_CARET,Follow._OP_CARET_in_np__type14873); if (state.failed) return value;
+				DebugLocation(2151, 13);
 				if (state.backtracking == 0)
 				{
 					 value = new TrackedTypeParser(value, Span(start)); 
@@ -17742,7 +17853,47 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(141); }
+			} finally { DebugExitSubRule(143); }
+
+			DebugLocation(2153, 9);
+			// Truss.g:2153:9: ( ( rankSpecifier )=>rsl= rankSpecifierList )?
+			int alt144=2;
+			try { DebugEnterSubRule(144);
+			try { DebugEnterDecision(144, false);
+			int LA144_1 = input.LA(1);
+
+			if ((LA144_1==OP_BRACKET_OPEN))
+			{
+				int LA144_2 = input.LA(2);
+
+				if ((LA144_2==OP_BRACKET_CLOSE) && (EvaluatePredicate(synpred18_Truss_fragment)))
+				{
+					alt144 = 1;
+				}
+			}
+			} finally { DebugExitDecision(144); }
+			switch (alt144)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// Truss.g:2154:13: ( rankSpecifier )=>rsl= rankSpecifierList
+				{
+				DebugLocation(2155, 16);
+				PushFollow(Follow._rankSpecifierList_in_np__type14943);
+				rsl=rankSpecifierList();
+				PopFollow();
+				if (state.failed) return value;
+				DebugLocation(2156, 13);
+				if (state.backtracking == 0)
+				{
+					 value = new ArrayTypeParser(value, rsl, Span(start)); 
+				}
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(144); }
 
 
 			}
@@ -17759,7 +17910,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("np__type", 134);
 			LeaveRule_np__type();
 		}
-		DebugLocation(2149, 4);
+		DebugLocation(2158, 4);
 		} finally { DebugExitRule(GrammarFileName, "np__type"); }
 		return value;
 
@@ -17769,7 +17920,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_rankSpecifierList();
 	partial void LeaveRule_rankSpecifierList();
 	// $ANTLR start "rankSpecifierList"
-	// Truss.g:2151:1: rankSpecifierList returns [ImmutableArray<ArrayRankSpecifierSyntax> value] : ( ( rankSpecifier )=>rs= rankSpecifier )+ ;
+	// Truss.g:2160:1: rankSpecifierList returns [ImmutableArray<ArrayRankSpecifierSyntax> value] : ( ( rankSpecifier )=>rs= rankSpecifier )+ ;
 	[GrammarRule("rankSpecifierList")]
 	private ImmutableArray<ArrayRankSpecifierSyntax> rankSpecifierList()
 	{
@@ -17785,49 +17936,49 @@ namespace  Truss.Compiler.Parser
 		    var builder = new ImmutableArray<ArrayRankSpecifierSyntax>.Builder();
 
 		try { DebugEnterRule(GrammarFileName, "rankSpecifierList");
-		DebugLocation(2151, 4);
+		DebugLocation(2160, 4);
 		try
 		{
-			// Truss.g:2155:5: ( ( ( rankSpecifier )=>rs= rankSpecifier )+ )
+			// Truss.g:2164:5: ( ( ( rankSpecifier )=>rs= rankSpecifier )+ )
 			DebugEnterAlt(1);
-			// Truss.g:2156:9: ( ( rankSpecifier )=>rs= rankSpecifier )+
+			// Truss.g:2165:9: ( ( rankSpecifier )=>rs= rankSpecifier )+
 			{
-			DebugLocation(2156, 9);
-			// Truss.g:2156:9: ( ( rankSpecifier )=>rs= rankSpecifier )+
-			int cnt142=0;
-			try { DebugEnterSubRule(142);
+			DebugLocation(2165, 9);
+			// Truss.g:2165:9: ( ( rankSpecifier )=>rs= rankSpecifier )+
+			int cnt145=0;
+			try { DebugEnterSubRule(145);
 			while (true)
 			{
-				int alt142=2;
-				try { DebugEnterDecision(142, false);
-				int LA142_1 = input.LA(1);
+				int alt145=2;
+				try { DebugEnterDecision(145, false);
+				int LA145_1 = input.LA(1);
 
-				if ((LA142_1==OP_BRACKET_OPEN))
+				if ((LA145_1==OP_BRACKET_OPEN))
 				{
-					int LA142_2 = input.LA(2);
+					int LA145_2 = input.LA(2);
 
-					if ((LA142_2==OP_BRACKET_CLOSE) && (EvaluatePredicate(synpred17_Truss_fragment)))
+					if ((LA145_2==OP_BRACKET_CLOSE) && (EvaluatePredicate(synpred19_Truss_fragment)))
 					{
-						alt142 = 1;
+						alt145 = 1;
 					}
 
 
 				}
 
 
-				} finally { DebugExitDecision(142); }
-				switch (alt142)
+				} finally { DebugExitDecision(145); }
+				switch (alt145)
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:2157:13: ( rankSpecifier )=>rs= rankSpecifier
+					// Truss.g:2166:13: ( rankSpecifier )=>rs= rankSpecifier
 					{
-					DebugLocation(2158, 15);
-					PushFollow(Follow._rankSpecifier_in_rankSpecifierList14921);
+					DebugLocation(2167, 15);
+					PushFollow(Follow._rankSpecifier_in_rankSpecifierList15037);
 					rs=rankSpecifier();
 					PopFollow();
 					if (state.failed) return value;
-					DebugLocation(2159, 13);
+					DebugLocation(2168, 13);
 					if (state.backtracking == 0)
 					{
 						 builder.Add(rs); 
@@ -17837,22 +17988,22 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					if (cnt142 >= 1)
-						goto loop142;
+					if (cnt145 >= 1)
+						goto loop145;
 
 					if (state.backtracking>0) {state.failed=true; return value;}
-					EarlyExitException eee142 = new EarlyExitException( 142, input );
-					DebugRecognitionException(eee142);
-					throw eee142;
+					EarlyExitException eee145 = new EarlyExitException( 145, input );
+					DebugRecognitionException(eee145);
+					throw eee145;
 				}
-				cnt142++;
+				cnt145++;
 			}
-			loop142:
+			loop145:
 				;
 
-			} finally { DebugExitSubRule(142); }
+			} finally { DebugExitSubRule(145); }
 
-			DebugLocation(2161, 9);
+			DebugLocation(2170, 9);
 			if (state.backtracking == 0)
 			{
 				 value = builder.Build(); 
@@ -17872,7 +18023,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("rankSpecifierList", 135);
 			LeaveRule_rankSpecifierList();
 		}
-		DebugLocation(2162, 4);
+		DebugLocation(2171, 4);
 		} finally { DebugExitRule(GrammarFileName, "rankSpecifierList"); }
 		return value;
 
@@ -17882,7 +18033,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_rankSpecifier();
 	partial void LeaveRule_rankSpecifier();
 	// $ANTLR start "rankSpecifier"
-	// Truss.g:2164:1: rankSpecifier returns [ArrayRankSpecifierSyntax value] : OP_BRACKET_OPEN OP_BRACKET_CLOSE ;
+	// Truss.g:2173:1: rankSpecifier returns [ArrayRankSpecifierSyntax value] : OP_BRACKET_OPEN OP_BRACKET_CLOSE ( ( OP_CARET )=> OP_CARET )? ;
 	[GrammarRule("rankSpecifier")]
 	private ArrayRankSpecifierSyntax rankSpecifier()
 	{
@@ -17894,23 +18045,61 @@ namespace  Truss.Compiler.Parser
 
 
 		    var start = input.LT(1);
+		    bool isTracked = false;
 
 		try { DebugEnterRule(GrammarFileName, "rankSpecifier");
-		DebugLocation(2164, 4);
+		DebugLocation(2173, 4);
 		try
 		{
-			// Truss.g:2168:5: ( OP_BRACKET_OPEN OP_BRACKET_CLOSE )
+			// Truss.g:2178:5: ( OP_BRACKET_OPEN OP_BRACKET_CLOSE ( ( OP_CARET )=> OP_CARET )? )
 			DebugEnterAlt(1);
-			// Truss.g:2169:9: OP_BRACKET_OPEN OP_BRACKET_CLOSE
+			// Truss.g:2179:9: OP_BRACKET_OPEN OP_BRACKET_CLOSE ( ( OP_CARET )=> OP_CARET )?
 			{
-			DebugLocation(2169, 9);
-			Match(input,OP_BRACKET_OPEN,Follow._OP_BRACKET_OPEN_in_rankSpecifier14990); if (state.failed) return value;
-			DebugLocation(2170, 9);
-			Match(input,OP_BRACKET_CLOSE,Follow._OP_BRACKET_CLOSE_in_rankSpecifier15000); if (state.failed) return value;
-			DebugLocation(2171, 9);
+			DebugLocation(2179, 9);
+			Match(input,OP_BRACKET_OPEN,Follow._OP_BRACKET_OPEN_in_rankSpecifier15106); if (state.failed) return value;
+			DebugLocation(2180, 9);
+			Match(input,OP_BRACKET_CLOSE,Follow._OP_BRACKET_CLOSE_in_rankSpecifier15116); if (state.failed) return value;
+			DebugLocation(2181, 9);
+			// Truss.g:2181:9: ( ( OP_CARET )=> OP_CARET )?
+			int alt146=2;
+			try { DebugEnterSubRule(146);
+			try { DebugEnterDecision(146, false);
+			int LA146_1 = input.LA(1);
+
+			if ((LA146_1==OP_CARET))
+			{
+				int LA146_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred20_Truss_fragment)))
+				{
+					alt146 = 1;
+				}
+			}
+			} finally { DebugExitDecision(146); }
+			switch (alt146)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// Truss.g:2182:13: ( OP_CARET )=> OP_CARET
+				{
+				DebugLocation(2183, 13);
+				Match(input,OP_CARET,Follow._OP_CARET_in_rankSpecifier15159); if (state.failed) return value;
+				DebugLocation(2184, 13);
+				if (state.backtracking == 0)
+				{
+					 isTracked = true; 
+				}
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(146); }
+
+			DebugLocation(2186, 9);
 			if (state.backtracking == 0)
 			{
-				 value = new ArrayRankSpecifierSyntax(new OmittedArraySizeExpressionSyntax(Span(start)), Span(start)); 
+				 value = new ArrayRankSpecifierSyntax(new OmittedArraySizeExpressionSyntax(Span(start)), isTracked, Span(start)); 
 			}
 
 			}
@@ -17927,7 +18116,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("rankSpecifier", 136);
 			LeaveRule_rankSpecifier();
 		}
-		DebugLocation(2172, 4);
+		DebugLocation(2187, 4);
 		} finally { DebugExitRule(GrammarFileName, "rankSpecifier"); }
 		return value;
 
@@ -17937,7 +18126,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_np__baseType();
 	partial void LeaveRule_np__baseType();
 	// $ANTLR start "np__baseType"
-	// Truss.g:2174:1: np__baseType returns [TypeParser value] : (pt= np__predefinedType |qn= np__qualifiedName );
+	// Truss.g:2189:1: np__baseType returns [TypeParser value] : (pt= np__predefinedType |qn= np__qualifiedName );
 	[GrammarRule("np__baseType")]
 	private TypeParser np__baseType()
 	{
@@ -17954,42 +18143,42 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "np__baseType");
-		DebugLocation(2174, 4);
+		DebugLocation(2189, 4);
 		try
 		{
-			// Truss.g:2178:5: (pt= np__predefinedType |qn= np__qualifiedName )
-			int alt143=2;
-			try { DebugEnterDecision(143, false);
-			int LA143_1 = input.LA(1);
+			// Truss.g:2193:5: (pt= np__predefinedType |qn= np__qualifiedName )
+			int alt147=2;
+			try { DebugEnterDecision(147, false);
+			int LA147_1 = input.LA(1);
 
-			if ((LA143_1==KW_BOOL||LA143_1==KW_BYTE||LA143_1==KW_CHAR||LA143_1==KW_DECIMAL||LA143_1==KW_DOUBLE||LA143_1==KW_FLOAT||LA143_1==KW_INT||LA143_1==KW_LONG||LA143_1==KW_OBJECT||LA143_1==KW_SBYTE||LA143_1==KW_SHORT||LA143_1==KW_STRING||(LA143_1>=KW_UINT && LA143_1<=KW_USHORT)||LA143_1==KW_VOID))
+			if ((LA147_1==KW_BOOL||LA147_1==KW_BYTE||LA147_1==KW_CHAR||LA147_1==KW_DECIMAL||LA147_1==KW_DOUBLE||LA147_1==KW_FLOAT||LA147_1==KW_INT||LA147_1==KW_LONG||LA147_1==KW_OBJECT||LA147_1==KW_SBYTE||LA147_1==KW_SHORT||LA147_1==KW_STRING||(LA147_1>=KW_UINT && LA147_1<=KW_USHORT)||LA147_1==KW_VOID))
 			{
-				alt143 = 1;
+				alt147 = 1;
 			}
-			else if ((LA143_1==IDENTIFIER))
+			else if ((LA147_1==IDENTIFIER))
 			{
-				alt143 = 2;
+				alt147 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 143, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 147, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(143); }
-			switch (alt143)
+			} finally { DebugExitDecision(147); }
+			switch (alt147)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2179:9: pt= np__predefinedType
+				// Truss.g:2194:9: pt= np__predefinedType
 				{
-				DebugLocation(2179, 11);
-				PushFollow(Follow._np__predefinedType_in_np__baseType15046);
+				DebugLocation(2194, 11);
+				PushFollow(Follow._np__predefinedType_in_np__baseType15230);
 				pt=np__predefinedType();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2180, 9);
+				DebugLocation(2195, 9);
 				if (state.backtracking == 0)
 				{
 					 value = new PredefinedTypeParser(pt, Span(start)); 
@@ -17999,14 +18188,14 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2182:9: qn= np__qualifiedName
+				// Truss.g:2197:9: qn= np__qualifiedName
 				{
-				DebugLocation(2182, 11);
-				PushFollow(Follow._np__qualifiedName_in_np__baseType15074);
+				DebugLocation(2197, 11);
+				PushFollow(Follow._np__qualifiedName_in_np__baseType15258);
 				qn=np__qualifiedName();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2183, 9);
+				DebugLocation(2198, 9);
 				if (state.backtracking == 0)
 				{
 					 value = qn; 
@@ -18028,7 +18217,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("np__baseType", 137);
 			LeaveRule_np__baseType();
 		}
-		DebugLocation(2184, 4);
+		DebugLocation(2199, 4);
 		} finally { DebugExitRule(GrammarFileName, "np__baseType"); }
 		return value;
 
@@ -18038,7 +18227,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_np__qualifiedName();
 	partial void LeaveRule_np__qualifiedName();
 	// $ANTLR start "np__qualifiedName"
-	// Truss.g:2186:1: np__qualifiedName returns [NameParser value] : (idn= np__identifierName OP_COLON_COLON )? sn= np__simpleName ( OP_DOT sn= np__simpleName )* ;
+	// Truss.g:2201:1: np__qualifiedName returns [NameParser value] : (idn= np__identifierName OP_COLON_COLON )? sn= np__simpleName ( OP_DOT sn= np__simpleName )* ;
 	[GrammarRule("np__qualifiedName")]
 	private NameParser np__qualifiedName()
 	{
@@ -18056,44 +18245,44 @@ namespace  Truss.Compiler.Parser
 		    IdentifierNameParser alias = null;
 
 		try { DebugEnterRule(GrammarFileName, "np__qualifiedName");
-		DebugLocation(2186, 4);
+		DebugLocation(2201, 4);
 		try
 		{
-			// Truss.g:2191:5: ( (idn= np__identifierName OP_COLON_COLON )? sn= np__simpleName ( OP_DOT sn= np__simpleName )* )
+			// Truss.g:2206:5: ( (idn= np__identifierName OP_COLON_COLON )? sn= np__simpleName ( OP_DOT sn= np__simpleName )* )
 			DebugEnterAlt(1);
-			// Truss.g:2192:9: (idn= np__identifierName OP_COLON_COLON )? sn= np__simpleName ( OP_DOT sn= np__simpleName )*
+			// Truss.g:2207:9: (idn= np__identifierName OP_COLON_COLON )? sn= np__simpleName ( OP_DOT sn= np__simpleName )*
 			{
-			DebugLocation(2192, 9);
-			// Truss.g:2192:9: (idn= np__identifierName OP_COLON_COLON )?
-			int alt144=2;
-			try { DebugEnterSubRule(144);
-			try { DebugEnterDecision(144, false);
-			int LA144_1 = input.LA(1);
+			DebugLocation(2207, 9);
+			// Truss.g:2207:9: (idn= np__identifierName OP_COLON_COLON )?
+			int alt148=2;
+			try { DebugEnterSubRule(148);
+			try { DebugEnterDecision(148, false);
+			int LA148_1 = input.LA(1);
 
-			if ((LA144_1==IDENTIFIER))
+			if ((LA148_1==IDENTIFIER))
 			{
-				int LA144_2 = input.LA(2);
+				int LA148_2 = input.LA(2);
 
-				if ((LA144_2==OP_COLON_COLON))
+				if ((LA148_2==OP_COLON_COLON))
 				{
-					alt144 = 1;
+					alt148 = 1;
 				}
 			}
-			} finally { DebugExitDecision(144); }
-			switch (alt144)
+			} finally { DebugExitDecision(148); }
+			switch (alt148)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2193:13: idn= np__identifierName OP_COLON_COLON
+				// Truss.g:2208:13: idn= np__identifierName OP_COLON_COLON
 				{
-				DebugLocation(2193, 16);
-				PushFollow(Follow._np__identifierName_in_np__qualifiedName15134);
+				DebugLocation(2208, 16);
+				PushFollow(Follow._np__identifierName_in_np__qualifiedName15318);
 				idn=np__identifierName();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2193, 36);
-				Match(input,OP_COLON_COLON,Follow._OP_COLON_COLON_in_np__qualifiedName15136); if (state.failed) return value;
-				DebugLocation(2194, 13);
+				DebugLocation(2208, 36);
+				Match(input,OP_COLON_COLON,Follow._OP_COLON_COLON_in_np__qualifiedName15320); if (state.failed) return value;
+				DebugLocation(2209, 13);
 				if (state.backtracking == 0)
 				{
 					 alias = idn; 
@@ -18103,14 +18292,14 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(144); }
+			} finally { DebugExitSubRule(148); }
 
-			DebugLocation(2196, 11);
-			PushFollow(Follow._np__simpleName_in_np__qualifiedName15173);
+			DebugLocation(2211, 11);
+			PushFollow(Follow._np__simpleName_in_np__qualifiedName15357);
 			sn=np__simpleName();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(2197, 9);
+			DebugLocation(2212, 9);
 			if (state.backtracking == 0)
 			{
 
@@ -18121,43 +18310,43 @@ namespace  Truss.Compiler.Parser
 				            }
 				        
 			}
-			DebugLocation(2204, 9);
-			// Truss.g:2204:9: ( OP_DOT sn= np__simpleName )*
-			try { DebugEnterSubRule(145);
+			DebugLocation(2219, 9);
+			// Truss.g:2219:9: ( OP_DOT sn= np__simpleName )*
+			try { DebugEnterSubRule(149);
 			while (true)
 			{
-				int alt145=2;
-				try { DebugEnterDecision(145, false);
-				int LA145_1 = input.LA(1);
+				int alt149=2;
+				try { DebugEnterDecision(149, false);
+				int LA149_1 = input.LA(1);
 
-				if ((LA145_1==OP_DOT))
+				if ((LA149_1==OP_DOT))
 				{
-					int LA145_2 = input.LA(2);
+					int LA149_2 = input.LA(2);
 
-					if ((LA145_2==IDENTIFIER))
+					if ((LA149_2==IDENTIFIER))
 					{
-						alt145 = 1;
+						alt149 = 1;
 					}
 
 
 				}
 
 
-				} finally { DebugExitDecision(145); }
-				switch ( alt145 )
+				} finally { DebugExitDecision(149); }
+				switch ( alt149 )
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:2205:13: OP_DOT sn= np__simpleName
+					// Truss.g:2220:13: OP_DOT sn= np__simpleName
 					{
-					DebugLocation(2205, 13);
-					Match(input,OP_DOT,Follow._OP_DOT_in_np__qualifiedName15207); if (state.failed) return value;
-					DebugLocation(2206, 15);
-					PushFollow(Follow._np__simpleName_in_np__qualifiedName15223);
+					DebugLocation(2220, 13);
+					Match(input,OP_DOT,Follow._OP_DOT_in_np__qualifiedName15391); if (state.failed) return value;
+					DebugLocation(2221, 15);
+					PushFollow(Follow._np__simpleName_in_np__qualifiedName15407);
 					sn=np__simpleName();
 					PopFollow();
 					if (state.failed) return value;
-					DebugLocation(2207, 13);
+					DebugLocation(2222, 13);
 					if (state.backtracking == 0)
 					{
 						 value = new QualifiedNameParser(value, sn, Span(start)); 
@@ -18167,14 +18356,14 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop145;
+					goto loop149;
 				}
 			}
 
-			loop145:
+			loop149:
 				;
 
-			} finally { DebugExitSubRule(145); }
+			} finally { DebugExitSubRule(149); }
 
 
 			}
@@ -18191,7 +18380,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("np__qualifiedName", 138);
 			LeaveRule_np__qualifiedName();
 		}
-		DebugLocation(2209, 4);
+		DebugLocation(2224, 4);
 		} finally { DebugExitRule(GrammarFileName, "np__qualifiedName"); }
 		return value;
 
@@ -18201,7 +18390,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_np__simpleName();
 	partial void LeaveRule_np__simpleName();
 	// $ANTLR start "np__simpleName"
-	// Truss.g:2211:1: np__simpleName returns [SimpleNameParser value] : idn= np__identifierName ( ( OP_LESS_THAN )=>gta= np__genericTypeArguments )? ;
+	// Truss.g:2226:1: np__simpleName returns [SimpleNameParser value] : idn= np__identifierName ( ( OP_LESS_THAN )=>gta= np__genericTypeArguments )? ;
 	[GrammarRule("np__simpleName")]
 	private SimpleNameParser np__simpleName()
 	{
@@ -18218,52 +18407,52 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "np__simpleName");
-		DebugLocation(2211, 4);
+		DebugLocation(2226, 4);
 		try
 		{
-			// Truss.g:2215:5: (idn= np__identifierName ( ( OP_LESS_THAN )=>gta= np__genericTypeArguments )? )
+			// Truss.g:2230:5: (idn= np__identifierName ( ( OP_LESS_THAN )=>gta= np__genericTypeArguments )? )
 			DebugEnterAlt(1);
-			// Truss.g:2216:9: idn= np__identifierName ( ( OP_LESS_THAN )=>gta= np__genericTypeArguments )?
+			// Truss.g:2231:9: idn= np__identifierName ( ( OP_LESS_THAN )=>gta= np__genericTypeArguments )?
 			{
-			DebugLocation(2216, 12);
-			PushFollow(Follow._np__identifierName_in_np__simpleName15284);
+			DebugLocation(2231, 12);
+			PushFollow(Follow._np__identifierName_in_np__simpleName15468);
 			idn=np__identifierName();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(2217, 9);
+			DebugLocation(2232, 9);
 			if (state.backtracking == 0)
 			{
 				 value = idn; 
 			}
-			DebugLocation(2218, 9);
-			// Truss.g:2218:9: ( ( OP_LESS_THAN )=>gta= np__genericTypeArguments )?
-			int alt146=2;
-			try { DebugEnterSubRule(146);
-			try { DebugEnterDecision(146, false);
-			int LA146_1 = input.LA(1);
+			DebugLocation(2233, 9);
+			// Truss.g:2233:9: ( ( OP_LESS_THAN )=>gta= np__genericTypeArguments )?
+			int alt150=2;
+			try { DebugEnterSubRule(150);
+			try { DebugEnterDecision(150, false);
+			int LA150_1 = input.LA(1);
 
-			if ((LA146_1==OP_LESS_THAN))
+			if ((LA150_1==OP_LESS_THAN))
 			{
-				int LA146_2 = input.LA(2);
+				int LA150_2 = input.LA(2);
 
-				if ((EvaluatePredicate(synpred18_Truss_fragment)))
+				if ((EvaluatePredicate(synpred21_Truss_fragment)))
 				{
-					alt146 = 1;
+					alt150 = 1;
 				}
 			}
-			} finally { DebugExitDecision(146); }
-			switch (alt146)
+			} finally { DebugExitDecision(150); }
+			switch (alt150)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2219:13: ( OP_LESS_THAN )=>gta= np__genericTypeArguments
+				// Truss.g:2234:13: ( OP_LESS_THAN )=>gta= np__genericTypeArguments
 				{
-				DebugLocation(2220, 16);
-				PushFollow(Follow._np__genericTypeArguments_in_np__simpleName15339);
+				DebugLocation(2235, 16);
+				PushFollow(Follow._np__genericTypeArguments_in_np__simpleName15523);
 				gta=np__genericTypeArguments();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2221, 13);
+				DebugLocation(2236, 13);
 				if (state.backtracking == 0)
 				{
 					 value = new GenericNameParser(Errors, idn.Identifier, gta, Span(start)); 
@@ -18273,7 +18462,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(146); }
+			} finally { DebugExitSubRule(150); }
 
 
 			}
@@ -18290,7 +18479,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("np__simpleName", 139);
 			LeaveRule_np__simpleName();
 		}
-		DebugLocation(2223, 4);
+		DebugLocation(2238, 4);
 		} finally { DebugExitRule(GrammarFileName, "np__simpleName"); }
 		return value;
 
@@ -18300,7 +18489,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_np__genericTypeArguments();
 	partial void LeaveRule_np__genericTypeArguments();
 	// $ANTLR start "np__genericTypeArguments"
-	// Truss.g:2225:1: np__genericTypeArguments returns [ImmutableArray<TypeParser> value] : OP_LESS_THAN gta= np__genericTypeArgument ( OP_COMMA gta= np__genericTypeArgument )* op_GREATER_THAN_ANY ;
+	// Truss.g:2240:1: np__genericTypeArguments returns [ImmutableArray<TypeParser> value] : OP_LESS_THAN gta= np__genericTypeArgument ( OP_COMMA gta= np__genericTypeArgument )* op_GREATER_THAN_ANY ;
 	[GrammarRule("np__genericTypeArguments")]
 	private ImmutableArray<TypeParser> np__genericTypeArguments()
 	{
@@ -18316,55 +18505,55 @@ namespace  Truss.Compiler.Parser
 		    var builder = new ImmutableArray<TypeParser>.Builder();
 
 		try { DebugEnterRule(GrammarFileName, "np__genericTypeArguments");
-		DebugLocation(2225, 4);
+		DebugLocation(2240, 4);
 		try
 		{
-			// Truss.g:2229:5: ( OP_LESS_THAN gta= np__genericTypeArgument ( OP_COMMA gta= np__genericTypeArgument )* op_GREATER_THAN_ANY )
+			// Truss.g:2244:5: ( OP_LESS_THAN gta= np__genericTypeArgument ( OP_COMMA gta= np__genericTypeArgument )* op_GREATER_THAN_ANY )
 			DebugEnterAlt(1);
-			// Truss.g:2230:9: OP_LESS_THAN gta= np__genericTypeArgument ( OP_COMMA gta= np__genericTypeArgument )* op_GREATER_THAN_ANY
+			// Truss.g:2245:9: OP_LESS_THAN gta= np__genericTypeArgument ( OP_COMMA gta= np__genericTypeArgument )* op_GREATER_THAN_ANY
 			{
-			DebugLocation(2230, 9);
-			Match(input,OP_LESS_THAN,Follow._OP_LESS_THAN_in_np__genericTypeArguments15398); if (state.failed) return value;
-			DebugLocation(2231, 12);
-			PushFollow(Follow._np__genericTypeArgument_in_np__genericTypeArguments15410);
+			DebugLocation(2245, 9);
+			Match(input,OP_LESS_THAN,Follow._OP_LESS_THAN_in_np__genericTypeArguments15582); if (state.failed) return value;
+			DebugLocation(2246, 12);
+			PushFollow(Follow._np__genericTypeArgument_in_np__genericTypeArguments15594);
 			gta=np__genericTypeArgument();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(2232, 9);
+			DebugLocation(2247, 9);
 			if (state.backtracking == 0)
 			{
 				 builder.Add(gta); 
 			}
-			DebugLocation(2233, 9);
-			// Truss.g:2233:9: ( OP_COMMA gta= np__genericTypeArgument )*
-			try { DebugEnterSubRule(147);
+			DebugLocation(2248, 9);
+			// Truss.g:2248:9: ( OP_COMMA gta= np__genericTypeArgument )*
+			try { DebugEnterSubRule(151);
 			while (true)
 			{
-				int alt147=2;
-				try { DebugEnterDecision(147, false);
-				int LA147_1 = input.LA(1);
+				int alt151=2;
+				try { DebugEnterDecision(151, false);
+				int LA151_1 = input.LA(1);
 
-				if ((LA147_1==OP_COMMA))
+				if ((LA151_1==OP_COMMA))
 				{
-					alt147 = 1;
+					alt151 = 1;
 				}
 
 
-				} finally { DebugExitDecision(147); }
-				switch ( alt147 )
+				} finally { DebugExitDecision(151); }
+				switch ( alt151 )
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Truss.g:2234:13: OP_COMMA gta= np__genericTypeArgument
+					// Truss.g:2249:13: OP_COMMA gta= np__genericTypeArgument
 					{
-					DebugLocation(2234, 13);
-					Match(input,OP_COMMA,Follow._OP_COMMA_in_np__genericTypeArguments15444); if (state.failed) return value;
-					DebugLocation(2235, 16);
-					PushFollow(Follow._np__genericTypeArgument_in_np__genericTypeArguments15460);
+					DebugLocation(2249, 13);
+					Match(input,OP_COMMA,Follow._OP_COMMA_in_np__genericTypeArguments15628); if (state.failed) return value;
+					DebugLocation(2250, 16);
+					PushFollow(Follow._np__genericTypeArgument_in_np__genericTypeArguments15644);
 					gta=np__genericTypeArgument();
 					PopFollow();
 					if (state.failed) return value;
-					DebugLocation(2236, 13);
+					DebugLocation(2251, 13);
 					if (state.backtracking == 0)
 					{
 						 builder.Add(gta); 
@@ -18374,21 +18563,21 @@ namespace  Truss.Compiler.Parser
 					break;
 
 				default:
-					goto loop147;
+					goto loop151;
 				}
 			}
 
-			loop147:
+			loop151:
 				;
 
-			} finally { DebugExitSubRule(147); }
+			} finally { DebugExitSubRule(151); }
 
-			DebugLocation(2244, 9);
-			PushFollow(Follow._op_GREATER_THAN_ANY_in_np__genericTypeArguments15549);
+			DebugLocation(2259, 9);
+			PushFollow(Follow._op_GREATER_THAN_ANY_in_np__genericTypeArguments15733);
 			op_GREATER_THAN_ANY();
 			PopFollow();
 			if (state.failed) return value;
-			DebugLocation(2245, 9);
+			DebugLocation(2260, 9);
 			if (state.backtracking == 0)
 			{
 				 value = builder.Build(); 
@@ -18408,7 +18597,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("np__genericTypeArguments", 140);
 			LeaveRule_np__genericTypeArguments();
 		}
-		DebugLocation(2246, 4);
+		DebugLocation(2261, 4);
 		} finally { DebugExitRule(GrammarFileName, "np__genericTypeArguments"); }
 		return value;
 
@@ -18418,7 +18607,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_np__genericTypeArgument();
 	partial void LeaveRule_np__genericTypeArgument();
 	// $ANTLR start "np__genericTypeArgument"
-	// Truss.g:2248:1: np__genericTypeArgument returns [TypeParser value] : (all= attributeListList tpv= typeParameterVariance t= np__type |) ;
+	// Truss.g:2263:1: np__genericTypeArgument returns [TypeParser value] : (all= attributeListList tpv= typeParameterVariance t= np__type |) ;
 	[GrammarRule("np__genericTypeArgument")]
 	private TypeParser np__genericTypeArgument()
 	{
@@ -18436,58 +18625,58 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "np__genericTypeArgument");
-		DebugLocation(2248, 4);
+		DebugLocation(2263, 4);
 		try
 		{
-			// Truss.g:2252:5: ( (all= attributeListList tpv= typeParameterVariance t= np__type |) )
+			// Truss.g:2267:5: ( (all= attributeListList tpv= typeParameterVariance t= np__type |) )
 			DebugEnterAlt(1);
-			// Truss.g:2253:9: (all= attributeListList tpv= typeParameterVariance t= np__type |)
+			// Truss.g:2268:9: (all= attributeListList tpv= typeParameterVariance t= np__type |)
 			{
-			DebugLocation(2253, 9);
-			// Truss.g:2253:9: (all= attributeListList tpv= typeParameterVariance t= np__type |)
-			int alt148=2;
-			try { DebugEnterSubRule(148);
-			try { DebugEnterDecision(148, false);
-			int LA148_1 = input.LA(1);
+			DebugLocation(2268, 9);
+			// Truss.g:2268:9: (all= attributeListList tpv= typeParameterVariance t= np__type |)
+			int alt152=2;
+			try { DebugEnterSubRule(152);
+			try { DebugEnterDecision(152, false);
+			int LA152_1 = input.LA(1);
 
-			if ((LA148_1==IDENTIFIER||LA148_1==KW_ABSTRACT||LA148_1==KW_ASYNC||LA148_1==KW_BOOL||LA148_1==KW_BYTE||(LA148_1>=KW_CHAR && LA148_1<=KW_CONSUMES)||LA148_1==KW_DECIMAL||LA148_1==KW_DELEGATE||LA148_1==KW_DOUBLE||(LA148_1>=KW_ENUM && LA148_1<=KW_EXTERN)||LA148_1==KW_FLOAT||LA148_1==KW_IMPLICIT||(LA148_1>=KW_IN && LA148_1<=KW_INTERNAL)||LA148_1==KW_LONG||LA148_1==KW_NEW||LA148_1==KW_OBJECT||(LA148_1>=KW_OUT && LA148_1<=KW_REF)||(LA148_1>=KW_SBYTE && LA148_1<=KW_SHORT)||(LA148_1>=KW_STATIC && LA148_1<=KW_STRUCT)||LA148_1==KW_THIS||(LA148_1>=KW_UINT && LA148_1<=KW_USHORT)||(LA148_1>=KW_VAR && LA148_1<=KW_VOLATILE)||LA148_1==OP_BRACKET_OPEN||LA148_1==OP_TILDE))
+			if ((LA152_1==IDENTIFIER||LA152_1==KW_ABSTRACT||LA152_1==KW_ASYNC||LA152_1==KW_BOOL||LA152_1==KW_BYTE||(LA152_1>=KW_CHAR && LA152_1<=KW_CONSUMES)||LA152_1==KW_DECIMAL||LA152_1==KW_DELEGATE||LA152_1==KW_DOUBLE||(LA152_1>=KW_ENUM && LA152_1<=KW_EXTERN)||LA152_1==KW_FLOAT||LA152_1==KW_IMPLICIT||(LA152_1>=KW_IN && LA152_1<=KW_INTERNAL)||LA152_1==KW_LONG||LA152_1==KW_NEW||LA152_1==KW_OBJECT||(LA152_1>=KW_OUT && LA152_1<=KW_REF)||(LA152_1>=KW_SBYTE && LA152_1<=KW_SHORT)||(LA152_1>=KW_STATIC && LA152_1<=KW_STRUCT)||LA152_1==KW_THIS||(LA152_1>=KW_UINT && LA152_1<=KW_USHORT)||(LA152_1>=KW_VAR && LA152_1<=KW_VOLATILE)||LA152_1==OP_BRACKET_OPEN||LA152_1==OP_TILDE))
 			{
-				alt148 = 1;
+				alt152 = 1;
 			}
-			else if ((LA148_1==OP_COMMA||LA148_1==OP_GREATER_THAN||(LA148_1>=OP_GREATER_THAN_GREATER_THAN_FIRST && LA148_1<=OP_GREATER_THAN_GREATER_THAN_SECOND)))
+			else if ((LA152_1==OP_COMMA||LA152_1==OP_GREATER_THAN||(LA152_1>=OP_GREATER_THAN_GREATER_THAN_FIRST && LA152_1<=OP_GREATER_THAN_GREATER_THAN_SECOND)))
 			{
-				alt148 = 2;
+				alt152 = 2;
 			}
 			else
 			{
 				if (state.backtracking>0) {state.failed=true; return value;}
-				NoViableAltException nvae = new NoViableAltException("", 148, 0, input, 1);
+				NoViableAltException nvae = new NoViableAltException("", 152, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(148); }
-			switch (alt148)
+			} finally { DebugExitDecision(152); }
+			switch (alt152)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2254:13: all= attributeListList tpv= typeParameterVariance t= np__type
+				// Truss.g:2269:13: all= attributeListList tpv= typeParameterVariance t= np__type
 				{
-				DebugLocation(2254, 16);
-				PushFollow(Follow._attributeListList_in_np__genericTypeArgument15609);
+				DebugLocation(2269, 16);
+				PushFollow(Follow._attributeListList_in_np__genericTypeArgument15793);
 				all=attributeListList();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2255, 16);
-				PushFollow(Follow._typeParameterVariance_in_np__genericTypeArgument15625);
+				DebugLocation(2270, 16);
+				PushFollow(Follow._typeParameterVariance_in_np__genericTypeArgument15809);
 				tpv=typeParameterVariance();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2256, 14);
-				PushFollow(Follow._np__type_in_np__genericTypeArgument15641);
+				DebugLocation(2271, 14);
+				PushFollow(Follow._np__type_in_np__genericTypeArgument15825);
 				t=np__type();
 				PopFollow();
 				if (state.failed) return value;
-				DebugLocation(2257, 13);
+				DebugLocation(2272, 13);
 				if (state.backtracking == 0)
 				{
 					 value = new TypeParameterParser(Errors, all, tpv, t, Span(start)); 
@@ -18497,9 +18686,9 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2259:13: 
+				// Truss.g:2274:13: 
 				{
-				DebugLocation(2259, 13);
+				DebugLocation(2274, 13);
 				if (state.backtracking == 0)
 				{
 					 value = new OmittedTypeArgumentParser(Span(start)); 
@@ -18509,7 +18698,7 @@ namespace  Truss.Compiler.Parser
 				break;
 
 			}
-			} finally { DebugExitSubRule(148); }
+			} finally { DebugExitSubRule(152); }
 
 
 			}
@@ -18526,7 +18715,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("np__genericTypeArgument", 141);
 			LeaveRule_np__genericTypeArgument();
 		}
-		DebugLocation(2261, 4);
+		DebugLocation(2276, 4);
 		} finally { DebugExitRule(GrammarFileName, "np__genericTypeArgument"); }
 		return value;
 
@@ -18536,7 +18725,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_np__identifierName();
 	partial void LeaveRule_np__identifierName();
 	// $ANTLR start "np__identifierName"
-	// Truss.g:2263:1: np__identifierName returns [IdentifierNameParser value] : i= IDENTIFIER ;
+	// Truss.g:2278:1: np__identifierName returns [IdentifierNameParser value] : i= IDENTIFIER ;
 	[GrammarRule("np__identifierName")]
 	private IdentifierNameParser np__identifierName()
 	{
@@ -18552,16 +18741,16 @@ namespace  Truss.Compiler.Parser
 		    var start = input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "np__identifierName");
-		DebugLocation(2263, 4);
+		DebugLocation(2278, 4);
 		try
 		{
-			// Truss.g:2267:5: (i= IDENTIFIER )
+			// Truss.g:2282:5: (i= IDENTIFIER )
 			DebugEnterAlt(1);
-			// Truss.g:2268:9: i= IDENTIFIER
+			// Truss.g:2283:9: i= IDENTIFIER
 			{
-			DebugLocation(2268, 10);
-			i=(IToken)Match(input,IDENTIFIER,Follow._IDENTIFIER_in_np__identifierName15725); if (state.failed) return value;
-			DebugLocation(2269, 9);
+			DebugLocation(2283, 10);
+			i=(IToken)Match(input,IDENTIFIER,Follow._IDENTIFIER_in_np__identifierName15909); if (state.failed) return value;
+			DebugLocation(2284, 9);
 			if (state.backtracking == 0)
 			{
 				 value = new IdentifierNameParser(i.Text, Span(start)); 
@@ -18581,7 +18770,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("np__identifierName", 142);
 			LeaveRule_np__identifierName();
 		}
-		DebugLocation(2270, 4);
+		DebugLocation(2285, 4);
 		} finally { DebugExitRule(GrammarFileName, "np__identifierName"); }
 		return value;
 
@@ -18591,7 +18780,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_np__predefinedType();
 	partial void LeaveRule_np__predefinedType();
 	// $ANTLR start "np__predefinedType"
-	// Truss.g:2272:1: np__predefinedType returns [PredefinedType value] : ( KW_BOOL | KW_BYTE | KW_CHAR | KW_DECIMAL | KW_DOUBLE | KW_FLOAT | KW_INT | KW_LONG | KW_OBJECT | KW_SBYTE | KW_SHORT | KW_STRING | KW_UINT | KW_ULONG | KW_USHORT | KW_VOID );
+	// Truss.g:2287:1: np__predefinedType returns [PredefinedType value] : ( KW_BOOL | KW_BYTE | KW_CHAR | KW_DECIMAL | KW_DOUBLE | KW_FLOAT | KW_INT | KW_LONG | KW_OBJECT | KW_SBYTE | KW_SHORT | KW_STRING | KW_UINT | KW_ULONG | KW_USHORT | KW_VOID );
 	[GrammarRule("np__predefinedType")]
 	private PredefinedType np__predefinedType()
 	{
@@ -18602,113 +18791,113 @@ namespace  Truss.Compiler.Parser
 
 
 		try { DebugEnterRule(GrammarFileName, "np__predefinedType");
-		DebugLocation(2272, 4);
+		DebugLocation(2287, 4);
 		try
 		{
-			// Truss.g:2273:5: ( KW_BOOL | KW_BYTE | KW_CHAR | KW_DECIMAL | KW_DOUBLE | KW_FLOAT | KW_INT | KW_LONG | KW_OBJECT | KW_SBYTE | KW_SHORT | KW_STRING | KW_UINT | KW_ULONG | KW_USHORT | KW_VOID )
-			int alt149=16;
-			try { DebugEnterDecision(149, false);
+			// Truss.g:2288:5: ( KW_BOOL | KW_BYTE | KW_CHAR | KW_DECIMAL | KW_DOUBLE | KW_FLOAT | KW_INT | KW_LONG | KW_OBJECT | KW_SBYTE | KW_SHORT | KW_STRING | KW_UINT | KW_ULONG | KW_USHORT | KW_VOID )
+			int alt153=16;
+			try { DebugEnterDecision(153, false);
 			switch (input.LA(1))
 			{
 			case KW_BOOL:
 				{
-				alt149 = 1;
+				alt153 = 1;
 				}
 				break;
 			case KW_BYTE:
 				{
-				alt149 = 2;
+				alt153 = 2;
 				}
 				break;
 			case KW_CHAR:
 				{
-				alt149 = 3;
+				alt153 = 3;
 				}
 				break;
 			case KW_DECIMAL:
 				{
-				alt149 = 4;
+				alt153 = 4;
 				}
 				break;
 			case KW_DOUBLE:
 				{
-				alt149 = 5;
+				alt153 = 5;
 				}
 				break;
 			case KW_FLOAT:
 				{
-				alt149 = 6;
+				alt153 = 6;
 				}
 				break;
 			case KW_INT:
 				{
-				alt149 = 7;
+				alt153 = 7;
 				}
 				break;
 			case KW_LONG:
 				{
-				alt149 = 8;
+				alt153 = 8;
 				}
 				break;
 			case KW_OBJECT:
 				{
-				alt149 = 9;
+				alt153 = 9;
 				}
 				break;
 			case KW_SBYTE:
 				{
-				alt149 = 10;
+				alt153 = 10;
 				}
 				break;
 			case KW_SHORT:
 				{
-				alt149 = 11;
+				alt153 = 11;
 				}
 				break;
 			case KW_STRING:
 				{
-				alt149 = 12;
+				alt153 = 12;
 				}
 				break;
 			case KW_UINT:
 				{
-				alt149 = 13;
+				alt153 = 13;
 				}
 				break;
 			case KW_ULONG:
 				{
-				alt149 = 14;
+				alt153 = 14;
 				}
 				break;
 			case KW_USHORT:
 				{
-				alt149 = 15;
+				alt153 = 15;
 				}
 				break;
 			case KW_VOID:
 				{
-				alt149 = 16;
+				alt153 = 16;
 				}
 				break;
 			default:
 				{
 					if (state.backtracking>0) {state.failed=true; return value;}
-					NoViableAltException nvae = new NoViableAltException("", 149, 0, input, 1);
+					NoViableAltException nvae = new NoViableAltException("", 153, 0, input, 1);
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
 
-			} finally { DebugExitDecision(149); }
-			switch (alt149)
+			} finally { DebugExitDecision(153); }
+			switch (alt153)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Truss.g:2273:7: KW_BOOL
+				// Truss.g:2288:7: KW_BOOL
 				{
-				DebugLocation(2273, 7);
-				Match(input,KW_BOOL,Follow._KW_BOOL_in_np__predefinedType15756); if (state.failed) return value;
-				DebugLocation(2273, 15);
+				DebugLocation(2288, 7);
+				Match(input,KW_BOOL,Follow._KW_BOOL_in_np__predefinedType15940); if (state.failed) return value;
+				DebugLocation(2288, 15);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Bool; 
@@ -18718,11 +18907,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Truss.g:2274:7: KW_BYTE
+				// Truss.g:2289:7: KW_BYTE
 				{
-				DebugLocation(2274, 7);
-				Match(input,KW_BYTE,Follow._KW_BYTE_in_np__predefinedType15766); if (state.failed) return value;
-				DebugLocation(2274, 15);
+				DebugLocation(2289, 7);
+				Match(input,KW_BYTE,Follow._KW_BYTE_in_np__predefinedType15950); if (state.failed) return value;
+				DebugLocation(2289, 15);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Byte; 
@@ -18732,11 +18921,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Truss.g:2275:7: KW_CHAR
+				// Truss.g:2290:7: KW_CHAR
 				{
-				DebugLocation(2275, 7);
-				Match(input,KW_CHAR,Follow._KW_CHAR_in_np__predefinedType15776); if (state.failed) return value;
-				DebugLocation(2275, 15);
+				DebugLocation(2290, 7);
+				Match(input,KW_CHAR,Follow._KW_CHAR_in_np__predefinedType15960); if (state.failed) return value;
+				DebugLocation(2290, 15);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Char; 
@@ -18746,11 +18935,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// Truss.g:2276:7: KW_DECIMAL
+				// Truss.g:2291:7: KW_DECIMAL
 				{
-				DebugLocation(2276, 7);
-				Match(input,KW_DECIMAL,Follow._KW_DECIMAL_in_np__predefinedType15786); if (state.failed) return value;
-				DebugLocation(2276, 18);
+				DebugLocation(2291, 7);
+				Match(input,KW_DECIMAL,Follow._KW_DECIMAL_in_np__predefinedType15970); if (state.failed) return value;
+				DebugLocation(2291, 18);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Decimal; 
@@ -18760,11 +18949,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// Truss.g:2277:7: KW_DOUBLE
+				// Truss.g:2292:7: KW_DOUBLE
 				{
-				DebugLocation(2277, 7);
-				Match(input,KW_DOUBLE,Follow._KW_DOUBLE_in_np__predefinedType15796); if (state.failed) return value;
-				DebugLocation(2277, 17);
+				DebugLocation(2292, 7);
+				Match(input,KW_DOUBLE,Follow._KW_DOUBLE_in_np__predefinedType15980); if (state.failed) return value;
+				DebugLocation(2292, 17);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Double; 
@@ -18774,11 +18963,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// Truss.g:2278:7: KW_FLOAT
+				// Truss.g:2293:7: KW_FLOAT
 				{
-				DebugLocation(2278, 7);
-				Match(input,KW_FLOAT,Follow._KW_FLOAT_in_np__predefinedType15806); if (state.failed) return value;
-				DebugLocation(2278, 16);
+				DebugLocation(2293, 7);
+				Match(input,KW_FLOAT,Follow._KW_FLOAT_in_np__predefinedType15990); if (state.failed) return value;
+				DebugLocation(2293, 16);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Float; 
@@ -18788,11 +18977,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 7:
 				DebugEnterAlt(7);
-				// Truss.g:2279:7: KW_INT
+				// Truss.g:2294:7: KW_INT
 				{
-				DebugLocation(2279, 7);
-				Match(input,KW_INT,Follow._KW_INT_in_np__predefinedType15816); if (state.failed) return value;
-				DebugLocation(2279, 14);
+				DebugLocation(2294, 7);
+				Match(input,KW_INT,Follow._KW_INT_in_np__predefinedType16000); if (state.failed) return value;
+				DebugLocation(2294, 14);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Int; 
@@ -18802,11 +18991,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 8:
 				DebugEnterAlt(8);
-				// Truss.g:2280:7: KW_LONG
+				// Truss.g:2295:7: KW_LONG
 				{
-				DebugLocation(2280, 7);
-				Match(input,KW_LONG,Follow._KW_LONG_in_np__predefinedType15826); if (state.failed) return value;
-				DebugLocation(2280, 15);
+				DebugLocation(2295, 7);
+				Match(input,KW_LONG,Follow._KW_LONG_in_np__predefinedType16010); if (state.failed) return value;
+				DebugLocation(2295, 15);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Long; 
@@ -18816,11 +19005,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 9:
 				DebugEnterAlt(9);
-				// Truss.g:2281:7: KW_OBJECT
+				// Truss.g:2296:7: KW_OBJECT
 				{
-				DebugLocation(2281, 7);
-				Match(input,KW_OBJECT,Follow._KW_OBJECT_in_np__predefinedType15836); if (state.failed) return value;
-				DebugLocation(2281, 17);
+				DebugLocation(2296, 7);
+				Match(input,KW_OBJECT,Follow._KW_OBJECT_in_np__predefinedType16020); if (state.failed) return value;
+				DebugLocation(2296, 17);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Object; 
@@ -18830,11 +19019,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 10:
 				DebugEnterAlt(10);
-				// Truss.g:2282:7: KW_SBYTE
+				// Truss.g:2297:7: KW_SBYTE
 				{
-				DebugLocation(2282, 7);
-				Match(input,KW_SBYTE,Follow._KW_SBYTE_in_np__predefinedType15846); if (state.failed) return value;
-				DebugLocation(2282, 16);
+				DebugLocation(2297, 7);
+				Match(input,KW_SBYTE,Follow._KW_SBYTE_in_np__predefinedType16030); if (state.failed) return value;
+				DebugLocation(2297, 16);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.SByte; 
@@ -18844,11 +19033,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 11:
 				DebugEnterAlt(11);
-				// Truss.g:2283:7: KW_SHORT
+				// Truss.g:2298:7: KW_SHORT
 				{
-				DebugLocation(2283, 7);
-				Match(input,KW_SHORT,Follow._KW_SHORT_in_np__predefinedType15856); if (state.failed) return value;
-				DebugLocation(2283, 16);
+				DebugLocation(2298, 7);
+				Match(input,KW_SHORT,Follow._KW_SHORT_in_np__predefinedType16040); if (state.failed) return value;
+				DebugLocation(2298, 16);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Short; 
@@ -18858,11 +19047,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 12:
 				DebugEnterAlt(12);
-				// Truss.g:2284:7: KW_STRING
+				// Truss.g:2299:7: KW_STRING
 				{
-				DebugLocation(2284, 7);
-				Match(input,KW_STRING,Follow._KW_STRING_in_np__predefinedType15866); if (state.failed) return value;
-				DebugLocation(2284, 17);
+				DebugLocation(2299, 7);
+				Match(input,KW_STRING,Follow._KW_STRING_in_np__predefinedType16050); if (state.failed) return value;
+				DebugLocation(2299, 17);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.String; 
@@ -18872,11 +19061,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 13:
 				DebugEnterAlt(13);
-				// Truss.g:2285:7: KW_UINT
+				// Truss.g:2300:7: KW_UINT
 				{
-				DebugLocation(2285, 7);
-				Match(input,KW_UINT,Follow._KW_UINT_in_np__predefinedType15876); if (state.failed) return value;
-				DebugLocation(2285, 15);
+				DebugLocation(2300, 7);
+				Match(input,KW_UINT,Follow._KW_UINT_in_np__predefinedType16060); if (state.failed) return value;
+				DebugLocation(2300, 15);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.UInt; 
@@ -18886,11 +19075,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 14:
 				DebugEnterAlt(14);
-				// Truss.g:2286:7: KW_ULONG
+				// Truss.g:2301:7: KW_ULONG
 				{
-				DebugLocation(2286, 7);
-				Match(input,KW_ULONG,Follow._KW_ULONG_in_np__predefinedType15886); if (state.failed) return value;
-				DebugLocation(2286, 16);
+				DebugLocation(2301, 7);
+				Match(input,KW_ULONG,Follow._KW_ULONG_in_np__predefinedType16070); if (state.failed) return value;
+				DebugLocation(2301, 16);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.ULong; 
@@ -18900,11 +19089,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 15:
 				DebugEnterAlt(15);
-				// Truss.g:2287:7: KW_USHORT
+				// Truss.g:2302:7: KW_USHORT
 				{
-				DebugLocation(2287, 7);
-				Match(input,KW_USHORT,Follow._KW_USHORT_in_np__predefinedType15896); if (state.failed) return value;
-				DebugLocation(2287, 17);
+				DebugLocation(2302, 7);
+				Match(input,KW_USHORT,Follow._KW_USHORT_in_np__predefinedType16080); if (state.failed) return value;
+				DebugLocation(2302, 17);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.UShort; 
@@ -18914,11 +19103,11 @@ namespace  Truss.Compiler.Parser
 				break;
 			case 16:
 				DebugEnterAlt(16);
-				// Truss.g:2288:7: KW_VOID
+				// Truss.g:2303:7: KW_VOID
 				{
-				DebugLocation(2288, 7);
-				Match(input,KW_VOID,Follow._KW_VOID_in_np__predefinedType15906); if (state.failed) return value;
-				DebugLocation(2288, 15);
+				DebugLocation(2303, 7);
+				Match(input,KW_VOID,Follow._KW_VOID_in_np__predefinedType16090); if (state.failed) return value;
+				DebugLocation(2303, 15);
 				if (state.backtracking == 0)
 				{
 					 value = PredefinedType.Void; 
@@ -18940,7 +19129,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("np__predefinedType", 143);
 			LeaveRule_np__predefinedType();
 		}
-		DebugLocation(2289, 4);
+		DebugLocation(2304, 4);
 		} finally { DebugExitRule(GrammarFileName, "np__predefinedType"); }
 		return value;
 
@@ -18950,7 +19139,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_op_GREATER_THAN_GREATER_THAN();
 	partial void LeaveRule_op_GREATER_THAN_GREATER_THAN();
 	// $ANTLR start "op_GREATER_THAN_GREATER_THAN"
-	// Truss.g:2437:1: op_GREATER_THAN_GREATER_THAN : OP_GREATER_THAN_GREATER_THAN_FIRST OP_GREATER_THAN_GREATER_THAN_SECOND ;
+	// Truss.g:2452:1: op_GREATER_THAN_GREATER_THAN : OP_GREATER_THAN_GREATER_THAN_FIRST OP_GREATER_THAN_GREATER_THAN_SECOND ;
 	[GrammarRule("op_GREATER_THAN_GREATER_THAN")]
 	private void op_GREATER_THAN_GREATER_THAN()
 	{
@@ -18958,17 +19147,17 @@ namespace  Truss.Compiler.Parser
 		EnterRule("op_GREATER_THAN_GREATER_THAN", 144);
 		TraceIn("op_GREATER_THAN_GREATER_THAN", 144);
 		try { DebugEnterRule(GrammarFileName, "op_GREATER_THAN_GREATER_THAN");
-		DebugLocation(2437, 102);
+		DebugLocation(2452, 102);
 		try
 		{
-			// Truss.g:2437:30: ( OP_GREATER_THAN_GREATER_THAN_FIRST OP_GREATER_THAN_GREATER_THAN_SECOND )
+			// Truss.g:2452:30: ( OP_GREATER_THAN_GREATER_THAN_FIRST OP_GREATER_THAN_GREATER_THAN_SECOND )
 			DebugEnterAlt(1);
-			// Truss.g:2437:32: OP_GREATER_THAN_GREATER_THAN_FIRST OP_GREATER_THAN_GREATER_THAN_SECOND
+			// Truss.g:2452:32: OP_GREATER_THAN_GREATER_THAN_FIRST OP_GREATER_THAN_GREATER_THAN_SECOND
 			{
-			DebugLocation(2437, 32);
-			Match(input,OP_GREATER_THAN_GREATER_THAN_FIRST,Follow._OP_GREATER_THAN_GREATER_THAN_FIRST_in_op_GREATER_THAN_GREATER_THAN16974); if (state.failed) return;
-			DebugLocation(2437, 67);
-			Match(input,OP_GREATER_THAN_GREATER_THAN_SECOND,Follow._OP_GREATER_THAN_GREATER_THAN_SECOND_in_op_GREATER_THAN_GREATER_THAN16976); if (state.failed) return;
+			DebugLocation(2452, 32);
+			Match(input,OP_GREATER_THAN_GREATER_THAN_FIRST,Follow._OP_GREATER_THAN_GREATER_THAN_FIRST_in_op_GREATER_THAN_GREATER_THAN17158); if (state.failed) return;
+			DebugLocation(2452, 67);
+			Match(input,OP_GREATER_THAN_GREATER_THAN_SECOND,Follow._OP_GREATER_THAN_GREATER_THAN_SECOND_in_op_GREATER_THAN_GREATER_THAN17160); if (state.failed) return;
 
 			}
 
@@ -18984,7 +19173,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("op_GREATER_THAN_GREATER_THAN", 144);
 			LeaveRule_op_GREATER_THAN_GREATER_THAN();
 		}
-		DebugLocation(2437, 102);
+		DebugLocation(2452, 102);
 		} finally { DebugExitRule(GrammarFileName, "op_GREATER_THAN_GREATER_THAN"); }
 		return;
 
@@ -18994,7 +19183,7 @@ namespace  Truss.Compiler.Parser
 	partial void EnterRule_op_GREATER_THAN_ANY();
 	partial void LeaveRule_op_GREATER_THAN_ANY();
 	// $ANTLR start "op_GREATER_THAN_ANY"
-	// Truss.g:2438:1: op_GREATER_THAN_ANY : ( OP_GREATER_THAN | OP_GREATER_THAN_GREATER_THAN_FIRST | OP_GREATER_THAN_GREATER_THAN_SECOND );
+	// Truss.g:2453:1: op_GREATER_THAN_ANY : ( OP_GREATER_THAN | OP_GREATER_THAN_GREATER_THAN_FIRST | OP_GREATER_THAN_GREATER_THAN_SECOND );
 	[GrammarRule("op_GREATER_THAN_ANY")]
 	private void op_GREATER_THAN_ANY()
 	{
@@ -19002,14 +19191,14 @@ namespace  Truss.Compiler.Parser
 		EnterRule("op_GREATER_THAN_ANY", 145);
 		TraceIn("op_GREATER_THAN_ANY", 145);
 		try { DebugEnterRule(GrammarFileName, "op_GREATER_THAN_ANY");
-		DebugLocation(2438, 113);
+		DebugLocation(2453, 113);
 		try
 		{
-			// Truss.g:2438:21: ( OP_GREATER_THAN | OP_GREATER_THAN_GREATER_THAN_FIRST | OP_GREATER_THAN_GREATER_THAN_SECOND )
+			// Truss.g:2453:21: ( OP_GREATER_THAN | OP_GREATER_THAN_GREATER_THAN_FIRST | OP_GREATER_THAN_GREATER_THAN_SECOND )
 			DebugEnterAlt(1);
 			// Truss.g:
 			{
-			DebugLocation(2438, 21);
+			DebugLocation(2453, 21);
 			if (input.LA(1)==OP_GREATER_THAN||(input.LA(1)>=OP_GREATER_THAN_GREATER_THAN_FIRST && input.LA(1)<=OP_GREATER_THAN_GREATER_THAN_SECOND))
 			{
 				input.Consume();
@@ -19038,7 +19227,7 @@ namespace  Truss.Compiler.Parser
 			LeaveRule("op_GREATER_THAN_ANY", 145);
 			LeaveRule_op_GREATER_THAN_ANY();
 		}
-		DebugLocation(2438, 113);
+		DebugLocation(2453, 113);
 		} finally { DebugExitRule(GrammarFileName, "op_GREATER_THAN_ANY"); }
 		return;
 
@@ -19162,12 +19351,12 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:565:11: variableDeclarationWithoutType OP_SEMICOLON
 			{
 			DebugLocation(565, 11);
-			PushFollow(Follow._variableDeclarationWithoutType_in_synpred4_Truss4224);
+			PushFollow(Follow._variableDeclarationWithoutType_in_synpred4_Truss4221);
 			variableDeclarationWithoutType();
 			PopFollow();
 			if (state.failed) return;
 			DebugLocation(565, 42);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_synpred4_Truss4226); if (state.failed) return;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_synpred4_Truss4223); if (state.failed) return;
 
 			}
 
@@ -19198,38 +19387,38 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(577, 11);
 			// Truss.g:577:11: ( name OP_DOT )?
-			int alt150=2;
-			try { DebugEnterSubRule(150);
-			try { DebugEnterDecision(150, false);
-			int LA150_1 = input.LA(1);
+			int alt154=2;
+			try { DebugEnterSubRule(154);
+			try { DebugEnterDecision(154, false);
+			int LA154_1 = input.LA(1);
 
-			if ((LA150_1==IDENTIFIER))
+			if ((LA154_1==IDENTIFIER))
 			{
-				alt150 = 1;
+				alt154 = 1;
 			}
-			} finally { DebugExitDecision(150); }
-			switch (alt150)
+			} finally { DebugExitDecision(154); }
+			switch (alt154)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:577:13: name OP_DOT
 				{
 				DebugLocation(577, 13);
-				PushFollow(Follow._name_in_synpred5_Truss4281);
+				PushFollow(Follow._name_in_synpred5_Truss4278);
 				name();
 				PopFollow();
 				if (state.failed) return;
 				DebugLocation(577, 18);
-				Match(input,OP_DOT,Follow._OP_DOT_in_synpred5_Truss4283); if (state.failed) return;
+				Match(input,OP_DOT,Follow._OP_DOT_in_synpred5_Truss4280); if (state.failed) return;
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(150); }
+			} finally { DebugExitSubRule(154); }
 
 			DebugLocation(577, 28);
-			Match(input,KW_THIS,Follow._KW_THIS_in_synpred5_Truss4288); if (state.failed) return;
+			Match(input,KW_THIS,Follow._KW_THIS_in_synpred5_Truss4285); if (state.failed) return;
 
 			}
 
@@ -19259,12 +19448,12 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:660:15: variableDeclaration OP_SEMICOLON
 			{
 			DebugLocation(660, 15);
-			PushFollow(Follow._variableDeclaration_in_synpred6_Truss4670);
+			PushFollow(Follow._variableDeclaration_in_synpred6_Truss4675);
 			variableDeclaration();
 			PopFollow();
 			if (state.failed) return;
 			DebugLocation(660, 35);
-			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_synpred6_Truss4672); if (state.failed) return;
+			Match(input,OP_SEMICOLON,Follow._OP_SEMICOLON_in_synpred6_Truss4677); if (state.failed) return;
 
 			}
 
@@ -19295,33 +19484,33 @@ namespace  Truss.Compiler.Parser
 			{
 			DebugLocation(877, 9);
 			// Truss.g:877:9: ( KW_READONLY )?
-			int alt151=2;
-			try { DebugEnterSubRule(151);
-			try { DebugEnterDecision(151, false);
-			int LA151_1 = input.LA(1);
+			int alt155=2;
+			try { DebugEnterSubRule(155);
+			try { DebugEnterDecision(155, false);
+			int LA155_1 = input.LA(1);
 
-			if ((LA151_1==KW_READONLY))
+			if ((LA155_1==KW_READONLY))
 			{
-				alt151 = 1;
+				alt155 = 1;
 			}
-			} finally { DebugExitDecision(151); }
-			switch (alt151)
+			} finally { DebugExitDecision(155); }
+			switch (alt155)
 			{
 			case 1:
 				DebugEnterAlt(1);
 				// Truss.g:877:9: KW_READONLY
 				{
 				DebugLocation(877, 9);
-				Match(input,KW_READONLY,Follow._KW_READONLY_in_synpred7_Truss5863); if (state.failed) return;
+				Match(input,KW_READONLY,Follow._KW_READONLY_in_synpred7_Truss5876); if (state.failed) return;
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(151); }
+			} finally { DebugExitSubRule(155); }
 
 			DebugLocation(877, 22);
-			PushFollow(Follow._variableDeclarationHeadScan_in_synpred7_Truss5866);
+			PushFollow(Follow._variableDeclarationHeadScan_in_synpred7_Truss5879);
 			variableDeclarationHeadScan();
 			PopFollow();
 			if (state.failed) return;
@@ -19354,7 +19543,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:972:15: variableDeclarationHeadScan
 			{
 			DebugLocation(972, 15);
-			PushFollow(Follow._variableDeclarationHeadScan_in_synpred8_Truss6551);
+			PushFollow(Follow._variableDeclarationHeadScan_in_synpred8_Truss6564);
 			variableDeclarationHeadScan();
 			PopFollow();
 			if (state.failed) return;
@@ -19387,7 +19576,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1230:15: variableDeclarationHeadScan
 			{
 			DebugLocation(1230, 15);
-			PushFollow(Follow._variableDeclarationHeadScan_in_synpred9_Truss8417);
+			PushFollow(Follow._variableDeclarationHeadScan_in_synpred9_Truss8430);
 			variableDeclarationHeadScan();
 			PopFollow();
 			if (state.failed) return;
@@ -19420,7 +19609,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1263:9: variableDeclarationHeadScan
 			{
 			DebugLocation(1263, 9);
-			PushFollow(Follow._variableDeclarationHeadScan_in_synpred10_Truss8643);
+			PushFollow(Follow._variableDeclarationHeadScan_in_synpred10_Truss8656);
 			variableDeclarationHeadScan();
 			PopFollow();
 			if (state.failed) return;
@@ -19453,7 +19642,7 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1269:11: lambdaExpressionHeadScan
 			{
 			DebugLocation(1269, 11);
-			PushFollow(Follow._lambdaExpressionHeadScan_in_synpred11_Truss8695);
+			PushFollow(Follow._lambdaExpressionHeadScan_in_synpred11_Truss8708);
 			lambdaExpressionHeadScan();
 			PopFollow();
 			if (state.failed) return;
@@ -19486,16 +19675,16 @@ namespace  Truss.Compiler.Parser
 			// Truss.g:1620:11: OP_PAREN_OPEN castType OP_PAREN_CLOSE expression
 			{
 			DebugLocation(1620, 11);
-			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_synpred12_Truss11363); if (state.failed) return;
+			Match(input,OP_PAREN_OPEN,Follow._OP_PAREN_OPEN_in_synpred12_Truss11376); if (state.failed) return;
 			DebugLocation(1620, 25);
-			PushFollow(Follow._castType_in_synpred12_Truss11365);
+			PushFollow(Follow._castType_in_synpred12_Truss11378);
 			castType();
 			PopFollow();
 			if (state.failed) return;
 			DebugLocation(1620, 34);
-			Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_synpred12_Truss11367); if (state.failed) return;
+			Match(input,OP_PAREN_CLOSE,Follow._OP_PAREN_CLOSE_in_synpred12_Truss11380); if (state.failed) return;
 			DebugLocation(1620, 49);
-			PushFollow(Follow._expression_in_synpred12_Truss11369);
+			PushFollow(Follow._expression_in_synpred12_Truss11382);
 			expression();
 			PopFollow();
 			if (state.failed) return;
@@ -19523,12 +19712,12 @@ namespace  Truss.Compiler.Parser
 		TraceIn("synpred13_Truss_fragment", 158);
 		try
 		{
-			// Truss.g:1770:13: ( OP_BRACE_OPEN )
+			// Truss.g:1768:13: ( OP_CARET )
 			DebugEnterAlt(1);
-			// Truss.g:1770:15: OP_BRACE_OPEN
+			// Truss.g:1768:15: OP_CARET
 			{
-			DebugLocation(1770, 15);
-			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_synpred13_Truss12510); if (state.failed) return;
+			DebugLocation(1768, 15);
+			Match(input,OP_CARET,Follow._OP_CARET_in_synpred13_Truss12478); if (state.failed) return;
 
 			}
 
@@ -19553,11 +19742,11 @@ namespace  Truss.Compiler.Parser
 		TraceIn("synpred14_Truss_fragment", 159);
 		try
 		{
-			// Truss.g:1790:13: ( OP_BRACE_OPEN )
+			// Truss.g:1778:13: ( OP_BRACE_OPEN )
 			DebugEnterAlt(1);
-			// Truss.g:1790:15: OP_BRACE_OPEN
+			// Truss.g:1778:15: OP_BRACE_OPEN
 			{
-			DebugLocation(1790, 15);
+			DebugLocation(1778, 15);
 			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_synpred14_Truss12607); if (state.failed) return;
 
 			}
@@ -19583,12 +19772,12 @@ namespace  Truss.Compiler.Parser
 		TraceIn("synpred15_Truss_fragment", 160);
 		try
 		{
-			// Truss.g:2136:13: ( OP_QUESTION )
+			// Truss.g:1798:13: ( OP_BRACE_OPEN )
 			DebugEnterAlt(1);
-			// Truss.g:2136:15: OP_QUESTION
+			// Truss.g:1798:15: OP_BRACE_OPEN
 			{
-			DebugLocation(2136, 15);
-			Match(input,OP_QUESTION,Follow._OP_QUESTION_in_synpred15_Truss14691); if (state.failed) return;
+			DebugLocation(1798, 15);
+			Match(input,OP_BRACE_OPEN,Follow._OP_BRACE_OPEN_in_synpred15_Truss12704); if (state.failed) return;
 
 			}
 
@@ -19613,15 +19802,12 @@ namespace  Truss.Compiler.Parser
 		TraceIn("synpred16_Truss_fragment", 161);
 		try
 		{
-			// Truss.g:2141:13: ( rankSpecifier )
+			// Truss.g:2144:13: ( OP_QUESTION )
 			DebugEnterAlt(1);
-			// Truss.g:2141:15: rankSpecifier
+			// Truss.g:2144:15: OP_QUESTION
 			{
-			DebugLocation(2141, 15);
-			PushFollow(Follow._rankSpecifier_in_synpred16_Truss14759);
-			rankSpecifier();
-			PopFollow();
-			if (state.failed) return;
+			DebugLocation(2144, 15);
+			Match(input,OP_QUESTION,Follow._OP_QUESTION_in_synpred16_Truss14788); if (state.failed) return;
 
 			}
 
@@ -19646,15 +19832,12 @@ namespace  Truss.Compiler.Parser
 		TraceIn("synpred17_Truss_fragment", 162);
 		try
 		{
-			// Truss.g:2157:13: ( rankSpecifier )
+			// Truss.g:2149:13: ( OP_CARET )
 			DebugEnterAlt(1);
-			// Truss.g:2157:15: rankSpecifier
+			// Truss.g:2149:15: OP_CARET
 			{
-			DebugLocation(2157, 15);
-			PushFollow(Follow._rankSpecifier_in_synpred17_Truss14902);
-			rankSpecifier();
-			PopFollow();
-			if (state.failed) return;
+			DebugLocation(2149, 15);
+			Match(input,OP_CARET,Follow._OP_CARET_in_synpred17_Truss14856); if (state.failed) return;
 
 			}
 
@@ -19679,12 +19862,15 @@ namespace  Truss.Compiler.Parser
 		TraceIn("synpred18_Truss_fragment", 163);
 		try
 		{
-			// Truss.g:2219:13: ( OP_LESS_THAN )
+			// Truss.g:2154:13: ( rankSpecifier )
 			DebugEnterAlt(1);
-			// Truss.g:2219:15: OP_LESS_THAN
+			// Truss.g:2154:15: rankSpecifier
 			{
-			DebugLocation(2219, 15);
-			Match(input,OP_LESS_THAN,Follow._OP_LESS_THAN_in_synpred18_Truss15320); if (state.failed) return;
+			DebugLocation(2154, 15);
+			PushFollow(Follow._rankSpecifier_in_synpred18_Truss14924);
+			rankSpecifier();
+			PopFollow();
+			if (state.failed) return;
 
 			}
 
@@ -19697,6 +19883,99 @@ namespace  Truss.Compiler.Parser
 		}
 	}
 	// $ANTLR end synpred18_Truss
+
+	partial void EnterRule_synpred19_Truss_fragment();
+	partial void LeaveRule_synpred19_Truss_fragment();
+
+	// $ANTLR start synpred19_Truss
+	public void synpred19_Truss_fragment()
+	{
+		EnterRule_synpred19_Truss_fragment();
+		EnterRule("synpred19_Truss_fragment", 164);
+		TraceIn("synpred19_Truss_fragment", 164);
+		try
+		{
+			// Truss.g:2166:13: ( rankSpecifier )
+			DebugEnterAlt(1);
+			// Truss.g:2166:15: rankSpecifier
+			{
+			DebugLocation(2166, 15);
+			PushFollow(Follow._rankSpecifier_in_synpred19_Truss15018);
+			rankSpecifier();
+			PopFollow();
+			if (state.failed) return;
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("synpred19_Truss_fragment", 164);
+			LeaveRule("synpred19_Truss_fragment", 164);
+			LeaveRule_synpred19_Truss_fragment();
+		}
+	}
+	// $ANTLR end synpred19_Truss
+
+	partial void EnterRule_synpred20_Truss_fragment();
+	partial void LeaveRule_synpred20_Truss_fragment();
+
+	// $ANTLR start synpred20_Truss
+	public void synpred20_Truss_fragment()
+	{
+		EnterRule_synpred20_Truss_fragment();
+		EnterRule("synpred20_Truss_fragment", 165);
+		TraceIn("synpred20_Truss_fragment", 165);
+		try
+		{
+			// Truss.g:2182:13: ( OP_CARET )
+			DebugEnterAlt(1);
+			// Truss.g:2182:15: OP_CARET
+			{
+			DebugLocation(2182, 15);
+			Match(input,OP_CARET,Follow._OP_CARET_in_synpred20_Truss15142); if (state.failed) return;
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("synpred20_Truss_fragment", 165);
+			LeaveRule("synpred20_Truss_fragment", 165);
+			LeaveRule_synpred20_Truss_fragment();
+		}
+	}
+	// $ANTLR end synpred20_Truss
+
+	partial void EnterRule_synpred21_Truss_fragment();
+	partial void LeaveRule_synpred21_Truss_fragment();
+
+	// $ANTLR start synpred21_Truss
+	public void synpred21_Truss_fragment()
+	{
+		EnterRule_synpred21_Truss_fragment();
+		EnterRule("synpred21_Truss_fragment", 166);
+		TraceIn("synpred21_Truss_fragment", 166);
+		try
+		{
+			// Truss.g:2234:13: ( OP_LESS_THAN )
+			DebugEnterAlt(1);
+			// Truss.g:2234:15: OP_LESS_THAN
+			{
+			DebugLocation(2234, 15);
+			Match(input,OP_LESS_THAN,Follow._OP_LESS_THAN_in_synpred21_Truss15504); if (state.failed) return;
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("synpred21_Truss_fragment", 166);
+			LeaveRule("synpred21_Truss_fragment", 166);
+			LeaveRule_synpred21_Truss_fragment();
+		}
+	}
+	// $ANTLR end synpred21_Truss
 	#endregion Rules
 
 	#region Synpreds
@@ -19725,31 +20004,31 @@ namespace  Truss.Compiler.Parser
 
 
 	#region DFA
-	private DFA53 dfa53;
+	private DFA55 dfa55;
 
 	protected override void InitDFAs()
 	{
 		base.InitDFAs();
-		dfa53 = new DFA53( this, SpecialStateTransition53 );
+		dfa55 = new DFA55( this, SpecialStateTransition55 );
 	}
 
-	private class DFA53 : DFA
+	private class DFA55 : DFA
 	{
-		private const string DFA53_eotS =
+		private const string DFA55_eotS =
 			"\x3D\xFFFF";
-		private const string DFA53_eofS =
+		private const string DFA55_eofS =
 			"\x3D\xFFFF";
-		private const string DFA53_minS =
+		private const string DFA55_minS =
 			"\x1\x5\x12\xFFFF\x1\x0\x29\xFFFF";
-		private const string DFA53_maxS =
+		private const string DFA55_maxS =
 			"\x1\x97\x12\xFFFF\x1\x0\x29\xFFFF";
-		private const string DFA53_acceptS =
+		private const string DFA55_acceptS =
 			"\x1\xFFFF\x12\x1\x1\xFFFF\x1\x2\x1\x3\x1\x4\x1\xFFFF\x1\x5\x1\x6\x1\x7"+
 			"\x17\xFFFF\x1\x8\x1\x9\x1\xA\x1\xB\x1\xC\x1\xD\x1\xE\x1\xF\x1\x10\x1"+
 			"\x11\x1\x12";
-		private const string DFA53_specialS =
+		private const string DFA55_specialS =
 			"\x1\x0\x12\xFFFF\x1\x1\x29\xFFFF}>";
-		private static readonly string[] DFA53_transitionS =
+		private static readonly string[] DFA55_transitionS =
 			{
 				"\x1\x1A\x2\xFFFF\x1\x1A\x2\xFFFF\x1\x1A\x1\x13\x3\xFFFF\x1\x1A\x3\xFFFF"+
 				"\x1\x14\x3\x1A\x1\x3\x1\x16\x1\x4\x2\xFFFF\x1\x5\x2\xFFFF\x1\x16\x1"+
@@ -19823,36 +20102,36 @@ namespace  Truss.Compiler.Parser
 				""
 			};
 
-		private static readonly short[] DFA53_eot = DFA.UnpackEncodedString(DFA53_eotS);
-		private static readonly short[] DFA53_eof = DFA.UnpackEncodedString(DFA53_eofS);
-		private static readonly char[] DFA53_min = DFA.UnpackEncodedStringToUnsignedChars(DFA53_minS);
-		private static readonly char[] DFA53_max = DFA.UnpackEncodedStringToUnsignedChars(DFA53_maxS);
-		private static readonly short[] DFA53_accept = DFA.UnpackEncodedString(DFA53_acceptS);
-		private static readonly short[] DFA53_special = DFA.UnpackEncodedString(DFA53_specialS);
-		private static readonly short[][] DFA53_transition;
+		private static readonly short[] DFA55_eot = DFA.UnpackEncodedString(DFA55_eotS);
+		private static readonly short[] DFA55_eof = DFA.UnpackEncodedString(DFA55_eofS);
+		private static readonly char[] DFA55_min = DFA.UnpackEncodedStringToUnsignedChars(DFA55_minS);
+		private static readonly char[] DFA55_max = DFA.UnpackEncodedStringToUnsignedChars(DFA55_maxS);
+		private static readonly short[] DFA55_accept = DFA.UnpackEncodedString(DFA55_acceptS);
+		private static readonly short[] DFA55_special = DFA.UnpackEncodedString(DFA55_specialS);
+		private static readonly short[][] DFA55_transition;
 
-		static DFA53()
+		static DFA55()
 		{
-			int numStates = DFA53_transitionS.Length;
-			DFA53_transition = new short[numStates][];
+			int numStates = DFA55_transitionS.Length;
+			DFA55_transition = new short[numStates][];
 			for ( int i=0; i < numStates; i++ )
 			{
-				DFA53_transition[i] = DFA.UnpackEncodedString(DFA53_transitionS[i]);
+				DFA55_transition[i] = DFA.UnpackEncodedString(DFA55_transitionS[i]);
 			}
 		}
 
-		public DFA53( BaseRecognizer recognizer, SpecialStateTransitionHandler specialStateTransition )
+		public DFA55( BaseRecognizer recognizer, SpecialStateTransitionHandler specialStateTransition )
 			: base(specialStateTransition)
 		{
 			this.recognizer = recognizer;
-			this.decisionNumber = 53;
-			this.eot = DFA53_eot;
-			this.eof = DFA53_eof;
-			this.min = DFA53_min;
-			this.max = DFA53_max;
-			this.accept = DFA53_accept;
-			this.special = DFA53_special;
-			this.transition = DFA53_transition;
+			this.decisionNumber = 55;
+			this.eot = DFA55_eot;
+			this.eof = DFA55_eof;
+			this.min = DFA55_min;
+			this.max = DFA55_max;
+			this.accept = DFA55_accept;
+			this.special = DFA55_special;
+			this.transition = DFA55_transition;
 		}
 
 		public override string Description { get { return "873:1: statement returns [StatementSyntax value] : ( ( ( KW_READONLY )? variableDeclarationHeadScan )=>e1= localDeclarationStatement |e4= assertStatement |e5= block |e6= breakContinueStatement |e7= doStatement |e8= emptyStatement |e9= expressionStatement |e10= forEachStatement |e11= forStatement |e12= ifStatement |e13= returnStatement |e14= switchStatement |e15= throwStatement |e16= tryStatement |e17= usingStatement |e18= loopStatement |e19= whileStatement |e20= deleteStatement );"; } }
@@ -19863,91 +20142,91 @@ namespace  Truss.Compiler.Parser
 		}
 	}
 
-	private int SpecialStateTransition53(DFA dfa, int s, IIntStream _input)
+	private int SpecialStateTransition55(DFA dfa, int s, IIntStream _input)
 	{
 		ITokenStream input = (ITokenStream)_input;
 		int _s = s;
 		s = -1;
-		int LA53_1 = input.LA(1);
-		int index53_1 = input.Index;
+		int LA55_1 = input.LA(1);
+		int index55_1 = input.Index;
 		switch (_s)
 		{
 		case 0:
 			{
 				input.Rewind();
-				if ((LA53_1==KW_READONLY) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 1;}
+				if ((LA55_1==KW_READONLY) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 1;}
 
-				else if ((LA53_1==KW_VAR) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 2;}
+				else if ((LA55_1==KW_VAR) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 2;}
 
-				else if ((LA53_1==KW_BOOL) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 3;}
+				else if ((LA55_1==KW_BOOL) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 3;}
 
-				else if ((LA53_1==KW_BYTE) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 4;}
+				else if ((LA55_1==KW_BYTE) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 4;}
 
-				else if ((LA53_1==KW_CHAR) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 5;}
+				else if ((LA55_1==KW_CHAR) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 5;}
 
-				else if ((LA53_1==KW_DECIMAL) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 6;}
+				else if ((LA55_1==KW_DECIMAL) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 6;}
 
-				else if ((LA53_1==KW_DOUBLE) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 7;}
+				else if ((LA55_1==KW_DOUBLE) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 7;}
 
-				else if ((LA53_1==KW_FLOAT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 8;}
+				else if ((LA55_1==KW_FLOAT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 8;}
 
-				else if ((LA53_1==KW_INT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 9;}
+				else if ((LA55_1==KW_INT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 9;}
 
-				else if ((LA53_1==KW_LONG) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 10;}
+				else if ((LA55_1==KW_LONG) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 10;}
 
-				else if ((LA53_1==KW_OBJECT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 11;}
+				else if ((LA55_1==KW_OBJECT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 11;}
 
-				else if ((LA53_1==KW_SBYTE) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 12;}
+				else if ((LA55_1==KW_SBYTE) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 12;}
 
-				else if ((LA53_1==KW_SHORT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 13;}
+				else if ((LA55_1==KW_SHORT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 13;}
 
-				else if ((LA53_1==KW_STRING) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 14;}
+				else if ((LA55_1==KW_STRING) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 14;}
 
-				else if ((LA53_1==KW_UINT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 15;}
+				else if ((LA55_1==KW_UINT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 15;}
 
-				else if ((LA53_1==KW_ULONG) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 16;}
+				else if ((LA55_1==KW_ULONG) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 16;}
 
-				else if ((LA53_1==KW_USHORT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 17;}
+				else if ((LA55_1==KW_USHORT) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 17;}
 
-				else if ((LA53_1==KW_VOID) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 18;}
+				else if ((LA55_1==KW_VOID) && (EvaluatePredicate(synpred7_Truss_fragment))) {s = 18;}
 
-				else if ((LA53_1==IDENTIFIER)) {s = 19;}
+				else if ((LA55_1==IDENTIFIER)) {s = 19;}
 
-				else if ((LA53_1==KW_ASSERT)) {s = 20;}
+				else if ((LA55_1==KW_ASSERT)) {s = 20;}
 
-				else if ((LA53_1==OP_BRACE_OPEN)) {s = 21;}
+				else if ((LA55_1==OP_BRACE_OPEN)) {s = 21;}
 
-				else if ((LA53_1==KW_BREAK||LA53_1==KW_CONTINUE)) {s = 22;}
+				else if ((LA55_1==KW_BREAK||LA55_1==KW_CONTINUE)) {s = 22;}
 
-				else if ((LA53_1==KW_DO)) {s = 24;}
+				else if ((LA55_1==KW_DO)) {s = 24;}
 
-				else if ((LA53_1==OP_SEMICOLON)) {s = 25;}
+				else if ((LA55_1==OP_SEMICOLON)) {s = 25;}
 
-				else if ((LA53_1==CHAR||LA53_1==FLOAT||LA53_1==HEX_INTEGER||LA53_1==INTEGER||(LA53_1>=KW_ASYNC && LA53_1<=KW_BASE)||LA53_1==KW_DEFAULT||LA53_1==KW_FALSE||(LA53_1>=KW_NEW && LA53_1<=KW_NIL)||LA53_1==KW_SIZEOF||LA53_1==KW_THIS||LA53_1==KW_TRUE||LA53_1==KW_TYPEOF||LA53_1==OP_AMPERSAND||LA53_1==OP_EXCLAMATION||LA53_1==OP_MINUS||LA53_1==OP_MINUS_MINUS||LA53_1==OP_PAREN_OPEN||LA53_1==OP_PLUS||LA53_1==OP_PLUS_PLUS||(LA53_1>=OP_TILDE && LA53_1<=STRING))) {s = 26;}
+				else if ((LA55_1==CHAR||LA55_1==FLOAT||LA55_1==HEX_INTEGER||LA55_1==INTEGER||(LA55_1>=KW_ASYNC && LA55_1<=KW_BASE)||LA55_1==KW_DEFAULT||LA55_1==KW_FALSE||(LA55_1>=KW_NEW && LA55_1<=KW_NIL)||LA55_1==KW_SIZEOF||LA55_1==KW_THIS||LA55_1==KW_TRUE||LA55_1==KW_TYPEOF||LA55_1==OP_AMPERSAND||LA55_1==OP_EXCLAMATION||LA55_1==OP_MINUS||LA55_1==OP_MINUS_MINUS||LA55_1==OP_PAREN_OPEN||LA55_1==OP_PLUS||LA55_1==OP_PLUS_PLUS||(LA55_1>=OP_TILDE && LA55_1<=STRING))) {s = 26;}
 
-				else if ((LA53_1==KW_FOREACH)) {s = 50;}
+				else if ((LA55_1==KW_FOREACH)) {s = 50;}
 
-				else if ((LA53_1==KW_FOR)) {s = 51;}
+				else if ((LA55_1==KW_FOR)) {s = 51;}
 
-				else if ((LA53_1==KW_IF)) {s = 52;}
+				else if ((LA55_1==KW_IF)) {s = 52;}
 
-				else if ((LA53_1==KW_RETURN)) {s = 53;}
+				else if ((LA55_1==KW_RETURN)) {s = 53;}
 
-				else if ((LA53_1==KW_SWITCH)) {s = 54;}
+				else if ((LA55_1==KW_SWITCH)) {s = 54;}
 
-				else if ((LA53_1==KW_THROW)) {s = 55;}
+				else if ((LA55_1==KW_THROW)) {s = 55;}
 
-				else if ((LA53_1==KW_TRY)) {s = 56;}
+				else if ((LA55_1==KW_TRY)) {s = 56;}
 
-				else if ((LA53_1==KW_USING)) {s = 57;}
+				else if ((LA55_1==KW_USING)) {s = 57;}
 
-				else if ((LA53_1==KW_LOOP)) {s = 58;}
+				else if ((LA55_1==KW_LOOP)) {s = 58;}
 
-				else if ((LA53_1==KW_WHILE)) {s = 59;}
+				else if ((LA55_1==KW_WHILE)) {s = 59;}
 
-				else if ((LA53_1==KW_DELETE)) {s = 60;}
+				else if ((LA55_1==KW_DELETE)) {s = 60;}
 
-				input.Seek(index53_1);
+				input.Seek(index55_1);
 				break;
 			}
 		case 1:
@@ -19957,7 +20236,7 @@ namespace  Truss.Compiler.Parser
 
 				else if ((true)) {s = 26;}
 
-				input.Seek(index53_1);
+				input.Seek(index55_1);
 				break;
 			}
 
@@ -19969,7 +20248,7 @@ namespace  Truss.Compiler.Parser
 			return s;
 
 		if (state.backtracking > 0) {state.failed=true; return -1;}
-		NoViableAltException nvae = new NoViableAltException(dfa.Description, 53, _s, input);
+		NoViableAltException nvae = new NoViableAltException(dfa.Description, 55, _s, input);
 		dfa.Error(nvae);
 		throw nvae;
 	}
@@ -20126,503 +20405,510 @@ namespace  Truss.Compiler.Parser
 		public static readonly BitSet _typeSyntax_in_memberDeclaration3957 = new BitSet(new ulong[]{0x1000UL,0x80001UL});
 		public static readonly BitSet _typedMemberDeclaration_in_memberDeclaration3971 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _conversionOperatorDeclaration_in_memberDeclaration3999 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _destructorDeclaration_in_memberDeclaration4022 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _eventDeclaration_in_memberDeclaration4042 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _delegateDeclaration_in_memberDeclaration4062 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _typeDeclaration_in_memberDeclaration4082 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _enumDeclaration_in_memberDeclaration4102 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _operatorDeclaration_in_typedMemberDeclaration4143 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _fieldDeclaration_in_typedMemberDeclaration4171 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _variableDeclarationWithoutType_in_fieldDeclaration4241 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_fieldDeclaration4261 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _name_in_fieldDeclaration4305 = new BitSet(new ulong[]{0x0UL,0x80000000000000UL});
-		public static readonly BitSet _OP_DOT_in_fieldDeclaration4307 = new BitSet(new ulong[]{0x0UL,0x80000UL});
-		public static readonly BitSet _KW_THIS_in_fieldDeclaration4320 = new BitSet(new ulong[]{0x0UL,0x2000000000000UL});
-		public static readonly BitSet _OP_BRACKET_OPEN_in_fieldDeclaration4330 = new BitSet(new ulong[]{0x84408042A5001000UL,0x2000057092A0AUL});
-		public static readonly BitSet _bareParameterList_in_fieldDeclaration4342 = new BitSet(new ulong[]{0x0UL,0x1000000000000UL});
-		public static readonly BitSet _OP_BRACKET_CLOSE_in_fieldDeclaration4352 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _accessorList_in_fieldDeclaration4364 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _memberName_in_fieldDeclaration4392 = new BitSet(new ulong[]{0x0UL,0x800000000000UL,0x800UL});
-		public static readonly BitSet _propertyDeclarationTail_in_fieldDeclaration4428 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _methodDeclarationTail_in_fieldDeclaration4468 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _accessorList_in_propertyDeclarationTail4528 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _parameterList_in_methodDeclarationTail4574 = new BitSet(new ulong[]{0x0UL,0x800100000000UL});
-		public static readonly BitSet _typeParameterConstraintClauseList_in_methodDeclarationTail4586 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_methodDeclarationTail4598 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_EVENT_in_eventDeclaration4644 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _variableDeclaration_in_eventDeclaration4691 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_eventDeclaration4719 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _typeSyntax_in_eventDeclaration4745 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _memberName_in_eventDeclaration4761 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _accessorList_in_eventDeclaration4777 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_accessorList4835 = new BitSet(new ulong[]{0x2100100000241000UL,0x24000A00091F4UL});
-		public static readonly BitSet _attributeListList_in_accessorList4875 = new BitSet(new ulong[]{0x2100100000241000UL,0xA00091F4UL});
-		public static readonly BitSet _modifiers_in_accessorList4891 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _accessorDeclarationType_in_accessorList4907 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_accessorList4923 = new BitSet(new ulong[]{0x2100100000241000UL,0x24000A00091F4UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_accessorList4958 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _identifierName_in_accessorDeclarationType4999 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _identifierName_in_constructorDeclarationHeadScan5024 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_constructorDeclarationHeadScan5026 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _identifierName_in_constructorDeclaration5058 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _parameterList_in_constructorDeclaration5070 = new BitSet(new ulong[]{0x0UL,0x10800000000000UL});
-		public static readonly BitSet _constructorInitializer_in_constructorDeclaration5084 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_constructorDeclaration5099 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_COLON_in_constructorInitializer5143 = new BitSet(new ulong[]{0x800000UL,0x80000UL});
-		public static readonly BitSet _KW_THIS_in_constructorInitializer5155 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _KW_BASE_in_constructorInitializer5169 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _argumentList_in_constructorInitializer5193 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_TILDE_in_destructorDeclaration5239 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _identifierName_in_destructorDeclaration5251 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_destructorDeclaration5261 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_destructorDeclaration5271 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_destructorDeclaration5283 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_EXPLICIT_in_conversionOperatorDeclaration5331 = new BitSet(new ulong[]{0x0UL,0x1UL});
-		public static readonly BitSet _KW_IMPLICIT_in_conversionOperatorDeclaration5345 = new BitSet(new ulong[]{0x0UL,0x1UL});
-		public static readonly BitSet _KW_OPERATOR_in_conversionOperatorDeclaration5367 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _typeSyntax_in_conversionOperatorDeclaration5379 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _parameterList_in_conversionOperatorDeclaration5391 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_conversionOperatorDeclaration5403 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_OPERATOR_in_operatorDeclaration5449 = new BitSet(new ulong[]{0x200000000000UL,0x7A040A4000200000UL,0x5152BAUL});
-		public static readonly BitSet _operator_in_operatorDeclaration5461 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _parameterList_in_operatorDeclaration5473 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_operatorDeclaration5485 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_AMPERSAND_in_operator5516 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_ASTERISK_in_operator5526 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BAR_in_operator5536 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_CARET_in_operator5546 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_EQUALS_EQUALS_in_operator5556 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_EXCLAMATION_in_operator5566 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_EXCLAMATION_EQUALS_in_operator5576 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_FALSE_in_operator5586 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_GREATER_THAN_in_operator5596 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_GREATER_THAN_EQUALS_in_operator5606 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _op_GREATER_THAN_GREATER_THAN_in_operator5616 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_in_operator5626 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_EQUALS_in_operator5636 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_LESS_THAN_in_operator5646 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_MINUS_in_operator5656 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_MINUS_MINUS_in_operator5666 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PERCENT_in_operator5676 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PLUS_in_operator5686 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PLUS_PLUS_in_operator5696 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_SLASH_in_operator5706 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_TILDE_in_operator5716 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_TRUE_in_operator5726 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_block5764 = new BitSet(new ulong[]{0xEC47A07727F11920UL,0x800C0425FFD6D00UL,0xC94A80UL});
-		public static readonly BitSet _statement_in_block5790 = new BitSet(new ulong[]{0xEC47A07727F11920UL,0x800C0425FFD6D00UL,0xC94A80UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_block5825 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _localDeclarationStatement_in_statement5873 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _assertStatement_in_statement5885 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _block_in_statement5897 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _breakContinueStatement_in_statement5909 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _doStatement_in_statement5921 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _emptyStatement_in_statement5933 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _expressionStatement_in_statement5945 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _forEachStatement_in_statement5957 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _forStatement_in_statement5969 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ifStatement_in_statement5981 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _returnStatement_in_statement5993 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _switchStatement_in_statement6005 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _throwStatement_in_statement6017 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _tryStatement_in_statement6029 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _usingStatement_in_statement6041 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _loopStatement_in_statement6053 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _whileStatement_in_statement6065 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _deleteStatement_in_statement6077 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_ASSERT_in_assertStatement6113 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_assertStatement6125 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_assertStatement6135 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_BREAK_in_breakContinueStatement6177 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _KW_CONTINUE_in_breakContinueStatement6187 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_breakContinueStatement6201 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_DO_in_doStatement6235 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_doStatement6247 = new BitSet(new ulong[]{0x0UL,0x200000000UL});
-		public static readonly BitSet _KW_WHILE_in_doStatement6257 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_doStatement6269 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_doStatement6279 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_SEMICOLON_in_emptyStatement6323 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _expression_in_expressionStatement6369 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_expressionStatement6379 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_FOREACH_in_forEachStatement6423 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _typeSyntax_in_forEachStatement6435 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _identifierName_in_forEachStatement6447 = new BitSet(new ulong[]{0x20000000000000UL});
-		public static readonly BitSet _KW_IN_in_forEachStatement6457 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _expression_in_forEachStatement6469 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_forEachStatement6481 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_FOR_in_forStatement6525 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC94A80UL});
-		public static readonly BitSet _variableDeclaration_in_forStatement6570 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _expressionList_in_forStatement6596 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_forStatement6617 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC94A80UL});
-		public static readonly BitSet _expression_in_forStatement6631 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_forStatement6644 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800804000A84000UL,0xC14A80UL});
-		public static readonly BitSet _expressionList_in_forStatement6658 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_forStatement6673 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _expression_in_expressionList6719 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _OP_COMMA_in_expressionList6753 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _expression_in_expressionList6769 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _expressionOrDeclaration_in_expressionOrDeclarationList6840 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _OP_COMMA_in_expressionOrDeclarationList6874 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_expressionOrDeclarationList6890 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _KW_IF_in_ifStatement6959 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_ifStatement6971 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_ifStatement6983 = new BitSet(new ulong[]{0x18000000002UL});
-		public static readonly BitSet _elIfClause_in_ifStatement6997 = new BitSet(new ulong[]{0x18000000002UL});
-		public static readonly BitSet _elseClause_in_ifStatement7016 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_ELIF_in_elIfClause7065 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_elIfClause7077 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_elIfClause7089 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_ELSE_in_elseClause7133 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_elseClause7145 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_READONLY_in_localDeclarationStatement7203 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _variableDeclaration_in_localDeclarationStatement7240 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_localDeclarationStatement7250 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _typeSyntax_in_variableDeclarationHeadScan7273 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _identifierName_in_variableDeclarationHeadScan7275 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _typeSyntax_in_variableDeclaration7307 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _variableDeclarationWithoutType_in_variableDeclaration7329 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _variableDeclarator_in_variableDeclarationWithoutType7375 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _OP_COMMA_in_variableDeclarationWithoutType7409 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _variableDeclarator_in_variableDeclarationWithoutType7425 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _identifierName_in_variableDeclarator7496 = new BitSet(new ulong[]{0x2UL,0x100000000000000UL});
-		public static readonly BitSet _OP_EQUALS_in_variableDeclarator7520 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _expression_in_variableDeclarator7536 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_RETURN_in_returnStatement7591 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC94A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_returnStatement7614 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_returnStatement7627 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_SWITCH_in_switchStatement7671 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_switchStatement7683 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_switchStatement7693 = new BitSet(new ulong[]{0x408000000UL,0x400000000000UL});
-		public static readonly BitSet _switchSection_in_switchStatement7719 = new BitSet(new ulong[]{0x408000000UL,0x400000000000UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_switchStatement7754 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_DEFAULT_in_switchSection7812 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _KW_CASE_in_switchSection7850 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _expressionList_in_switchSection7880 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_switchSection7902 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_THROW_in_throwStatement7946 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC94A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_throwStatement7967 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_throwStatement7978 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_DELETE_in_deleteStatement8022 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_deleteStatement8043 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_deleteStatement8053 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_TRY_in_tryStatement8097 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_tryStatement8109 = new BitSet(new ulong[]{0x400010000002UL});
-		public static readonly BitSet _catchClause_in_tryStatement8135 = new BitSet(new ulong[]{0x400010000002UL});
-		public static readonly BitSet _finallyClause_in_tryStatement8174 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_CATCH_in_catchClause8221 = new BitSet(new ulong[]{0x8440804225001000UL,0x800057012800UL});
-		public static readonly BitSet _typeSyntax_in_catchClause8247 = new BitSet(new ulong[]{0x1000UL,0x800000000000UL});
-		public static readonly BitSet _identifierName_in_catchClause8265 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_catchClause8291 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_FINALLY_in_finallyClause8335 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_finallyClause8347 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_USING_in_usingStatement8391 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _variableDeclaration_in_usingStatement8436 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _expression_in_usingStatement8462 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_usingStatement8484 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_LOOP_in_loopStatement8528 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_loopStatement8540 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_WHILE_in_whileStatement8584 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_whileStatement8596 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _block_in_whileStatement8608 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _variableDeclarationExpression_in_expressionOrDeclaration8650 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _expression_in_expressionOrDeclaration8662 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _lambdaExpression_in_expression8702 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _assignmentExpression_in_expression8730 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _nonAssignmentExpression_in_assignmentExpression8776 = new BitSet(new ulong[]{0x2UL,0x108250000000000UL,0x20A141UL});
-		public static readonly BitSet _assignmentOperator_in_assignmentExpression8812 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_assignmentExpression8828 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _conditionalExpression_in_nonAssignmentExpression8884 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_EQUALS_in_assignmentOperator8915 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PLUS_EQUALS_in_assignmentOperator8925 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_MINUS_EQUALS_in_assignmentOperator8935 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_ASTERISK_EQUALS_in_assignmentOperator8945 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_SLASH_EQUALS_in_assignmentOperator8955 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PERCENT_EQUALS_in_assignmentOperator8965 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_GREATER_THAN_GREATER_THAN_EQUALS_in_assignmentOperator8975 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_LESS_THAN_EQUALS_in_assignmentOperator8985 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_AMPERSAND_EQUALS_in_assignmentOperator8995 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BAR_EQUALS_in_assignmentOperator9005 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_CARET_EQUALS_in_assignmentOperator9015 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_ASYNC_in_lambdaExpressionHeadScan9030 = new BitSet(new ulong[]{0x1000UL,0x0UL,0x800UL});
-		public static readonly BitSet _lambdaParameterList_in_lambdaExpressionHeadScan9033 = new BitSet(new ulong[]{0x0UL,0x400000000000000UL});
-		public static readonly BitSet _OP_EQUALS_GREATER_THAN_in_lambdaExpressionHeadScan9035 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_ASYNC_in_lambdaExpression9080 = new BitSet(new ulong[]{0x1000UL,0x0UL,0x800UL});
-		public static readonly BitSet _lambdaParameterList_in_lambdaExpression9117 = new BitSet(new ulong[]{0x0UL,0x400000000000000UL});
-		public static readonly BitSet _OP_EQUALS_GREATER_THAN_in_lambdaExpression9127 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800804000A84000UL,0xC14A80UL});
-		public static readonly BitSet _expression_in_lambdaExpression9153 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _block_in_lambdaExpression9193 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_lambdaParameterList9246 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012A02UL,0x400UL});
-		public static readonly BitSet _explicitLambdaParameterList_in_lambdaParameterList9272 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _implicitLambdaParameterList_in_lambdaParameterList9312 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_lambdaParameterList9370 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _implicitLambdaParameter_in_lambdaParameterList9388 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _explicitLambdaParameter_in_explicitLambdaParameterList9434 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _OP_COMMA_in_explicitLambdaParameterList9468 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012A02UL});
-		public static readonly BitSet _explicitLambdaParameter_in_explicitLambdaParameterList9484 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _argumentModifier_in_explicitLambdaParameter9557 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _typeSyntax_in_explicitLambdaParameter9566 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _identifierName_in_explicitLambdaParameter9570 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _implicitLambdaParameter_in_implicitLambdaParameterList9616 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _OP_COMMA_in_implicitLambdaParameterList9650 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _implicitLambdaParameter_in_implicitLambdaParameterList9666 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
-		public static readonly BitSet _identifierName_in_implicitLambdaParameter9737 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _coalescingExpression_in_conditionalExpression9783 = new BitSet(new ulong[]{0x2UL,0x0UL,0x20000UL});
-		public static readonly BitSet _OP_QUESTION_in_conditionalExpression9817 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _expression_in_conditionalExpression9821 = new BitSet(new ulong[]{0x0UL,0x10000000000000UL});
-		public static readonly BitSet _OP_COLON_in_conditionalExpression9835 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _conditionalExpression_in_conditionalExpression9839 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _logicalOrExpression_in_coalescingExpression9900 = new BitSet(new ulong[]{0x2UL,0x0UL,0x40000UL});
-		public static readonly BitSet _OP_QUESTION_QUESTION_in_coalescingExpression9934 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _logicalOrExpression_in_coalescingExpression9950 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _logicalAndExpression_in_logicalOrExpression10011 = new BitSet(new ulong[]{0x2UL,0x100000000000UL});
-		public static readonly BitSet _OP_BAR_BAR_in_logicalOrExpression10045 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _logicalAndExpression_in_logicalOrExpression10049 = new BitSet(new ulong[]{0x2UL,0x100000000000UL});
-		public static readonly BitSet _bitwiseOrExpression_in_logicalAndExpression10110 = new BitSet(new ulong[]{0x2UL,0x8000000000UL});
-		public static readonly BitSet _OP_AMPERSAND_AMPERSAND_in_logicalAndExpression10144 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _bitwiseOrExpression_in_logicalAndExpression10148 = new BitSet(new ulong[]{0x2UL,0x8000000000UL});
-		public static readonly BitSet _bitwiseXorExpression_in_bitwiseOrExpression10209 = new BitSet(new ulong[]{0x2UL,0x80000000000UL});
-		public static readonly BitSet _OP_BAR_in_bitwiseOrExpression10243 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _bitwiseXorExpression_in_bitwiseOrExpression10247 = new BitSet(new ulong[]{0x2UL,0x80000000000UL});
-		public static readonly BitSet _bitwiseAndExpression_in_bitwiseXorExpression10308 = new BitSet(new ulong[]{0x2UL,0x4000000000000UL});
-		public static readonly BitSet _OP_CARET_in_bitwiseXorExpression10342 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _bitwiseAndExpression_in_bitwiseXorExpression10346 = new BitSet(new ulong[]{0x2UL,0x4000000000000UL});
-		public static readonly BitSet _equalityExpression_in_bitwiseAndExpression10407 = new BitSet(new ulong[]{0x2UL,0x4000000000UL});
-		public static readonly BitSet _OP_AMPERSAND_in_bitwiseAndExpression10441 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _equalityExpression_in_bitwiseAndExpression10445 = new BitSet(new ulong[]{0x2UL,0x4000000000UL});
-		public static readonly BitSet _relationalExpression_in_equalityExpression10506 = new BitSet(new ulong[]{0x2UL,0x1200000000000000UL});
-		public static readonly BitSet _equalityOperator_in_equalityExpression10542 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _relationalExpression_in_equalityExpression10546 = new BitSet(new ulong[]{0x2UL,0x1200000000000000UL});
-		public static readonly BitSet _OP_EQUALS_EQUALS_in_equalityOperator10592 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_EXCLAMATION_EQUALS_in_equalityOperator10602 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _shiftExpression_in_relationalExpression10640 = new BitSet(new ulong[]{0x200000000080002UL,0x6000000000000000UL,0x18UL});
-		public static readonly BitSet _relationalOperator_in_relationalExpression10694 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _shiftExpression_in_relationalExpression10698 = new BitSet(new ulong[]{0x200000000080002UL,0x6000000000000000UL,0x18UL});
-		public static readonly BitSet _isAsOperator_in_relationalExpression10750 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _name_in_relationalExpression10754 = new BitSet(new ulong[]{0x200000000080002UL,0x6000000000000000UL,0x18UL});
-		public static readonly BitSet _OP_GREATER_THAN_in_relationalOperator10818 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_GREATER_THAN_EQUALS_in_relationalOperator10828 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_in_relationalOperator10838 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_EQUALS_in_relationalOperator10848 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_IS_in_isAsOperator10871 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_AS_in_isAsOperator10881 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _additiveExpression_in_shiftExpression10919 = new BitSet(new ulong[]{0x2UL,0x0UL,0x22UL});
-		public static readonly BitSet _shiftOperator_in_shiftExpression10955 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _additiveExpression_in_shiftExpression10959 = new BitSet(new ulong[]{0x2UL,0x0UL,0x22UL});
-		public static readonly BitSet _op_GREATER_THAN_GREATER_THAN_in_shiftOperator11005 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_LESS_THAN_in_shiftOperator11015 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _multiplicativeExpression_in_additiveExpression11053 = new BitSet(new ulong[]{0x2UL,0x0UL,0x4080UL});
-		public static readonly BitSet _additiveOperator_in_additiveExpression11089 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _multiplicativeExpression_in_additiveExpression11093 = new BitSet(new ulong[]{0x2UL,0x0UL,0x4080UL});
-		public static readonly BitSet _OP_PLUS_in_additiveOperator11139 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_MINUS_in_additiveOperator11149 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _unaryExpression_in_multiplicativeExpression11187 = new BitSet(new ulong[]{0x2UL,0x20000000000UL,0x101000UL});
-		public static readonly BitSet _multiplicativeOperator_in_multiplicativeExpression11223 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _unaryExpression_in_multiplicativeExpression11227 = new BitSet(new ulong[]{0x2UL,0x20000000000UL,0x101000UL});
-		public static readonly BitSet _OP_ASTERISK_in_multiplicativeOperator11273 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_SLASH_in_multiplicativeOperator11283 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PERCENT_in_multiplicativeOperator11293 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _prefixUnaryOperator_in_unaryExpression11331 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _unaryExpression_in_unaryExpression11335 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _castExpression_in_unaryExpression11384 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _awaitExpression_in_unaryExpression11412 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _primaryExpression_in_unaryExpression11440 = new BitSet(new ulong[]{0x2UL,0x82000000000000UL,0x10A00UL});
-		public static readonly BitSet _selector_in_unaryExpression11476 = new BitSet(new ulong[]{0x2UL,0x82000000000000UL,0x10A00UL});
-		public static readonly BitSet _postfixUnaryOperator_in_unaryExpression11527 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_AWAIT_in_awaitExpression11586 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _unaryExpression_in_awaitExpression11598 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_AMPERSAND_in_prefixUnaryOperator11629 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_EXCLAMATION_in_prefixUnaryOperator11639 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_MINUS_in_prefixUnaryOperator11649 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_MINUS_MINUS_in_prefixUnaryOperator11659 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PLUS_in_prefixUnaryOperator11669 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PLUS_PLUS_in_prefixUnaryOperator11679 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_TILDE_in_prefixUnaryOperator11689 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_MINUS_MINUS_in_postfixUnaryOperator11712 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PLUS_PLUS_in_postfixUnaryOperator11722 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_castExpression11758 = new BitSet(new ulong[]{0x8440804225001000UL,0x800000057012800UL,0x20000UL});
-		public static readonly BitSet _castType_in_castExpression11762 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_castExpression11764 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _unaryExpression_in_castExpression11776 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _argumentModifier_in_argument11836 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96A02UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_argument11873 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_THIS_in_primaryExpression11909 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_BASE_in_primaryExpression11919 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _literal_in_primaryExpression11931 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_primaryExpression11941 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_primaryExpression11945 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_primaryExpression11947 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_TYPEOF_in_primaryExpression11957 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_primaryExpression11959 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _typeSyntax_in_primaryExpression11963 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_primaryExpression11965 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_SIZEOF_in_primaryExpression11975 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_primaryExpression11977 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _typeSyntax_in_primaryExpression11981 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_primaryExpression11983 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_DEFAULT_in_primaryExpression11993 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_primaryExpression11995 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _typeSyntax_in_primaryExpression11999 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_primaryExpression12001 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _identifierName_in_primaryExpression12013 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _primaryNewExpression_in_primaryExpression12025 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_NEW_in_primaryNewExpression12065 = new BitSet(new ulong[]{0x8440804225001000UL,0x2800057012800UL});
-		public static readonly BitSet _typeSyntax_in_primaryNewExpression12091 = new BitSet(new ulong[]{0x0UL,0x2800000000000UL,0x800UL});
-		public static readonly BitSet _objectCreationExpression_in_primaryNewExpression12139 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _objectOrCollectionInitializer_in_primaryNewExpression12191 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _arrayCreationExpression_in_primaryNewExpression12243 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _anonymousObjectInitializer_in_primaryNewExpression12301 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _rankSpecifier_in_primaryNewExpression12341 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
-		public static readonly BitSet _arrayInitializer_in_primaryNewExpression12357 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACKET_OPEN_in_arrayCreationExpression12417 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_arrayCreationExpression12421 = new BitSet(new ulong[]{0x0UL,0x1000000000000UL});
-		public static readonly BitSet _OP_BRACKET_CLOSE_in_arrayCreationExpression12423 = new BitSet(new ulong[]{0x2UL,0x2800000000000UL});
-		public static readonly BitSet _rankSpecifierList_in_arrayCreationExpression12459 = new BitSet(new ulong[]{0x2UL,0x800000000000UL});
-		public static readonly BitSet _arrayInitializer_in_arrayCreationExpression12529 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _argumentList_in_objectCreationExpression12581 = new BitSet(new ulong[]{0x2UL,0x800000000000UL});
-		public static readonly BitSet _objectOrCollectionInitializer_in_objectCreationExpression12626 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_arrayInitializer12681 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800C04057A96800UL,0xC14A80UL});
-		public static readonly BitSet _variableInitializer_in_arrayInitializer12707 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
-		public static readonly BitSet _OP_COMMA_in_arrayInitializer12753 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800804057A96800UL,0xC14A80UL});
-		public static readonly BitSet _variableInitializer_in_arrayInitializer12773 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
-		public static readonly BitSet _OP_COMMA_in_arrayInitializer12820 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_arrayInitializer12842 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _expressionOrDeclaration_in_variableInitializer12875 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _arrayInitializer_in_variableInitializer12887 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_anonymousObjectInitializer12923 = new BitSet(new ulong[]{0x6000200400811920UL,0x400000A84000UL,0x800800UL});
-		public static readonly BitSet _memberDeclarator_in_anonymousObjectInitializer12949 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
-		public static readonly BitSet _OP_COMMA_in_anonymousObjectInitializer12995 = new BitSet(new ulong[]{0x6000200400811920UL,0xA84000UL,0x800800UL});
-		public static readonly BitSet _memberDeclarator_in_anonymousObjectInitializer13015 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
-		public static readonly BitSet _OP_COMMA_in_anonymousObjectInitializer13062 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_anonymousObjectInitializer13084 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _primaryExpression_in_memberDeclarator13130 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _identifierName_in_memberDeclarator13158 = new BitSet(new ulong[]{0x0UL,0x100000000000000UL});
-		public static readonly BitSet _OP_EQUALS_in_memberDeclarator13160 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclaration_in_memberDeclarator13164 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_objectOrCollectionInitializer13208 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_objectOrCollectionInitializer13210 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _objectInitializer_in_objectOrCollectionInitializer13238 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _collectionInitializer_in_objectOrCollectionInitializer13266 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_objectInitializer13310 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _memberInitializer_in_objectInitializer13322 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
-		public static readonly BitSet _OP_COMMA_in_objectInitializer13356 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _memberInitializer_in_objectInitializer13372 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
-		public static readonly BitSet _OP_COMMA_in_objectInitializer13407 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_objectInitializer13418 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _identifierName_in_memberInitializer13464 = new BitSet(new ulong[]{0x0UL,0x100000000000000UL,0x8000UL});
-		public static readonly BitSet _OP_EQUALS_in_memberInitializer13488 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800804057A96800UL,0xC14A80UL});
-		public static readonly BitSet _OP_PLUS_EQUALS_in_memberInitializer13526 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800804057A96800UL,0xC14A80UL});
-		public static readonly BitSet _memberInitializerValue_in_memberInitializer13562 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _expressionOrDeclaration_in_memberInitializerValue13595 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _objectOrCollectionInitializer_in_memberInitializerValue13607 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_collectionInitializer13643 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800804000A84000UL,0xC14A80UL});
-		public static readonly BitSet _elementInitializer_in_collectionInitializer13655 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
-		public static readonly BitSet _OP_COMMA_in_collectionInitializer13689 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800804000A84000UL,0xC14A80UL});
-		public static readonly BitSet _elementInitializer_in_collectionInitializer13705 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
-		public static readonly BitSet _OP_COMMA_in_collectionInitializer13740 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_collectionInitializer13751 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _nonAssignmentExpression_in_elementInitializer13797 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_elementInitializer13823 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclarationList_in_elementInitializer13827 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
-		public static readonly BitSet _OP_BRACE_CLOSE_in_elementInitializer13829 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _typeSyntax_in_variableDeclarationExpression13875 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _identifierName_in_variableDeclarationExpression13887 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_DOT_in_selector13923 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _simpleName_in_selector13927 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _argumentList_in_selector13939 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACKET_OPEN_in_selector13949 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
-		public static readonly BitSet _expressionOrDeclarationList_in_selector13953 = new BitSet(new ulong[]{0x0UL,0x1000000000000UL});
-		public static readonly BitSet _OP_BRACKET_CLOSE_in_selector13955 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_argumentList13991 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96A02UL,0xC14E80UL});
-		public static readonly BitSet _argument_in_argumentList14017 = new BitSet(new ulong[]{0x0UL,0x40000000000000UL,0x400UL});
-		public static readonly BitSet _OP_COMMA_in_argumentList14063 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96A02UL,0xC14A80UL});
-		public static readonly BitSet _argument_in_argumentList14083 = new BitSet(new ulong[]{0x0UL,0x40000000000000UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_argumentList14137 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_TRUE_in_literal14178 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_FALSE_in_literal14188 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_NIL_in_literal14198 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _HEX_INTEGER_in_literal14210 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _INTEGER_in_literal14222 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _FLOAT_in_literal14234 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _CHAR_in_literal14246 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _STRING_in_literal14258 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _IDENTIFIER_in_identifierName14313 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _nullable_in_castType14361 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _typeSyntax_in_castType14389 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _np__qualifiedName_in_name14432 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_VAR_in_typeSyntax14494 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _np__type_in_typeSyntax14522 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _np__qualifiedName_in_memberName14563 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _np__simpleName_in_simpleName14604 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _np__baseType_in_np__type14655 = new BitSet(new ulong[]{0x2UL,0x6000000000000UL,0x20000UL});
-		public static readonly BitSet _OP_QUESTION_in_np__type14708 = new BitSet(new ulong[]{0x2UL,0x6000000000000UL});
-		public static readonly BitSet _rankSpecifierList_in_np__type14778 = new BitSet(new ulong[]{0x2UL,0x4000000000000UL});
-		public static readonly BitSet _OP_CARET_in_np__type14827 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _rankSpecifier_in_rankSpecifierList14921 = new BitSet(new ulong[]{0x2UL,0x2000000000000UL});
-		public static readonly BitSet _OP_BRACKET_OPEN_in_rankSpecifier14990 = new BitSet(new ulong[]{0x0UL,0x1000000000000UL});
-		public static readonly BitSet _OP_BRACKET_CLOSE_in_rankSpecifier15000 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _np__predefinedType_in_np__baseType15046 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _np__qualifiedName_in_np__baseType15074 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _np__identifierName_in_np__qualifiedName15134 = new BitSet(new ulong[]{0x0UL,0x20000000000000UL});
-		public static readonly BitSet _OP_COLON_COLON_in_np__qualifiedName15136 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _np__simpleName_in_np__qualifiedName15173 = new BitSet(new ulong[]{0x2UL,0x80000000000000UL});
-		public static readonly BitSet _OP_DOT_in_np__qualifiedName15207 = new BitSet(new ulong[]{0x1000UL});
-		public static readonly BitSet _np__simpleName_in_np__qualifiedName15223 = new BitSet(new ulong[]{0x2UL,0x80000000000000UL});
-		public static readonly BitSet _np__identifierName_in_np__simpleName15284 = new BitSet(new ulong[]{0x2UL,0x0UL,0x8UL});
-		public static readonly BitSet _np__genericTypeArguments_in_np__simpleName15339 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_in_np__genericTypeArguments15398 = new BitSet(new ulong[]{0x8460804225001000UL,0x2042000047012802UL,0x6UL});
-		public static readonly BitSet _np__genericTypeArgument_in_np__genericTypeArguments15410 = new BitSet(new ulong[]{0x0UL,0x2040000000000000UL,0x6UL});
-		public static readonly BitSet _OP_COMMA_in_np__genericTypeArguments15444 = new BitSet(new ulong[]{0x8460804225001000UL,0x2042000047012802UL,0x6UL});
-		public static readonly BitSet _np__genericTypeArgument_in_np__genericTypeArguments15460 = new BitSet(new ulong[]{0x0UL,0x2040000000000000UL,0x6UL});
-		public static readonly BitSet _op_GREATER_THAN_ANY_in_np__genericTypeArguments15549 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _attributeListList_in_np__genericTypeArgument15609 = new BitSet(new ulong[]{0x8460804225001000UL,0x47012802UL});
-		public static readonly BitSet _typeParameterVariance_in_np__genericTypeArgument15625 = new BitSet(new ulong[]{0x8440804225001000UL,0x47012800UL});
-		public static readonly BitSet _np__type_in_np__genericTypeArgument15641 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _IDENTIFIER_in_np__identifierName15725 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_BOOL_in_np__predefinedType15756 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_BYTE_in_np__predefinedType15766 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_CHAR_in_np__predefinedType15776 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_DECIMAL_in_np__predefinedType15786 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_DOUBLE_in_np__predefinedType15796 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_FLOAT_in_np__predefinedType15806 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_INT_in_np__predefinedType15816 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_LONG_in_np__predefinedType15826 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_OBJECT_in_np__predefinedType15836 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_SBYTE_in_np__predefinedType15846 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_SHORT_in_np__predefinedType15856 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_STRING_in_np__predefinedType15866 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_UINT_in_np__predefinedType15876 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_ULONG_in_np__predefinedType15886 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_USHORT_in_np__predefinedType15896 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_VOID_in_np__predefinedType15906 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_GREATER_THAN_GREATER_THAN_FIRST_in_op_GREATER_THAN_GREATER_THAN16974 = new BitSet(new ulong[]{0x0UL,0x0UL,0x4UL});
-		public static readonly BitSet _OP_GREATER_THAN_GREATER_THAN_SECOND_in_op_GREATER_THAN_GREATER_THAN16976 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _destructorDeclaration_in_memberDeclaration4019 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _eventDeclaration_in_memberDeclaration4039 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _delegateDeclaration_in_memberDeclaration4059 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _typeDeclaration_in_memberDeclaration4079 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _enumDeclaration_in_memberDeclaration4099 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _operatorDeclaration_in_typedMemberDeclaration4140 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _fieldDeclaration_in_typedMemberDeclaration4168 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _variableDeclarationWithoutType_in_fieldDeclaration4238 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_fieldDeclaration4258 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _name_in_fieldDeclaration4302 = new BitSet(new ulong[]{0x0UL,0x80000000000000UL});
+		public static readonly BitSet _OP_DOT_in_fieldDeclaration4304 = new BitSet(new ulong[]{0x0UL,0x80000UL});
+		public static readonly BitSet _KW_THIS_in_fieldDeclaration4317 = new BitSet(new ulong[]{0x0UL,0x2000000000000UL});
+		public static readonly BitSet _OP_BRACKET_OPEN_in_fieldDeclaration4327 = new BitSet(new ulong[]{0x84408042A5001000UL,0x2000057092A0AUL});
+		public static readonly BitSet _bareParameterList_in_fieldDeclaration4339 = new BitSet(new ulong[]{0x0UL,0x1000000000000UL});
+		public static readonly BitSet _OP_BRACKET_CLOSE_in_fieldDeclaration4349 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _accessorList_in_fieldDeclaration4361 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _memberName_in_fieldDeclaration4389 = new BitSet(new ulong[]{0x0UL,0x800000000000UL,0x800UL});
+		public static readonly BitSet _propertyDeclarationTail_in_fieldDeclaration4425 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _methodDeclarationTail_in_fieldDeclaration4465 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _accessorList_in_propertyDeclarationTail4525 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _parameterList_in_methodDeclarationTail4571 = new BitSet(new ulong[]{0x0UL,0x800100000000UL,0x80000UL});
+		public static readonly BitSet _typeParameterConstraintClauseList_in_methodDeclarationTail4583 = new BitSet(new ulong[]{0x0UL,0x800000000000UL,0x80000UL});
+		public static readonly BitSet _block_in_methodDeclarationTail4597 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_SEMICOLON_in_methodDeclarationTail4601 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_EVENT_in_eventDeclaration4649 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _variableDeclaration_in_eventDeclaration4696 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_eventDeclaration4724 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _typeSyntax_in_eventDeclaration4750 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _memberName_in_eventDeclaration4766 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _accessorList_in_eventDeclaration4782 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_accessorList4840 = new BitSet(new ulong[]{0x2100100000241000UL,0x24000A00091F4UL});
+		public static readonly BitSet _attributeListList_in_accessorList4880 = new BitSet(new ulong[]{0x2100100000241000UL,0xA00091F4UL});
+		public static readonly BitSet _modifiers_in_accessorList4896 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _accessorDeclarationType_in_accessorList4912 = new BitSet(new ulong[]{0x0UL,0x800000000000UL,0x80000UL});
+		public static readonly BitSet _block_in_accessorList4930 = new BitSet(new ulong[]{0x2100100000241000UL,0x24000A00091F4UL});
+		public static readonly BitSet _OP_SEMICOLON_in_accessorList4934 = new BitSet(new ulong[]{0x2100100000241000UL,0x24000A00091F4UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_accessorList4971 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _identifierName_in_accessorDeclarationType5012 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _identifierName_in_constructorDeclarationHeadScan5037 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_constructorDeclarationHeadScan5039 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _identifierName_in_constructorDeclaration5071 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _parameterList_in_constructorDeclaration5083 = new BitSet(new ulong[]{0x0UL,0x10800000000000UL});
+		public static readonly BitSet _constructorInitializer_in_constructorDeclaration5097 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_constructorDeclaration5112 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_COLON_in_constructorInitializer5156 = new BitSet(new ulong[]{0x800000UL,0x80000UL});
+		public static readonly BitSet _KW_THIS_in_constructorInitializer5168 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _KW_BASE_in_constructorInitializer5182 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _argumentList_in_constructorInitializer5206 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_TILDE_in_destructorDeclaration5252 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _identifierName_in_destructorDeclaration5264 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_destructorDeclaration5274 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_destructorDeclaration5284 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_destructorDeclaration5296 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_EXPLICIT_in_conversionOperatorDeclaration5344 = new BitSet(new ulong[]{0x0UL,0x1UL});
+		public static readonly BitSet _KW_IMPLICIT_in_conversionOperatorDeclaration5358 = new BitSet(new ulong[]{0x0UL,0x1UL});
+		public static readonly BitSet _KW_OPERATOR_in_conversionOperatorDeclaration5380 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _typeSyntax_in_conversionOperatorDeclaration5392 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _parameterList_in_conversionOperatorDeclaration5404 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_conversionOperatorDeclaration5416 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_OPERATOR_in_operatorDeclaration5462 = new BitSet(new ulong[]{0x200000000000UL,0x7A040A4000200000UL,0x5152BAUL});
+		public static readonly BitSet _operator_in_operatorDeclaration5474 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _parameterList_in_operatorDeclaration5486 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_operatorDeclaration5498 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_AMPERSAND_in_operator5529 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_ASTERISK_in_operator5539 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BAR_in_operator5549 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_CARET_in_operator5559 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_EQUALS_EQUALS_in_operator5569 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_EXCLAMATION_in_operator5579 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_EXCLAMATION_EQUALS_in_operator5589 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_FALSE_in_operator5599 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_GREATER_THAN_in_operator5609 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_GREATER_THAN_EQUALS_in_operator5619 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _op_GREATER_THAN_GREATER_THAN_in_operator5629 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_in_operator5639 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_EQUALS_in_operator5649 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_LESS_THAN_in_operator5659 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_MINUS_in_operator5669 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_MINUS_MINUS_in_operator5679 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PERCENT_in_operator5689 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PLUS_in_operator5699 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PLUS_PLUS_in_operator5709 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_SLASH_in_operator5719 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_TILDE_in_operator5729 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_TRUE_in_operator5739 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_block5777 = new BitSet(new ulong[]{0xEC47A07727F11920UL,0x800C0425FFD6D00UL,0xC94A80UL});
+		public static readonly BitSet _statement_in_block5803 = new BitSet(new ulong[]{0xEC47A07727F11920UL,0x800C0425FFD6D00UL,0xC94A80UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_block5838 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _localDeclarationStatement_in_statement5886 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _assertStatement_in_statement5898 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _block_in_statement5910 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _breakContinueStatement_in_statement5922 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _doStatement_in_statement5934 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _emptyStatement_in_statement5946 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _expressionStatement_in_statement5958 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _forEachStatement_in_statement5970 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _forStatement_in_statement5982 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ifStatement_in_statement5994 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _returnStatement_in_statement6006 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _switchStatement_in_statement6018 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _throwStatement_in_statement6030 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _tryStatement_in_statement6042 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _usingStatement_in_statement6054 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _loopStatement_in_statement6066 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _whileStatement_in_statement6078 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _deleteStatement_in_statement6090 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_ASSERT_in_assertStatement6126 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_assertStatement6138 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_assertStatement6148 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_BREAK_in_breakContinueStatement6190 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _KW_CONTINUE_in_breakContinueStatement6200 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_breakContinueStatement6214 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_DO_in_doStatement6248 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_doStatement6260 = new BitSet(new ulong[]{0x0UL,0x200000000UL});
+		public static readonly BitSet _KW_WHILE_in_doStatement6270 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_doStatement6282 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_doStatement6292 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_SEMICOLON_in_emptyStatement6336 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _expression_in_expressionStatement6382 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_expressionStatement6392 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_FOREACH_in_forEachStatement6436 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _typeSyntax_in_forEachStatement6448 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _identifierName_in_forEachStatement6460 = new BitSet(new ulong[]{0x20000000000000UL});
+		public static readonly BitSet _KW_IN_in_forEachStatement6470 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _expression_in_forEachStatement6482 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_forEachStatement6494 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_FOR_in_forStatement6538 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC94A80UL});
+		public static readonly BitSet _variableDeclaration_in_forStatement6583 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _expressionList_in_forStatement6609 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_forStatement6630 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC94A80UL});
+		public static readonly BitSet _expression_in_forStatement6644 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_forStatement6657 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800804000A84000UL,0xC14A80UL});
+		public static readonly BitSet _expressionList_in_forStatement6671 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_forStatement6686 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _expression_in_expressionList6732 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _OP_COMMA_in_expressionList6766 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _expression_in_expressionList6782 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _expressionOrDeclaration_in_expressionOrDeclarationList6853 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _OP_COMMA_in_expressionOrDeclarationList6887 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_expressionOrDeclarationList6903 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _KW_IF_in_ifStatement6972 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_ifStatement6984 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_ifStatement6996 = new BitSet(new ulong[]{0x18000000002UL});
+		public static readonly BitSet _elIfClause_in_ifStatement7010 = new BitSet(new ulong[]{0x18000000002UL});
+		public static readonly BitSet _elseClause_in_ifStatement7029 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_ELIF_in_elIfClause7078 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_elIfClause7090 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_elIfClause7102 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_ELSE_in_elseClause7146 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_elseClause7158 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_READONLY_in_localDeclarationStatement7216 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _variableDeclaration_in_localDeclarationStatement7253 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_localDeclarationStatement7263 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _typeSyntax_in_variableDeclarationHeadScan7286 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _identifierName_in_variableDeclarationHeadScan7288 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _typeSyntax_in_variableDeclaration7320 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _variableDeclarationWithoutType_in_variableDeclaration7342 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _variableDeclarator_in_variableDeclarationWithoutType7388 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _OP_COMMA_in_variableDeclarationWithoutType7422 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _variableDeclarator_in_variableDeclarationWithoutType7438 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _identifierName_in_variableDeclarator7509 = new BitSet(new ulong[]{0x2UL,0x100000000000000UL});
+		public static readonly BitSet _OP_EQUALS_in_variableDeclarator7533 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _expression_in_variableDeclarator7549 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_RETURN_in_returnStatement7604 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC94A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_returnStatement7627 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_returnStatement7640 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_SWITCH_in_switchStatement7684 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_switchStatement7696 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_switchStatement7706 = new BitSet(new ulong[]{0x408000000UL,0x400000000000UL});
+		public static readonly BitSet _switchSection_in_switchStatement7732 = new BitSet(new ulong[]{0x408000000UL,0x400000000000UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_switchStatement7767 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_DEFAULT_in_switchSection7825 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _KW_CASE_in_switchSection7863 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _expressionList_in_switchSection7893 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_switchSection7915 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_THROW_in_throwStatement7959 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC94A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_throwStatement7980 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_throwStatement7991 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_DELETE_in_deleteStatement8035 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_deleteStatement8056 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_deleteStatement8066 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_TRY_in_tryStatement8110 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_tryStatement8122 = new BitSet(new ulong[]{0x400010000002UL});
+		public static readonly BitSet _catchClause_in_tryStatement8148 = new BitSet(new ulong[]{0x400010000002UL});
+		public static readonly BitSet _finallyClause_in_tryStatement8187 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_CATCH_in_catchClause8234 = new BitSet(new ulong[]{0x8440804225001000UL,0x800057012800UL});
+		public static readonly BitSet _typeSyntax_in_catchClause8260 = new BitSet(new ulong[]{0x1000UL,0x800000000000UL});
+		public static readonly BitSet _identifierName_in_catchClause8278 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_catchClause8304 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_FINALLY_in_finallyClause8348 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_finallyClause8360 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_USING_in_usingStatement8404 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _variableDeclaration_in_usingStatement8449 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _expression_in_usingStatement8475 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_usingStatement8497 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_LOOP_in_loopStatement8541 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_loopStatement8553 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_WHILE_in_whileStatement8597 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_whileStatement8609 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _block_in_whileStatement8621 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _variableDeclarationExpression_in_expressionOrDeclaration8663 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _expression_in_expressionOrDeclaration8675 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _lambdaExpression_in_expression8715 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _assignmentExpression_in_expression8743 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _nonAssignmentExpression_in_assignmentExpression8789 = new BitSet(new ulong[]{0x2UL,0x108250000000000UL,0x20A141UL});
+		public static readonly BitSet _assignmentOperator_in_assignmentExpression8825 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_assignmentExpression8841 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _conditionalExpression_in_nonAssignmentExpression8897 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_EQUALS_in_assignmentOperator8928 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PLUS_EQUALS_in_assignmentOperator8938 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_MINUS_EQUALS_in_assignmentOperator8948 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_ASTERISK_EQUALS_in_assignmentOperator8958 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_SLASH_EQUALS_in_assignmentOperator8968 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PERCENT_EQUALS_in_assignmentOperator8978 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_GREATER_THAN_GREATER_THAN_EQUALS_in_assignmentOperator8988 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_LESS_THAN_EQUALS_in_assignmentOperator8998 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_AMPERSAND_EQUALS_in_assignmentOperator9008 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BAR_EQUALS_in_assignmentOperator9018 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_CARET_EQUALS_in_assignmentOperator9028 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_ASYNC_in_lambdaExpressionHeadScan9043 = new BitSet(new ulong[]{0x1000UL,0x0UL,0x800UL});
+		public static readonly BitSet _lambdaParameterList_in_lambdaExpressionHeadScan9046 = new BitSet(new ulong[]{0x0UL,0x400000000000000UL});
+		public static readonly BitSet _OP_EQUALS_GREATER_THAN_in_lambdaExpressionHeadScan9048 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_ASYNC_in_lambdaExpression9093 = new BitSet(new ulong[]{0x1000UL,0x0UL,0x800UL});
+		public static readonly BitSet _lambdaParameterList_in_lambdaExpression9130 = new BitSet(new ulong[]{0x0UL,0x400000000000000UL});
+		public static readonly BitSet _OP_EQUALS_GREATER_THAN_in_lambdaExpression9140 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800804000A84000UL,0xC14A80UL});
+		public static readonly BitSet _expression_in_lambdaExpression9166 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _block_in_lambdaExpression9206 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_lambdaParameterList9259 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012A02UL,0x400UL});
+		public static readonly BitSet _explicitLambdaParameterList_in_lambdaParameterList9285 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _implicitLambdaParameterList_in_lambdaParameterList9325 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_lambdaParameterList9383 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _implicitLambdaParameter_in_lambdaParameterList9401 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _explicitLambdaParameter_in_explicitLambdaParameterList9447 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _OP_COMMA_in_explicitLambdaParameterList9481 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012A02UL});
+		public static readonly BitSet _explicitLambdaParameter_in_explicitLambdaParameterList9497 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _argumentModifier_in_explicitLambdaParameter9570 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _typeSyntax_in_explicitLambdaParameter9579 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _identifierName_in_explicitLambdaParameter9583 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _implicitLambdaParameter_in_implicitLambdaParameterList9629 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _OP_COMMA_in_implicitLambdaParameterList9663 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _implicitLambdaParameter_in_implicitLambdaParameterList9679 = new BitSet(new ulong[]{0x2UL,0x40000000000000UL});
+		public static readonly BitSet _identifierName_in_implicitLambdaParameter9750 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _coalescingExpression_in_conditionalExpression9796 = new BitSet(new ulong[]{0x2UL,0x0UL,0x20000UL});
+		public static readonly BitSet _OP_QUESTION_in_conditionalExpression9830 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _expression_in_conditionalExpression9834 = new BitSet(new ulong[]{0x0UL,0x10000000000000UL});
+		public static readonly BitSet _OP_COLON_in_conditionalExpression9848 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _conditionalExpression_in_conditionalExpression9852 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _logicalOrExpression_in_coalescingExpression9913 = new BitSet(new ulong[]{0x2UL,0x0UL,0x40000UL});
+		public static readonly BitSet _OP_QUESTION_QUESTION_in_coalescingExpression9947 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _logicalOrExpression_in_coalescingExpression9963 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _logicalAndExpression_in_logicalOrExpression10024 = new BitSet(new ulong[]{0x2UL,0x100000000000UL});
+		public static readonly BitSet _OP_BAR_BAR_in_logicalOrExpression10058 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _logicalAndExpression_in_logicalOrExpression10062 = new BitSet(new ulong[]{0x2UL,0x100000000000UL});
+		public static readonly BitSet _bitwiseOrExpression_in_logicalAndExpression10123 = new BitSet(new ulong[]{0x2UL,0x8000000000UL});
+		public static readonly BitSet _OP_AMPERSAND_AMPERSAND_in_logicalAndExpression10157 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _bitwiseOrExpression_in_logicalAndExpression10161 = new BitSet(new ulong[]{0x2UL,0x8000000000UL});
+		public static readonly BitSet _bitwiseXorExpression_in_bitwiseOrExpression10222 = new BitSet(new ulong[]{0x2UL,0x80000000000UL});
+		public static readonly BitSet _OP_BAR_in_bitwiseOrExpression10256 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _bitwiseXorExpression_in_bitwiseOrExpression10260 = new BitSet(new ulong[]{0x2UL,0x80000000000UL});
+		public static readonly BitSet _bitwiseAndExpression_in_bitwiseXorExpression10321 = new BitSet(new ulong[]{0x2UL,0x4000000000000UL});
+		public static readonly BitSet _OP_CARET_in_bitwiseXorExpression10355 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _bitwiseAndExpression_in_bitwiseXorExpression10359 = new BitSet(new ulong[]{0x2UL,0x4000000000000UL});
+		public static readonly BitSet _equalityExpression_in_bitwiseAndExpression10420 = new BitSet(new ulong[]{0x2UL,0x4000000000UL});
+		public static readonly BitSet _OP_AMPERSAND_in_bitwiseAndExpression10454 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _equalityExpression_in_bitwiseAndExpression10458 = new BitSet(new ulong[]{0x2UL,0x4000000000UL});
+		public static readonly BitSet _relationalExpression_in_equalityExpression10519 = new BitSet(new ulong[]{0x2UL,0x1200000000000000UL});
+		public static readonly BitSet _equalityOperator_in_equalityExpression10555 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _relationalExpression_in_equalityExpression10559 = new BitSet(new ulong[]{0x2UL,0x1200000000000000UL});
+		public static readonly BitSet _OP_EQUALS_EQUALS_in_equalityOperator10605 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_EXCLAMATION_EQUALS_in_equalityOperator10615 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _shiftExpression_in_relationalExpression10653 = new BitSet(new ulong[]{0x200000000080002UL,0x6000000000000000UL,0x18UL});
+		public static readonly BitSet _relationalOperator_in_relationalExpression10707 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _shiftExpression_in_relationalExpression10711 = new BitSet(new ulong[]{0x200000000080002UL,0x6000000000000000UL,0x18UL});
+		public static readonly BitSet _isAsOperator_in_relationalExpression10763 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _name_in_relationalExpression10767 = new BitSet(new ulong[]{0x200000000080002UL,0x6000000000000000UL,0x18UL});
+		public static readonly BitSet _OP_GREATER_THAN_in_relationalOperator10831 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_GREATER_THAN_EQUALS_in_relationalOperator10841 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_in_relationalOperator10851 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_EQUALS_in_relationalOperator10861 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_IS_in_isAsOperator10884 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_AS_in_isAsOperator10894 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _additiveExpression_in_shiftExpression10932 = new BitSet(new ulong[]{0x2UL,0x0UL,0x22UL});
+		public static readonly BitSet _shiftOperator_in_shiftExpression10968 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _additiveExpression_in_shiftExpression10972 = new BitSet(new ulong[]{0x2UL,0x0UL,0x22UL});
+		public static readonly BitSet _op_GREATER_THAN_GREATER_THAN_in_shiftOperator11018 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_LESS_THAN_in_shiftOperator11028 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _multiplicativeExpression_in_additiveExpression11066 = new BitSet(new ulong[]{0x2UL,0x0UL,0x4080UL});
+		public static readonly BitSet _additiveOperator_in_additiveExpression11102 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _multiplicativeExpression_in_additiveExpression11106 = new BitSet(new ulong[]{0x2UL,0x0UL,0x4080UL});
+		public static readonly BitSet _OP_PLUS_in_additiveOperator11152 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_MINUS_in_additiveOperator11162 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _unaryExpression_in_multiplicativeExpression11200 = new BitSet(new ulong[]{0x2UL,0x20000000000UL,0x101000UL});
+		public static readonly BitSet _multiplicativeOperator_in_multiplicativeExpression11236 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _unaryExpression_in_multiplicativeExpression11240 = new BitSet(new ulong[]{0x2UL,0x20000000000UL,0x101000UL});
+		public static readonly BitSet _OP_ASTERISK_in_multiplicativeOperator11286 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_SLASH_in_multiplicativeOperator11296 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PERCENT_in_multiplicativeOperator11306 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _prefixUnaryOperator_in_unaryExpression11344 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _unaryExpression_in_unaryExpression11348 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _castExpression_in_unaryExpression11397 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _awaitExpression_in_unaryExpression11425 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _primaryExpression_in_unaryExpression11453 = new BitSet(new ulong[]{0x2UL,0x82000000000000UL,0x10A00UL});
+		public static readonly BitSet _selector_in_unaryExpression11489 = new BitSet(new ulong[]{0x2UL,0x82000000000000UL,0x10A00UL});
+		public static readonly BitSet _postfixUnaryOperator_in_unaryExpression11540 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_AWAIT_in_awaitExpression11599 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _unaryExpression_in_awaitExpression11611 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_AMPERSAND_in_prefixUnaryOperator11642 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_EXCLAMATION_in_prefixUnaryOperator11652 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_MINUS_in_prefixUnaryOperator11662 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_MINUS_MINUS_in_prefixUnaryOperator11672 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PLUS_in_prefixUnaryOperator11682 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PLUS_PLUS_in_prefixUnaryOperator11692 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_TILDE_in_prefixUnaryOperator11702 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_MINUS_MINUS_in_postfixUnaryOperator11725 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PLUS_PLUS_in_postfixUnaryOperator11735 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_castExpression11771 = new BitSet(new ulong[]{0x8440804225001000UL,0x800000057012800UL,0x20000UL});
+		public static readonly BitSet _castType_in_castExpression11775 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_castExpression11777 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _unaryExpression_in_castExpression11789 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _argumentModifier_in_argument11849 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96A02UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_argument11886 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_THIS_in_primaryExpression11922 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_BASE_in_primaryExpression11932 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _literal_in_primaryExpression11944 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_primaryExpression11954 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_primaryExpression11958 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_primaryExpression11960 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_TYPEOF_in_primaryExpression11970 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_primaryExpression11972 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _typeSyntax_in_primaryExpression11976 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_primaryExpression11978 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_SIZEOF_in_primaryExpression11988 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_primaryExpression11990 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _typeSyntax_in_primaryExpression11994 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_primaryExpression11996 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_DEFAULT_in_primaryExpression12006 = new BitSet(new ulong[]{0x0UL,0x0UL,0x800UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_primaryExpression12008 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _typeSyntax_in_primaryExpression12012 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_primaryExpression12014 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _identifierName_in_primaryExpression12026 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _primaryNewExpression_in_primaryExpression12038 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_NEW_in_primaryNewExpression12078 = new BitSet(new ulong[]{0x8440804225001000UL,0x2800057012800UL});
+		public static readonly BitSet _typeSyntax_in_primaryNewExpression12104 = new BitSet(new ulong[]{0x0UL,0x2800000000000UL,0x800UL});
+		public static readonly BitSet _objectCreationExpression_in_primaryNewExpression12152 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _objectOrCollectionInitializer_in_primaryNewExpression12204 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _arrayCreationExpression_in_primaryNewExpression12256 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _anonymousObjectInitializer_in_primaryNewExpression12314 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _rankSpecifier_in_primaryNewExpression12354 = new BitSet(new ulong[]{0x0UL,0x800000000000UL});
+		public static readonly BitSet _arrayInitializer_in_primaryNewExpression12370 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACKET_OPEN_in_arrayCreationExpression12430 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_arrayCreationExpression12442 = new BitSet(new ulong[]{0x0UL,0x1000000000000UL});
+		public static readonly BitSet _OP_BRACKET_CLOSE_in_arrayCreationExpression12452 = new BitSet(new ulong[]{0x2UL,0x6800000000000UL});
+		public static readonly BitSet _OP_CARET_in_arrayCreationExpression12495 = new BitSet(new ulong[]{0x2UL,0x2800000000000UL});
+		public static readonly BitSet _rankSpecifierList_in_arrayCreationExpression12556 = new BitSet(new ulong[]{0x2UL,0x800000000000UL});
+		public static readonly BitSet _arrayInitializer_in_arrayCreationExpression12626 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _argumentList_in_objectCreationExpression12678 = new BitSet(new ulong[]{0x2UL,0x800000000000UL});
+		public static readonly BitSet _objectOrCollectionInitializer_in_objectCreationExpression12723 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_arrayInitializer12778 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800C04057A96800UL,0xC14A80UL});
+		public static readonly BitSet _variableInitializer_in_arrayInitializer12804 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
+		public static readonly BitSet _OP_COMMA_in_arrayInitializer12850 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800804057A96800UL,0xC14A80UL});
+		public static readonly BitSet _variableInitializer_in_arrayInitializer12870 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
+		public static readonly BitSet _OP_COMMA_in_arrayInitializer12917 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_arrayInitializer12939 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _expressionOrDeclaration_in_variableInitializer12972 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _arrayInitializer_in_variableInitializer12984 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_anonymousObjectInitializer13020 = new BitSet(new ulong[]{0x6000200400811920UL,0x400000A84000UL,0x800800UL});
+		public static readonly BitSet _memberDeclarator_in_anonymousObjectInitializer13046 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
+		public static readonly BitSet _OP_COMMA_in_anonymousObjectInitializer13092 = new BitSet(new ulong[]{0x6000200400811920UL,0xA84000UL,0x800800UL});
+		public static readonly BitSet _memberDeclarator_in_anonymousObjectInitializer13112 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
+		public static readonly BitSet _OP_COMMA_in_anonymousObjectInitializer13159 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_anonymousObjectInitializer13181 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _primaryExpression_in_memberDeclarator13227 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _identifierName_in_memberDeclarator13255 = new BitSet(new ulong[]{0x0UL,0x100000000000000UL});
+		public static readonly BitSet _OP_EQUALS_in_memberDeclarator13257 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclaration_in_memberDeclarator13261 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_objectOrCollectionInitializer13305 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_objectOrCollectionInitializer13307 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _objectInitializer_in_objectOrCollectionInitializer13335 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _collectionInitializer_in_objectOrCollectionInitializer13363 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_objectInitializer13407 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _memberInitializer_in_objectInitializer13419 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
+		public static readonly BitSet _OP_COMMA_in_objectInitializer13453 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _memberInitializer_in_objectInitializer13469 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
+		public static readonly BitSet _OP_COMMA_in_objectInitializer13504 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_objectInitializer13515 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _identifierName_in_memberInitializer13561 = new BitSet(new ulong[]{0x0UL,0x100000000000000UL,0x8000UL});
+		public static readonly BitSet _OP_EQUALS_in_memberInitializer13585 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800804057A96800UL,0xC14A80UL});
+		public static readonly BitSet _OP_PLUS_EQUALS_in_memberInitializer13623 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800804057A96800UL,0xC14A80UL});
+		public static readonly BitSet _memberInitializerValue_in_memberInitializer13659 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _expressionOrDeclaration_in_memberInitializerValue13692 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _objectOrCollectionInitializer_in_memberInitializerValue13704 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_collectionInitializer13740 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800804000A84000UL,0xC14A80UL});
+		public static readonly BitSet _elementInitializer_in_collectionInitializer13752 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
+		public static readonly BitSet _OP_COMMA_in_collectionInitializer13786 = new BitSet(new ulong[]{0x6000200400C11920UL,0x800804000A84000UL,0xC14A80UL});
+		public static readonly BitSet _elementInitializer_in_collectionInitializer13802 = new BitSet(new ulong[]{0x0UL,0x40400000000000UL});
+		public static readonly BitSet _OP_COMMA_in_collectionInitializer13837 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_collectionInitializer13848 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _nonAssignmentExpression_in_elementInitializer13894 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_elementInitializer13920 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclarationList_in_elementInitializer13924 = new BitSet(new ulong[]{0x0UL,0x400000000000UL});
+		public static readonly BitSet _OP_BRACE_CLOSE_in_elementInitializer13926 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _typeSyntax_in_variableDeclarationExpression13972 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _identifierName_in_variableDeclarationExpression13984 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_DOT_in_selector14020 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _simpleName_in_selector14024 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _argumentList_in_selector14036 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACKET_OPEN_in_selector14046 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96800UL,0xC14A80UL});
+		public static readonly BitSet _expressionOrDeclarationList_in_selector14050 = new BitSet(new ulong[]{0x0UL,0x1000000000000UL});
+		public static readonly BitSet _OP_BRACKET_CLOSE_in_selector14052 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_argumentList14088 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96A02UL,0xC14E80UL});
+		public static readonly BitSet _argument_in_argumentList14114 = new BitSet(new ulong[]{0x0UL,0x40000000000000UL,0x400UL});
+		public static readonly BitSet _OP_COMMA_in_argumentList14160 = new BitSet(new ulong[]{0xE440A04625E11920UL,0x800004057A96A02UL,0xC14A80UL});
+		public static readonly BitSet _argument_in_argumentList14180 = new BitSet(new ulong[]{0x0UL,0x40000000000000UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_argumentList14234 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_TRUE_in_literal14275 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_FALSE_in_literal14285 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_NIL_in_literal14295 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _HEX_INTEGER_in_literal14307 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _INTEGER_in_literal14319 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _FLOAT_in_literal14331 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _CHAR_in_literal14343 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _STRING_in_literal14355 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _IDENTIFIER_in_identifierName14410 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _nullable_in_castType14458 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _typeSyntax_in_castType14486 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _np__qualifiedName_in_name14529 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_VAR_in_typeSyntax14591 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _np__type_in_typeSyntax14619 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _np__qualifiedName_in_memberName14660 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _np__simpleName_in_simpleName14701 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _np__baseType_in_np__type14752 = new BitSet(new ulong[]{0x2UL,0x6000000000000UL,0x20000UL});
+		public static readonly BitSet _OP_QUESTION_in_np__type14805 = new BitSet(new ulong[]{0x2UL,0x6000000000000UL});
+		public static readonly BitSet _OP_CARET_in_np__type14873 = new BitSet(new ulong[]{0x2UL,0x2000000000000UL});
+		public static readonly BitSet _rankSpecifierList_in_np__type14943 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _rankSpecifier_in_rankSpecifierList15037 = new BitSet(new ulong[]{0x2UL,0x2000000000000UL});
+		public static readonly BitSet _OP_BRACKET_OPEN_in_rankSpecifier15106 = new BitSet(new ulong[]{0x0UL,0x1000000000000UL});
+		public static readonly BitSet _OP_BRACKET_CLOSE_in_rankSpecifier15116 = new BitSet(new ulong[]{0x2UL,0x4000000000000UL});
+		public static readonly BitSet _OP_CARET_in_rankSpecifier15159 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _np__predefinedType_in_np__baseType15230 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _np__qualifiedName_in_np__baseType15258 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _np__identifierName_in_np__qualifiedName15318 = new BitSet(new ulong[]{0x0UL,0x20000000000000UL});
+		public static readonly BitSet _OP_COLON_COLON_in_np__qualifiedName15320 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _np__simpleName_in_np__qualifiedName15357 = new BitSet(new ulong[]{0x2UL,0x80000000000000UL});
+		public static readonly BitSet _OP_DOT_in_np__qualifiedName15391 = new BitSet(new ulong[]{0x1000UL});
+		public static readonly BitSet _np__simpleName_in_np__qualifiedName15407 = new BitSet(new ulong[]{0x2UL,0x80000000000000UL});
+		public static readonly BitSet _np__identifierName_in_np__simpleName15468 = new BitSet(new ulong[]{0x2UL,0x0UL,0x8UL});
+		public static readonly BitSet _np__genericTypeArguments_in_np__simpleName15523 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_in_np__genericTypeArguments15582 = new BitSet(new ulong[]{0x8460804225001000UL,0x2042000047012802UL,0x6UL});
+		public static readonly BitSet _np__genericTypeArgument_in_np__genericTypeArguments15594 = new BitSet(new ulong[]{0x0UL,0x2040000000000000UL,0x6UL});
+		public static readonly BitSet _OP_COMMA_in_np__genericTypeArguments15628 = new BitSet(new ulong[]{0x8460804225001000UL,0x2042000047012802UL,0x6UL});
+		public static readonly BitSet _np__genericTypeArgument_in_np__genericTypeArguments15644 = new BitSet(new ulong[]{0x0UL,0x2040000000000000UL,0x6UL});
+		public static readonly BitSet _op_GREATER_THAN_ANY_in_np__genericTypeArguments15733 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _attributeListList_in_np__genericTypeArgument15793 = new BitSet(new ulong[]{0x8460804225001000UL,0x47012802UL});
+		public static readonly BitSet _typeParameterVariance_in_np__genericTypeArgument15809 = new BitSet(new ulong[]{0x8440804225001000UL,0x47012800UL});
+		public static readonly BitSet _np__type_in_np__genericTypeArgument15825 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _IDENTIFIER_in_np__identifierName15909 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_BOOL_in_np__predefinedType15940 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_BYTE_in_np__predefinedType15950 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_CHAR_in_np__predefinedType15960 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_DECIMAL_in_np__predefinedType15970 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_DOUBLE_in_np__predefinedType15980 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_FLOAT_in_np__predefinedType15990 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_INT_in_np__predefinedType16000 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_LONG_in_np__predefinedType16010 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_OBJECT_in_np__predefinedType16020 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_SBYTE_in_np__predefinedType16030 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_SHORT_in_np__predefinedType16040 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_STRING_in_np__predefinedType16050 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_UINT_in_np__predefinedType16060 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_ULONG_in_np__predefinedType16070 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_USHORT_in_np__predefinedType16080 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_VOID_in_np__predefinedType16090 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_GREATER_THAN_GREATER_THAN_FIRST_in_op_GREATER_THAN_GREATER_THAN17158 = new BitSet(new ulong[]{0x0UL,0x0UL,0x4UL});
+		public static readonly BitSet _OP_GREATER_THAN_GREATER_THAN_SECOND_in_op_GREATER_THAN_GREATER_THAN17160 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _assemblyAttributeHeadScan_in_synpred1_Truss145 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _identifierName_in_synpred2_Truss1282 = new BitSet(new ulong[]{0x0UL,0x100000000000000UL});
 		public static readonly BitSet _OP_EQUALS_in_synpred2_Truss1284 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _constructorDeclarationHeadScan_in_synpred3_Truss3922 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _variableDeclarationWithoutType_in_synpred4_Truss4224 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_synpred4_Truss4226 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _name_in_synpred5_Truss4281 = new BitSet(new ulong[]{0x0UL,0x80000000000000UL});
-		public static readonly BitSet _OP_DOT_in_synpred5_Truss4283 = new BitSet(new ulong[]{0x0UL,0x80000UL});
-		public static readonly BitSet _KW_THIS_in_synpred5_Truss4288 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _variableDeclaration_in_synpred6_Truss4670 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
-		public static readonly BitSet _OP_SEMICOLON_in_synpred6_Truss4672 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _KW_READONLY_in_synpred7_Truss5863 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
-		public static readonly BitSet _variableDeclarationHeadScan_in_synpred7_Truss5866 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _variableDeclarationHeadScan_in_synpred8_Truss6551 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _variableDeclarationHeadScan_in_synpred9_Truss8417 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _variableDeclarationHeadScan_in_synpred10_Truss8643 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _lambdaExpressionHeadScan_in_synpred11_Truss8695 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_PAREN_OPEN_in_synpred12_Truss11363 = new BitSet(new ulong[]{0x8440804225001000UL,0x800000057012800UL,0x20000UL});
-		public static readonly BitSet _castType_in_synpred12_Truss11365 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
-		public static readonly BitSet _OP_PAREN_CLOSE_in_synpred12_Truss11367 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
-		public static readonly BitSet _expression_in_synpred12_Truss11369 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_BRACE_OPEN_in_synpred13_Truss12510 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _variableDeclarationWithoutType_in_synpred4_Truss4221 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_synpred4_Truss4223 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _name_in_synpred5_Truss4278 = new BitSet(new ulong[]{0x0UL,0x80000000000000UL});
+		public static readonly BitSet _OP_DOT_in_synpred5_Truss4280 = new BitSet(new ulong[]{0x0UL,0x80000UL});
+		public static readonly BitSet _KW_THIS_in_synpred5_Truss4285 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _variableDeclaration_in_synpred6_Truss4675 = new BitSet(new ulong[]{0x0UL,0x0UL,0x80000UL});
+		public static readonly BitSet _OP_SEMICOLON_in_synpred6_Truss4677 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _KW_READONLY_in_synpred7_Truss5876 = new BitSet(new ulong[]{0x8440804225001000UL,0x57012800UL});
+		public static readonly BitSet _variableDeclarationHeadScan_in_synpred7_Truss5879 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _variableDeclarationHeadScan_in_synpred8_Truss6564 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _variableDeclarationHeadScan_in_synpred9_Truss8430 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _variableDeclarationHeadScan_in_synpred10_Truss8656 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _lambdaExpressionHeadScan_in_synpred11_Truss8708 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_PAREN_OPEN_in_synpred12_Truss11376 = new BitSet(new ulong[]{0x8440804225001000UL,0x800000057012800UL,0x20000UL});
+		public static readonly BitSet _castType_in_synpred12_Truss11378 = new BitSet(new ulong[]{0x0UL,0x0UL,0x400UL});
+		public static readonly BitSet _OP_PAREN_CLOSE_in_synpred12_Truss11380 = new BitSet(new ulong[]{0x6000200400E11920UL,0x800004000A84000UL,0xC14A80UL});
+		public static readonly BitSet _expression_in_synpred12_Truss11382 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_CARET_in_synpred13_Truss12478 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _OP_BRACE_OPEN_in_synpred14_Truss12607 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_QUESTION_in_synpred15_Truss14691 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _rankSpecifier_in_synpred16_Truss14759 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _rankSpecifier_in_synpred17_Truss14902 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _OP_LESS_THAN_in_synpred18_Truss15320 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_BRACE_OPEN_in_synpred15_Truss12704 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_QUESTION_in_synpred16_Truss14788 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_CARET_in_synpred17_Truss14856 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _rankSpecifier_in_synpred18_Truss14924 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _rankSpecifier_in_synpred19_Truss15018 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_CARET_in_synpred20_Truss15142 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _OP_LESS_THAN_in_synpred21_Truss15504 = new BitSet(new ulong[]{0x2UL});
 	}
 	#endregion Follow sets
 }

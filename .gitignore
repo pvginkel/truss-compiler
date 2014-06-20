@@ -1,5 +1,9 @@
-/store
-/.idea/workspace.xml
-/*.iws
-/tmp
-
+/*.suo
+/*.user
+Thumbs.db
+/*.docstates
+/*.shfbproj_*
+/*.dotCover
+/_ReSharper*
+/*.DotSettings
+/packages

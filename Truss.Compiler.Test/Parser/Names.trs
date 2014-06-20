@@ -1,0 +1,118 @@
+>>> Naked
+
+class Foo {
+    void Bar() {
+        var x = (?)nil;
+        var x = (!)nil;
+    }
+}
+
+>>> Identifier
+
+class Foo {
+    void Bar() {
+        var x = (Bar)nil;
+    }
+}
+
+>>> Predefined
+
+class Foo {
+    void Bar() {
+        var x = (bool)nil;
+        var x = (byte)nil;
+        var x = (char)nil;
+        var x = (decimal)nil;
+        var x = (double)nil;
+        var x = (float)nil;
+        var x = (int)nil;
+        var x = (long)nil;
+        var x = (object)nil;
+        var x = (sbyte)nil;
+        var x = (short)nil;
+        var x = (string)nil;
+        var x = (uint)nil;
+        var x = (ulong)nil;
+        var x = (ushort)nil;
+        var x = (void)nil;
+    }
+}
+
+>>> Array type
+
+class Foo {
+    void Bar() {
+        var x = (int[])nil;
+        var x = (Bar[])nil;
+        var x = (Bar[][])nil;
+        var x = (Bar?[][])nil;
+    }
+}
+
+>>> Qualified name
+
+class Foo {
+    void Bar() {
+        var x = (Bar1.Bar2.Bar3)nil;
+    }
+}
+
+>>> Alias qualified
+
+class Foo {
+    void Bar() {
+        var x = (global::Bar)nil;
+    }
+}
+
+>>> Generic name
+
+class Foo {
+    void Bar() {
+        var x = (Bar<int>)nil;
+        var x = (Bar<>)nil;
+        var x = (Bar<,>)nil;
+        var x = (Bar<,,>)nil;
+        var x = (Bar<Bar, Bar>)nil;
+        var x = (Bar<Bar, Bar<>>)nil;
+        var x = (Bar<Bar<Bar>>)nil;
+        var x = (Bar<Bar<Bar>, Bar>)nil;
+        var x = (Bar<Bar, Bar<Bar<Bar<Bar<>>>>>)nil;
+    }
+}
+
+>>> Invalid generic name (too many closes)
+
+class Foo {
+    void Bar() {
+        var x = (Bar<Bar<Bar>, Bar>>)nil;
+    }
+}
+
+<<<
+
+Invalid generic name (too many closes)(3,30): error TRS0001: Unexpected token 'OP_COMMA'
+Invalid generic name (too many closes): error TRS0011: An unknown internal error has occurred: Value cannot be null.
+Parameter name: right
+
+>>> Invalid generic name (too few closes)
+
+class Foo {
+    void Bar() {
+        var x = (Bar<Bar<Bar>, Bar)nil;
+    }
+}
+
+<<<
+
+Invalid generic name (too few closes)(3,30): error TRS0001: Unexpected token 'OP_COMMA'
+Invalid generic name (too few closes): error TRS0011: An unknown internal error has occurred: Value cannot be null.
+Parameter name: right
+
+>>> Nullable type
+
+class Foo {
+    void Bar() {
+        var x = (int?)nil;
+    }
+}

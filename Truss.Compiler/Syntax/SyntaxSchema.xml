@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema packageName="Truss.Compiler.Syntax">
+    <class name="SyntaxNode" abstract="true" ignore="true">
+        <property name="Span" type="Span" last="true"/>
+    </class>
+    <class name="AccessorDeclarationSyntax" base="SyntaxNode">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Type" type="AccessorDeclarationType"/>
+        <property name="Body" type="BlockSyntax"/>
+    </class>
+    <class name="ArgumentSyntax" base="SyntaxNode">
+        <property name="Modifiers" type="ParameterModifier" list="true"/>
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="ArrayRankSpecifierSyntax" base="SyntaxNode">
+        <property name="Size" type="ExpressionSyntax"/>
+    </class>
+    <class name="AttributeListSyntax" base="SyntaxNode">
+        <property name="Target" type="AttributeTarget"/>
+        <property name="Attributes" type="AttributeSyntax" list="true"/>
+    </class>
+    <class name="AttributeSyntax" base="SyntaxNode">
+        <property name="Name" type="NameSyntax"/>
+        <property name="Arguments" type="AttributeArgumentSyntax" list="true"/>
+    </class>
+    <class name="AttributeArgumentSyntax" base="SyntaxNode">
+        <property name="Name" type="IdentifierNameSyntax" nullable="true"/>
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="CatchClauseSyntax" base="SyntaxNode">
+        <property name="ExceptionType" type="TypeSyntax" nullable="true"/>
+        <property name="Identifier" type="IdentifierNameSyntax" nullable="true"/>
+        <property name="Block" type="BlockSyntax"/>
+        <validation><![CDATA[
+            if (identifier != null && exceptionType == null) {
+                throw new ArgumentException("Exception type is mandatory when an identifier is provided");
+            }
+        ]]></validation>
+    </class>
+    <class name="CompilationUnitSyntax" base="SyntaxNode">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Imports" type="ImportDirectiveSyntax" list="true"/>
+        <property name="Members" type="MemberDeclarationSyntax" list="true"/>
+    </class>
+    <class name="ExpressionSyntax" abstract="true" base="SyntaxNode"/>
+    <class name="AnonymousObjectCreationExpressionSyntax" base="ExpressionSyntax">
+        <property name="Initializers" type="AnonymousObjectMemberDeclaratorSyntax" list="true"/>
+    </class>
+    <class name="AnonymousObjectMemberDeclaratorSyntax" base="SyntaxNode">
+        <property name="Name" type="IdentifierNameSyntax" nullable="true"/>
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="ArrayCreationExpressionSyntax" base="ExpressionSyntax">
+        <property name="Type" type="ArrayTypeSyntax"/>
+        <property name="Initializer" type="InitializerExpressionSyntax" nullable="true"/>
+    </class>
+    <class name="AwaitExpressionSyntax" base="ExpressionSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="BinaryExpressionSyntax" base="ExpressionSyntax">
+        <property name="Operator" type="BinaryOperator"/>
+        <property name="Left" type="ExpressionSyntax"/>
+        <property name="Right" type="ExpressionSyntax"/>
+    </class>
+    <class name="CastExpressionSyntax" base="ExpressionSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="TargetType" type="TypeSyntax"/>
+    </class>
+    <class name="ConditionalExpressionSyntax" base="ExpressionSyntax">
+        <property name="Condition" type="ExpressionSyntax"/>
+        <property name="WhenTrue" type="ExpressionSyntax"/>
+        <property name="WhenFalse" type="ExpressionSyntax"/>
+    </class>
+    <class name="DefaultExpressionSyntax" base="ExpressionSyntax">
+        <property name="TargetType" type="TypeSyntax"/>
+    </class>
+    <!-- Array index: e[10] -->
+    <class name="ElementAccessExpressionSyntax" base="ExpressionSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="IndexExpressions" type="ExpressionSyntax" list="true"/>
+    </class>
+    <class name="ImplicitArrayCreationExpressionSyntax" base="ExpressionSyntax">
+        <property name="RankSpecifiers" type="ArrayRankSpecifierSyntax" list="true"/>
+        <property name="Initializer" type="InitializerExpressionSyntax"/>
+    </class>
+    <class name="InitializerExpressionSyntax" base="ExpressionSyntax">
+        <property name="Expressions" type="ExpressionSyntax" list="true"/>
+    </class>
+    <class name="InstanceExpressionSyntax" base="ExpressionSyntax">
+        <property name="Type" type="ThisOrBase"/>
+    </class>
+    <class name="InvocationExpressionSyntax" base="ExpressionSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="Arguments" type="ArgumentSyntax" list="true"/>
+    </class>
+    <class name="LiteralExpressionSyntax" base="ExpressionSyntax">
+        <property name="LiteralType" type="LiteralType"/>
+        <property name="Value" type="string" nullable="true"/>
+    </class>
+    <class name="MemberAccessExpressionSyntax" base="ExpressionSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="Name" type="SimpleNameSyntax"/>
+    </class>
+    <class name="ObjectCreationExpressionSyntax" base="ExpressionSyntax">
+        <property name="TargetType" type="TypeSyntax"/>
+        <property name="Arguments" type="ArgumentSyntax" list="true" nullable="true"/>
+        <!-- Represents { a = 7, b = 3 } -->
+        <property name="Initializer" type="InitializerExpressionSyntax" nullable="true"/>
+    </class>
+    <class name="OmittedArraySizeExpressionSyntax" base="ExpressionSyntax"/>
+    <class name="ParenthesizedExpressionSyntax" base="ExpressionSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="LambdaExpressionSyntax" base="ExpressionSyntax">
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Parameters" type="ParameterSyntax" list="true"/>
+        <property name="Body" type="SyntaxNode"/>
+    </class>
+    <class name="PostfixUnaryExpressionSyntax" base="ExpressionSyntax">
+        <property name="Operator" type="PostfixUnaryOperator"/>
+        <property name="Operand" type="ExpressionSyntax"/>
+    </class>
+    <class name="PrefixUnaryExpressionSyntax" base="ExpressionSyntax">
+        <property name="Operator" type="PrefixUnaryOperator"/>
+        <property name="Operand" type="ExpressionSyntax"/>
+    </class>
+    <class name="SizeOfExpressionSyntax" base="ExpressionSyntax">
+        <property name="TargetType" type="TypeSyntax"/>
+    </class>
+    <class name="TypeOfExpressionSyntax" base="ExpressionSyntax">
+        <property name="TargetType" type="TypeSyntax"/>
+    </class>
+    <class name="TypeSyntax" abstract="true" base="ExpressionSyntax"/>
+    <class name="VariableDeclarationExpressionSyntax" base="ExpressionSyntax">
+        <property name="VariableType" type="TypeSyntax"/>
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+    </class>
+    <class name="ArrayTypeSyntax" base="TypeSyntax">
+        <property name="ElementType" type="TypeSyntax"/>
+        <property name="RankSpecifiers" type="ArrayRankSpecifierSyntax" list="true"/>
+    </class>
+    <class name="NameSyntax" abstract="true" base="TypeSyntax"/>
+    <class name="AliasQualifiedNameSyntax" base="NameSyntax">
+        <property name="Alias" type="IdentifierNameSyntax"/>
+        <property name="Name" type="SimpleNameSyntax"/>
+    </class>
+    <class name="QualifiedNameSyntax" base="NameSyntax">
+        <property name="Left" type="NameSyntax"/>
+        <property name="Right" type="SimpleNameSyntax"/>
+    </class>
+    <class name="SimpleNameSyntax" abstract="true" base="NameSyntax">
+        <property name="Identifier" type="string"/>
+    </class>
+    <class name="GenericNameSyntax" base="SimpleNameSyntax">
+        <property name="TypeArguments" type="TypeSyntax" list="true"/>
+        <members><![CDATA[
+            public bool IsUnboundGenericName {
+                get {
+                    return TypeArguments.Any(p => p is OmittedTypeArgumentSyntax);
+                }
+            }
+        ]]>
+        </members>
+    </class>
+    <!--
+    "var" does not have a construct so as to not have to make it a keyword. Instead, an IdentifierNameSyntax
+    with the name "var" is a var type.
+    -->
+    <class name="IdentifierNameSyntax" base="SimpleNameSyntax"/>
+    <class name="TrackedTypeSyntax" base="TypeSyntax">
+        <property name="ElementType" type="TypeSyntax"/>
+    </class>
+    <class name="NakedNullableTypeSyntax" base="TypeSyntax">
+        <property name="Type" type="Nullable"/>
+    </class>
+    <class name="NullableTypeSyntax" base="TypeSyntax">
+        <property name="ElementType" type="TypeSyntax"/>
+    </class>
+    <class name="OmittedTypeArgumentSyntax" base="TypeSyntax"/>
+    <class name="PredefinedTypeSyntax" base="TypeSyntax">
+        <property name="PredefinedType" type="PredefinedType"/>
+    </class>
+    <class name="VarTypeSyntax" base="TypeSyntax"/>
+    <class name="MemberDeclarationSyntax" abstract="true" base="SyntaxNode"/>
+    <class name="BaseFieldDeclarationSyntax" base="MemberDeclarationSyntax" abstract="true">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Declaration" type="VariableDeclarationSyntax"/>
+    </class>
+    <class name="FieldDeclarationSyntax" base="BaseFieldDeclarationSyntax"/>
+    <class name="EventFieldDeclarationSyntax" base="BaseFieldDeclarationSyntax"/>
+    <class name="BaseMethodDeclarationSyntax" abstract="true" base="MemberDeclarationSyntax">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Parameters" type="ParameterSyntax" list="true" last="true"/>
+        <property name="Body" type="BlockSyntax" last="true"/>
+    </class>
+    <class name="ConstructorDeclarationSyntax" base="BaseMethodDeclarationSyntax">
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+        <!-- Represents the : this/base call -->
+        <property name="Initializer" type="ConstructorInitializerSyntax" nullable="true"/>
+    </class>
+    <class name="ConstructorInitializerSyntax" base="SyntaxNode">
+        <property name="Type" type="ThisOrBase"/>
+        <property name="Arguments" type="ArgumentSyntax" list="true"/>
+    </class>
+    <class name="ConversionOperatorDeclarationSyntax" base="BaseMethodDeclarationSyntax">
+        <property name="Type" type="ImplicitOrExplicit"/>
+        <property name="TargetType" type="TypeSyntax"/>
+    </class>
+    <class name="DestructorDeclarationSyntax" base="BaseMethodDeclarationSyntax">
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+    </class>
+    <class name="MethodDeclarationSyntax" base="BaseMethodDeclarationSyntax">
+        <property name="ReturnType" type="TypeSyntax"/>
+        <property name="ExplicitInterfaceSpecifier" type="NameSyntax" nullable="true"/>
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+        <property name="TypeParameters" type="TypeParameterSyntax" list="true"/>
+        <property name="ConstraintClauses" type="TypeParameterConstraintClauseSyntax" list="true"/>
+    </class>
+    <class name="OperatorDeclarationSyntax" base="BaseMethodDeclarationSyntax">
+        <property name="ReturnType" type="TypeSyntax"/>
+        <property name="Operator" type="Operator"/>
+    </class>
+    <class name="BasePropertyDeclarationSyntax" abstract="true" base="MemberDeclarationSyntax">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Type" type="TypeSyntax"/>
+        <property name="ExplicitInterfaceSpecifier" type="NameSyntax" nullable="true"/>
+        <property name="Accessors" type="AccessorDeclarationSyntax" list="true" last="true"/>
+    </class>
+    <class name="EventDeclarationSyntax" base="BasePropertyDeclarationSyntax">
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+    </class>
+    <class name="IndexerDeclarationSyntax" base="BasePropertyDeclarationSyntax">
+        <property name="Parameters" type="ParameterSyntax" list="true"/>
+    </class>
+    <class name="PropertyDeclarationSyntax" base="BasePropertyDeclarationSyntax">
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+    </class>
+    <class name="BaseTypeDeclarationSyntax" abstract="true" base="MemberDeclarationSyntax">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+        <property name="BaseTypes" type="TypeSyntax" list="true" last="true"/>
+    </class>
+    <class name="EnumDeclarationSyntax" base="BaseTypeDeclarationSyntax">
+        <property name="Members" type="EnumMemberDeclarationSyntax" list="true"/>
+    </class>
+    <class name="TypeDeclarationSyntax" base="BaseTypeDeclarationSyntax">
+        <property name="Type" type="TypeDeclarationType"/>
+        <property name="TypeParameters" type="TypeParameterSyntax" list="true"/>
+        <property name="ConstraintClauses" type="TypeParameterConstraintClauseSyntax" list="true"/>
+        <property name="Members" type="MemberDeclarationSyntax" list="true"/>
+    </class>
+    <class name="DelegateDeclarationSyntax" base="MemberDeclarationSyntax">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="ReturnType" type="TypeSyntax"/>
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+        <property name="TypeParameters" type="TypeParameterSyntax" list="true"/>
+        <property name="Parameters" type="ParameterSyntax" list="true"/>
+        <property name="ConstraintClauses" type="TypeParameterConstraintClauseSyntax" list="true"/>
+    </class>
+    <class name="EnumMemberDeclarationSyntax" base="MemberDeclarationSyntax">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+        <property name="Value" type="ExpressionSyntax" nullable="true"/>
+    </class>
+    <class name="NamespaceDeclarationSyntax" base="MemberDeclarationSyntax">
+        <property name="Name" type="NameSyntax"/>
+        <property name="Imports" type="ImportDirectiveSyntax" list="true"/>
+        <property name="Members" type="MemberDeclarationSyntax" list="true"/>
+    </class>
+    <class name="ParameterSyntax" base="SyntaxNode">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Modifiers" type="ParameterModifier" list="true"/>
+        <property name="ParameterType" type="TypeSyntax" nullable="true"/>
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+    </class>
+    <class name="StatementSyntax" abstract="true" base="SyntaxNode"/>
+    <class name="AssertStatementSyntax" base="StatementSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="BlockSyntax" base="StatementSyntax">
+        <property name="Statements" type="StatementSyntax" list="true"/>
+    </class>
+    <class name="BreakStatementSyntax" base="StatementSyntax"/>
+    <class name="ContinueStatementSyntax" base="StatementSyntax"/>
+    <class name="DeleteStatementSyntax" base="StatementSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="DoStatementSyntax" base="StatementSyntax">
+        <property name="Condition" type="ExpressionSyntax"/>
+        <property name="Block" type="BlockSyntax"/>
+    </class>
+    <class name="EmptyStatementSyntax" base="StatementSyntax"/>
+    <class name="ExpressionStatementSyntax" base="StatementSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+    </class>
+    <class name="ForEachStatementSyntax" base="StatementSyntax">
+        <property name="ElementType" type="TypeSyntax"/>
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="Block" type="BlockSyntax"/>
+    </class>
+    <class name="ForStatementSyntax" base="StatementSyntax">
+        <property name="Declaration" type="VariableDeclarationSyntax" nullable="true"/>
+        <property name="Initializers" type="ExpressionSyntax" list="true" nullable="true"/>
+        <property name="Condition" type="ExpressionSyntax" nullable="true"/>
+        <property name="Incrementors" type="ExpressionSyntax" list="true" nullable="true"/>
+        <property name="Block" type="BlockSyntax"/>
+        <validation><![CDATA[
+            if (declaration != null && initializers != null) {
+                throw new ArgumentException("Provide either a declaration or initializers");
+            }
+        ]]></validation>
+    </class>
+    <class name="IfStatementSyntax" base="StatementSyntax">
+        <property name="Condition" type="ExpressionSyntax"/>
+        <property name="Block" type="BlockSyntax"/>
+        <property name="Elses" type="ElseClauseSyntax" list="true"/>
+    </class>
+    <class name="ElseClauseSyntax" base="SyntaxNode">
+        <property name="Type" type="ElIfOrElse"/>
+        <property name="Condition" type="ExpressionSyntax" nullable="true"/>
+        <property name="Block" type="BlockSyntax"/>
+    </class>
+    <!-- Represents a variable declaration, but allows final to declare final locals -->
+    <class name="LocalDeclarationStatementSyntax" base="StatementSyntax">
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Declaration" type="VariableDeclarationSyntax"/>
+    </class>
+    <class name="ReturnStatementSyntax" base="StatementSyntax">
+        <property name="Expression" type="ExpressionSyntax" nullable="true"/>
+    </class>
+    <class name="SwitchStatementSyntax" base="StatementSyntax">
+        <property name="Expression" type="ExpressionSyntax"/>
+        <property name="Sections" type="SwitchSectionSyntax" list="true"/>
+    </class>
+    <class name="SwitchSectionSyntax" base="SyntaxNode">
+        <property name="Type" type="CaseOrDefault"/>
+        <property name="Values" type="ExpressionSyntax" list="true"/>
+        <property name="Block" type="BlockSyntax"/>
+    </class>
+    <class name="ThrowStatementSyntax" base="StatementSyntax">
+        <property name="Expression" type="ExpressionSyntax" nullable="true"/>
+    </class>
+    <class name="TryStatementSyntax" base="StatementSyntax">
+        <property name="Block" type="BlockSyntax"/>
+        <property name="Catches" type="CatchClauseSyntax" list="true"/>
+        <property name="Finally" type="FinallyClauseSyntax" nullable="true"/>
+    </class>
+    <class name="FinallyClauseSyntax" base="SyntaxNode">
+        <property name="Block" type="BlockSyntax"/>
+    </class>
+    <class name="UsingStatementSyntax" base="StatementSyntax">
+        <property name="Declaration" type="VariableDeclarationSyntax" nullable="true"/>
+        <property name="Expression" type="ExpressionSyntax" nullable="true"/>
+        <property name="Block" type="BlockSyntax"/>
+        <validation><![CDATA[
+            if ((declaration != null) == (expression != null)) {
+                throw new ArgumentException("Provide either a declaration or expression");
+            }
+        ]]></validation>
+    </class>
+    <class name="LoopStatementSyntax" base="StatementSyntax">
+        <property name="Block" type="BlockSyntax"/>
+    </class>
+    <class name="WhileStatementSyntax" base="StatementSyntax">
+        <property name="Condition" type="ExpressionSyntax"/>
+        <property name="Block" type="BlockSyntax"/>
+    </class>
+    <class name="TypeParameterConstraintClauseSyntax" base="SyntaxNode">
+        <property name="Name" type="IdentifierNameSyntax"/>
+        <property name="Constraints" type="TypeParameterConstraintSyntax" list="true"/>
+    </class>
+    <class name="TypeParameterConstraintSyntax" abstract="true" base="SyntaxNode"/>
+    <class name="TypeFamilyConstraintSyntax" base="TypeParameterConstraintSyntax">
+        <property name="Family" type="TypeFamily"/>
+        <property name="Nullable" type="Nullable" nullable="true"/>
+        <validation><![CDATA[
+            if (family != TypeFamily.Tracked && nullable == null) {
+                throw new ArgumentException("Nullable is mandatory when family is not tracked");
+            }
+        ]]></validation>
+    </class>
+    <class name="ConstructorConstraintSyntax" base="TypeParameterConstraintSyntax"/>
+    <class name="TypeConstraintSyntax" base="TypeParameterConstraintSyntax">
+        <property name="ConstrainedType" type="TypeSyntax"/>
+    </class>
+    <class name="TypeParameterSyntax" base="SyntaxNode">
+        <property name="AttributeLists" type="AttributeListSyntax" list="true"/>
+        <property name="Variance" type="Variance"/>
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+    </class>
+    <class name="ImportDirectiveSyntax" base="SyntaxNode">
+        <property name="IsStatic" type="bool"/>
+        <property name="Alias" type="IdentifierNameSyntax" nullable="true"/>
+        <property name="Name" type="NameSyntax"/>
+    </class>
+    <class name="VariableDeclarationSyntax" base="SyntaxNode">
+        <property name="VariableType" type="TypeSyntax"/>
+        <property name="Variables" type="VariableDeclaratorSyntax" list="true"/>
+    </class>
+    <class name="VariableDeclaratorSyntax" base="SyntaxNode">
+        <property name="Identifier" type="IdentifierNameSyntax"/>
+        <property name="Value" type="ExpressionSyntax" nullable="true"/>
+    </class>
+    <enum name="AccessorDeclarationType">
+        <!-- This one appears when an illegal keyword is used as the accessor declaration type -->
+        <property name="Invalid"/>
+        <property name="Get"/>
+        <property name="Set"/>
+        <property name="Add"/>
+        <property name="Remove"/>
+    </enum>
+    <enum name="AttributeTarget">
+        <property name="None"/>
+        <property name="Assembly"/>
+        <property name="Event"/>
+        <property name="Field"/>
+        <property name="Method"/>
+        <property name="Param"/>
+        <property name="Property"/>
+        <property name="Return"/>
+        <property name="Type"/>
+    </enum>
+    <enum name="BinaryOperator">
+        <property name="Ampersand"/>
+        <property name="AmpersandAmpersand"/>
+        <property name="AmpersandEquals"/>
+        <property name="As"/>
+        <property name="Asterisk"/>
+        <property name="AsteriskEquals"/>
+        <property name="Bar"/>
+        <property name="BarBar"/>
+        <property name="BarEquals"/>
+        <property name="Caret"/>
+        <property name="CaretEquals"/>
+        <property name="Equals"/>
+        <property name="EqualsEquals"/>
+        <property name="ExclamationEquals"/>
+        <property name="GreaterThan"/>
+        <property name="GreaterThanEquals"/>
+        <property name="GreaterThanGreaterThan"/>
+        <property name="GreaterThanGreaterThanEquals"/>
+        <property name="Is"/>
+        <property name="LessThan"/>
+        <property name="LessThanEquals"/>
+        <property name="LessThanLessThan"/>
+        <property name="LessThanLessThanEquals"/>
+        <property name="Minus"/>
+        <property name="MinusEquals"/>
+        <property name="Percent"/>
+        <property name="PercentEquals"/>
+        <property name="Plus"/>
+        <property name="PlusEquals"/>
+        <property name="QuestionQuestion"/>
+        <property name="Slash"/>
+        <property name="SlashEquals"/>
+    </enum>
+    <enum name="CaseOrDefault">
+        <property name="Case"/>
+        <property name="Default"/>
+    </enum>
+    <enum name="TypeFamily">
+        <property name="Any"/>
+        <property name="Class"/>
+        <property name="Struct"/>
+        <property name="Tracked"/>
+    </enum>
+    <enum name="ElIfOrElse">
+        <property name="ElIf"/>
+        <property name="Else"/>
+    </enum>
+    <enum name="ImplicitOrExplicit">
+        <property name="Explicit"/>
+        <property name="Implicit"/>
+    </enum>
+    <enum name="LiteralType">
+        <property name="Char"/>
+        <property name="False"/>
+        <property name="Float"/>
+        <property name="Hex"/>
+        <property name="Integer"/>
+        <property name="Nil"/>
+        <property name="String"/>
+        <property name="True"/>
+    </enum>
+    <enum name="Modifier">
+        <property name="Abstract"/>
+        <property name="Async"/>
+        <property name="Extern"/>
+        <property name="Internal"/>
+        <property name="New"/>
+        <property name="Override"/>
+        <property name="Partial"/>
+        <property name="Private"/>
+        <property name="Protected"/>
+        <property name="Public"/>
+        <property name="Readonly"/>
+        <property name="Sealed"/>
+        <property name="Static"/>
+        <property name="Tracked"/>
+        <property name="Virtual"/>
+        <property name="Volatile"/>
+    </enum>
+    <enum name="Nullable">
+        <property name="Nullable"/>
+        <property name="NotNullable"/>
+    </enum>
+    <enum name="Operator">
+        <property name="Ampersand"/>
+        <property name="Asterisk"/>
+        <property name="Bar"/>
+        <property name="Caret"/>
+        <property name="EqualsEquals"/>
+        <property name="Exclamation"/>
+        <property name="ExclamationEquals"/>
+        <property name="False"/>
+        <property name="GreaterThan"/>
+        <property name="GreaterThanEquals"/>
+        <property name="GreaterThanGreaterThan"/>
+        <property name="LessThan"/>
+        <property name="LessThanEquals"/>
+        <property name="LessThanLessThan"/>
+        <property name="Minus"/>
+        <property name="MinusMinus"/>
+        <property name="Percent"/>
+        <property name="Plus"/>
+        <property name="PlusPlus"/>
+        <property name="Slash"/>
+        <property name="Tilde"/>
+        <property name="True"/>
+    </enum>
+    <enum name="ParameterModifier">
+        <property name="This"/>
+        <property name="Ref"/>
+        <property name="Out"/>
+        <property name="Params"/>
+        <property name="Consumes"/>
+    </enum>
+    <enum name="PostfixUnaryOperator">
+        <property name="MinusMinus"/>
+        <property name="PlusPlus"/>
+    </enum>
+    <enum name="PredefinedType">
+        <property name="Bool"/>
+        <property name="Byte"/>
+        <property name="Char"/>
+        <property name="Decimal"/>
+        <property name="Double"/>
+        <property name="Float"/>
+        <property name="Int"/>
+        <property name="Long"/>
+        <property name="Object"/>
+        <property name="SByte"/>
+        <property name="Short"/>
+        <property name="String"/>
+        <property name="UInt"/>
+        <property name="ULong"/>
+        <property name="UShort"/>
+        <property name="Void"/>
+    </enum>
+    <enum name="PrefixUnaryOperator">
+        <property name="Ampersand"/>
+        <property name="Exclamation"/>
+        <property name="Minus"/>
+        <property name="MinusMinus"/>
+        <property name="Plus"/>
+        <property name="PlusPlus"/>
+        <property name="Tilde"/>
+    </enum>
+    <enum name="ThisOrBase">
+        <property name="Base"/>
+        <property name="This"/>
+    </enum>
+    <enum name="TypeDeclarationType">
+        <property name="Class"/>
+        <property name="Interface"/>
+        <property name="Struct"/>
+    </enum>
+    <enum name="Variance">
+        <property name="None"/>
+        <property name="In"/>
+        <property name="Out"/>
+    </enum>
+</schema>

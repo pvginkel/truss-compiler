@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Truss.Compiler.Generate.Syntax.Xml {
+namespace Truss.Compiler.Generate.Xml {
     [XmlRoot("property")]
-    public class SyntaxProperty {
+    public class Property {
         [XmlAttribute("name")]
         public string Name { get; set; }
 

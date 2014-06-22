@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema packageName="Truss.Compiler.Bound">
+    <class name="BoundNode" abstract="true" ignore="true">
+        <property name="Span" type="Span" last="true"/>
+    </class>
+    <class name="BoundAccessorDeclaration" base="BoundNode">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Type" type="AccessorDeclarationType"/>
+        <property name="Body" type="BoundBlock" nullable="true"/>
+    </class>
+    <class name="BoundArgument" base="BoundNode">
+        <property name="Modifiers" type="ParameterModifier" list="true"/>
+        <property name="Expression" type="BoundExpression"/>
+    </class>
+    <class name="BoundArrayRankSpecifier" base="BoundNode">
+        <property name="Size" type="BoundExpression"/>
+        <property name="IsTracked" type="bool"/>
+    </class>
+    <class name="BoundAttributeList" base="BoundNode">
+        <property name="Target" type="AttributeTarget"/>
+        <property name="Attributes" type="BoundAttribute" list="true"/>
+    </class>
+    <class name="BoundAttribute" base="BoundNode">
+        <property name="Name" type="BoundName"/>
+        <property name="Arguments" type="BoundAttributeArgument" list="true"/>
+    </class>
+    <class name="BoundAttributeArgument" base="BoundNode">
+        <property name="Name" type="BoundIdentifierName" nullable="true"/>
+        <property name="Expression" type="BoundExpression"/>
+    </class>
+    <class name="BoundCatchClause" base="BoundNode">
+        <property name="ExceptionType" type="BoundType" nullable="true"/>
+        <property name="Identifier" type="BoundIdentifierName" nullable="true"/>
+        <property name="Block" type="BoundBlock"/>
+        <validation><![CDATA[
+            if (identifier != null && exceptionType == null) {
+                throw new ArgumentException("Exception type is mandatory when an identifier is provided");
+            }
+        ]]></validation>
+    </class>
+    <class name="BoundCompilationUnit" base="BoundNode">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Imports" type="BoundImportDirective" list="true"/>
+        <property name="Members" type="BoundMemberDeclaration" list="true"/>
+    </class>
+    <class name="BoundExpression" abstract="true" base="BoundNode"/>
+    <class name="BoundAnonymousObjectCreationExpression" base="BoundExpression">
+        <property name="Initializers" type="BoundAnonymousObjectMemberDeclarator" list="true"/>
+    </class>
+    <class name="BoundAnonymousObjectMemberDeclarator" base="BoundNode">
+        <property name="Name" type="BoundIdentifierName" nullable="true"/>
+        <property name="Expression" type="BoundExpression"/>
+    </class>
+    <class name="BoundArrayCreationExpression" base="BoundExpression">
+        <property name="Type" type="BoundArrayType"/>
+        <property name="Initializer" type="BoundInitializerExpression" nullable="true"/>
+    </class>
+    <class name="BoundAwaitExpression" base="BoundExpression">
+        <property name="Expression" type="BoundExpression"/>
+    </class>
+    <class name="BoundBinaryExpression" base="BoundExpression">
+        <property name="Operator" type="BinaryOperator"/>
+        <property name="Left" type="BoundExpression"/>
+        <property name="Right" type="BoundExpression"/>
+    </class>
+    <class name="BoundCastExpression" base="BoundExpression">
+        <property name="Expression" type="BoundExpression"/>
+        <property name="TargetType" type="BoundType"/>
+    </class>
+    <class name="BoundConditionalExpression" base="BoundExpression">
+        <property name="Condition" type="BoundExpression"/>
+        <property name="WhenTrue" type="BoundExpression"/>
+        <property name="WhenFalse" type="BoundExpression"/>
+    </class>
+    <class name="BoundDefaultExpression" base="BoundExpression">
+        <property name="TargetType" type="BoundType"/>
+    </class>
+    <!-- Array index: e[10] -->
+    <class name="BoundElementAccessExpression" base="BoundExpression">
+        <property name="Expression" type="BoundExpression"/>
+        <property name="IndexExpressions" type="BoundExpression" list="true"/>
+    </class>
+    <class name="BoundImplicitArrayCreationExpression" base="BoundExpression">
+        <property name="RankSpecifiers" type="BoundArrayRankSpecifier" list="true"/>
+        <property name="Initializer" type="BoundInitializerExpression"/>
+    </class>
+    <class name="BoundInitializerExpression" base="BoundExpression">
+        <property name="Expressions" type="BoundExpression" list="true"/>
+    </class>
+    <class name="BoundInstanceExpression" base="BoundExpression">
+        <property name="Type" type="ThisOrBase"/>
+    </class>
+    <class name="BoundInvocationExpression" base="BoundExpression">
+        <property name="Expression" type="BoundExpression"/>
+        <property name="Arguments" type="BoundArgument" list="true"/>
+    </class>
+    <class name="BoundLiteralExpression" base="BoundExpression">
+        <property name="LiteralType" type="LiteralType"/>
+        <property name="Value" type="string" nullable="true"/>
+    </class>
+    <class name="BoundMemberAccessExpression" base="BoundExpression">
+        <property name="Expression" type="BoundExpression"/>
+        <property name="Name" type="BoundSimpleName"/>
+    </class>
+    <class name="BoundObjectCreationExpression" base="BoundExpression">
+        <property name="TargetType" type="BoundType"/>
+        <property name="Arguments" type="BoundArgument" list="true" nullable="true"/>
+        <!-- Represents { a = 7, b = 3 } -->
+        <property name="Initializer" type="BoundInitializerExpression" nullable="true"/>
+    </class>
+    <class name="BoundOmittedArraySizeExpression" base="BoundExpression"/>
+    <class name="BoundParenthesizedExpression" base="BoundExpression">
+        <property name="Expression" type="BoundExpression"/>
+    </class>
+    <class name="BoundLambdaExpression" base="BoundExpression">
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Parameters" type="BoundParameter" list="true"/>
+        <property name="Body" type="BoundNode"/>
+    </class>
+    <class name="BoundPostfixUnaryExpression" base="BoundExpression">
+        <property name="Operator" type="PostfixUnaryOperator"/>
+        <property name="Operand" type="BoundExpression"/>
+    </class>
+    <class name="BoundPrefixUnaryExpression" base="BoundExpression">
+        <property name="Operator" type="PrefixUnaryOperator"/>
+        <property name="Operand" type="BoundExpression"/>
+    </class>
+    <class name="BoundSizeOfExpression" base="BoundExpression">
+        <property name="TargetType" type="BoundType"/>
+    </class>
+    <class name="BoundTypeOfExpression" base="BoundExpression">
+        <property name="TargetType" type="BoundType"/>
+    </class>
+    <class name="BoundType" abstract="true" base="BoundExpression"/>
+    <class name="BoundVariableDeclarationExpression" base="BoundExpression">
+        <property name="VariableType" type="BoundType"/>
+        <property name="Identifier" type="BoundIdentifierName"/>
+    </class>
+    <class name="BoundArrayType" base="BoundType">
+        <property name="ElementType" type="BoundType"/>
+        <property name="RankSpecifiers" type="BoundArrayRankSpecifier" list="true"/>
+    </class>
+    <class name="BoundName" abstract="true" base="BoundType"/>
+    <class name="BoundAliasQualifiedName" base="BoundName">
+        <property name="Alias" type="BoundIdentifierName"/>
+        <property name="Name" type="BoundSimpleName"/>
+    </class>
+    <class name="BoundQualifiedName" base="BoundName">
+        <property name="Left" type="BoundName"/>
+        <property name="Right" type="BoundSimpleName"/>
+    </class>
+    <class name="BoundSimpleName" abstract="true" base="BoundName">
+        <property name="Identifier" type="string"/>
+    </class>
+    <class name="BoundGenericName" base="BoundSimpleName">
+        <property name="TypeArguments" type="BoundType" list="true"/>
+        <members><![CDATA[
+            public bool IsUnboundGenericName {
+                get {
+                    return TypeArguments.Any(p => p is BoundOmittedTypeArgument);
+                }
+            }
+        ]]>
+        </members>
+    </class>
+    <!--
+    "var" does not have a construct so as to not have to make it a keyword. Instead, an BoundIdentifierName
+    with the name "var" is a var type.
+    -->
+    <class name="BoundIdentifierName" base="BoundSimpleName"/>
+    <class name="BoundTrackedType" base="BoundType">
+        <property name="ElementType" type="BoundType"/>
+    </class>
+    <class name="BoundNakedNullableType" base="BoundType">
+        <property name="Type" type="Nullability"/>
+    </class>
+    <class name="BoundNullableType" base="BoundType">
+        <property name="ElementType" type="BoundType"/>
+    </class>
+    <class name="BoundOmittedTypeArgument" base="BoundType"/>
+    <class name="BoundPredefinedType" base="BoundType">
+        <property name="PredefinedType" type="PredefinedType"/>
+    </class>
+    <class name="BoundVarType" base="BoundType"/>
+    <class name="BoundMemberDeclaration" abstract="true" base="BoundNode"/>
+    <class name="BoundBaseFieldDeclaration" base="BoundMemberDeclaration" abstract="true">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Declaration" type="BoundVariableDeclaration"/>
+    </class>
+    <class name="BoundFieldDeclaration" base="BoundBaseFieldDeclaration"/>
+    <class name="BoundEventFieldDeclaration" base="BoundBaseFieldDeclaration"/>
+    <class name="BoundBaseMethodDeclaration" abstract="true" base="BoundMemberDeclaration">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Parameters" type="BoundParameter" list="true" last="true"/>
+        <property name="Body" type="BoundBlock" last="true" nullable="true"/>
+    </class>
+    <class name="BoundConstructorDeclaration" base="BoundBaseMethodDeclaration">
+        <property name="Identifier" type="BoundIdentifierName"/>
+        <!-- Represents the : this/base call -->
+        <property name="Initializer" type="BoundConstructorInitializer" nullable="true"/>
+    </class>
+    <class name="BoundConstructorInitializer" base="BoundNode">
+        <property name="Type" type="ThisOrBase"/>
+        <property name="Arguments" type="BoundArgument" list="true"/>
+    </class>
+    <class name="BoundConversionOperatorDeclaration" base="BoundBaseMethodDeclaration">
+        <property name="Type" type="ImplicitOrExplicit"/>
+        <property name="TargetType" type="BoundType"/>
+    </class>
+    <class name="BoundDestructorDeclaration" base="BoundBaseMethodDeclaration">
+        <property name="Identifier" type="BoundIdentifierName"/>
+    </class>
+    <class name="BoundMethodDeclaration" base="BoundBaseMethodDeclaration">
+        <property name="ReturnType" type="BoundType"/>
+        <property name="ExplicitInterfaceSpecifier" type="BoundName" nullable="true"/>
+        <property name="Identifier" type="BoundIdentifierName"/>
+        <property name="TypeParameters" type="BoundTypeParameter" list="true"/>
+        <property name="ConstraintClauses" type="BoundTypeParameterConstraintClause" list="true"/>
+    </class>
+    <class name="BoundOperatorDeclaration" base="BoundBaseMethodDeclaration">
+        <property name="ReturnType" type="BoundType"/>
+        <property name="Operator" type="Operator"/>
+    </class>
+    <class name="BoundBasePropertyDeclaration" abstract="true" base="BoundMemberDeclaration">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Type" type="BoundType"/>
+        <property name="ExplicitInterfaceSpecifier" type="BoundName" nullable="true"/>
+        <property name="Accessors" type="BoundAccessorDeclaration" list="true" last="true"/>
+    </class>
+    <class name="BoundEventDeclaration" base="BoundBasePropertyDeclaration">
+        <property name="Identifier" type="BoundIdentifierName"/>
+    </class>
+    <class name="BoundIndexerDeclaration" base="BoundBasePropertyDeclaration">
+        <property name="Parameters" type="BoundParameter" list="true"/>
+    </class>
+    <class name="BoundPropertyDeclaration" base="BoundBasePropertyDeclaration">
+        <property name="Identifier" type="BoundIdentifierName"/>
+    </class>
+    <class name="BoundBaseTypeDeclaration" abstract="true" base="BoundMemberDeclaration">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Identifier" type="BoundIdentifierName"/>
+        <property name="BaseTypes" type="BoundType" list="true" last="true"/>
+    </class>
+    <class name="BoundEnumDeclaration" base="BoundBaseTypeDeclaration">
+        <property name="Members" type="BoundEnumMemberDeclaration" list="true"/>
+    </class>
+    <class name="BoundTypeDeclaration" base="BoundBaseTypeDeclaration">
+        <property name="Type" type="TypeDeclarationType"/>
+        <property name="TypeParameters" type="BoundTypeParameter" list="true"/>
+        <property name="ConstraintClauses" type="BoundTypeParameterConstraintClause" list="true"/>
+        <property name="Members" type="BoundMemberDeclaration" list="true"/>
+    </class>
+    <class name="BoundDelegateDeclaration" base="BoundMemberDeclaration">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="ReturnType" type="BoundType"/>
+        <property name="Identifier" type="BoundIdentifierName"/>
+        <property name="TypeParameters" type="BoundTypeParameter" list="true"/>
+        <property name="Parameters" type="BoundParameter" list="true"/>
+        <property name="ConstraintClauses" type="BoundTypeParameterConstraintClause" list="true"/>
+    </class>
+    <class name="BoundEnumMemberDeclaration" base="BoundMemberDeclaration">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Identifier" type="BoundIdentifierName"/>
+        <property name="Value" type="BoundExpression" nullable="true"/>
+    </class>
+    <class name="BoundNamespaceDeclaration" base="BoundMemberDeclaration">
+        <property name="Name" type="BoundName"/>
+        <property name="Imports" type="BoundImportDirective" list="true"/>
+        <property name="Members" type="BoundMemberDeclaration" list="true"/>
+    </class>
+    <class name="BoundParameter" base="BoundNode">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Modifiers" type="ParameterModifier" list="true"/>
+        <property name="ParameterType" type="BoundType" nullable="true"/>
+        <property name="Identifier" type="BoundIdentifierName"/>
+    </class>
+    <class name="BoundStatement" abstract="true" base="BoundNode"/>
+    <class name="BoundAssertStatement" base="BoundStatement">
+        <property name="Expression" type="BoundExpression"/>
+    </class>
+    <class name="BoundBlock" base="BoundStatement">
+        <property name="Statements" type="BoundStatement" list="true"/>
+    </class>
+    <class name="BoundBreakStatement" base="BoundStatement"/>
+    <class name="BoundContinueStatement" base="BoundStatement"/>
+    <class name="BoundDeleteStatement" base="BoundStatement">
+        <property name="Expression" type="BoundExpression"/>
+    </class>
+    <class name="BoundDoStatement" base="BoundStatement">
+        <property name="Condition" type="BoundExpression"/>
+        <property name="Block" type="BoundBlock"/>
+    </class>
+    <class name="BoundEmptyStatement" base="BoundStatement"/>
+    <class name="BoundExpressionStatement" base="BoundStatement">
+        <property name="Expression" type="BoundExpression"/>
+    </class>
+    <class name="BoundForEachStatement" base="BoundStatement">
+        <property name="ElementType" type="BoundType"/>
+        <property name="Identifier" type="BoundIdentifierName"/>
+        <property name="Expression" type="BoundExpression"/>
+        <property name="Block" type="BoundBlock"/>
+    </class>
+    <class name="BoundForStatement" base="BoundStatement">
+        <property name="Declaration" type="BoundVariableDeclaration" nullable="true"/>
+        <property name="Initializers" type="BoundExpression" list="true" nullable="true"/>
+        <property name="Condition" type="BoundExpression" nullable="true"/>
+        <property name="Incrementors" type="BoundExpression" list="true" nullable="true"/>
+        <property name="Block" type="BoundBlock"/>
+        <validation><![CDATA[
+            if (declaration != null && initializers != null) {
+                throw new ArgumentException("Provide either a declaration or initializers");
+            }
+        ]]></validation>
+    </class>
+    <class name="BoundIfStatement" base="BoundStatement">
+        <property name="Condition" type="BoundExpression"/>
+        <property name="Block" type="BoundBlock"/>
+        <property name="Elses" type="BoundElseClause" list="true"/>
+    </class>
+    <class name="BoundElseClause" base="BoundNode">
+        <property name="Type" type="ElIfOrElse"/>
+        <property name="Condition" type="BoundExpression" nullable="true"/>
+        <property name="Block" type="BoundBlock"/>
+    </class>
+    <!-- Represents a variable declaration, but allows final to declare final locals -->
+    <class name="BoundLocalDeclarationStatement" base="BoundStatement">
+        <property name="Modifiers" type="Modifier" list="true"/>
+        <property name="Declaration" type="BoundVariableDeclaration"/>
+    </class>
+    <class name="BoundReturnStatement" base="BoundStatement">
+        <property name="Expression" type="BoundExpression" nullable="true"/>
+    </class>
+    <class name="BoundSwitchStatement" base="BoundStatement">
+        <property name="Expression" type="BoundExpression"/>
+        <property name="Sections" type="BoundSwitchSection" list="true"/>
+    </class>
+    <class name="BoundSwitchSection" base="BoundNode">
+        <property name="Type" type="CaseOrDefault"/>
+        <property name="Values" type="BoundExpression" list="true"/>
+        <property name="Block" type="BoundBlock"/>
+    </class>
+    <class name="BoundThrowStatement" base="BoundStatement">
+        <property name="Expression" type="BoundExpression" nullable="true"/>
+    </class>
+    <class name="BoundTryStatement" base="BoundStatement">
+        <property name="Block" type="BoundBlock"/>
+        <property name="Catches" type="BoundCatchClause" list="true"/>
+        <property name="Finally" type="BoundFinallyClause" nullable="true"/>
+    </class>
+    <class name="BoundFinallyClause" base="BoundNode">
+        <property name="Block" type="BoundBlock"/>
+    </class>
+    <class name="BoundUsingStatement" base="BoundStatement">
+        <property name="Declaration" type="BoundVariableDeclaration" nullable="true"/>
+        <property name="Expression" type="BoundExpression" nullable="true"/>
+        <property name="Block" type="BoundBlock"/>
+        <validation><![CDATA[
+            if ((declaration != null) == (expression != null)) {
+                throw new ArgumentException("Provide either a declaration or expression");
+            }
+        ]]></validation>
+    </class>
+    <class name="BoundLoopStatement" base="BoundStatement">
+        <property name="Block" type="BoundBlock"/>
+    </class>
+    <class name="BoundWhileStatement" base="BoundStatement">
+        <property name="Condition" type="BoundExpression"/>
+        <property name="Block" type="BoundBlock"/>
+    </class>
+    <class name="BoundTypeParameterConstraintClause" base="BoundNode">
+        <property name="Name" type="BoundIdentifierName"/>
+        <property name="Constraints" type="BoundTypeParameterConstraint" list="true"/>
+    </class>
+    <class name="BoundTypeParameterConstraint" abstract="true" base="BoundNode"/>
+    <class name="BoundTypeFamilyConstraint" base="BoundTypeParameterConstraint">
+        <property name="Family" type="TypeFamily"/>
+        <property name="Nullability" type="Nullability" nullable="true"/>
+        <validation><![CDATA[
+            if (family != TypeFamily.Tracked && nullability == null) {
+                throw new ArgumentException("Nullability is mandatory when family is not tracked");
+            }
+        ]]></validation>
+    </class>
+    <class name="BoundConstructorConstraint" base="BoundTypeParameterConstraint"/>
+    <class name="BoundTypeConstraint" base="BoundTypeParameterConstraint">
+        <property name="ConstrainedType" type="BoundType"/>
+    </class>
+    <class name="BoundTypeParameter" base="BoundNode">
+        <property name="AttributeLists" type="BoundAttributeList" list="true"/>
+        <property name="Variance" type="Variance"/>
+        <property name="Identifier" type="BoundIdentifierName"/>
+    </class>
+    <class name="BoundImportDirective" base="BoundNode">
+        <property name="IsStatic" type="bool"/>
+        <property name="Alias" type="BoundIdentifierName" nullable="true"/>
+        <property name="Name" type="BoundName"/>
+    </class>
+    <class name="BoundVariableDeclaration" base="BoundNode">
+        <property name="VariableType" type="BoundType"/>
+        <property name="Variables" type="BoundVariableDeclarator" list="true"/>
+    </class>
+    <class name="BoundVariableDeclarator" base="BoundNode">
+        <property name="Identifier" type="BoundIdentifierName"/>
+        <property name="Value" type="BoundExpression" nullable="true"/>
+    </class>
+    <enum name="AccessorDeclarationType">
+        <!-- This one appears when an illegal keyword is used as the accessor declaration type -->
+        <property name="Invalid"/>
+        <property name="Get"/>
+        <property name="Set"/>
+        <property name="Add"/>
+        <property name="Remove"/>
+    </enum>
+    <enum name="AttributeTarget">
+        <property name="None"/>
+        <property name="Assembly"/>
+        <property name="Event"/>
+        <property name="Field"/>
+        <property name="Method"/>
+        <property name="Param"/>
+        <property name="Property"/>
+        <property name="Return"/>
+        <property name="Type"/>
+    </enum>
+    <enum name="BinaryOperator">
+        <property name="Ampersand"/>
+        <property name="AmpersandAmpersand"/>
+        <property name="AmpersandEquals"/>
+        <property name="As"/>
+        <property name="Asterisk"/>
+        <property name="AsteriskEquals"/>
+        <property name="Bar"/>
+        <property name="BarBar"/>
+        <property name="BarEquals"/>
+        <property name="Caret"/>
+        <property name="CaretEquals"/>
+        <property name="Equals"/>
+        <property name="EqualsEquals"/>
+        <property name="ExclamationEquals"/>
+        <property name="GreaterThan"/>
+        <property name="GreaterThanEquals"/>
+        <property name="GreaterThanGreaterThan"/>
+        <property name="GreaterThanGreaterThanEquals"/>
+        <property name="Is"/>
+        <property name="LessThan"/>
+        <property name="LessThanEquals"/>
+        <property name="LessThanLessThan"/>
+        <property name="LessThanLessThanEquals"/>
+        <property name="Minus"/>
+        <property name="MinusEquals"/>
+        <property name="Percent"/>
+        <property name="PercentEquals"/>
+        <property name="Plus"/>
+        <property name="PlusEquals"/>
+        <property name="QuestionQuestion"/>
+        <property name="Slash"/>
+        <property name="SlashEquals"/>
+    </enum>
+    <enum name="CaseOrDefault">
+        <property name="Case"/>
+        <property name="Default"/>
+    </enum>
+    <enum name="TypeFamily">
+        <property name="Any"/>
+        <property name="Class"/>
+        <property name="Struct"/>
+        <property name="Tracked"/>
+    </enum>
+    <enum name="ElIfOrElse">
+        <property name="ElIf"/>
+        <property name="Else"/>
+    </enum>
+    <enum name="ImplicitOrExplicit">
+        <property name="Explicit"/>
+        <property name="Implicit"/>
+    </enum>
+    <enum name="LiteralType">
+        <property name="Char"/>
+        <property name="False"/>
+        <property name="Float"/>
+        <property name="Hex"/>
+        <property name="Integer"/>
+        <property name="Nil"/>
+        <property name="String"/>
+        <property name="True"/>
+    </enum>
+    <enum name="Modifier">
+        <property name="Abstract"/>
+        <property name="Async"/>
+        <property name="Extern"/>
+        <property name="Internal"/>
+        <property name="New"/>
+        <property name="Override"/>
+        <property name="Partial"/>
+        <property name="Private"/>
+        <property name="Protected"/>
+        <property name="Public"/>
+        <property name="Readonly"/>
+        <property name="Sealed"/>
+        <property name="Static"/>
+        <property name="Tracked"/>
+        <property name="Virtual"/>
+        <property name="Volatile"/>
+    </enum>
+    <enum name="Nullability">
+        <property name="Nullable"/>
+        <property name="NotNullable"/>
+    </enum>
+    <enum name="Operator">
+        <property name="Ampersand"/>
+        <property name="Asterisk"/>
+        <property name="Bar"/>
+        <property name="Caret"/>
+        <property name="EqualsEquals"/>
+        <property name="Exclamation"/>
+        <property name="ExclamationEquals"/>
+        <property name="False"/>
+        <property name="GreaterThan"/>
+        <property name="GreaterThanEquals"/>
+        <property name="GreaterThanGreaterThan"/>
+        <property name="LessThan"/>
+        <property name="LessThanEquals"/>
+        <property name="LessThanLessThan"/>
+        <property name="Minus"/>
+        <property name="MinusMinus"/>
+        <property name="Percent"/>
+        <property name="Plus"/>
+        <property name="PlusPlus"/>
+        <property name="Slash"/>
+        <property name="Tilde"/>
+        <property name="True"/>
+    </enum>
+    <enum name="ParameterModifier">
+        <property name="This"/>
+        <property name="Ref"/>
+        <property name="Out"/>
+        <property name="Params"/>
+        <property name="Consumes"/>
+    </enum>
+    <enum name="PostfixUnaryOperator">
+        <property name="MinusMinus"/>
+        <property name="PlusPlus"/>
+    </enum>
+    <enum name="PredefinedType">
+        <property name="Bool"/>
+        <property name="Byte"/>
+        <property name="Char"/>
+        <property name="Decimal"/>
+        <property name="Double"/>
+        <property name="Float"/>
+        <property name="Int"/>
+        <property name="Long"/>
+        <property name="Object"/>
+        <property name="SByte"/>
+        <property name="Short"/>
+        <property name="String"/>
+        <property name="UInt"/>
+        <property name="ULong"/>
+        <property name="UShort"/>
+        <property name="Void"/>
+    </enum>
+    <enum name="PrefixUnaryOperator">
+        <property name="Ampersand"/>
+        <property name="Exclamation"/>
+        <property name="Minus"/>
+        <property name="MinusMinus"/>
+        <property name="Plus"/>
+        <property name="PlusPlus"/>
+        <property name="Tilde"/>
+    </enum>
+    <enum name="ThisOrBase">
+        <property name="Base"/>
+        <property name="This"/>
+    </enum>
+    <enum name="TypeDeclarationType">
+        <property name="Class"/>
+        <property name="Interface"/>
+        <property name="Struct"/>
+    </enum>
+    <enum name="Variance">
+        <property name="None"/>
+        <property name="In"/>
+        <property name="Out"/>
+    </enum>
+</schema>

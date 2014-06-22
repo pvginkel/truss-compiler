@@ -41,20 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bound\GenerateBound.cs" />
-    <Compile Include="Bound\Xml\BoundClass.cs" />
-    <Compile Include="Bound\Xml\BoundProperty.cs" />
-    <Compile Include="Bound\Xml\BoundSchema.cs" />
-    <Compile Include="Bound\Xml\BoundSuperArgument.cs" />
     <Compile Include="CodeWriter.cs" />
+    <Compile Include="GeneratorMode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Syntax\GenerateSyntax.cs" />
-    <Compile Include="Syntax\Xml\SyntaxClass.cs" />
-    <Compile Include="Syntax\Xml\SyntaxEnum.cs" />
-    <Compile Include="Syntax\Xml\SyntaxProperty.cs" />
-    <Compile Include="Syntax\Xml\SyntaxSchema.cs" />
+    <Compile Include="Generator.cs" />
+    <Compile Include="StringFormatMethodAttribute.cs" />
+    <Compile Include="Xml\Class.cs" />
+    <Compile Include="Xml\Enum.cs" />
+    <Compile Include="Xml\Property.cs" />
+    <Compile Include="Xml\Schema.cs" />
     <Compile Include="XmlSerialization.cs" />
+    <Compile Include="Xml\SuperArgument.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

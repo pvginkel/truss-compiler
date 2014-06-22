@@ -6,7 +6,8 @@ using System.Text;
 namespace Truss.Compiler.Generate {
     internal class Program {
         private static void Main(string[] args) {
-            new Syntax.GenerateSyntax().Generate(args[0]);
+            new Generator(args[0], GeneratorMode.Bound).Generate();
+            new Generator(args[0], GeneratorMode.Syntax).Generate();
         }
     }
 }

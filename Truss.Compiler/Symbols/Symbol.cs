@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Truss.Compiler.Support;
 
 namespace Truss.Compiler.Symbols {
     public abstract class Symbol {

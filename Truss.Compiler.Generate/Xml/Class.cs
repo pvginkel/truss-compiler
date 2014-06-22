@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Truss.Compiler.Generate.Syntax.Xml {
+namespace Truss.Compiler.Generate.Xml {
     [XmlRoot("class")]
-    public class SyntaxClass {
+    public class Class {
         [XmlAttribute("name")]
         public string Name { get; set; }
 
@@ -20,12 +20,15 @@ namespace Truss.Compiler.Generate.Syntax.Xml {
         public bool IsIgnore { get; set; }
 
         [XmlElement("property")]
-        public List<SyntaxProperty> Properties { get; set; }
+        public List<Property> Properties { get; set; }
 
         [XmlElement("validation")]
         public string Validation { get; set; }
 
         [XmlElement("members")]
         public string Members { get; set; }
+
+        [XmlElement("superArgument")]
+        public List<SuperArgument> SuperArguments { get; set; } 
     }
 }

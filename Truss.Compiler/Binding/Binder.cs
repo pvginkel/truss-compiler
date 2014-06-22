@@ -15,11 +15,6 @@ namespace Truss.Compiler.Binding {
                 throw new ArgumentNullException("library");
             }
 
-            // This method performs binding of the library into a symbol tree. We do not bail on errors. The idea
-            // is that the different phases may produce errors, but still result in a somewhat stable symbol tree.
-            // The caller is supposed to check for errors afterwards. Continuing after this phase while there are
-            // errors will not be a good idea.
-
             var manager = new SymbolManager();
 
             // Phase I: create symbols for all top level elements. This finds everything that does not
@@ -48,6 +43,19 @@ namespace Truss.Compiler.Binding {
             // checks whether there are duplicate symbols, e.g. duplicate methods with the same signature.
 
             manager.GlobalSymbol.Accept(new SymbolTreeValidator(errors));
+
+            // We're now ready to start binding bodies and attributes. If we have errors now, we bail, because it
+            // would be very difficult to actually bind something if we're not in a valid state.
+
+            if (errors.HasErrors) {
+                return manager.GlobalSymbol;
+            }
+
+            // Phase III: resolve all bodies and attributes.
+
+            foreach (var compilationUnit in library.CompilationUnits) {
+                compilationUnit.Accept(new ContentBinder(errors, manager));
+            }
 
             return manager.GlobalSymbol;
         }

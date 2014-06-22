@@ -48,6 +48,7 @@
     <Compile Include="ArgumentException.cs" />
     <Compile Include="Binding\Binder.cs" />
     <Compile Include="Binding\ContainerScope.cs" />
+    <Compile Include="Binding\ContentBinder.cs" />
     <Compile Include="Binding\GlobalScope.cs" />
     <Compile Include="Binding\Import.cs" />
     <Compile Include="Binding\ImportType.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="Binding\TopLevelSymbolBinder.cs" />
     <Compile Include="Binding\MethodScope.cs" />
     <Compile Include="Binding\TypeScope.cs" />
+    <Compile Include="Bound\BoundNode.cs" />
+    <Compile Include="Bound\BoundSchema.Generated.cs" />
     <Compile Include="Builder.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="ErrorList.cs" />
@@ -165,6 +168,9 @@
     <None Include="PreProcessor\TrussPreProcessor.tokens" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bound\BoundSchema.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Syntax\SyntaxSchema.xml">
       <SubType>Designer</SubType>
     </Content>
